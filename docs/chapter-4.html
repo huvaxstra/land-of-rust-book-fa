@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۴: باشگاه امانت‌دهی فریس - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۴-باشگاه-امانتدهی-فریس-معرفی-مالکیت-با-اسباببازی"><a class="header" href="#فصل-۴-باشگاه-امانتدهی-فریس-معرفی-مالکیت-با-اسباببازی">فصل ۴: باشگاه امانت‌دهی فریس (معرفی مالکیت با اسباب‌بازی)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۴۱-دعوا-سر-تراکتور-قرمز-مفهوم-move">۴.۱. دعوا سر تراکتور قرمز (مفهوم Move)</a><br><a href="#۴۱۱-داستان-تراکتوری-که-فقط-یک-مالک-داشت">۴.۱.۱. داستان: تراکتوری که فقط یک مالک داشت</a><br><a href="#۴۱۲-قانون-اول-هر-مقدار-یک-مالک-دارد">۴.۱.۲. قانون اول: هر مقدار یک مالک دارد</a><br><a href="#۴۱۳-انتقال-مالکیت-move-در-عمل">۴.۱.۳. انتقال مالکیت (Move) در عمل</a><br><a href="#۴۱۴-چرا-بعضی-چیزها-کپی-میشوند-انواع-copy">۴.۱.۴. چرا بعضی چیزها کپی می‌شوند؟ (انواع Copy)</a><br><a href="#۴۱۵-صفحه-مصور-جعبه-و-برچسب-مالک">۴.۱.۵. صفحه مصور: جعبه و برچسب مالک</a><br><a href="#۴۲-کارت-امانت-borrowing--references">۴.۲. کارت امانت (Borrowing &amp; References)</a><br><a href="#۴۲۱-راه-حل-دعوا-کارت-امانت-به-جای-اسباب‌بازی">۴.۲.۱. راه حل دعوا: کارت امانت به جای اسباب‌بازی</a><br><a href="#۴۲۲-ساختن-مرجع-با-">۴.۲.۲. ساختن مرجع با &amp;</a><br><a href="#۴۲۳-قانون-هر-تعداد-کارت-امانت-معمولی-مجاز-است">۴.۲.۳. قانون: هر تعداد کارت امانت معمولی مجاز است</a><br><a href="#۴۲۴-کارت-امانت-ویژه-برای-تغییر-mut">۴.۲.۴. کارت امانت ویژه برای تغییر (&amp;mut)</a><br><a href="#۴۲۵-قانون-طلایی-فریس-خلاصهی-قوانین-امانت">۴.۲.۵. قانون طلایی فریس (خلاصه‌ی قوانین امانت)</a><br><a href="#۴۳-نگهبان-باشگاه-borrow-checker">۴.۳. نگهبان باشگاه: Borrow Checker</a><br><a href="#۴۳۱-معرفی-نگهبان">۴.۳.۱. معرفی نگهبان</a><br><a href="#۴۳۲-طول-عمر-کارت-امانت-یک-اشاره-برای-آینده">۴.۳.۲. طول عمر کارت امانت (یک اشاره برای آینده)</a><br><a href="#۴۳۳-تمرین-قانون‌شکنی-عمدی-و-دیدن-خطاهای-دوستانه">۴.۳.۳. تمرین: قانون‌شکنی عمدی (و دیدن خطاهای دوستانه)</a><br><a href="#۴۴-تکه‌های-پازل-slices">۴.۴. تکه‌های پازل (Slices)</a><br><a href="#۴۴۱-گاهی-فقط-به-بخشی-از-یک-متن-نیاز-داریم">۴.۴.۱. گاهی فقط به بخشی از یک متن نیاز داریم</a><br><a href="#۴۴۲-ساختن-slice-با-محدوده-range">۴.۴.۲. ساختن slice با محدوده (Range)</a><br><a href="#۴۴۳-نکتهی-مهم-slice-هم-یک-کارت-امانت-است">۴.۴.۳. نکته‌ی مهم: slice هم یک کارت امانت است</a><br><a href="#۴۴۴-تمرین-پیدا-کردن-اولین-کلمه">۴.۴.۴. تمرین: پیدا کردن اولین کلمه</a><br><a href="#۴۵-جمع‌بندی-و-چالش">۴.۵. جمع‌بندی و چالش</a><br><a href="#۴۵۱-سه-قانون-اصلی-مالکیت">۴.۵.۱. سه قانون اصلی مالکیت</a><br><a href="#۴۵۲-چالش-تابعی-که-مالکیت-نمی‌گیرد">۴.۵.۲. چالش: تابعی که مالکیت نمی‌گیرد</a><br><a href="#۴۵۳-حرف-آخر-نگران-نباش-تمرین-کن">۴.۵.۳. حرف آخر: نگران نباش، تمرین کن!</a></p>
+<hr>
+<h3 id="۴۱-دعوا-سر-تراکتور-قرمز-مفهوم-move"><a class="header" href="#۴۱-دعوا-سر-تراکتور-قرمز-مفهوم-move">۴.۱. دعوا سر تراکتور قرمز (مفهوم Move)</a></h3>
+<h4 id="۴۱۱-داستان-تراکتوری-که-فقط-یک-مالک-داشت"><a class="header" href="#۴۱۱-داستان-تراکتوری-که-فقط-یک-مالک-داشت">۴.۱.۱. داستان: تراکتوری که فقط یک مالک داشت</a></h4>
+<p>فریس یک تراکتور قرمز خیلی خوشگل داره. 🚜💨 یک روز دوستش بیل می‌آید و می‌گوید: «چه تراکتور باحالی! می‌شود من هم یک کم باهاش بازی کنم؟» فریس که خرچنگ مهربونیه، می‌گوید: «بله، بگیرش مال خودت!» و تراکتور را می‌دهد دست بیل.<br>بعداً که دلش برای تراکتور تنگ می‌شود و می‌خواهد دوباره باهاش بازی کند، تازه یادش می‌آید که دیگر تراکتوری ندارد! چون آن را بخشیده بود.<br>توی دنیای Rust هم دقیقاً همین اتفاق می‌افتد و بهش می‌گویند <strong>انتقال مالکیت (Move)</strong>.</p>
+<h4 id="۴۱۲-قانون-اول-هر-مقدار-یک-مالک-دارد"><a class="header" href="#۴۱۲-قانون-اول-هر-مقدار-یک-مالک-دارد">۴.۱.۲. قانون اول: هر مقدار یک مالک دارد</a></h4>
+<p>توی Rust هر چیزی که می‌سازی (مثلاً یک متن، یک لیست، یا یک اسباب‌بازی) فقط <strong>یک صاحب</strong> دارد. به آن صاحب می‌گوییم <strong>مالک (Owner)</strong>. تا وقتی مالک هست، می‌تواند ازش استفاده کند. وقتی مالک از صحنه خارج بشود (مثلاً تابع تمام شود یا به آکولاد بسته برسد)، آن چیز خود به خود از حافظه پاک می‌شود. اینطوری حافظه‌ی کامپیوتر همیشه تمیز و مرتب می‌ماند و پر از آشغال نمی‌شود! 🧹✨<br><strong>یعنی تو داری یاد می‌گیری چطور کامپیوتر حافظه را مدیریت می‌کند – یک گام بزرگ به سمت جادوگر کامپیوتر شدن!</strong> 🧙‍♂️</p>
+<h4 id="۴۱۳-انتقال-مالکیت-move-در-عمل"><a class="header" href="#۴۱۳-انتقال-مالکیت-move-در-عمل">۴.۱.۳. انتقال مالکیت (Move) در عمل</a></h4>
+<p>بیا این اتفاق را توی کد Rust ببینیم:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    let s1 = String::from("تراکتور"); // s1 مالک است
+    let s2 = s1;                      // مالکیت از s1 به s2 منتقل شد (Move)
+
+    // println!("{}", s1);            // ❌ اگر این خط را فعال کنی، خطا می‌گیری!
+    println!("{}", s2);               // ✅ این خط درست کار می‌کند
+}</code></pre>
+<p>کامپایلر سریع می‌گوید: <code>value moved</code>. یعنی: «رفیق، این دیگر مال تو نیست! مالکیت رفت پیش <code>s2</code>.»</p>
+<h4 id="۴۱۴-چرا-بعضی-چیزها-کپی-میشوند-انواع-copy"><a class="header" href="#۴۱۴-چرا-بعضی-چیزها-کپی-میشوند-انواع-copy">۴.۱.۴. چرا بعضی چیزها کپی می‌شوند؟ (انواع Copy)</a></h4>
+<p>شاید بگویی: «اما من قبلاً عددها را اینطوری جابه‌جا می‌کردم و خطا نمی‌گرفتم!»<br>دقیقاً درست حدس زدی. بعضی چیزها مثل اعداد ساده (<code>i32</code>، <code>f64</code>) یا کاراکترها (<code>char</code>) آن‌قدر سبک و کوچک اند که Rust به جای انتقال مالکیت، یک <strong>کپی</strong> ازشان می‌سازد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+let y = x; // اینجا x کپی می‌شود، نه انتقال مالکیت
+println!("x = {} , y = {}", x, y); // هر دو درست کار می‌کنند
+<span class="boring">}</span></code></pre>
+<p>چرا؟ چون کپی کردن یک عدد مثل کپی کردن یک عکس در مغزت است؛ سریع و بی‌هزینه است. ولی <code>String</code> می‌تواند خیلی بزرگ باشد (مثل یک کتاب هزار صفحه‌ای). کپی کردنش وقت و حافظه زیادی می‌برد. پس Rust ترجیح می‌دهد فقط مالکیتش را جابه‌جا کند. به چیزهایی که مثل عدد کپی می‌شوند، می‌گوییم از نوع <strong>Copy</strong> هستند.</p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>این فصل سخت‌ترین و منحصربه‌فردترین مفهوم Rust را معرفی می‌کند: <strong>مالکیت</strong>. هدف، تسلط کامل نیست، بلکه آشنایی با این ایده است که Rust برای هر داده یک «مسئول» مشخص می‌کند. اگر کودک همه‌ی جزئیات را نفهمید، نگران نباشید – در فصل‌های بعدی بارها با این قوانین روبرو خواهد شد. برای توضیحات عمیق‌تر، کتاب رسمی Rust فصل کاملی درباره‌ی مالکیت دارد:<br><a href="https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html">doc.rust-lang.org/book/ch04-00-understanding-ownership.html</a></p>
+</blockquote>
+<p><img src="assets/images/4.1.png" alt="[Illustration: Educational illustration showing two labeled boxes: “s1” (empty, crossed out) and “s2” (holding a shiny red toy tractor). An arrow shows ownership moving from s1 to s2. Ferris the crab stands beside them pointing at the boxes, looking slightly surprised but happy. Style: bright children’s book illustration, clean lines, metaphorical, 16:9.]"></p>
+<hr>
+<h3 id="۴۲-کارت-امانت-borrowing--references"><a class="header" href="#۴۲-کارت-امانت-borrowing--references">۴.۲. کارت امانت (Borrowing &amp; References)</a></h3>
+<h4 id="۴۲۱-راه-حل-دعوا-کارت-امانت-به-جای-اسباببازی"><a class="header" href="#۴۲۱-راه-حل-دعوا-کارت-امانت-به-جای-اسباببازی">۴.۲.۱. راه حل دعوا: کارت امانت به جای اسباب‌بازی</a></h4>
+<p>فریس نباید تراکتور را می‌بخشید. کافی بود به بیل یک <strong>کارت امانت</strong> می‌داد. با کارت امانت، بیل می‌تواند تراکتور را ببیند، حتی اگر اجازه داشته باشد سوارش بشود، ولی تراکتور همچنان در انبار فریس باقی می‌ماند.<br>توی Rust به این کارت امانت <strong>مرجع (Reference)</strong> می‌گوییم. عمل قرض دادن را هم <strong>Borrowing</strong> می‌نامیم.</p>
+<h4 id="۴۲۲-ساختن-مرجع-با-"><a class="header" href="#۴۲۲-ساختن-مرجع-با-">۴.۲.۲. ساختن مرجع با <code>&amp;</code></a></h4>
+<p>با گذاشتن یک علامت <code>&amp;</code> قبل از اسم متغیر، یک کارت امانت می‌سازی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s1 = String::from("تراکتور");
+let s2 = &amp;s1; // s2 یک کارت امانت به s1 است
+
+println!("مالک: {}", s1);    // فریس هنوز تراکتورش را دارد
+println!("قرض‌گیرنده: {}", s2); // بیل هم می‌تواند ببیندش
+<span class="boring">}</span></code></pre>
+<p>اینجا هیچ خطایی رخ نمی‌دهد. هر دو می‌توانند از مقدار استفاده کنند، چون فقط «نگاه» کردن، نه «صاحب شدن».</p>
+<h4 id="۴۲۳-قانون-هر-تعداد-کارت-امانت-معمولی-مجاز-است"><a class="header" href="#۴۲۳-قانون-هر-تعداد-کارت-امانت-معمولی-مجاز-است">۴.۲.۳. قانون: هر تعداد کارت امانت معمولی مجاز است</a></h4>
+<p>می‌توانی به تعداد نامحدود کارت امانت معمولی (<code>&amp;</code>) صادر کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from("سلام");
+let r1 = &amp;s;
+let r2 = &amp;s;
+let r3 = &amp;s;
+println!("{} {} {}", r1, r2, r3); // همه می‌توانند نگاه کنند
+<span class="boring">}</span></code></pre>
+<p>این درست مثل وقتی است که چند تا بچه دور یک آکواریوم جمع می‌شوند و به ماهی‌ها نگاه می‌کنند. تا وقتی کسی دستش را در آب نمی‌کند (تغییر نمی‌دهد)، همه خوشحالند! 🐠</p>
+<h4 id="۴۲۴-کارت-امانت-ویژه-برای-تغییر-mut"><a class="header" href="#۴۲۴-کارت-امانت-ویژه-برای-تغییر-mut">۴.۲.۴. کارت امانت ویژه برای تغییر (<code>&amp;mut</code>)</a></h4>
+<p>اما اگر بیل بخواهد تراکتور را رنگ کند (تغییر بدهد)، دیگر کارت معمولی کافی نیست. او باید یک <strong>کارت امانت ویژه و طلایی</strong> بگیرد که روش نوشته <code>&amp;mut</code>. ولی یک شرط سخت دارد:<br>⚠️ <strong>در هر لحظه، فقط یک نفر می‌تواند این کارت ویژه را داشته باشد.</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut s = String::from("تراکتور"); // خود تراکتور هم باید قابل تغییر باشد
+let r1 = &amp;mut s; // بیل کارت ویژه گرفت
+r1.push_str(" قرمز"); // تراکتور را رنگ کرد (یعنی متن را عوض کرد)
+println!("{}", r1);
+<span class="boring">}</span></code></pre>
+<p>اگر دو نفر همزمان کارت ویژه بخواهند، نگهبان داد می‌زند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut s = String::from("تراکتور");
+let r1 = &amp;mut s;
+let r2 = &amp;mut s; // ❌ خطا! دو تا کارت ویژه همزمان ممنوع
+<span class="boring">}</span></code></pre>
+<h4 id="۴۲۵-قانون-طلایی-فریس-خلاصهی-قوانین-امانت"><a class="header" href="#۴۲۵-قانون-طلایی-فریس-خلاصهی-قوانین-امانت">۴.۲.۵. قانون طلایی فریس (خلاصه‌ی قوانین امانت)</a></h4>
+<p>این مهم‌ترین قانون باشگاه امانت‌دهی است. حتماً جایی بنویسش:<br>🔹 یا می‌توانی <strong>هر تعداد کارت معمولی</strong> (<code>&amp;</code>) بدهی (فقط نگاه کردن).<br>🔹 یا می‌توانی <strong>فقط یک کارت ویژه</strong> (<code>&amp;mut</code>) بدهی (نگاه + تغییر).<br>❌ ترکیب این دو تا <strong>مطلقاً ممنوع است!</strong></p>
+<p>مثال نقض قانون:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut s = String::from("تراکتور");
+let r1 = &amp;s;        // کارت معمولی (فقط نگاه)
+let r2 = &amp;mut s;    // ❌ خطا! نمی‌شود همزمان هم نگاه کرد، هم تغییر داد
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/4.2.png" alt="[Illustration: Cartoon scene showing a “Borrowing Club” desk. On one side, multiple kids hold normal blue cards labeled “&amp;” looking at a toy. On the other side, one kid holds a golden card labeled “&amp;mut” and is painting the toy. Ferris stands behind the desk holding a rulebook. Style: playful, educational, vibrant colors, clear visual metaphor, 16:9.]"></p>
+<hr>
+<h3 id="۴۳-نگهبان-باشگاه-borrow-checker"><a class="header" href="#۴۳-نگهبان-باشگاه-borrow-checker">۴.۳. نگهبان باشگاه: Borrow Checker</a></h3>
+<h4 id="۴۳۱-معرفی-نگهبان"><a class="header" href="#۴۳۱-معرفی-نگهبان">۴.۳.۱. معرفی نگهبان</a></h4>
+<p>در کامپایلر Rust یک موجود بامزه ولی جدی زندگی می‌کند به اسم <strong>Borrow Checker</strong> (بررسی‌کننده‌ی قرض‌ها). او دقیقاً مثل نگهبان سخت‌گیر ولی مهربون باشگاه است. وظیفه‌اش این است که قوانین بالا را چک کند. اگر ببیند کسی قانون را شکسته، برنامه را متوقف می‌کند و با پیام‌های رنگی و دقیق بهت می‌گوید مشکل از کجاست.<br>او دوست ماست، چون نمی‌گذارد برنامه‌مان خراب شود، اطلاعات گم شود یا دو نفر همزمان یک چیز را تغییر دهند! 🛡️</p>
+<h4 id="۴۳۲-طول-عمر-کارت-امانت-یک-اشاره-برای-آینده"><a class="header" href="#۴۳۲-طول-عمر-کارت-امانت-یک-اشاره-برای-آینده">۴.۳.۲. طول عمر کارت امانت (یک اشاره برای آینده)</a></h4>
+<p>هر کارت امانت یک <strong>تاریخ انقضا</strong> دارد. یعنی کارت فقط تا وقتی معتبر است که خود اسباب‌بازی وجود داشته باشد. اگر اسباب‌بازی خراب شود (از حافظه پاک شود)، کارت امانت بی‌ارزش و خطرناک می‌شود. کامپایلر این تاریخ‌ها را چک می‌کند. مثال زیر خطا دارد چون کارت امانت (<code>r</code>) بیشتر از خود اسباب‌بازی (<code>s</code>) عمر می‌کند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let r;
+{
+    let s = String::from("سلام");
+    r = &amp;s; // کارت امانت گرفته شد
+} // s اینجا از بین می‌رود (آکولاد بسته شد)
+
+println!("{}", r); // ❌ خطا! r دارد به یک متغیر مرده اشاره می‌کند
+<span class="boring">}</span></code></pre>
+<p>(فعلاً نگران جزئیات نباشید. در فصل‌های پیشرفته‌تر با این مفهوم بیشتر آشنا می‌شوید. فقط بدانید که نگهبان حواسش به تاریخ انقضای کارت‌ها هم هست.)</p>
+<h4 id="۴۳۳-تمرین-قانونشکنی-عمدی-و-دیدن-خطاهای-دوستانه"><a class="header" href="#۴۳۳-تمرین-قانونشکنی-عمدی-و-دیدن-خطاهای-دوستانه">۴.۳.۳. تمرین: قانون‌شکنی عمدی (و دیدن خطاهای دوستانه)</a></h4>
+<p>حالا خودت دست به کار شو و چند کد بنویس که عمداً قانون طلایی را بشکنند. مثلاً:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    let mut text = String::from("بازی");
+    let a = &amp;text;
+    let b = &amp;text;
+    let c = &amp;mut text; // اینجا نگهبان جیغ می‌زند!
+    println!("{} {} {}", a, b, c);
+}</code></pre>
+<p>کد را اجرا کن و پیام خطای کامپایلر را با دقت بخوان. ببین چقدر دقیق بهت می‌گوید که: «نمی‌شود قرض mutable داشت چون قبلاً immutable قرض دادی.» این یعنی نگهبان دارد ازت محافظت می‌کند! 🤝</p>
+<p><img src="assets/images/4.3.png" alt="[Illustration: Ferris the crab wearing a security guard uniform, holding a flashlight and checking a list of rules. In the background, a cartoon compiler robot gives a red warning light and a green checkmark next to different code blocks. Style: friendly, technical metaphor, children’s book illustration, soft lighting, 16:9.]"></p>
+<hr>
+<h3 id="۴۴-تکههای-پازل-slices"><a class="header" href="#۴۴-تکههای-پازل-slices">۴.۴. تکه‌های پازل (Slices)</a></h3>
+<h4 id="۴۴۱-گاهی-فقط-به-بخشی-از-یک-متن-نیاز-داریم"><a class="header" href="#۴۴۱-گاهی-فقط-به-بخشی-از-یک-متن-نیاز-داریم">۴.۴.۱. گاهی فقط به بخشی از یک متن نیاز داریم</a></h4>
+<p>فرض کن فریس یک تابلوی راهنما دارد که رویش نوشته: <code>Welcome to Crab Planet</code>. او فقط می‌خواهد کلمه‌ی <code>Crab</code> را برجسته کند. آیا باید کل تابلو را کپی کند؟ نه! کافی است یک ذره‌بین بردارد و فقط به آن بخش اشاره کند. توی Rust به این ذره‌بین <strong>Slice (برش)</strong> می‌گوییم.</p>
+<h4 id="۴۴۲-ساختن-slice-با-محدوده-range"><a class="header" href="#۴۴۲-ساختن-slice-با-محدوده-range">۴.۴.۲. ساختن slice با محدوده (Range)</a></h4>
+<p>برای ساختن یک برش از یک متن، از علامت <code>[start..end]</code> استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from("Ferris the crab");
+let ferris = &amp;s[0..6];   // "Ferris" (از اندیس ۰ تا ۵)
+let the_crab = &amp;s[7..];  // "the crab" (از اندیس ۷ تا آخر)
+let all = &amp;s[..];        // "Ferris the crab" (همه‌ی متن)
+<span class="boring">}</span></code></pre>
+<p>📌 <strong>نکته‌ی مهم برای متن فارسی:</strong> در Rust اندیس‌های <code>[..]</code> بر اساس <strong>بایت</strong> هستند، نه کاراکتر. چون حروف فارسی و ایموجی‌ها چند بایت جا می‌گیرند، استفاده از <code>[..]</code> روی متن فارسی ممکن است خطا بدهد. فعلاً برای ساده‌تر شدن، با متن انگلیسی تمرین می‌کنیم.</p>
+<h4 id="۴۴۳-نکتهی-مهم-slice-هم-یک-کارت-امانت-است"><a class="header" href="#۴۴۳-نکتهی-مهم-slice-هم-یک-کارت-امانت-است">۴.۴.۳. نکته‌ی مهم: slice هم یک کارت امانت است</a></h4>
+<p>برش (Slice) در اصل یک نوع مرجع (<code>&amp;</code>) است. پس همان قوانین نگهبان روی آن هم اجرا می‌شود. تا وقتی یک برش از متن داری، نمی‌توانی متن اصلی را تغییر دهی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut s = String::from("hello world");
+let word = &amp;s[0..5]; // کارت امانت به "hello"
+s.clear();           // ❌ خطا! نمی‌شود متن را پاک کرد چون word هنوز دارد نگاه می‌کند
+<span class="boring">}</span></code></pre>
+<h4 id="۴۴۴-تمرین-پیدا-کردن-اولین-کلمه"><a class="header" href="#۴۴۴-تمرین-پیدا-کردن-اولین-کلمه">۴.۴.۴. تمرین: پیدا کردن اولین کلمه</a></h4>
+<p>تابعی بنویس به اسم <code>first_word</code> که یک <code>&amp;str</code> بگیرد و اولین کلمه‌ی آن (تا قبل از فاصله) را برگرداند. اگر فاصله‌ای نبود، کل متن را برگرداند.</p>
+<p>💡 <strong>راهنمایی:</strong> می‌توانی از متد <code>find(' ')</code> استفاده کنی که جایگاه بایت فاصله را برمی‌گرداند. این متد یک <code>Option</code> برمی‌گرداند: اگر فاصله پیدا شد، <code>Some(موقعیت)</code> و اگر پیدا نشد، <code>None</code>. (دقیقاً شبیه <code>Result</code> در فصل ۲، فقط به جای <code>Ok/Err</code> از <code>Some/None</code> استفاده می‌کند.)</p>
+<pre class="playground"><code class="language-rust">fn first_word(s: &amp;str) -&gt; &amp;str {
+    match s.find(' ') {
+        Some(pos) =&gt; &amp;s[..pos], // اگر فاصله پیدا شد، تا آنجا برش بزن
+        None =&gt; s,              // اگر پیدا نشد، کل متن را برگردان
+    }
+}
+
+fn main() {
+    let sentence = String::from("Ferris the crab");
+    let word = first_word(&amp;sentence);
+    println!("اولین کلمه: {}", word); // خروجی: Ferris
+}</code></pre>
+<p>این کد هم امن است، هم سریع، و دقیقاً همان کاری است که یک برنامه‌نویس حرفه‌ای Rust انجام می‌دهد! 🛠️</p>
+<p><img src="assets/images/4.4.png" alt="[Illustration: Close-up of a cartoon magnifying glass hovering over a long paper strip labeled “Ferris the crab”. The glass highlights only the word “Ferris”. A pair of scissors (representing slicing) rests nearby. Ferris holds the magnifying glass proudly. Style: clean, educational vector, bright colors, metaphorical, 16:9.]"></p>
+<hr>
+<h3 id="۴۵-جمعبندی-و-چالش"><a class="header" href="#۴۵-جمعبندی-و-چالش">۴.۵. جمع‌بندی و چالش</a></h3>
+<h4 id="۴۵۱-سه-قانون-اصلی-مالکیت"><a class="header" href="#۴۵۱-سه-قانون-اصلی-مالکیت">۴.۵.۱. سه قانون اصلی مالکیت</a></h4>
+<p>برای اینکه حواست جمع باشد، این سه قانون را روی یک کاغذ بنویس و بچسبان جلوی چشمات:
+۱. هر مقداری در Rust دقیقاً <strong>یک مالک</strong> دارد.<br>۲. می‌توانی <strong>هر تعداد کارت امانت معمولی</strong> (<code>&amp;</code>) بدهی، <strong>یا فقط یک کارت ویژه</strong> (<code>&amp;mut</code>). ترکیبشان ممنوع است.<br>۳. وقتی مالک از اتاق خارج شود (scope تمام شود)، اسباب‌بازی هم خودکار جمع می‌شود.</p>
+<h4 id="۴۵۲-چالش-تابعی-که-مالکیت-نمیگیرد"><a class="header" href="#۴۵۲-چالش-تابعی-که-مالکیت-نمیگیرد">۴.۵.۲. چالش: تابعی که مالکیت نمی‌گیرد</a></h4>
+<p>یک تابع به اسم <code>calculate_length</code> بنویس که یک <code>&amp;String</code> بگیرد و طول آن را برگرداند (بدون اینکه مالکیت رشته را تصاحب کند). در تابع <code>main</code> یک <code>String</code> بساز، طولش را با این تابع حساب کن و بعد از آن دوباره از همان <code>String</code> استفاده کن (مثلاً چاپش کن).</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">fn calculate_length(s: &amp;String) -&gt; usize {
+    s.len() // .len() طول رشته را برمی‌گرداند
+}
+
+fn main() {
+    let my_string = String::from("Ferris the crab");
+    let len = calculate_length(&amp;my_string);
+    println!("طول '{}' برابر است با {} کاراکتر", my_string, len);
+    // my_string هنوز زنده است چون مالکیتش را ندادیم!
+}</code></pre>
+<h4 id="۴۵۳-حرف-آخر-نگران-نباش-تمرین-کن"><a class="header" href="#۴۵۳-حرف-آخر-نگران-نباش-تمرین-کن">۴.۵.۳. حرف آخر: نگران نباش، تمرین کن!</a></h4>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>ممکن است این فصل یکم برات سخت و عجیب بوده باشد. کاملاً طبیعی است! مالکیت (Ownership) معروف‌ترین و در عین حال چالش‌برانگیزترین مفهوم Rust است. حتی برنامه‌نویس‌های باتجربه هم گاهی با Borrow Checker کلنجار می‌روند. انتظار نداریم بعد از یک بار خواندن به استاد مالکیت تبدیل شوی.</p>
+</blockquote>
+<p>اما خبر خوب این است که هر چی بیشتر کد بزنی، این قوانین بیشتر در ذهنت جا می‌افتد. مثل دوچرخه‌سواری می‌ماند؛ اولش سخت است، اما بعداً دیگر لازم نیست به تعادل فکر کنی. 🚴‍♂️💨</p>
+<p>در فصل بعد، به سراغ یک ابزار خیلی جذاب می‌رویم: <strong>Struct</strong> یا همان «کارت شناسایی برای هیولاهای فضایی»! 🦑✨</p>
+<p><img src="assets/images/4.5.png" alt="[Illustration: Ferris the crab sitting at a cozy desk, writing the “3 Ownership Rules” on a glowing parchment. Around him float small icons: a locked box (ownership), a blue card (&amp;), a golden card (&amp;mut), and a magnifying glass (slice). Warm, encouraging lighting. Style: children’s book illustration, whimsical, high detail, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

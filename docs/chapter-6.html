@@ -1,0 +1,553 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۶: کمد لباس هوشمند - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۶-ماشین-انتخاب-لباس-enums-و-match"><a class="header" href="#فصل-۶-ماشین-انتخاب-لباس-enums-و-match">فصل ۶: ماشین انتخاب لباس (Enums و Match)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۶۱-امروز-هوا-چطوره-enum">۶.۱. امروز هوا چطوره؟ (Enum)</a><br><a href="#۶۱۱-داستان-کمد-لباس-هوشمند-فریس">۶.۱.۱. داستان: کمد لباس هوشمند فریس</a><br><a href="#۶۱۲-مشکل-عدد-یا-رشته">۶.۱.۲. مشکل: عدد یا رشته؟</a><br><a href="#۶۱۳-تعریف-enum-با-حالت‌های-مختلف">۶.۱.۳. تعریف enum با حالت‌های مختلف</a><br><a href="#۶۱۴-ساختن-مقدار-از-enum">۶.۱.۴. ساختن مقدار از enum</a><br><a href="#۶۲-یک-کمد-پر-از-لباس-enum-with-data">۶.۲. یک کمد پر از لباس (Enum with Data)</a><br><a href="#۶۲۱-هر-حالت-می‌تواند-دادهی-متفاوتی-داشته-باشد">۶.۲.۱. هر حالت می‌تواند داده‌ی متفاوتی داشته باشد</a><br><a href="#۶۲۲-تعریف-enum-با-داده">۶.۲.۲. تعریف enum با داده</a><br><a href="#۶۲۳-ساختن-نمونه-از-enum-با-داده">۶.۲.۳. ساختن نمونه از enum با داده</a><br><a href="#۶۲۴-تفاوت-enum-با-struct">۶.۲.۴. تفاوت enum با struct</a><br><a href="#۶۳-کیف-گمشده-option">۶.۳. کیف گمشده (Option)</a><br><a href="#۶۳۱-داستان-دنبال-کلید-سفینه">۶.۳.۱. داستان: دنبال کلید سفینه</a><br><a href="#۶۳۲-معرفی-option">۶.۳.۲. معرفی Option</a><br><a href="#۶۳۳-استفاده-از-some-و-none">۶.۳.۳. استفاده از Some و None</a><br><a href="#۶۳۴-چرا-option-بهتر-از-null-است">۶.۳.۴. چرا Option بهتر از null است؟</a><br><a href="#۶۳۵-متدهای-مفید-روی-option">۶.۳.۵. متدهای مفید روی Option</a><br><a href="#۶۳۶-تمرین-تابع-safe_divide">۶.۳.۶. تمرین: تابع safe_divide</a><br><a href="#۶۴-ریموت-کنترل-هوشمند-match">۶.۴. ریموت کنترل هوشمند (Match)</a><br><a href="#۶۴۱-مشکل-چطور-بر-اساس-مقدار-enum-تصمیم-بگیریم">۶.۴.۱. مشکل: چطور بر اساس مقدار enum تصمیم بگیریم؟</a><br><a href="#۶۴۲-معرفی-match">۶.۴.۲. معرفی match</a><br><a href="#۶۴۳-شرط-exhaustive-همه-حالت‌ها-باید-پوشش-داده-شوند">۶.۴.۳. شرط exhaustive (همه حالت‌ها باید پوشش داده شوند)</a><br><a href="#۶۴۴-استخراج-داده-از-enum-با-match">۶.۴.۴. استخراج داده از enum با match</a><br><a href="#۶۴۵-الگوی-catch-all-با-_">۶.۴.۵. الگوی catch-all با _</a><br><a href="#۶۴۶-match-با-option">۶.۴.۶. match با Option</a><br><a href="#۶۴۷-if-let-برای-ساده‌تر-شدن">۶.۴.۷. if let برای ساده‌تر شدن</a><br><a href="#۶۴۸-تمرین-ارزش-سکه‌ها">۶.۴.۸. تمرین: ارزش سکه‌ها</a><br><a href="#۶۵-پروژه-ماشین-لباسشویی-هوشمند">۶.۵. پروژه: ماشین لباسشویی هوشمند</a><br><a href="#۶۵۱-تعریف-enum-برای-آب-و-هوا">۶.۵.۱. تعریف enum برای آب و هوا</a><br><a href="#۶۵۲-تابع-پیشنهاد-لباس">۶.۵.۲. تابع پیشنهاد لباس</a><br><a href="#۶۵۳-گرفتن-ورودی-از-کاربر">۶.۵.۳. گرفتن ورودی از کاربر</a><br><a href="#۶۵۴-استفاده-از-option-برای-رنگ-دلخواه">۶.۵.۴. استفاده از Option برای رنگ دلخواه</a><br><a href="#۶۶-جمع‌بندی-و-چالش">۶.۶. جمع‌بندی و چالش</a><br><a href="#۶۶۱-مرور-مفاهیم">۶.۶.۱. مرور مفاهیم</a><br><a href="#۶۶۲-چالش-ماشین-حساب-با-result">۶.۶.۲. چالش: ماشین حساب با Result</a></p>
+<hr>
+<h3 id="۶۱-امروز-هوا-چطوره-enum"><a class="header" href="#۶۱-امروز-هوا-چطوره-enum">۶.۱. امروز هوا چطوره؟ (Enum)</a></h3>
+<h4 id="۶۱۱-داستان-کمد-لباس-هوشمند-فریس"><a class="header" href="#۶۱۱-داستان-کمد-لباس-هوشمند-فریس">۶.۱.۱. داستان: کمد لباس هوشمند فریس</a></h4>
+<p>فریس یک کمد لباس جادویی دارد که می‌تواند بر اساس وضعیت آب و هوا بهش بگوید چه لباسی بپوشد. اما آب و هوا فقط یک حالت نیست؛ می‌تواند آفتابی، بارونی، برفی یا ابری باشد. فریس می‌خواهد در برنامه‌اش این چهار حالت را ذخیره کند. به جای اینکه از عدد یا متن ساده استفاده کند (که ممکن است اشتباه تایپی پیش بیاید)، Rust یک ابزار عالی به اسم <code>enum</code> دارد.<br><strong>این یعنی کامپیوتر می‌تواند مثل انسان‌ها در دسته‌ها فکر کند – گامی دیگر به سوی جادوگر کامپیوتر شدن!</strong> 🧙‍♂️</p>
+<h4 id="۶۱۲-مشکل-عدد-یا-رشته"><a class="header" href="#۶۱۲-مشکل-عدد-یا-رشته">۶.۱.۲. مشکل: عدد یا رشته؟</a></h4>
+<p>فرض کن می‌خواستیم با عدد کار کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let weather = 1; // ۱ یعنی آفتابی، ۲ یعنی بارانی، ...
+<span class="boring">}</span></code></pre>
+<p>اما اگر اشتباهی عدد ۵ را بگذاریم چه؟ یا با متن:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let weather = "sunny";
+<span class="boring">}</span></code></pre>
+<p>اگر <code>"suny"</code> تایپ کنیم (یک حرف جا بندازیم)، برنامه گیج می‌شود! <code>enum</code> این مشکل را حل می‌کند. فقط اجازه می‌دهد از یک لیست مشخص انتخاب کنی. هیچ چیز دیگری مجاز نیست.</p>
+<h4 id="۶۱۳-تعریف-enum-با-حالتهای-مختلف"><a class="header" href="#۶۱۳-تعریف-enum-با-حالتهای-مختلف">۶.۱.۳. تعریف enum با حالت‌های مختلف</a></h4>
+<p>با کلمه‌ی کلیدی <code>enum</code> یک نوع جدید می‌سازیم که فقط می‌تواند یکی از چند مقدار مشخص را داشته باشد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Weather {
+    Sunny,
+    Rainy,
+    Snowy,
+    Cloudy,
+}
+<span class="boring">}</span></code></pre>
+<p>حالا <code>Weather</code> یک نوع داده‌ی جدید شده، درست مثل <code>i32</code> یا <code>String</code>. اما فقط چهار مقدار مجاز دارد.</p>
+<h4 id="۶۱۴-ساختن-مقدار-از-enum"><a class="header" href="#۶۱۴-ساختن-مقدار-از-enum">۶.۱.۴. ساختن مقدار از enum</a></h4>
+<p>برای ساختن یک مقدار از این enum، اسم enum را می‌نویسیم، بعد دو تا دونقطه (<code>::</code>) و سپس حالت مورد نظر:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let today = Weather::Sunny;
+let tomorrow = Weather::Rainy;
+<span class="boring">}</span></code></pre>
+<p><code>::</code> یعنی «از داخل این enum، آن حالت خاص را انتخاب کن».</p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>Enumها (شمارنده‌ها) یکی از مفاهیم خوش‌ساخت Rust هستند که به کودکان کمک می‌کنند تا «دسته‌بندی» را در برنامه‌نویسی بفهمند. کتاب رسمی Rust فصل کاملی درباره‌ی enumها دارد:<br><a href="https://doc.rust-lang.org/book/ch06-00-enums.html">doc.rust-lang.org/book/ch06-00-enums.html</a></p>
+</blockquote>
+<p><img src="assets/images/6.1.png" alt="[Illustration: Cartoon illustration of Ferris the crab standing in front of a magical weather map. Four glowing icons float above: sun, rain cloud, snowflake, and gray cloud. A friendly “enum” selector tool connects them to a dropdown menu. Style: vibrant children’s book illustration, clear educational metaphor, soft lighting, 16:9.]"></p>
+<hr>
+<h3 id="۶۲-یک-کمد-پر-از-لباس-enum-with-data"><a class="header" href="#۶۲-یک-کمد-پر-از-لباس-enum-with-data">۶.۲. یک کمد پر از لباس (Enum with Data)</a></h3>
+<h4 id="۶۲۱-هر-حالت-میتواند-دادهی-متفاوتی-داشته-باشد"><a class="header" href="#۶۲۱-هر-حالت-میتواند-دادهی-متفاوتی-داشته-باشد">۶.۲.۱. هر حالت می‌تواند داده‌ی متفاوتی داشته باشد</a></h4>
+<p>همه‌ی روزهای آفتابی یک‌جور نیستند. گاهی هوا ۲۵ درجه است، گاهی ۳۵ درجه. برای روزهای بارونی شاید بخواهیم رنگ چتر را هم بدانیم. enum در Rust می‌تواند برای هر حالت، داده‌ی اضافی نگه دارد!</p>
+<h4 id="۶۲۲-تعریف-enum-با-داده"><a class="header" href="#۶۲۲-تعریف-enum-با-داده">۶.۲.۲. تعریف enum با داده</a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum WeatherInfo {
+    Sunny { temperature: u8 },
+    Rainy { umbrella_color: String },
+    Snowy { scarf_material: String },
+    Cloudy,
+}
+<span class="boring">}</span></code></pre>
+<p>🔹 <code>Sunny</code> یک فیلد به اسم <code>temperature</code> از نوع <code>u8</code> دارد.<br>🔹 <code>Rainy</code> یک فیلد <code>umbrella_color</code> از نوع <code>String</code> دارد.<br>🔹 <code>Snowy</code> یک فیلد <code>scarf_material</code> از نوع <code>String</code> دارد.<br>🔹 <code>Cloudy</code> هیچ داده‌ی اضافی‌ای ندارد.</p>
+<h4 id="۶۲۳-ساختن-نمونه-از-enum-با-داده"><a class="header" href="#۶۲۳-ساختن-نمونه-از-enum-با-داده">۶.۲.۳. ساختن نمونه از enum با داده</a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let sunny_day = WeatherInfo::Sunny { temperature: 32 };
+let rainy_day = WeatherInfo::Rainy { umbrella_color: String::from("قرمز") };
+let snowy_day = WeatherInfo::Snowy { scarf_material: String::from("پشمی") };
+let cloudy_day = WeatherInfo::Cloudy;
+<span class="boring">}</span></code></pre>
+<h4 id="۶۲۴-تفاوت-enum-با-struct"><a class="header" href="#۶۲۴-تفاوت-enum-با-struct">۶.۲.۴. تفاوت enum با struct</a></h4>
+<p>🔹 <strong>struct:</strong> همه‌ی فیلدها همیشه وجود دارند. مثلاً یک <code>Monster</code> همیشه اسم، رنگ، پا و قدرت دارد.<br>🔹 <strong>enum:</strong> فقط <strong>یکی</strong> از حالت‌ها انتخاب می‌شود. یک <code>WeatherInfo</code> یا آفتابی است یا بارونی یا برفی یا ابری. نمی‌تواند همزمان هم دما داشته باشد هم رنگ چتر!</p>
+<p><img src="assets/images/6.2.png" alt="[Illustration: Split educational graphic. Left side: a “struct” box showing all four slots filled at once. Right side: an “enum” wardrobe with four drawers, but only ONE drawer is open at a time. Ferris points to the open drawer explaining the difference. Style: clean, cartoon, bright colors, clear visual metaphor, 16:9.]"></p>
+<hr>
+<h3 id="۶۳-کیف-گمشده-option"><a class="header" href="#۶۳-کیف-گمشده-option">۶.۳. کیف گمشده (Option)</a></h3>
+<h4 id="۶۳۱-داستان-دنبال-کلید-سفینه"><a class="header" href="#۶۳۱-داستان-دنبال-کلید-سفینه">۶.۳.۱. داستان: دنبال کلید سفینه</a></h4>
+<p>فریس همیشه کلید سفینه‌اش را در کیفش می‌گذارد. اما بعضی روزها یادش می‌رود و کیف خالی است! در برنامه‌نویسی، ما به این موقعیت می‌گوییم «ممکن است چیزی وجود داشته باشد یا نداشته باشد». در خیلی از زبان‌ها از <code>null</code> استفاده می‌کنند، اما <code>null</code> خیلی خطرناک است و باعث کرش برنامه می‌شود. Rust اصلاً <code>null</code> ندارد؛ به جایش از <code>Option</code> استفاده می‌کند.</p>
+<h4 id="۶۳۲-معرفی-optiont"><a class="header" href="#۶۳۲-معرفی-optiont">۶.۳.۲. معرفی <code>Option&lt;T&gt;</code></a></h4>
+<p><code>Option</code> یک enum بسیار پرکاربرد است که در کتابخانه‌ی استاندارد Rust تعریف شده:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Option&lt;T&gt; {
+    Some(T),
+    None,
+}
+<span class="boring">}</span></code></pre>
+<p><code>T</code> یعنی «هر نوعی می‌تواند اینجا قرار بگیرد». <code>Some(T)</code> یعنی «یک چیز از نوع T داریم»، و <code>None</code> یعنی «هیچی نداریم».</p>
+<h4 id="۶۳۳-استفاده-از-some-و-none"><a class="header" href="#۶۳۳-استفاده-از-some-و-none">۶.۳.۳. استفاده از <code>Some</code> و <code>None</code></a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let key = Some(String::from("کلید طلایی")); // کلید هست
+let no_key: Option&lt;String&gt; = None;          // کلید نیست
+<span class="boring">}</span></code></pre>
+<p>اگر فقط <code>None</code> بنویسی، باید به کامپایلر بگویی که چه نوعی را انتظار داری (مثلاً <code>Option&lt;String&gt;</code>).</p>
+<h4 id="۶۳۴-چرا-option-بهتر-از-null-است"><a class="header" href="#۶۳۴-چرا-option-بهتر-از-null-است">۶.۳.۴. چرا Option بهتر از null است؟</a></h4>
+<p>در زبان‌هایی که <code>null</code> دارند، اگر فراموش کنی چک کنی چیزی <code>null</code> هست یا نه، برنامه ممکن است یکهو بترکد. اما در Rust، کامپایلر مجبورت می‌کند هر دو حالت <code>Some</code> و <code>None</code> را بررسی کنی. این‌طوری برنامه‌ات خیلی امن‌تر می‌شود! 🛡️</p>
+<h4 id="۶۳۵-متدهای-مفید-روی-option"><a class="header" href="#۶۳۵-متدهای-مفید-روی-option">۶.۳.۵. متدهای مفید روی Option</a></h4>
+<p>🔹 <code>.unwrap()</code>: اگر <code>Some</code> بود مقدار درونش را می‌دهد، اگر <code>None</code> بود برنامه را متوقف می‌کند. (فقط وقتی ۱۰۰٪ مطمئنی خالی نیست استفاده کن!)<br>🔹 <code>.unwrap_or(default)</code>: اگر <code>None</code> بود، یک مقدار پیش‌فرض برمی‌گرداند.<br>🔹 <code>.is_some()</code> / <code>.is_none()</code>: چک می‌کند مقدار هست یا نه.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let key = Some(String::from("abc"));
+let value = key.unwrap_or(String::from("کلید پیدا نشد"));
+println!("{}", value); // abc
+<span class="boring">}</span></code></pre>
+<h4 id="۶۳۶-تمرین-تابع-safe_divide"><a class="header" href="#۶۳۶-تمرین-تابع-safe_divide">۶.۳.۶. تمرین: تابع <code>safe_divide</code></a></h4>
+<p>یک تابع به اسم <code>safe_divide</code> بنویس که دو عدد اعشاری (<code>f64</code>) بگیرد. اگر عدد دوم صفر نبود، حاصل تقسیم را درون <code>Some</code> برگرداند، در غیر این صورت <code>None</code> برگرداند.</p>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust">fn safe_divide(a: f64, b: f64) -&gt; Option&lt;f64&gt; {
+    if b == 0.0 {
+        None
+    } else {
+        Some(a / b)
+    }
+}
+
+fn main() {
+    let result = safe_divide(10.0, 2.0);
+    match result {
+        Some(r) =&gt; println!("نتیجه: {}", r),
+        None =&gt; println!("خطا: تقسیم بر صفر"),
+    }
+}</code></pre>
+<p><img src="assets/images/6.3.png" alt="[Illustration: Cartoon scene showing Ferris opening a floating treasure chest. Inside one chest is a glowing key labeled “Some(key)”. The other chest is empty with a gentle “None” tag. A friendly compiler robot holds a checklist saying “Always check both!”. Style: playful, educational, warm lighting, children’s book, 16:9.]"></p>
+<hr>
+<h3 id="۶۴-ریموت-کنترل-هوشمند-match"><a class="header" href="#۶۴-ریموت-کنترل-هوشمند-match">۶.۴. ریموت کنترل هوشمند (Match)</a></h3>
+<h4 id="۶۴۱-مشکل-چطور-بر-اساس-مقدار-enum-تصمیم-بگیریم"><a class="header" href="#۶۴۱-مشکل-چطور-بر-اساس-مقدار-enum-تصمیم-بگیریم">۶.۴.۱. مشکل: چطور بر اساس مقدار enum تصمیم بگیریم؟</a></h4>
+<p>حالا که می‌دانیم هوا <code>Sunny</code> است یا <code>Rainy</code>، چطور به کاربر بگوییم چه لباسی بپوشد؟ می‌توانیم از چند تا <code>if</code> استفاده کنیم، اما Rust یک ابزار خیلی قشنگ‌تر دارد: <code>match</code>.</p>
+<h4 id="۶۴۲-معرفی-match"><a class="header" href="#۶۴۲-معرفی-match">۶.۴.۲. معرفی match</a></h4>
+<p><code>match</code> مثل یک دستگاه جورکننده است: یک مقدار را می‌گیرد و با الگوهای مختلف مقایسه می‌کند. اولین الگویی که جواب بدهد، اجرا می‌شود.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let weather = Weather::Sunny;
+
+match weather {
+    Weather::Sunny =&gt; println!("کلاه آفتابی بگذار!"),
+    Weather::Rainy =&gt; println!("چتر بردار!"),
+    Weather::Snowy =&gt; println!("شال‌گردن ببند!"),
+    Weather::Cloudy =&gt; println!("هوا عالی است، هر چه دوست داری!"),
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۶۴۳-شرط-exhaustive-همه-حالتها-باید-پوشش-داده-شوند"><a class="header" href="#۶۴۳-شرط-exhaustive-همه-حالتها-باید-پوشش-داده-شوند">۶.۴.۳. شرط exhaustive (همه حالت‌ها باید پوشش داده شوند)</a></h4>
+<p>در <code>match</code> باید <strong>همه‌ی</strong> حالت‌های ممکن را بررسی کنی. اگر حتی یکی را فراموش کنی، کامپایلر بهت خطا می‌دهد و می‌گوید «فلان حالت را پوشش نداده‌ای». این خیلی خوب است چون دیگر حالت‌های فراموش‌شده باعث باگ نمی‌شوند!</p>
+<h4 id="۶۴۴-استخراج-داده-از-enum-با-match"><a class="header" href="#۶۴۴-استخراج-داده-از-enum-با-match">۶.۴.۴. استخراج داده از enum با match</a></h4>
+<p>اگر enum ما داده‌ی اضافی داشته باشد، می‌توانیم آن داده را در <code>match</code> بیرون بکشیم و استفاده کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let info = WeatherInfo::Sunny { temperature: 35 };
+
+match info {
+    WeatherInfo::Sunny { temperature } =&gt; {
+        println!("آفتابی با دمای {} درجه، کلاه بگذار!", temperature);
+    }
+    WeatherInfo::Rainy { umbrella_color } =&gt; {
+        println!("بارونی، چتر {} را بردار", umbrella_color);
+    }
+    // بقیه حالت‌ها...
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۶۴۵-الگوی-catch-all-با-_"><a class="header" href="#۶۴۵-الگوی-catch-all-با-_">۶.۴.۵. الگوی catch-all با <code>_</code></a></h4>
+<p>گاهی فقط به یک یا دو حالت اهمیت می‌دهیم و بقیه برایمان فرقی ندارند. می‌توانیم از <code>_</code> (خط زیرین) به معنی «هر چیز دیگر» استفاده کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>match weather {
+    Weather::Sunny =&gt; println!("بریم پارک!"),
+    _ =&gt; println!("امروز خانه بمانیم بهتر است"),
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۶۴۶-match-با-option"><a class="header" href="#۶۴۶-match-با-option">۶.۴.۶. match با Option</a></h4>
+<p><code>match</code> با <code>Option</code> خیلی خوب جواب می‌دهد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let key = Some(String::from("کلید طلایی"));
+
+match key {
+    Some(k) =&gt; println!("کلید پیدا شد: {}", k),
+    None =&gt; println!("کلید گم شده، باید بگردیم!"),
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۶۴۷-if-let-برای-سادهتر-شدن"><a class="header" href="#۶۴۷-if-let-برای-سادهتر-شدن">۶.۴.۷. if let برای ساده‌تر شدن</a></h4>
+<p>اگر فقط به یک حالت خاص اهمیت می‌دهیم و می‌خواهیم بقیه را نادیده بگیریم، می‌توانیم از <code>if let</code> استفاده کنیم که کوتاه‌تر است:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let weather = Weather::Sunny;
+
+if let Weather::Sunny = weather {
+    println!("امروز آفتابی و قشنگ است!");
+} else {
+    println!("آفتابی نیست.");
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۶۴۸-تمرین-ارزش-سکهها"><a class="header" href="#۶۴۸-تمرین-ارزش-سکهها">۶.۴.۸. تمرین: ارزش سکه‌ها</a></h4>
+<p>یک enum به اسم <code>Coin</code> با حالت‌های <code>Penny</code>، <code>Nickel</code>، <code>Dime</code> و <code>Quarter</code> بساز. سپس تابعی بنویس که یک سکه بگیرد و ارزشش را به سنت برگرداند (Penny=1, Nickel=5, Dime=10, Quarter=25).</p>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Coin { Penny, Nickel, Dime, Quarter }
+
+fn value_in_cents(coin: Coin) -&gt; u8 {
+    match coin {
+        Coin::Penny =&gt; 1,
+        Coin::Nickel =&gt; 5,
+        Coin::Dime =&gt; 10,
+        Coin::Quarter =&gt; 25,
+    }
+}
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/6.4.png" alt="[Illustration: A cartoon remote control with four glowing buttons labeled with enum variants (Sunny, Rainy, Snowy, Cloudy). A hand presses “Rainy” and a speech bubble pops up saying “چتر بردار!”. Ferris watches from the side holding a checklist. Style: dynamic, educational vector illustration, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۶۵-پروژه-ماشین-لباسشویی-هوشمند"><a class="header" href="#۶۵-پروژه-ماشین-لباسشویی-هوشمند">۶.۵. پروژه: ماشین لباسشویی هوشمند</a></h3>
+<p>حالا با هم یک برنامه‌ی کوچک می‌نویسیم که از کاربر وضعیت آب و هوا را بپرسد و بر اساسش یک رنگ لباس پیشنهاد بدهد.</p>
+<h4 id="۶۵۱-تعریف-enum-برای-آب-و-هوا"><a class="header" href="#۶۵۱-تعریف-enum-برای-آب-و-هوا">۶.۵.۱. تعریف enum برای آب و هوا</a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Weather {
+    Sunny,
+    Rainy,
+    Snowy,
+    Cloudy,
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۶۵۲-تابع-پیشنهاد-لباس"><a class="header" href="#۶۵۲-تابع-پیشنهاد-لباس">۶.۵.۲. تابع پیشنهاد لباس</a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn recommend_shirt(weather: Weather) -&gt; &amp;'static str {
+    match weather {
+        Weather::Sunny =&gt; "سفید (خنک و آفتابی)",
+        Weather::Rainy =&gt; "آبی (مثل آسمان بارونی)",
+        Weather::Snowy =&gt; "قرمز (گرم و شاد)",
+        Weather::Cloudy =&gt; "خاکستری (مناسب هوای ابری)",
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>💡 <code>&amp;'static str</code> یعنی یک رشته‌ی ثابت که همیشه در برنامه هست و نیازی به ساخت دوباره ندارد. برای متن‌های کوتاه و از پیش مشخص شده عالی است.</p>
+<h4 id="۶۵۳-گرفتن-ورودی-از-کاربر"><a class="header" href="#۶۵۳-گرفتن-ورودی-از-کاربر">۶.۵.۳. گرفتن ورودی از کاربر</a></h4>
+<pre class="playground"><code class="language-rust">use std::io;
+
+fn main() {
+    println!("وضعیت هوا را انتخاب کن:");
+    println!("1: آفتابی | 2: بارانی | 3: برفی | 4: ابری");
+
+    let mut input = String::new();
+    io::stdin().read_line(&amp;mut input).expect("خطا در خواندن");
+
+    let choice: u32 = input.trim().parse().expect("لطفاً یک عدد وارد کن");
+
+    let weather = match choice {
+        1 =&gt; Weather::Sunny,
+        2 =&gt; Weather::Rainy,
+        3 =&gt; Weather::Snowy,
+        4 =&gt; Weather::Cloudy,
+        _ =&gt; {
+            println!("عدد نامعتبر، پیش‌فرض آفتابی در نظر گرفته شد.");
+            Weather::Sunny
+        }
+    };
+
+    let shirt = recommend_shirt(weather);
+    println!("پیشنهاد من: پیراهن {}", shirt);
+}</code></pre>
+<h4 id="۶۵۴-استفاده-از-option-برای-رنگ-دلخواه"><a class="header" href="#۶۵۴-استفاده-از-option-برای-رنگ-دلخواه">۶.۵.۴. استفاده از Option برای رنگ دلخواه</a></h4>
+<p>حالا فرض کن کاربر یک رنگ خاص دوست دارد. اگر وارد کرد، از همان استفاده کن، در غیر این صورت پیشنهاد خودمان را بده:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let preferred_color: Option&lt;String&gt; = None; // می‌توانیم بعداً از کاربر بپرسیم
+let final_color = match preferred_color {
+    Some(color) =&gt; color,
+    None =&gt; recommend_shirt(weather).to_string(),
+};
+println!("رنگ نهایی: {}", final_color);
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/6.5.png" alt="[Illustration: A friendly cartoon robot washing machine/display panel showing a weather input screen. A dropdown enum selector points to a suggested shirt popping out of a slot. Ferris stands beside holding a rainbow-colored shirt. Style: cozy tech, children’s book illustration, bright and inviting, 16:9.]"></p>
+<hr>
+<h3 id="۶۶-جمعبندی-و-چالش"><a class="header" href="#۶۶-جمعبندی-و-چالش">۶.۶. جمع‌بندی و چالش</a></h3>
+<h4 id="۶۶۱-مرور-مفاهیم"><a class="header" href="#۶۶۱-مرور-مفاهیم">۶.۶.۱. مرور مفاهیم</a></h4>
+<p>در این فصل یاد گرفتی:<br>✅ <code>enum</code> نوعی است که فقط می‌تواند یکی از چند حالت مشخص را داشته باشد.<br>✅ هر حالت می‌تواند داده‌ی مخصوص خودش را داشته باشد.<br>✅ <code>Option&lt;T&gt;</code> یک enum استاندارد برای «یا چیزی هست، یا هیچی نیست» (<code>Some(T)</code> یا <code>None</code>).<br>✅ <code>match</code> دستگاهی برای تصمیم‌گیری بر اساس مقدار enum و استخراج داده‌های درون آن است.<br>✅ <code>if let</code> شکل خلاصه‌شده‌ی <code>match</code> برای وقتی فقط یک حالت مهم است.</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>تطبیق الگو با <code>match</code> – مخصوصاً وقتی داده از درون enum بیرون می‌کشی – ممکن است در ابتدا کمی دشوار به نظر برسد. نگران نباش! در کدهای واقعی Rust بارها و بارها از <code>match</code> استفاده می‌شود. هر بار که از آن استفاده کنی، برایت آسان‌تر خواهد شد. تمرین کن و لذت ببر!</p>
+</blockquote>
+<h4 id="۶۶۲-چالش-ماشین-حساب-با-result"><a class="header" href="#۶۶۲-چالش-ماشین-حساب-با-result">۶.۶.۲. چالش: ماشین حساب با Result</a></h4>
+<p>به جای <code>Option</code>، از یک enum دیگر به اسم <code>Result</code> استفاده می‌کنیم که برای مدیریت خطاها عالی است:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Result&lt;T, E&gt; {
+    Ok(T),
+    Err(E),
+}
+<span class="boring">}</span></code></pre>
+<p>یک تابع <code>divide</code> بنویس که دو <code>f64</code> بگیرد و اگر مقسوم‌علیه صفر نبود، <code>Ok(result)</code> برگرداند، در غیر این صورت <code>Err("تقسیم بر صفر")</code> برگرداند. سپس در <code>main</code> با <code>match</code> نتیجه را چاپ کن.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">fn divide(a: f64, b: f64) -&gt; Result&lt;f64, &amp;'static str&gt; {
+    if b == 0.0 {
+        Err("تقسیم بر صفر امکان‌پذیر نیست")
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn main() {
+    let result = divide(10.0, 2.0);
+    match result {
+        Ok(r) =&gt; println!("نتیجه: {}", r),
+        Err(e) =&gt; println!("خطا: {}", e),
+    }
+}</code></pre>
+<p>حالا تو می‌دانی چطور با <code>enum</code> و <code>match</code> حالت‌های مختلف را به زیبایی مدیریت کنی. در فصل بعد، یاد می‌گیریم چطور کدهایمان را در فایل‌ها و ماژول‌های مختلف سازماندهی کنیم تا مثل یک کتابخانه‌ی بزرگ و مرتب شود! 📚✨</p>
+<p><img src="assets/images/6.6.png" alt="[Illustration: Ferris the crab wearing a graduation cap, holding a glowing “Chapter 6 Complete” badge. Floating around him are colorful enum tags, match arms, Option/Result boxes, and a small weather remote. Encouraging, bright lighting, children’s book style, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-5.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-7.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-5.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-7.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۷: کتابخانه‌ی بزرگ شهر - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۷-کتابخانهی-بزرگ-شهر-ماژولها-و-فایلها"><a class="header" href="#فصل-۷-کتابخانهی-بزرگ-شهر-ماژولها-و-فایلها">فصل ۷: کتابخانه‌ی بزرگ شهر (ماژول‌ها و فایل‌ها)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۷۱-کتابخانه-خیلی-شلوغ-شد">۷.۱. کتابخانه خیلی شلوغ شد!</a><br><a href="#۷۱۱-داستان-کتابخانهی-بینظم-فریس">۷.۱.۱. داستان: کتابخانه‌ی بی‌نظم فریس</a><br><a href="#۷۱۲-مشکل-همه-چیز-در-یک-فایل">۷.۱.۲. مشکل: همه چیز در یک فایل</a><br><a href="#۷۱۳-معرفی-ماژول-به-عنوان-قفسه">۷.۱.۳. معرفی ماژول به عنوان قفسه</a><br><a href="#۷۲-قفسه‌بندی-mod">۷.۲. قفسه‌بندی (mod)</a><br><a href="#۷۲۱-تعریف-ماژول-در-یک-فایل">۷.۲.۱. تعریف ماژول در یک فایل</a><br><a href="#۷۲۲-صدا-زدن-توابع-ماژول">۷.۲.۲. صدا زدن توابع ماژول</a><br><a href="#۷۲۳-ماژول‌های-تو-در-تو">۷.۲.۳. ماژول‌های تو در تو</a><br><a href="#۷۲۴-جدا-کردن-ماژول-به-فایل-جداگانه">۷.۲.۴. جدا کردن ماژول به فایل جداگانه</a><br><a href="#۷۲۵-تمرین-ماژول‌های-ریاضی">۷.۲.۵. تمرین: ماژول‌های ریاضی</a><br><a href="#۷۳-قفل-کتابخانه-privacy">۷.۳. قفل کتابخانه (Privacy)</a><br><a href="#۷۳۱-خصوصی-بودن-پیش‌فرض">۷.۳.۱. خصوصی بودن پیش‌فرض</a><br><a href="#۷۳۲-عمومی-کردن-با-pub">۷.۳.۲. عمومی کردن با pub</a><br><a href="#۷۳۳-فیلدهای-خصوصی-در-struct">۷.۳.۳. فیلدهای خصوصی در struct</a><br><a href="#۷۳۴-چرا-محرمانگی-مهم-است">۷.۳.۴. چرا محرمانگی مهم است؟</a><br><a href="#۷۳۵-تمرین-ماژول-بانک">۷.۳.۵. تمرین: ماژول بانک</a><br><a href="#۷۴-میان‌برهای-کتابخانه-use-و-as">۷.۴. میان‌برهای کتابخانه (use و as)</a><br><a href="#۷۴۱-آوردن-توابع-با-use">۷.۴.۱. آوردن توابع با use</a><br><a href="#۷۴۲-تغییر-نام-با-as">۷.۴.۲. تغییر نام با as</a><br><a href="#۷۵-پروژه-بازسازی-بازی-حدس-عدد-با-ماژول‌ها">۷.۵. پروژه: بازسازی بازی حدس عدد با ماژول‌ها</a><br><a href="#۷۵۱-ساختار-پروژه">۷.۵.۱. ساختار پروژه</a><br><a href="#۷۵۲-ماژول-input">۷.۵.۲. ماژول input</a><br><a href="#۷۵۳-ماژول-random">۷.۵.۳. ماژول random</a><br><a href="#۷۵۴-ماژول-game_logic">۷.۵.۴. ماژول game_logic</a><br><a href="#۷۵۵-فایل-mainrs">۷.۵.۵. فایل main.rs</a><br><a href="#۷۶-جمع‌بندی-و-چالش">۷.۶. جمع‌بندی و چالش</a><br><a href="#۷۶۱-مرور-مفاهیم">۷.۶.۱. مرور مفاهیم</a><br><a href="#۷۶۲-چالش-crate-shapes">۷.۶.۲. چالش: crate shapes</a></p>
+<hr>
+<h3 id="۷۱-کتابخانه-خیلی-شلوغ-شد"><a class="header" href="#۷۱-کتابخانه-خیلی-شلوغ-شد">۷.۱. کتابخانه خیلی شلوغ شد!</a></h3>
+<h4 id="۷۱۱-داستان-کتابخانهی-بینظم-فریس"><a class="header" href="#۷۱۱-داستان-کتابخانهی-بینظم-فریس">۷.۱.۱. داستان: کتابخانه‌ی بی‌نظم فریس</a></h4>
+<p>فریس عاشق کتاب خواندن است و یک کتابخانه‌ی بزرگ در سفینه‌اش دارد. روزهای اول، همه‌ی کتاب‌ها را یکجا روی یک میز بزرگ می‌ریخت. 📚📖<br>اما خیلی زود، تعداد کتاب‌ها زیاد شد و کتابخانه شبیه انبار آشغال شد! هر وقت می‌خواست «دانشنامه‌ی کهکشان‌ها» را پیدا کند، باید ساعت‌ها دنبال یک تکه کاغذ می‌گشت.<br>بالاخره فریس تصمیم گرفت کتابخانه را مرتب کند. قفسه‌های جداگانه ساخت: یک قفسه برای کتاب‌های علمی، یکی برای داستان‌ها، یکی برای نقشه‌های ستاره‌ای و یکی هم برای کتاب‌های آشپزی فضایی! حالا همه‌چی سر جای خودش است و پیدا کردنشان آب خوردن است! 💧</p>
+<h4 id="۷۱۲-مشکل-همه-چیز-در-یک-فایل"><a class="header" href="#۷۱۲-مشکل-همه-چیز-در-یک-فایل">۷.۱.۲. مشکل: همه چیز در یک فایل</a></h4>
+<p>در برنامه‌نویسی هم دقیقاً همین اتفاق می‌افتد. تا اینجا ما همه‌ی کدهایمان را در یک فایل به اسم <code>main.rs</code> می‌نوشتیم. برای بازی حدس عدد (که حدود ۵۰ خط کد داشت) این کار عالی بود.<br>اما تصور کن داری یک بازی بزرگ مثل «ماینکرفت» را می‌نویسی! هزاران خط کد، هزاران تابع و صدها متغیر! اگر همه را در یک فایل بریزی، پیدا کردن یک خط کوچک می‌شود مثل پیدا کردن یک سوزن در انبار کاه! 😵‍💫<br>علاوه بر این، اگر چند نفر بخواهند با هم کار کنند، همه‌شان باید همان یک فایل را تغییر دهند و کلی هم دعوا می‌شود!</p>
+<h4 id="۷۱۳-معرفی-ماژول-به-عنوان-قفسه"><a class="header" href="#۷۱۳-معرفی-ماژول-به-عنوان-قفسه">۷.۱.۳. معرفی ماژول به عنوان قفسه</a></h4>
+<p>در Rust، راه حل این مشکل استفاده از <strong>ماژول (Module)</strong> است.<br>ماژول مثل یک قفسه‌ی جداگانه است. هر قفسه می‌تواند کتاب‌های (کدهای) مخصوص خودش را داشته باشد.<br>ماژول‌ها سه کار بزرگ برایمان می‌کنند:<br>🔹 <strong>سازماندهی</strong>: کد را دسته‌بندی می‌کنند تا قشنگ و مرتب باشد.<br>🔹 <strong>محرمانگی</strong>: می‌توانیم بعضی کدها را خصوصی نگه داریم تا کسی از بیرون دستکاریشان نکند.<br>🔹 <strong>جلوگیری از تداخل</strong>: دو تا ماژول مختلف می‌توانند یک تابع به اسم یکسان داشته باشند بدون اینکه قاطی شوند!</p>
+<p><strong>این یعنی تو داری یک مهارت حرفه‌ای مهندسی نرم‌افزار را یاد می‌گیری – مدیر یک کتابخانه‌ی عظیم از کدها! هر قدمت به «جادوگر کامپیوتر» شدن نزدیک‌تر می‌کند.</strong> 🧙‍♂️</p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>ماژول‌ها روش Rust برای مدیریت کد در مقیاس بزرگ هستند. این مفهوم در تمام زبان‌های برنامه‌نویسی وجود دارد. این فصل نشان می‌دهد چطور از یک اسکریپت تک‌فایلی به یک پروژهٔ چندفایلی برویم – یک مهارت ضروری در دنیای واقعی. کتاب رسمی Rust فصل کاملی درباره‌ی ماژول‌ها دارد:<br><a href="https://doc.rust-lang.org/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html">doc.rust-lang.org/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html</a></p>
+</blockquote>
+<p><img src="assets/images/7.1.png" alt="[Illustration: Educational illustration of Ferris the crab standing in a messy spaceship room full of scattered books. On the right side, a clean, organized bookshelf with labeled shelves (Science, Stories, Maps) is shown. Ferris is happily placing a book on the correct shelf. Style: vibrant children’s book, clean lines, soft lighting, 16:9.]"></p>
+<hr>
+<h3 id="۷۲-قفسهبندی-mod"><a class="header" href="#۷۲-قفسهبندی-mod">۷.۲. قفسه‌بندی (mod)</a></h3>
+<h4 id="۷۲۱-تعریف-ماژول-در-یک-فایل"><a class="header" href="#۷۲۱-تعریف-ماژول-در-یک-فایل">۷.۲.۱. تعریف ماژول در یک فایل</a></h4>
+<p>ساده‌ترین راه برای ساختن قفسه (ماژول)، استفاده از کلمه‌ی کلیدی <code>mod</code> است.<br>می‌توانیم ماژول را همان در فایل <code>main.rs</code> تعریف کنیم:</p>
+<pre class="playground"><code class="language-rust">mod animals {
+    pub fn bark() {
+        println!("هاپ! هاپ!");
+    }
+
+    pub struct Dog {
+        pub name: String,
+    }
+}
+
+fn main() {
+    // استفاده از تابع داخل ماژول
+    animals::bark(); 
+    
+    // ساختن یک سگ
+    let my_dog = animals::Dog {
+        name: String::from("رکسی"),
+    };
+    println!("اسم سگ من: {}", my_dog.name);
+}</code></pre>
+<p>به کلمه‌ی <code>pub</code> (مخفف Public به معنی عمومی) دقت کن. هر چیزی که بخواهیم از بیرون ماژول صدایش بزنیم، باید <code>pub</code> باشد. در غیر این صورت، آن کد خصوصی می‌ماند و فقط داخل همان ماژول قابل استفاده است.</p>
+<h4 id="۷۲۲-صدا-زدن-توابع-ماژول"><a class="header" href="#۷۲۲-صدا-زدن-توابع-ماژول">۷.۲.۲. صدا زدن توابع ماژول</a></h4>
+<p>برای دسترسی به چیزی در یک ماژول، از علامت <code>::</code> (دو تا دونقطه) استفاده می‌کنیم.<br>مثلاً <code>animals::bark()</code> یعنی: «برو به قفسه‌ی <code>animals</code> و تابع <code>bark</code> را پیدا کن و اجرایش کن!» 🐕</p>
+<h4 id="۷۲۳-ماژولهای-تو-در-تو"><a class="header" href="#۷۲۳-ماژولهای-تو-در-تو">۷.۲.۳. ماژول‌های تو در تو</a></h4>
+<p>می‌توانیم ماژول‌ها را مثل جعبه‌های تودرتو، داخل هم قرار دهیم:</p>
+<pre class="playground"><code class="language-rust">mod house {
+    pub mod kitchen {
+        pub fn cook() {
+            println!("آشپزی در آشپزخانه!");
+        }
+    }
+
+    pub mod living_room {
+        pub fn watch_tv() {
+            println!("تماشای تلویزیون در پذیرایی!");
+        }
+    }
+}
+
+fn main() {
+    house::kitchen::cook();
+    house::living_room::watch_tv();
+}</code></pre>
+<h4 id="۷۲۴-جدا-کردن-ماژول-به-فایل-جداگانه"><a class="header" href="#۷۲۴-جدا-کردن-ماژول-به-فایل-جداگانه">۷.۲.۴. جدا کردن ماژول به فایل جداگانه</a></h4>
+<p>وقتی ماژول‌ها بزرگ می‌شوند، دیگر جای خوبی در <code>main.rs</code> ندارند. بهتر است هر کدام را ببریم در یک فایل جدا!<br>برای این کار:
+۱. یک فایل جدید کنار <code>main.rs</code> (در پوشه‌ی <code>src</code>) می‌سازیم با همان اسم ماژول و پسوند <code>.rs</code>.
+۲. محتویات ماژول (بدون کلمه‌ی <code>mod</code>) را در آن فایل می‌نویسیم.
+۳. در <code>main.rs</code> فقط می‌نویسیم: <code>mod animals;</code></p>
+<p>📂 <strong>فایل <code>src/animals.rs</code>:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn bark() {
+    println!("هاپ!");
+}
+
+pub struct Dog {
+    pub name: String,
+}
+<span class="boring">}</span></code></pre>
+<p>📂 <strong>فایل <code>src/main.rs</code>:</strong></p>
+<pre class="playground"><code class="language-rust">mod animals; // این خط به Rust می‌گوید فایل animals.rs را پیدا کن!
+
+fn main() {
+    animals::bark();
+}</code></pre>
+<p>Rust خودش باهوش است و می‌فهمد که وقتی می‌نویسی <code>mod animals;</code> یعنی برو فایل <code>animals.rs</code> را بخوان. خیلی تمیز و مرتب! 🧹✨</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>استفاده از فایل‌های جداگانه ممکن است در ابتدا کمی عجیب به نظر برسد، اما بعد از چند بار تمرین برایت کاملاً طبیعی می‌شود. این دقیقاً همان روشی است که تمام پروژه‌های بزرگ Rust (حتی خود کامپایلر Rust) از آن استفاده می‌کنند.</p>
+</blockquote>
+<h4 id="۷۲۵-تمرین-ماژولهای-ریاضی"><a class="header" href="#۷۲۵-تمرین-ماژولهای-ریاضی">۷.۲.۵. تمرین: ماژول‌های ریاضی</a></h4>
+<p>یک پروژه جدید بساز (<code>cargo new math_modules</code>). دو تا ماژول به اسم‌های <code>math</code> و <code>strings</code> در فایل‌های جداگانه بساز.</p>
+<ul>
+<li>ماژول <code>math</code>: تابع <code>add</code> و <code>subtract</code>.</li>
+<li>ماژول <code>strings</code>: تابع <code>to_uppercase</code> و <code>to_lowercase</code>. (برای ساده‌تر شدن، می‌توانی از متدهای استاندارد <code>to_uppercase()</code> و <code>to_lowercase()</code> روی <code>String</code> استفاده کنی.)<br>بعد در <code>main.rs</code> از همه‌شان استفاده کن.</li>
+</ul>
+<p><img src="assets/images/7.2.png" alt="[Illustration: A cartoon carpenter Ferris building wooden shelves labeled “mod” and “pub”. Each shelf holds different code blocks (functions, structs). Tools like a hammer and ruler are scattered around. Style: educational, playful, bright colors, children’s book, 16:9.]"></p>
+<hr>
+<h3 id="۷۳-قفل-کتابخانه-privacy"><a class="header" href="#۷۳-قفل-کتابخانه-privacy">۷.۳. قفل کتابخانه (Privacy)</a></h3>
+<h4 id="۷۳۱-خصوصی-بودن-پیشفرض"><a class="header" href="#۷۳۱-خصوصی-بودن-پیشفرض">۷.۳.۱. خصوصی بودن پیش‌فرض</a></h4>
+<p>در Rust یک قانون طلایی داریم: <strong>همه‌چی خصوصی است!</strong> 🔒<br>یعنی اگر یک تابع یا متغیر بسازی، فقط همان ماژول (و زیرماژول‌هایش) می‌توانند ببینندش.<br>فکر کن یک دفترچه‌ی خاطرات داری. مگر می‌گذاری هر کسی بیاید بخواندش؟ نه! خودت تصمیم می‌گیری کدام صفحه‌ها را نشان بدهی.</p>
+<h4 id="۷۳۲-عمومی-کردن-با-pub"><a class="header" href="#۷۳۲-عمومی-کردن-با-pub">۷.۳.۲. عمومی کردن با pub</a></h4>
+<p>برای اینکه بقیه بتوانند یک چیز را ببینند، باید برچسب <code>pub</code> (عمومی) به آن بزنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>mod my_module {
+    pub fn public_function() {
+        println!("همه می‌توانند من را ببینند!");
+    }
+
+    fn private_function() {
+        println!("فقط اعضای این ماژول من را می‌بینند.");
+    }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۷۳۳-فیلدهای-خصوصی-در-struct"><a class="header" href="#۷۳۳-فیلدهای-خصوصی-در-struct">۷.۳.۳. فیلدهای خصوصی در struct</a></h4>
+<p>حتی اگر یک <code>struct</code> عمومی باشد، فیلدهای داخلش (مثل <code>name</code> یا <code>power</code>) به‌طور پیش‌فرض خصوصی هستند!<br>این خیلی خوب است چون اجازه می‌دهد ما کنترل کنیم چطور اطلاعات تغییر کنند. مثلاً در یک بازی، نباید کسی بتواند مستقیم <code>health</code> (سلامتی) قهرمان را زیاد کند؛ باید از تابع <code>heal()</code> استفاده کند که چک می‌کند آیا واقعاً دارو مصرف کرده یا نه.</p>
+<h4 id="۷۳۴-چرا-محرمانگی-مهم-است"><a class="header" href="#۷۳۴-چرا-محرمانگی-مهم-است">۷.۳.۴. چرا محرمانگی مهم است؟</a></h4>
+<p>🔹 <strong>امنیت</strong>: جلوی دسترسی غیرمجاز را می‌گیرد.<br>🔹 <strong>سادگی</strong>: کاربر فقط با چیزهای لازم کار می‌کند و گیج نمی‌شود.<br>🔹 <strong>انعطاف</strong>: می‌توانیم کدهای داخلی را تغییر دهیم بدون اینکه برنامه‌ی بقیه خراب شود (تا وقتی اسم توابع عمومی عوض نشود).</p>
+<h4 id="۷۳۵-تمرین-ماژول-بانک"><a class="header" href="#۷۳۵-تمرین-ماژول-بانک">۷.۳.۵. تمرین: ماژول بانک</a></h4>
+<p>یک ماژول <code>bank</code> بساز که یک حساب بانکی را مدیریت کند. یک <code>struct</code> به اسم <code>Account</code> داشته باشد که فیلد <code>balance</code> (موجودی) در آن خصوصی باشد.<br>متدهای عمومی <code>deposit</code> (واریز) و <code>withdraw</code> (برداشت) بنویس. <code>withdraw</code> باید چک کند موجودی کافی هست یا نه و اگر بود کم کند.</p>
+<p>💡 <strong>راهنمایی ساده:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Account {
+    balance: u32,
+}
+
+impl Account {
+    pub fn new(initial_balance: u32) -&gt; Account {
+        Account { balance: initial_balance }
+    }
+    pub fn deposit(&amp;mut self, amount: u32) {
+        self.balance += amount;
+    }
+    pub fn withdraw(&amp;mut self, amount: u32) -&gt; bool {
+        if amount &lt;= self.balance {
+            self.balance -= amount;
+            true
+        } else {
+            false
+        }
+    }
+    pub fn get_balance(&amp;self) -&gt; u32 {
+        self.balance
+    }
+}
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/7.3.png" alt="[Illustration: Illustration of Ferris the crab standing in front of a bank vault door. One door is open with a bright “pub” sign, revealing shiny gold coins. The other door is closed with a heavy lock and a “private” sign. Style: educational cartoon, bright colors, clear metaphor, 16:9.]"></p>
+<hr>
+<h3 id="۷۴-میانبرهای-کتابخانه-use-و-as"><a class="header" href="#۷۴-میانبرهای-کتابخانه-use-و-as">۷.۴. میان‌برهای کتابخانه (use و as)</a></h3>
+<p>گاهی نوشتن آدرس کامل (<code>animals::dog::bark()</code>) خیلی طولانی است!<br>با کلمه‌ی <code>use</code> می‌توانیم یک چیز را بیاوریم در دسترس خودمان، درست مثل اینکه کتاب را از قفسه برداریم و بگذاریم روی میز کار.</p>
+<h4 id="۷۴۱-آوردن-توابع-با-use"><a class="header" href="#۷۴۱-آوردن-توابع-با-use">۷.۴.۱. آوردن توابع با use</a></h4>
+<pre class="playground"><code class="language-rust">mod animals {
+    pub mod dog {
+        pub fn bark() {
+            println!("هاپ!");
+        }
+    }
+}
+
+use crate::animals::dog::bark;
+
+fn main() {
+    bark(); // دیگر لازم نیست آدرس کامل بنویسی!
+}</code></pre>
+<h4 id="۷۴۲-تغییر-نام-با-as"><a class="header" href="#۷۴۲-تغییر-نام-با-as">۷.۴.۲. تغییر نام با as</a></h4>
+<p>اگر دو تا تابع هم‌نام از دو ماژول مختلف داشته باشیم، با <code>use</code> قاطی می‌شوند!<br>برای حل این مشکل، با <code>as</code> بهشان اسم مستعار می‌دهیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use animals::dog::bark as dog_bark;
+use animals::cat::speak as cat_speak; // فرض کنیم گربه هم صدایی دارد
+<span class="boring">}</span></code></pre>
+<blockquote>
+<p>💡 <strong>نکته:</strong> <code>as</code> خیلی به کار می‌آید وقتی می‌خواهی اسم کوتاه‌تر یا معنی‌دارتری برای یک تابع بگذاری.</p>
+</blockquote>
+<p>در این کتاب فعلاً همین دو کاربرد <code>use</code> کافی است. بعداً که بزرگتر شدی، روش‌های پیشرفته‌تری هم یاد می‌گیری (مثل nested paths). اما الان همین قدر بدان که <code>use</code> دستت را برای نوشتن کدهای تمیز باز می‌گذارد.</p>
+<p><img src="assets/images/7.4.png" alt="[Illustration: A cartoon map showing a path from “crate” root to a function. A magnifying glass focuses on a shortcut sign labeled “use”. Ferris is walking a shorter path thanks to the shortcut. Style: playful vector illustration, clear educational graphic, 16:9.]"></p>
+<hr>
+<h3 id="۷۵-پروژه-بازسازی-بازی-حدس-عدد-با-ماژولها"><a class="header" href="#۷۵-پروژه-بازسازی-بازی-حدس-عدد-با-ماژولها">۷.۵. پروژه: بازسازی بازی حدس عدد با ماژول‌ها</a></h3>
+<p>حالا وقتش است بازی حدس عدد (فصل ۲) را با استفاده از ماژول‌ها بازنویسی کنیم تا ببینیم چقدر تمیز و حرفه‌ای می‌شود!</p>
+<h4 id="۷۵۱-ساختار-پروژه"><a class="header" href="#۷۵۱-ساختار-پروژه">۷.۵.۱. ساختار پروژه</a></h4>
+<p>اول فایل‌ها را در پوشه‌ی <code>src</code> اینطوری می‌چینیم:</p>
+<pre><code>src/
+├── main.rs
+├── input.rs       // مسئول گرفتن ورودی از کاربر
+├── random.rs      // مسئول ساخت عدد تصادفی
+└── game_logic.rs  // مسئول مقایسه و منطق بازی
+</code></pre>
+<p>(یادت نرود در <code>Cargo.toml</code> وابستگی <code>rand</code> را اضافه کنی!)</p>
+<h4 id="۷۵۲-ماژول-input-srcinputrs"><a class="header" href="#۷۵۲-ماژول-input-srcinputrs">۷.۵.۲. ماژول input (<code>src/input.rs</code>)</a></h4>
+<p>این فایل فقط کارش این است که یک عدد تمیز از کاربر بگیرد. اگر کاربر اشتباه تایپ کرد، دوباره می‌پرسد.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::io;
+
+pub fn read_number() -&gt; u32 {
+    loop {
+        println!("لطفاً یک عدد حدس بزن:");
+        let mut input = String::new();
+        io::stdin().read_line(&amp;mut input).expect("خطا");
+
+        match input.trim().parse() {
+            Ok(num) =&gt; return num,
+            Err(_) =&gt; println!("فقط عدد وارد کن!"),
+        }
+    }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۷۵۳-ماژول-random-srcrandomrs"><a class="header" href="#۷۵۳-ماژول-random-srcrandomrs">۷.۵.۳. ماژول random (<code>src/random.rs</code>)</a></h4>
+<p>عدد مخفی را اینجا می‌سازیم.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use rand::Rng;
+
+pub fn generate_secret() -&gt; u32 {
+    rand::thread_rng().gen_range(1..=100)
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۷۵۴-ماژول-game_logic-srcgame_logicrs"><a class="header" href="#۷۵۴-ماژول-game_logic-srcgame_logicrs">۷.۵.۴. ماژول game_logic (<code>src/game_logic.rs</code>)</a></h4>
+<p>اینجا مقایسه می‌کنیم. یک <code>enum</code> هم می‌سازیم که وضعیت بازی را نگه دارد.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub enum GuessResult {
+    TooLow,
+    TooHigh,
+    Correct,
+}
+
+pub fn check_guess(guess: u32, secret: u32) -&gt; GuessResult {
+    if guess &lt; secret { GuessResult::TooLow }
+    else if guess &gt; secret { GuessResult::TooHigh }
+    else { GuessResult::Correct }
+}
+
+pub fn get_message(result: &amp;GuessResult) -&gt; &amp;'static str {
+    match result {
+        GuessResult::TooLow =&gt; "⬆️ برو بالا!",
+        GuessResult::TooHigh =&gt; "⬇️ بیا پایین!",
+        GuessResult::Correct =&gt; "🏆 بردی!",
+    }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۷۵۵-فایل-mainrs"><a class="header" href="#۷۵۵-فایل-mainrs">۷.۵.۵. فایل main.rs</a></h4>
+<p>حالا نگاه کن <code>main.rs</code> چقدر خلوت و خوانا شده است!</p>
+<pre class="playground"><code class="language-rust">mod input;
+mod random;
+mod game_logic;
+
+use game_logic::GuessResult;
+
+fn main() {
+    println!("🎲 به بازی حدس عدد خوش آمدید! 🎲");
+    let secret = random::generate_secret();
+    let mut count = 0;
+
+    loop {
+        let guess = input::read_number();
+        count += 1;
+
+        let result = game_logic::check_guess(guess, secret);
+        println!("{}", game_logic::get_message(&amp;result));
+
+        if let GuessResult::Correct = result {
+            println!("✨ تو در {} تا حدس بردی! ✨", count);
+            break;
+        }
+    }
+}</code></pre>
+<p>دیگر لازم نیست ۱۰۰ خط کد را در یک فایل بخوانی! هر بخش دارد کار خودش را می‌کند. 😎</p>
+<p><img src="assets/images/7.5.png" alt="[Illustration: A cartoon folder tree structure showing src/ folder with four glowing files: main.rs, input.rs, random.rs, game_logic.rs. Arrows connect them showing how modules interact. Ferris stands beside giving a thumbs up. Style: clean infographic, educational, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۷۶-جمعبندی-و-چالش"><a class="header" href="#۷۶-جمعبندی-و-چالش">۷.۶. جمع‌بندی و چالش</a></h3>
+<h4 id="۷۶۱-مرور-مفاهیم"><a class="header" href="#۷۶۱-مرور-مفاهیم">۷.۶.۱. مرور مفاهیم</a></h4>
+<p>در این فصل یاد گرفتی:
+✅ <strong>ماژول‌ها (<code>mod</code>)</strong>: کد را به بخش‌های کوچک و مرتب تقسیم می‌کنند.<br>✅ <strong><code>pub</code></strong>: برای عمومی کردن توابع و متغیرها (در غیر این صورت خصوصی هستند).<br>✅ <strong>فایل‌ها</strong>: ماژول‌ها می‌توانند در فایل‌های <code>.rs</code> جداگانه باشند.<br>✅ <strong><code>use</code></strong>: برای کوتاه کردن مسیر دسترسی به آیتم‌ها.<br>✅ <strong><code>as</code></strong>: برای تغییر نام یک تابع یا نوع هنگام <code>use</code> کردن.</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>استفاده از ماژول‌ها و فایل‌های جداگانه ممکن است در ابتدا کار اضافی به نظر برسد، اما به محض اینکه پروژه‌ات رشد کند، می‌بینی که چقدر این روش به تو کمک می‌کند تا کدهای خود را سازماندهی کنی. مثل این است که اتاقت را مرتب کنی – اولش سخت است، اما بعداً خیلی راحت‌تر می‌توانی وسایلت را پیدا کنی.</p>
+</blockquote>
+<h4 id="۷۶۲-چالش-crate-shapes"><a class="header" href="#۷۶۲-چالش-crate-shapes">۷.۶.۲. چالش: crate shapes</a></h4>
+<p>یک پروژه‌ی جدید به اسم <code>shapes</code> بساز.<br>دو تا ماژول <code>circle</code> و <code>rectangle</code> در فایل‌های جدا بساز.<br>هر کدام باید دو تابع داشته باشند: <code>area</code> (مساحت) و <code>perimeter</code> (محیط).</p>
+<ul>
+<li>دایره: شعاع <code>r</code>. (فرمول مساحت: π × r²)</li>
+<li>مستطیل: طول <code>a</code> و عرض <code>b</code>.</li>
+</ul>
+<p>در <code>main.rs</code> این توابع را صدا بزن و نتیجه را برای یک دایره با شعاع ۵ و مستطیل ۴×۷ چاپ کن.</p>
+<p>💡 <strong>پاسخ نمونه (<code>circle.rs</code>):</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn area(radius: f64) -&gt; f64 {
+    std::f64::consts::PI * radius * radius
+}
+
+pub fn perimeter(radius: f64) -&gt; f64 {
+    2.0 * std::f64::consts::PI * radius
+}
+<span class="boring">}</span></code></pre>
+<p>حالا تو یک برنامه‌نویس واقعی شده‌ای که می‌داند چطور پروژه‌های بزرگ را مدیریت کند! 🏗️<br>در فصل بعد با <strong>Collections (وکتورها و هش‌مپ‌ها)</strong> آشنا می‌شویم؛ جعبه‌های جادویی که می‌توانند بزرگ و کوچک شوند و کلی داده را در خودشان نگه دارند. 📦✨</p>
+<p><img src="assets/images/7.6.png" alt="[Illustration: Ferris the crab wearing a graduation cap, holding a glowing badge “Chapter 7 Master”. Background shows a well-organized file cabinet with labels “mod”, “pub”, “use”. Floating icons of Rust files and folders surround him. Style: encouraging, vibrant children’s book, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-6.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-8.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-6.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-8.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

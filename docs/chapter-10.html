@@ -1,0 +1,636 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۱۰: کارخانه‌ی اسباب‌بازی‌سازی - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۱۰-کارخانهی-اسباببازیسازی-generics-و-traits"><a class="header" href="#فصل-۱۰-کارخانهی-اسباببازیسازی-generics-و-traits">فصل ۱۰: کارخانه‌ی اسباب‌بازی‌سازی (Generics و Traits)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۱۰۱-قالب-خمیر-بازی-generics">۱۰.۱. قالب خمیر بازی (Generics)</a><br><a href="#۱۰۱۱-داستان-قالب-ستاره-و-قلب">۱۰.۱.۱. داستان: قالب ستاره و قلب</a><br><a href="#۱۰۱۲-مشکل-کد-تکراری-برای-انواع-مختلف">۱۰.۱.۲. مشکل: کد تکراری برای انواع مختلف</a><br><a href="#۱۰۱۳-معرفی-generics-با-t">۱۰.۱.۳. معرفی Generics با T</a><br><a href="#۱۰۱۴-generics-در-توابع">۱۰.۱.۴. Generics در توابع</a><br><a href="#۱۰۱۵-generics-در-structها">۱۰.۱.۵. Generics در structها</a><br><a href="#۱۰۱۶-چند-نوع-generic">۱۰.۱.۶. چند نوع Generic</a><br><a href="#۱۰۱۷-generics-در-متدها">۱۰.۱.۷. Generics در متدها</a><br><a href="#۱۰۱۸-تمرین-struct-containert">۱۰.۱.۸. تمرین: struct Container<t></t></a><br><a href="#۱۰۲-گواهی‌نامهی-اسباب‌بازی-traits">۱۰.۲. گواهی‌نامه‌ی اسباب‌بازی (Traits)</a><br><a href="#۱۰۲۱-داستان-گواهی-صدا-داره-و-پرواز-می‌کنه">۱۰.۲.۱. داستان: گواهی صدا داره و پرواز می‌کنه</a><br><a href="#۱۰۲۲-تعریف-trait">۱۰.۲.۲. تعریف Trait</a><br><a href="#۱۰۲۳-پیاده‌سازی-trait-برای-یک-نوع">۱۰.۲.۳. پیاده‌سازی Trait برای یک نوع</a><br><a href="#۱۰۲۴-استفاده-از-trait-به-عنوان-پارامتر-trait-bound">۱۰.۲.۴. استفاده از Trait به عنوان پارامتر (Trait Bound)</a><br><a href="#۱۰۲۵-چندین-trait-با-">۱۰.۲.۵. چندین Trait با +</a><br><a href="#۱۰۲۶-بازگشتی-با-impl-trait">۱۰.۲.۶. بازگشتی با impl Trait</a><br><a href="#۱۰۲۷-traits-پیش‌ساخته-debug-clone-partialeq">۱۰.۲.۷. Traits پیش‌ساخته (Debug, Clone, PartialEq)</a><br><a href="#۱۰۲۸-تمرین-trait-area">۱۰.۲.۸. تمرین: Trait Area</a><br><a href="#۱۰۳-برچسب-تاریخ-انقضا-lifetimes--معرفی-مختصر">۱۰.۳. برچسب تاریخ انقضا (Lifetimes – معرفی مختصر)</a><br><a href="#۱۰۳۱-داستان-ماست-و-تاریخ-مصرف">۱۰.۳.۱. داستان: ماست و تاریخ مصرف</a><br><a href="#۱۰۳۲-مشکل-مرجع-به-داده‌ای-که-از-بین-رفته">۱۰.۳.۲. مشکل: مرجع به داده‌ای که از بین رفته</a><br><a href="#۱۰۳۳-نوشتن-lifetime-با-a">۱۰.۳.۳. نوشتن Lifetime با ’a</a><br><a href="#۱۰۳۴-قوانین-حذف-lifetime-lifetime-elision">۱۰.۳.۴. قوانین حذف Lifetime (Lifetime Elision)</a><br><a href="#۱۰۳۵-lifetime-در-structها">۱۰.۳.۵. Lifetime در structها</a><br><a href="#۱۰۳۶-اشاره-به-پیوست-الف-برای-مطالعه-بیشتر">۱۰.۳.۶. اشاره به پیوست الف برای مطالعه بیشتر</a><br><a href="#۱۰۴-پروژه-کتابخانهی-اشکال-با-generics-و-traits">۱۰.۴. پروژه: کتابخانه‌ی اشکال با Generics و Traits</a><br><a href="#۱۰۴۱-تعریف-trait-shape">۱۰.۴.۱. تعریف Trait Shape</a><br><a href="#۱۰۴۲-تعریف-struct-circlet">۱۰.۴.۲. تعریف struct Circle<t></t></a><br><a href="#۱۰۴۳-پیاده‌سازی-shape-برای-circlet">۱۰.۴.۳. پیاده‌سازی Shape برای Circle<t></t></a><br><a href="#۱۰۴۴-تعریف-struct-rectanglet-u">۱۰.۴.۴. تعریف struct Rectangle&lt;T, U&gt;</a><br><a href="#۱۰۴۵-استفاده-از-trait-object-boxdyn-shape">۱۰.۴.۵. استفاده از Trait Object (Box<dyn shape="">)</dyn></a><br><a href="#۱۰۵-جمع‌بندی-و-چالش">۱۰.۵. جمع‌بندی و چالش</a><br><a href="#۱۰۵۱-مرور-مفاهیم">۱۰.۵.۱. مرور مفاهیم</a><br><a href="#۱۰۵۲-چالش-تابع-largest-با-generic-و-trait-bound">۱۰.۵.۲. چالش: تابع largest با Generic و Trait Bound</a></p>
+<hr>
+<h3 id="۱۰۱-قالب-خمیر-بازی-generics"><a class="header" href="#۱۰۱-قالب-خمیر-بازی-generics">۱۰.۱. قالب خمیر بازی (Generics)</a></h3>
+<h4 id="۱۰۱۱-داستان-قالب-ستاره-و-قلب"><a class="header" href="#۱۰۱۱-داستان-قالب-ستاره-و-قلب">۱۰.۱.۱. داستان: قالب ستاره و قلب</a></h4>
+<p>فریس در کارخانه‌ی اسباب‌بازی‌سازی‌اش یک قالب پلاستیکی دارد که شکل ستاره است. 🌟 این قالب فقط یک شکل دارد، اما فریس می‌تواند خمیر قرمز، آبی، سبز یا حتی خمیر اکلیلی در آن بریزد. نتیجه همیشه یک ستاره است، ولی جنس و رنگش فرق می‌کند.<br>در برنامه‌نویسی هم دقیقاً همین کار را می‌کنیم. به آن می‌گویند <strong>Generics</strong>. یعنی یک کد می‌نویسیم که با انواع مختلف داده کار کند، بدون اینکه مجبور باشیم برای هر نوع یک کد جداگانه بنویسیم.</p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>Generics و Traits از پیشرفته‌ترین ویژگی‌های Rust هستند. این فصل آن‌ها را آرام معرفی می‌کند، اما تسلط نیاز به تمرین و زمان دارد. اگر کودک همه‌چیز را یکباره نفهمید، نگران نباشید – در پروژه‌های بعدی بارها با آن‌ها روبرو خواهید شد. کتاب رسمی Rust فصل کاملی درباره‌ی Generics دارد:<br><a href="https://doc.rust-lang.org/book/ch10-00-generics.html">doc.rust-lang.org/book/ch10-00-generics.html</a></p>
+</blockquote>
+<h4 id="۱۰۱۲-مشکل-کد-تکراری-برای-انواع-مختلف"><a class="header" href="#۱۰۱۲-مشکل-کد-تکراری-برای-انواع-مختلف">۱۰.۱.۲. مشکل: کد تکراری برای انواع مختلف</a></h4>
+<p>فرض کن می‌خواهیم تابعی بنویسیم که بزرگ‌ترین عدد را در یک لیست پیدا کند. اگر فقط برای <code>i32</code> بنویسیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn largest_i32(list: &amp;[i32]) -&gt; i32 {
+    let mut largest = list[0];
+    for &amp;item in list {
+        if item &gt; largest { largest = item; }
+    }
+    largest
+}
+<span class="boring">}</span></code></pre>
+<p>حالا اگر بخواهیم همان کار را برای <code>f64</code> یا <code>char</code> انجام دهیم، باید کل کد را دوباره بنویسیم! این کار هم وقت‌گیر است، هم پر از باگ. 🥲</p>
+<h4 id="۱۰۱۳-معرفی-generics-با-t"><a class="header" href="#۱۰۱۳-معرفی-generics-با-t">۱۰.۱.۳. معرفی Generics با <code>T</code></a></h4>
+<p>به جای کپی کردن کد، از یک حرف جایگزین (معمولاً <code>T</code> به معنی Type) استفاده می‌کنیم. <code>T</code> مثل یک فضای خالی در فرم است که کامپایلر موقع اجرا، نوع دقیق را در آن می‌گذارد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn largest&lt;T&gt;(list: &amp;[T]) -&gt; T {
+    let mut largest = list[0];
+    for &amp;item in list {
+        if item &gt; largest { largest = item; } // ❌ اینجا فعلاً خطا می‌گیریم!
+    }
+    largest
+}
+<span class="boring">}</span></code></pre>
+<p>⚠️ <strong>نکته‌ی مهم:</strong> کامپایلر اینجا خطا می‌دهد چون نمی‌داند <code>T</code> اصلاً قابلیت مقایسه (<code>&gt;</code>) دارد یا نه! برای حل این مشکل به <strong>Trait</strong> نیاز داریم (که در بخش بعد یاد می‌گیریم). فعلاً برویم سراغ مثال‌های ساده‌تری که نیاز به Trait ندارند.</p>
+<h4 id="۱۰۱۴-generics-در-توابع"><a class="header" href="#۱۰۱۴-generics-در-توابع">۱۰.۱.۴. Generics در توابع</a></h4>
+<p>یک تابع ساده که هر چیزی به آن بدهی، همان را برمی‌گرداند:</p>
+<pre class="playground"><code class="language-rust">fn identity&lt;T&gt;(value: T) -&gt; T {
+    value
+}
+
+fn main() {
+    let x = identity(42);       // T اینجا i32 می‌شود
+    let y = identity("سلام");   // T اینجا &amp;str می‌شود
+    println!("{} و {}", x, y);
+}</code></pre>
+<p>کامپایلر خودش حدس می‌زند <code>T</code> باید چه نوعی باشد. به این می‌گویند <strong>Type Inference</strong>. 🧠</p>
+<h4 id="۱۰۱۵-generics-در-structها"><a class="header" href="#۱۰۱۵-generics-در-structها">۱۰.۱.۵. Generics در structها</a></h4>
+<p>می‌توانیم ساختارهایی بسازیم که فیلدهایشان از پیش مشخص نباشند:</p>
+<pre class="playground"><code class="language-rust">struct Point&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let int_point = Point { x: 5, y: 10 };     // Point&lt;i32&gt;
+    let float_point = Point { x: 1.5, y: 3.2 }; // Point&lt;f64&gt;
+}</code></pre>
+<p>دقت کن که <code>x</code> و <code>y</code> باید <strong>هم‌نوع</strong> باشند. اگر بخواهیم مختصات با دو نوع مختلف داشته باشیم، باید دو تا <code>T</code> تعریف کنیم.</p>
+<h4 id="۱۰۱۶-چند-نوع-generic"><a class="header" href="#۱۰۱۶-چند-نوع-generic">۱۰.۱.۶. چند نوع Generic</a></h4>
+<pre class="playground"><code class="language-rust">struct Pair&lt;T, U&gt; {
+    first: T,
+    second: U,
+}
+
+fn main() {
+    let pair = Pair { first: 42, second: "hello" }; // Pair&lt;i32, &amp;str&gt;
+}</code></pre>
+<h4 id="۱۰۱۷-generics-در-متدها"><a class="header" href="#۱۰۱۷-generics-در-متدها">۱۰.۱.۷. Generics در متدها</a></h4>
+<p>وقتی برای یک <code>struct</code> جنریک متد می‌نویسیم، باید قبل از <code>impl</code> نوع جنریک را اعلام کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl&lt;T&gt; Point&lt;T&gt; {
+    fn x(&amp;self) -&gt; &amp;T {
+        &amp;self.x
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>حتی می‌توانیم متدی بنویسیم که فقط برای یک نوع خاص از <code>T</code> کار کند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Point&lt;f64&gt; {
+    fn distance_from_origin(&amp;self) -&gt; f64 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>اینجا <code>distance_from_origin</code> فقط روی <code>Point</code>های اعشاری کار می‌کند، نه روی <code>Point&lt;i32&gt;</code>. خیلی هوشمندانه است! 📐</p>
+<h4 id="۱۰۱۸-تمرین-struct-containert"><a class="header" href="#۱۰۱۸-تمرین-struct-containert">۱۰.۱.۸. تمرین: struct <code>Container&lt;T&gt;</code></a></h4>
+<p>یک جعبه‌ی جنریک بساز که هر چیزی در آن بگذاری را نگه دارد و با متد <code>get</code> به تو نشان بدهد.</p>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust">struct Container&lt;T&gt; {
+    item: T,
+}
+
+impl&lt;T&gt; Container&lt;T&gt; {
+    fn new(item: T) -&gt; Self {
+        Container { item }
+    }
+    fn get(&amp;self) -&gt; &amp;T {
+        &amp;self.item
+    }
+}
+
+fn main() {
+    let c1 = Container::new(42);
+    let c2 = Container::new(String::from("فریس"));
+    println!("{} و {}", c1.get(), c2.get());
+}</code></pre>
+<p><img src="assets/images/10.1.png" alt="[Illustration: A cartoon workbench with a flexible “mold” labeled &lt;T&gt;. Around it are colorful clay shapes (numbers, letters, emojis) being pressed into the mold, each emerging as a perfectly formed generic toy. Ferris the crab stands beside it holding a blueprint. Style: playful, educational children’s book illustration, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۱۰۲-گواهینامهی-اسباببازی-traits"><a class="header" href="#۱۰۲-گواهینامهی-اسباببازی-traits">۱۰.۲. گواهی‌نامه‌ی اسباب‌بازی (Traits)</a></h3>
+<h4 id="۱۰۲۱-داستان-گواهی-صدا-داره-و-پرواز-میکنه"><a class="header" href="#۱۰۲۱-داستان-گواهی-صدا-داره-و-پرواز-میکنه">۱۰.۲.۱. داستان: گواهی صدا داره و پرواز می‌کنه</a></h4>
+<p>در کارخانه‌ی فریس، هر اسباب‌بازی یک سری «گواهی‌نامه» دارد. مثلاً بعضی‌ها گواهی «صدا داره» (<code>MakeSound</code>) دارند، بعضی‌ها گواهی «پرواز می‌کند» (<code>Fly</code>). این گواهی‌ها به ما نمی‌گویند اسباب‌بازی چه شکلی است، می‌گویند <strong>چه کارهایی می‌تواند انجام بدهد</strong>. در Rust به این گواهی‌ها می‌گوییم <strong>Trait</strong>. 🏅</p>
+<h4 id="۱۰۲۲-تعریف-trait"><a class="header" href="#۱۰۲۲-تعریف-trait">۱۰.۲.۲. تعریف Trait</a></h4>
+<p>یک Trait فقط لیست کارهایی است که یک نوع باید بلد باشد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait MakeSound {
+    fn make_sound(&amp;self);
+}
+<span class="boring">}</span></code></pre>
+<p>بدنه‌ی تابع را اینجا نمی‌نویسیم. فقط می‌گوییم «هر کسی این Trait را بگیرد، باید این متد را داشته باشد.»</p>
+<h4 id="۱۰۲۳-پیادهسازی-trait-برای-یک-نوع"><a class="header" href="#۱۰۲۳-پیادهسازی-trait-برای-یک-نوع">۱۰.۲.۳. پیاده‌سازی Trait برای یک نوع</a></h4>
+<p>با <code>impl Trait for Type</code> به یک struct یا enum می‌گوییم حالا دیگر این گواهی‌نامه را دارد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Dog { name: String }
+
+impl MakeSound for Dog {
+    fn make_sound(&amp;self) {
+        println!("{} می‌گوید: هاپ! هاپ!", self.name);
+    }
+}
+
+struct Car;
+impl MakeSound for Car {
+    fn make_sound(&amp;self) {
+        println!("بوق بوق!");
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>حالا <code>Dog</code> و <code>Car</code> هر دو <code>MakeSound</code> هستند، ولی هر کدام به روش خودش صدا درمی‌آورند!</p>
+<h4 id="۱۰۲۴-استفاده-از-trait-به-عنوان-پارامتر-trait-bound"><a class="header" href="#۱۰۲۴-استفاده-از-trait-به-عنوان-پارامتر-trait-bound">۱۰.۲.۴. استفاده از Trait به عنوان پارامتر (Trait Bound)</a></h4>
+<p>می‌توانیم تابعی بنویسیم که به جای نوع دقیق، بگوید «هر چیزی که این Trait را داشته باشد قبول می‌کنم»:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn notify(item: &amp;impl MakeSound) {
+    item.make_sound();
+}
+<span class="boring">}</span></code></pre>
+<p>یا شکل کلاسیک‌تر (Trait Bound):</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn notify&lt;T: MakeSound&gt;(item: &amp;T) {
+    item.make_sound();
+}
+<span class="boring">}</span></code></pre>
+<p>هر دو یکی هستند. دومی زمانی خوب است که چند تا پارامتر جنریک دارید و می‌خواهید شرط‌هایشان را جدا بنویسید.</p>
+<h4 id="۱۰۲۵-چندین-trait-با-"><a class="header" href="#۱۰۲۵-چندین-trait-با-">۱۰.۲.۵. چندین Trait با <code>+</code></a></h4>
+<p>اگر یک نوع باید چند تا گواهی‌نامه همزمان داشته باشد، از <code>+</code> استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn fly_and_sound(item: &amp;(impl MakeSound + Fly)) {
+    item.make_sound();
+    item.fly();
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۰۲۶-بازگشتی-با-impl-trait"><a class="header" href="#۱۰۲۶-بازگشتی-با-impl-trait">۱۰.۲.۶. بازگشتی با <code>impl Trait</code></a></h4>
+<p>می‌توانیم تابعی بنویسیم که خروجی‌اش یک نوع مجهول ولی دارای یک Trait خاص باشد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn get_sound_maker() -&gt; impl MakeSound {
+    Dog { name: String::from("بلا") }
+}
+<span class="boring">}</span></code></pre>
+<p>این خیلی کاربرد دارد وقتی نوع برگشتی خیلی پیچیده است یا نمی‌خواهیم کاربر دقیقاً بداند پشت پرده چیست. فقط می‌داند «صدا می‌دهد»! 🔊</p>
+<h4 id="۱۰۲۷-traits-پیشساخته-debug-clone-partialeq"><a class="header" href="#۱۰۲۷-traits-پیشساخته-debug-clone-partialeq">۱۰.۲.۷. Traits پیش‌ساخته (Debug, Clone, PartialEq)</a></h4>
+<p>Rust چند تا Trait آماده دارد که با یک خط <code>#[derive(...)]</code> خودکار برایتان می‌سازد:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Trait</th><th>کاربرد</th><th>مثال</th></tr>
+</thead>
+<tbody>
+<tr><td><code>Debug</code></td><td>چاپ دیباگ با <code>{:?}</code></td><td><code>println!("{:?}", obj);</code></td></tr>
+<tr><td><code>Clone</code></td><td>کپی صریح با <code>.clone()</code></td><td><code>let copy = original.clone();</code></td></tr>
+<tr><td><code>Copy</code></td><td>کپی خودکار (فقط برای انواع ساده)</td><td><code>let x = 5; let y = x;</code></td></tr>
+<tr><td><code>PartialEq</code></td><td>مقایسه با <code>==</code> و <code>!=</code></td><td><code>if a == b { ... }</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>مثال:</p>
+<pre class="playground"><code class="language-rust">#[derive(Debug, Clone, PartialEq)]
+struct Monster { name: String, power: u32 }
+
+fn main() {
+    let m1 = Monster { name: String::from("دودو"), power: 100 };
+    let m2 = m1.clone();
+    println!("{:?}", m1);          // چاپ خوشگل
+    println!("برابرند؟ {}", m1 == m2); // true
+}</code></pre>
+<h4 id="۱۰۲۸-تمرین-trait-area"><a class="header" href="#۱۰۲۸-تمرین-trait-area">۱۰.۲.۸. تمرین: Trait <code>Area</code></a></h4>
+<p>یک Trait بساز که مساحت را حساب کند. دو شکل مختلف برای آن بنویس و جمع مساحت‌شان را حساب کن.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Area {
+    fn area(&amp;self) -&gt; f64;
+}
+
+struct Circle { radius: f64 }
+impl Area for Circle {
+    fn area(&amp;self) -&gt; f64 {
+        std::f64::consts::PI * self.radius * self.radius
+    }
+}
+
+struct Rectangle { width: f64, height: f64 }
+impl Area for Rectangle {
+    fn area(&amp;self) -&gt; f64 { self.width * self.height }
+}
+
+fn total_area(shapes: &amp;[&amp;dyn Area]) -&gt; f64 {
+    shapes.iter().map(|s| s.area()).sum()
+}
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/10.2.png" alt="[Illustration: A cartoon quality control desk. A friendly robot inspector stamps “CERTIFIED” badges labeled “MakeSound”, “Fly”, and “Debug” onto different toys (dog, car, robot). Ferris watches proudly holding a checklist. Style: clean vector illustration, educational metaphor, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۱۰۳-برچسب-تاریخ-انقضا-lifetimes--معرفی-مختصر"><a class="header" href="#۱۰۳-برچسب-تاریخ-انقضا-lifetimes--معرفی-مختصر">۱۰.۳. برچسب تاریخ انقضا (Lifetimes – معرفی مختصر)</a></h3>
+<h4 id="۱۰۳۱-داستان-ماست-و-تاریخ-مصرف"><a class="header" href="#۱۰۳۱-داستان-ماست-و-تاریخ-مصرف">۱۰.۳.۱. داستان: ماست و تاریخ مصرف</a></h4>
+<p>وقتی ماست می‌خری، یک تاریخ انقضا روی آن است. تا آن تاریخ معتبر است، بعدش خراب می‌شود. در Rust هم وقتی یک <strong>مرجع</strong> (Reference) می‌سازیم، یک «تاریخ انقضا» دارد به اسم <strong>Lifetime</strong> (طول عمر). این تاریخ می‌گوید مرجع ما تا کجای برنامه زنده و معتبر است. ⏳</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>Lifetimes یکی از خاص‌ترین مفاهیم Rust است. حتی برنامه‌نویسان باتجربه هم گاهی برایشان چالش برانگیز است. اگر الان متوجه نشدی، نگران نباش – در ۹۵٪ مواقع نیازی نیست خودت آن را بنویسی و کامپایلر Rust همه‌چیز را برایت مدیریت می‌کند.</p>
+</blockquote>
+<h4 id="۱۰۳۲-مشکل-مرجع-به-دادهای-که-از-بین-رفته"><a class="header" href="#۱۰۳۲-مشکل-مرجع-به-دادهای-که-از-بین-رفته">۱۰.۳.۲. مشکل: مرجع به داده‌ای که از بین رفته</a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let r;
+{
+    let x = 5;
+    r = &amp;x;
+} // x اینجا می‌میرد و حافظه‌اش پاک می‌شود
+println!("{}", r); // ❌ خطا! r به یک جای خالی اشاره می‌کند
+<span class="boring">}</span></code></pre>
+<p>کامپایلر Rust این را می‌بیند و اجازه نمی‌دهد برنامه کامپایل شود. این یکی از دلایل اصلی است که Rust «امن‌ترین» زبان دنیاست! 🛡️</p>
+<h4 id="۱۰۳۳-نوشتن-lifetime-با-a"><a class="header" href="#۱۰۳۳-نوشتن-lifetime-با-a">۱۰.۳.۳. نوشتن Lifetime با <code>'a</code></a></h4>
+<p>گاهی کامپایلر گیج می‌شود که خروجی یک تابع به کدام ورودی وصل است. با <code>'a</code> به او کمک می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn longest&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str {
+    if x.len() &gt; y.len() { x } else { y }
+}
+<span class="boring">}</span></code></pre>
+<p>یعنی: «خروجی تابع دقیقاً به اندازه‌ای زنده می‌ماند که کوتاه‌ترین ورودی (<code>x</code> یا <code>y</code>) زنده باشد.» این‌طوری کامپایلر خیالش راحت می‌شود که هیچ وقت به داده‌ی مرده اشاره نمی‌کنیم.</p>
+<h4 id="۱۰۳۴-قوانین-حذف-lifetime-lifetime-elision"><a class="header" href="#۱۰۳۴-قوانین-حذف-lifetime-lifetime-elision">۱۰.۳.۴. قوانین حذف Lifetime (Lifetime Elision)</a></h4>
+<p>خبر خوب: <strong>در ۹۵٪ مواقع لازم نیست <code>'a</code> بنویسی!</strong> Rust سه قانون ساده دارد که خودش حدس می‌زند:
+۱. هر پارامتر مرجع، یک Lifetime مخفی جداگانه می‌گیرد.
+۲. اگر فقط <strong>یک</strong> پارامتر مرجع ورودی داشته باشیم، خروجی همان Lifetime را می‌گیرد.
+۳. اگر چند پارامتر مرجع داشته باشیم و یکی از آنها <code>&amp;self</code> یا <code>&amp;mut self</code> باشد، خروجی Lifetime خود <code>self</code> را می‌گیرد.
+پس توابعی مثل <code>fn first_word(s: &amp;str) -&gt; &amp;str</code> یا متدهای معمولی نیاز به <code>'a</code> ندارند. ✨</p>
+<h4 id="۱۰۳۵-lifetime-در-structها"><a class="header" href="#۱۰۳۵-lifetime-در-structها">۱۰.۳.۵. Lifetime در structها</a></h4>
+<p>اگر یک struct بخواهد یک مرجع را نگه دارد، باید Lifetime را در تعریفش بنویسیم:</p>
+<pre class="playground"><code class="language-rust">struct Excerpt&lt;'a&gt; {
+    part: &amp;'a str,
+}
+
+fn main() {
+    let novel = String::from("داستان بلند...");
+    let first_sentence = novel.split('.').next().unwrap();
+    let excerpt = Excerpt { part: first_sentence };
+    println!("{}", excerpt.part);
+}</code></pre>
+<p>این‌طوری کامپایلر می‌داند تا وقتی <code>excerpt</code> زنده است، <code>novel</code> هم باید زنده بماند تا <code>part</code> خراب نشود.</p>
+<h4 id="۱۰۳۶-اشاره-به-پیوست-الف-برای-مطالعه-بیشتر"><a class="header" href="#۱۰۳۶-اشاره-به-پیوست-الف-برای-مطالعه-بیشتر">۱۰.۳.۶. اشاره به پیوست الف برای مطالعه بیشتر</a></h4>
+<p>فعلاً نگران Lifetimes نباش! کافی است بدانی این‌ها مثل چسب‌های ایمنی هستند که مطمئن می‌شوند هیچ مرجعی به داده‌ی پاک‌شده اشاره نمی‌کند. در بقیه‌ی کتاب، Rust بیشتر کارها را خودش انجام می‌دهد. اگر کنجکاو هستی، می‌توانی به «پیوست الف: ماجرای برچسب‌های رنگی» مراجعه کنی. 📖</p>
+<p><img src="assets/images/10.3.png" alt="[Illustration: Cartoon illustration of a yogurt cup labeled “&amp;’a str” with a glowing expiration date sticker. A friendly compiler robot checks the sticker with a magnifying glass, giving a green checkmark. Ferris stands nearby pointing at the safety seal. Style: educational, playful, soft lighting, 16:9.]"></p>
+<hr>
+<h3 id="۱۰۴-پروژه-کتابخانهی-اشکال-با-generics-و-traits"><a class="header" href="#۱۰۴-پروژه-کتابخانهی-اشکال-با-generics-و-traits">۱۰.۴. پروژه: کتابخانه‌ی اشکال با Generics و Traits</a></h3>
+<p>بیا یک کتابخانه‌ی کوچک ولی حرفه‌ای بسازیم که هر شکلی را بگیرد و مساحت و محیطش را حساب کند. 📐🔺🟦</p>
+<h4 id="۱۰۴۱-تعریف-trait-shape"><a class="header" href="#۱۰۴۱-تعریف-trait-shape">۱۰.۴.۱. تعریف Trait <code>Shape</code></a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Shape {
+    fn area(&amp;self) -&gt; f64;
+    fn perimeter(&amp;self) -&gt; f64;
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۰۴۲-تعریف-struct-circlet"><a class="header" href="#۱۰۴۲-تعریف-struct-circlet">۱۰.۴.۲. تعریف <code>struct Circle&lt;T&gt;</code></a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Circle&lt;T&gt; {
+    radius: T,
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۰۴۳-پیادهسازی-shape-برای-circlet"><a class="header" href="#۱۰۴۳-پیادهسازی-shape-برای-circlet">۱۰.۴.۳. پیاده‌سازی <code>Shape</code> برای <code>Circle&lt;T&gt;</code></a></h4>
+<p>چون فرمول‌ها به <code>f64</code> نیاز دارند، باید مطمئن شویم <code>T</code> می‌تواند به <code>f64</code> تبدیل شود. از <code>where</code> استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::f64::consts::PI;
+
+impl&lt;T&gt; Shape for Circle&lt;T&gt;
+where
+    T: Into&lt;f64&gt; + Copy,
+{
+    fn area(&amp;self) -&gt; f64 {
+        let r: f64 = self.radius.into();
+        PI * r * r
+    }
+    fn perimeter(&amp;self) -&gt; f64 {
+        let r: f64 = self.radius.into();
+        2.0 * PI * r
+    }
+}
+<span class="boring">}</span></code></pre>
+<p><code>where</code> یعنی «شرط‌های لازم برای <code>T</code> این است: بتواند به <code>f64</code> تبدیل شود و کپی شود.»</p>
+<h4 id="۱۰۴۴-تعریف-struct-rectanglet-u"><a class="header" href="#۱۰۴۴-تعریف-struct-rectanglet-u">۱۰.۴.۴. تعریف <code>struct Rectangle&lt;T, U&gt;</code></a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Rectangle&lt;T, U&gt; { width: T, height: U }
+
+impl&lt;T, U&gt; Shape for Rectangle&lt;T, U&gt;
+where
+    T: Into&lt;f64&gt; + Copy,
+    U: Into&lt;f64&gt; + Copy,
+{
+    fn area(&amp;self) -&gt; f64 {
+        let w: f64 = self.width.into();
+        let h: f64 = self.height.into();
+        w * h
+    }
+    fn perimeter(&amp;self) -&gt; f64 {
+        2.0 * (self.width.into() + self.height.into())
+    }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۰۴۵-استفاده-از-trait-object-boxdyn-shape"><a class="header" href="#۱۰۴۵-استفاده-از-trait-object-boxdyn-shape">۱۰.۴.۵. استفاده از Trait Object (<code>Box&lt;dyn Shape&gt;</code>)</a></h4>
+<p>حالا می‌خواهیم یک لیست داشته باشیم که در آن هم دایره باشد هم مستطیل. چون اندازه‌شان فرق دارد، نمی‌توانیم مستقیم در آرایه بگذاریمشان. راه حل؟ <strong>Trait Object</strong>!</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    let circle = Circle { radius: 3.0 };
+    let rect = Rectangle { width: 4.0, height: 5.0 };
+
+    let shapes: Vec&lt;Box&lt;dyn Shape&gt;&gt; = vec![
+        Box::new(circle),
+        Box::new(rect),
+    ];
+
+    for shape in shapes {
+        println!("مساحت: {:.2}, محیط: {:.2}", shape.area(), shape.perimeter());
+    }
+}</code></pre>
+<p><code>dyn Shape</code> یعنی «در این جعبه، هر چیزی که Trait Shape را داشته باشد می‌توانی بگذاری». <code>Box</code> هم آن را به حافظه‌ی پویا (<code>heap</code>) می‌برد تا اندازه‌اش مهم نباشد. این‌طوری می‌توانیم اشکال مختلف را در یک لیست نگه داریم و یکجا روی همان‌ها حلقه بزنیم! 🎉</p>
+<p><img src="assets/images/10.4.png" alt="[Illustration: A cartoon universal shipping box labeled “Box&lt;dyn Shape&gt;”. Inside, different 3D shapes (circle, rectangle, triangle) with glowing trait badges are neatly stacked. Ferris operates a conveyor belt placing them into the box. Style: dynamic, educational vector, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۱۰۵-جمعبندی-و-چالش"><a class="header" href="#۱۰۵-جمعبندی-و-چالش">۱۰.۵. جمع‌بندی و چالش</a></h3>
+<h4 id="۱۰۵۱-مرور-مفاهیم"><a class="header" href="#۱۰۵۱-مرور-مفاهیم">۱۰.۵.۱. مرور مفاهیم</a></h4>
+<p>در این فصل یاد گرفتی:
+✅ <strong>Generics (<code>&lt;T&gt;</code>)</strong>: نوشتن کد قابل استفاده برای انواع مختلف بدون تکرار.
+✅ <strong>Traits</strong>: تعریف رفتار مشترک (مثل <code>MakeSound</code> یا <code>Shape</code>).
+✅ <strong>Trait Bounds (<code>T: Trait</code>)</strong>: محدود کردن نوع جنریک به آن‌هایی که یک Trait را پیاده‌سازی کرده‌اند.
+✅ <strong><code>impl Trait</code></strong>: ساده‌سازی پارامترها و خروجی‌ها.
+✅ <strong>Lifetimes (<code>'a</code>)</strong>: تضمین ایمنی مرجع‌ها با تعیین طول عمر مشترک (معرفی مختصر).
+✅ <strong>Trait Objects (<code>Box&lt;dyn Trait&gt;</code>)</strong>: ذخیره‌سازی انواع مختلف با رفتار مشترک در یک کالکشن واحد.
+✅ <strong>جادوگر کامپیوتر بودن یعنی بتوانی کدهای همه‌کاره و قابل استفاده مجدد بنویسی – Generics و Traits این قدرت را به تو می‌دهند.</strong> 🧙</p>
+<h4 id="۱۰۵۲-چالش-تابع-largest-با-generic-و-trait-bound"><a class="header" href="#۱۰۵۲-چالش-تابع-largest-با-generic-و-trait-bound">۱۰.۵.۲. چالش: تابع <code>largest</code> با Generic و Trait Bound</a></h4>
+<p>یادت می‌آید اول فصل تابع <code>largest</code> خطا می‌داد؟ حالا با استفاده از Trait <code>PartialOrd</code> (که قابلیت مقایسه <code>&gt;</code> را می‌دهد) و <code>Copy</code>، تابع را کامل کن تا برای هر slice ای از انواع قابل مقایسه کار کند.</p>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust">fn largest&lt;T: PartialOrd + Copy&gt;(list: &amp;[T]) -&gt; T {
+    let mut largest = list[0];
+    for &amp;item in list {
+        if item &gt; largest { largest = item; }
+    }
+    largest
+}
+
+fn main() {
+    let numbers = vec![34, 50, 25, 100, 65];
+    println!("بزرگترین عدد: {}", largest(&amp;numbers));
+
+    let chars = vec!['ی', 'م', 'ا', 'ق'];
+    println!("بزرگترین حرف: {}", largest(&amp;chars));
+}</code></pre>
+<p>حالا تو می‌دانی چطور کدهای همه‌کاره با Generics بنویسی و رفتار مشترک را با Traits تعریف کنی. همچنین یک نگاه کوتاه به Lifetimes انداختی و فهمیدی چطور Rust امنیت حافظه را تضمین می‌کند. 🛡️<br>در فصل بعد، یاد می‌گیریم چطور با <strong>تست‌نویسی</strong> مطمئن شویم برنامه‌مان همیشه درست کار می‌کند، درست مثل آزمایش سفینه قبل از پرتاب! 🚀🧪</p>
+<p><img src="assets/images/10.5.png" alt="[Illustration: Ferris wearing a graduation cap and safety goggles, holding a glowing “Chapter 10 Master” badge. Floating around him are generic molds &lt;T&gt;, trait certificates, lifetime stickers ’a, and a universal box. Encouraging, bright lighting, children’s book style, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-9.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-11.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-9.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-11.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

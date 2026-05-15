@@ -1,0 +1,574 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۱۱: دکمه‌ی خودتخریب را تست کن! - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۱۱-دکمهی-خود-تخریب-را-تست-کن-تستنویسی"><a class="header" href="#فصل-۱۱-دکمهی-خود-تخریب-را-تست-کن-تستنویسی">فصل ۱۱: دکمه‌ی خود-تخریب را تست کن! (تست‌نویسی)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۱۱۱-قبل-از-پرتاب-سفینه-شبیه‌ساز">۱۱.۱. قبل از پرتاب سفینه: شبیه‌ساز</a><br><a href="#۱۱۱۱-داستان-شبیه‌ساز-پرواز-فریس">۱۱.۱.۱. داستان: شبیه‌ساز پرواز فریس</a><br><a href="#۱۱۱۲-تست-چیست">۱۱.۱.۲. تست چیست؟</a><br><a href="#۱۱۱۳-اولین-تست-با-test">۱۱.۱.۳. اولین تست با #[test]</a><br><a href="#۱۱۱۴-اجرای-تست-با-cargo-test">۱۱.۱.۴. اجرای تست با cargo test</a><br><a href="#۱۱۱۵-خواندن-خروجی-تست">۱۱.۱.۵. خواندن خروجی تست</a><br><a href="#۱۱۲-ماکروهای-پرکاربرد-تست">۱۱.۲. ماکروهای پرکاربرد تست</a><br><a href="#۱۱۲۱-assert">۱۱.۲.۱. assert!</a><br><a href="#۱۱۲۲-assert_eq-و-assert_ne">۱۱.۲.۲. assert_eq! و assert_ne!</a><br><a href="#۱۱۲۳-اضافه-کردن-پیام-سفارشی">۱۱.۲.۳. اضافه کردن پیام سفارشی</a><br><a href="#۱۱۲۴-should_panic">۱۱.۲.۴. should_panic</a><br><a href="#۱۱۲۵-تمرین-تست-تابع-add">۱۱.۲.۵. تمرین: تست تابع add</a><br><a href="#۱۱۳-سازماندهی-تست‌ها">۱۱.۳. سازماندهی تست‌ها</a><br><a href="#۱۱۳۱-تست‌های-واحد-unit-tests">۱۱.۳.۱. تست‌های واحد (Unit Tests)</a><br><a href="#۱۱۳۲-ماژول-tests-و-cfgtest">۱۱.۳.۲. ماژول tests و #[cfg(test)]</a><br><a href="#۱۱۳۳-تست‌های-یکپارچه‌سازی-integration-tests">۱۱.۳.۳. تست‌های یکپارچه‌سازی (Integration Tests)</a><br><a href="#۱۱۳۴-اجرای-فقط-یک-تست">۱۱.۳.۴. اجرای فقط یک تست</a><br><a href="#۱۱۳۵-نادیده-گرفتن-تست-با-ignore">۱۱.۳.۵. نادیده گرفتن تست با ignore</a><br><a href="#۱۱۴-پروژه-تست-برای-بازی-حدس-عدد-فصل-۲">۱۱.۴. پروژه: تست برای بازی حدس عدد (فصل ۲)</a><br><a href="#۱۱۴۱-تبدیل-بازی-به-کتابخانه">۱۱.۴.۱. تبدیل بازی به کتابخانه</a><br><a href="#۱۱۴۲-تابع-generate_secret-با-دانه-ثابت">۱۱.۴.۲. تابع generate_secret با دانه ثابت</a><br><a href="#۱۱۴۳-تابع-check_guess">۱۱.۴.۳. تابع check_guess</a><br><a href="#۱۱۴۴-نوشتن-تست‌ها">۱۱.۴.۴. نوشتن تست‌ها</a><br><a href="#۱۱۴۵-تست-تابع-read_input-با-شبیه‌سازی">۱۱.۴.۵. تست تابع read_input با شبیه‌سازی</a><br><a href="#۱۱۵-جمع‌بندی-و-چالش">۱۱.۵. جمع‌بندی و چالش</a><br><a href="#۱۱۵۱-مرور-مفاهیم">۱۱.۵.۱. مرور مفاهیم</a><br><a href="#۱۱۵۲-چالش-تست-برای-struct-monster">۱۱.۵.۲. چالش: تست برای struct Monster</a></p>
+<hr>
+<h3 id="۱۱۱-قبل-از-پرتاب-سفینه-شبیهساز"><a class="header" href="#۱۱۱-قبل-از-پرتاب-سفینه-شبیهساز">۱۱.۱. قبل از پرتاب سفینه: شبیه‌ساز</a></h3>
+<h4 id="۱۱۱۱-داستان-شبیهساز-پرواز-فریس"><a class="header" href="#۱۱۱۱-داستان-شبیهساز-پرواز-فریس">۱۱.۱.۱. داستان: شبیه‌ساز پرواز فریس</a></h4>
+<p>فریس قبل از اینکه واقعاً دکمه‌ی پرتاب سفینه را بزند، همه‌ی سیستم‌ها را در یک اتاق شبیه‌ساز امتحان می‌کند. 🚀🕹️ دکمه‌ها را فشار می‌دهد، موتورها را روشن می‌کند، فرمان را می‌چرخاند و چک می‌کند آیا همه‌چیز درست کار می‌کند یا نه. اگر در شبیه‌ساز چراغی قرمز شود، فریس خوشحال می‌شود! چرا؟ چون یک مشکل را <strong>قبل از خطر واقعی</strong> پیدا کرده و می‌تواند تعمیرش کند.<br>در برنامه‌نویسی هم دقیقاً همین کار را می‌کنیم و به آن می‌گوییم <strong>تست‌نویسی (Testing)</strong> – یکی از مهم‌ترین مهارت‌های یک <strong>جادوگر کامپیوتر</strong> برای اطمینان از درست کار کردن برنامه قبل از تحویل به دیگران. 🧙‍♂️</p>
+<h4 id="۱۱۱۲-تست-چیست"><a class="header" href="#۱۱۱۲-تست-چیست">۱۱.۱.۲. تست چیست؟</a></h4>
+<p>تست، یک تکه کد کوچک است که یک بخش از برنامه‌ی اصلی را صدا می‌زند و نتیجه‌اش را با چیزی که انتظار داشتیم مقایسه می‌کند.<br>✅ اگر نتیجه همانی باشد که می‌خواستیم → تست سبز (پاس) می‌شود و چراغ اعتماد روشن می‌شود.<br>❌ اگر نتیجه فرق کند → تست قرمز (فیل) می‌شود و کامپایلر دقیقاً می‌گوید کجا اشتباه کردیم.</p>
+<h4 id="۱۱۱۳-اولین-تست-با-test"><a class="header" href="#۱۱۱۳-اولین-تست-با-test">۱۱.۱.۳. اولین تست با <code>#[test]</code></a></h4>
+<p>در Rust، برای تبدیل کردن یک تابع معمولی به یک تست، فقط کافی است یک برچسب جادویی بالای سرش بنویسیم: <code>#[test]</code>.<br>داخل تابع هم از ابزارهای بررسی درستی (مثل <code>assert_eq!</code>) استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test]
+fn check_addition() {
+    assert_eq!(2 + 2, 4);
+}
+<span class="boring">}</span></code></pre>
+<p>این کد به کامپایلر می‌گوید: «این یک تست است. لطفاً چک کن که ۲+۲ واقعاً ۴ بشود!»</p>
+<h4 id="۱۱۱۴-اجرای-تست-با-cargo-test"><a class="header" href="#۱۱۱۴-اجرای-تست-با-cargo-test">۱۱.۱.۴. اجرای تست با <code>cargo test</code></a></h4>
+<p>برای اجرای همه‌ی تست‌ها، در ترمینال و داخل پوشه‌ی پروژه بنویس:</p>
+<pre><code class="language-bash">cargo test
+</code></pre>
+<p>کارگو تمام فایل‌ها می‌گردد، توابعی که <code>#[test]</code> دارند را پیدا می‌کند و یکی‌یکی اجرایشان می‌کند.</p>
+<h4 id="۱۱۱۵-خواندن-خروجی-تست"><a class="header" href="#۱۱۱۵-خواندن-خروجی-تست">۱۱.۱.۵. خواندن خروجی تست</a></h4>
+<p>اگر همه‌چیز درست باشد، خروجی سبز و خوشگل است:</p>
+<pre><code>running 1 test
+test check_addition ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+</code></pre>
+<p>اگر تستی شکست بخورد، با رنگ قرمز و اطلاعات کامل به تو نشان داده می‌شود:</p>
+<pre><code>failures:
+---- check_addition stdout ----
+thread 'check_addition' panicked at 'assertion failed: `(left == right)`
+  left: `5`,
+  right: `4`', src/lib.rs:3:5
+</code></pre>
+<p>کامپایلر دقیقاً می‌گوید: «من سمت چپ (<code>left</code>) را ۵ دیدم، ولی انتظار سمت راست (<code>right</code>) که ۴ بود را داشتم!»</p>
+<p><img src="assets/images/11.1.png" alt="[Illustration: Cartoon cockpit labeled “SIMULATION MODE”. Ferris the crab sits in the pilot seat, pressing buttons on a dashboard. Green checkmarks float above working systems, while a red warning light blinks on a “test failed” panel. Style: vibrant children’s book illustration, playful tech metaphor, soft lighting, 16:9.]"></p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>تست‌نویسی یکی از ارزشمندترین عادت‌های حرفه‌ای در برنامه‌نویسی است. این فصل نشان می‌دهد چطور با نوشتن تست، از درست کار کردن کد اطمینان حاصل کنیم. اگر کودک در ابتدا از نوشتن تست خسته شود، به او یادآوری کنید که تست مثل کمربند ایمنی است – شاید زحمت بستنش را داشته باشد، اما جانش را نجات می‌دهد. کتاب رسمی Rust فصل کاملی درباره‌ی تست دارد:<br><a href="https://doc.rust-lang.org/book/ch11-00-testing.html">doc.rust-lang.org/book/ch11-00-testing.html</a></p>
+</blockquote>
+<hr>
+<h3 id="۱۱۲-ماکروهای-پرکاربرد-تست"><a class="header" href="#۱۱۲-ماکروهای-پرکاربرد-تست">۱۱.۲. ماکروهای پرکاربرد تست</a></h3>
+<h4 id="۱۱۲۱-assert"><a class="header" href="#۱۱۲۱-assert">۱۱.۲.۱. <code>assert!</code></a></h4>
+<p>این ماکرو یک شرط می‌گیرد و چک می‌کند که حتماً <code>true</code> باشد. اگر <code>false</code> باشد، تست فیل می‌شود.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test]
+fn test_is_positive() {
+    let num = 5;
+    assert!(num &gt; 0); // درست است، پس رد می‌شود
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۱۲۲-assert_eq-و-assert_ne"><a class="header" href="#۱۱۲۲-assert_eq-و-assert_ne">۱۱.۲.۲. <code>assert_eq!</code> و <code>assert_ne!</code></a></h4>
+<p>🔹 <code>assert_eq!(چپ, راست)</code> : چک می‌کند دو مقدار دقیقاً مساوی باشند.<br>🔹 <code>assert_ne!(چپ, راست)</code> : چک می‌کند دو مقدار <strong>نامساوی</strong> باشند.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn add(a: i32, b: i32) -&gt; i32 { a + b }
+
+#[test]
+fn test_add() {
+    assert_eq!(add(2, 3), 5);   // باید ۵ باشد
+    assert_ne!(add(2, 2), 10);  // نباید ۱۰ باشد
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۱۲۳-اضافه-کردن-پیام-سفارشی"><a class="header" href="#۱۱۲۳-اضافه-کردن-پیام-سفارشی">۱۱.۲.۳. اضافه کردن پیام سفارشی</a></h4>
+<p>می‌توانی یک پیام دلخواه هم اضافه کنی تا اگر تست فیل شد، دقیق‌تر بفهمی چه اتفاقی افتاده:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test]
+fn test_add_with_message() {
+    let result = add(2, 2);
+    assert_eq!(result, 5, "ما انتظار داشتیم ۵ شود، اما {} شد.", result);
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۱۲۴-should_panic"><a class="header" href="#۱۱۲۴-should_panic">۱۱.۲.۴. <code>should_panic</code></a></h4>
+<p>بعضی توابع طوری طراحی شده‌اند که در شرایط خاص باید بترکند (<code>panic!</code> کنند). مثلاً تابع تقسیم اگر مقسوم‌علیه صفر باشد. برای تست این حالت از <code>#[should_panic]</code> استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn divide(a: i32, b: i32) -&gt; i32 {
+    if b == 0 {
+        panic!("تقسیم بر صفر ممنوع!");
+    }
+    a / b
+}
+
+#[test]
+#[should_panic(expected = "تقسیم بر صفر")]
+fn test_divide_by_zero() {
+    divide(10, 0);
+}
+<span class="boring">}</span></code></pre>
+<p><code>expected</code> کمک می‌کند مطمئن شویم <code>panic</code> دقیقاً به خاطر همان دلیلی بوده که ما انتظار داشتیم.</p>
+<h4 id="۱۱۲۵-تمرین-تست-تابع-add"><a class="header" href="#۱۱۲۵-تمرین-تست-تابع-add">۱۱.۲.۵. تمرین: تست تابع <code>add</code></a></h4>
+<p>یک تابع <code>add</code> بنویس که دو عدد را جمع کند. سپس سه تست برایش بنویس: جمع دو عدد مثبت، جمع مثبت و منفی، و جمع دو عدد منفی.
+💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn add(a: i32, b: i32) -&gt; i32 { a + b }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_add_positive() { assert_eq!(add(2, 3), 5); }
+    #[test]
+    fn test_add_mixed() { assert_eq!(add(5, -3), 2); }
+    #[test]
+    fn test_add_negative() { assert_eq!(add(-2, -3), -5); }
+}
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/11.2.png" alt="[Illustration: A friendly robot quality inspector holding a rubber stamp. One stamp says “assert_eq! ✅”, the other “assert_ne! ❌”. Ferris stands beside a conveyor belt of code blocks waiting for inspection. Style: clean educational cartoon, bright colors, clear visual metaphor, 16:9.]"></p>
+<hr>
+<h3 id="۱۱۳-سازماندهی-تستها"><a class="header" href="#۱۱۳-سازماندهی-تستها">۱۱.۳. سازماندهی تست‌ها</a></h3>
+<h4 id="۱۱۳۱-تستهای-واحد-unit-tests"><a class="header" href="#۱۱۳۱-تستهای-واحد-unit-tests">۱۱.۳.۱. تست‌های واحد (Unit Tests)</a></h4>
+<p>تست‌های واحد، کوچک‌ترین بخش‌های برنامه (مثل یک تابع یا متد) را به تنهایی آزمایش می‌کنند. این تست‌ها معمولاً <strong>همان در فایلی که کد اصلی است</strong> نوشته می‌شوند.</p>
+<h4 id="۱۱۳۲-ماژول-tests-و-cfgtest"><a class="header" href="#۱۱۳۲-ماژول-tests-و-cfgtest">۱۱.۳.۲. ماژول <code>tests</code> و <code>#[cfg(test)]</code></a></h4>
+<p>برای جدا کردن کد تست از کد اصلی (و جلوگیری از کامپایل شدنش در نسخه‌ی نهایی)، تست‌ها را در یک ماژول به اسم <code>tests</code> می‌گذاریم و بالای آن <code>#[cfg(test)]</code> می‌نویسیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn add(a: i32, b: i32) -&gt; i32 { a + b }
+
+#[cfg(test)]
+mod tests {
+    use super::*; // همه چیز از بیرون ماژول را بیاور اینجا
+
+    #[test]
+    fn test_add() { assert_eq!(add(2, 2), 4); }
+}
+<span class="boring">}</span></code></pre>
+<p><code>#[cfg(test)]</code> یعنی: «این ماژول را فقط وقتی کامپایل کن که دارم تست اجرا می‌کنم.» مثل یک اتاق مخفی که فقط موقع بازرسی باز می‌شود! 🕵️‍♂️</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>نوشتن تست ممکن است در ابتدا کمی خسته‌کننده به نظر برسد، اما هر چه بیشتر تمرین کنی، سریع‌تر و لذت‌بخش‌تر می‌شود. حتی برنامه‌نویسان حرفه‌ای هم وقتی باگ پیدا می‌کنند، اول از همه یک تست می‌نویسند تا مطمئن شوند دیگر آن باگ برنمی‌گردد.</p>
+</blockquote>
+<h4 id="۱۱۳۳-تستهای-یکپارچهسازی-integration-tests"><a class="header" href="#۱۱۳۳-تستهای-یکپارچهسازی-integration-tests">۱۱.۳.۳. تست‌های یکپارچه‌سازی (Integration Tests)</a></h4>
+<p>این تست‌ها برنامه را از دید یک <strong>کاربر خارجی</strong> آزمایش می‌کنند. این تست‌ها در یک پوشه‌ی جدا به اسم <code>tests/</code> (کنار پوشه‌ی <code>src/</code>) قرار می‌گیرند. هر فایل <code>.rs</code> در این پوشه مثل یک پروژه‌ی مستقل رفتار می‌کند و باید کتابخانه‌ی ما را <code>use</code> کند.
+📂 ساختار:</p>
+<pre><code>my_project/
+├── Cargo.toml
+├── src/
+│   └── lib.rs       // کد اصلی
+└── tests/
+    └── integration_test.rs // تست‌های بیرونی
+</code></pre>
+<p>مثال <code>tests/integration_test.rs</code>:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use my_project::add; // اسم پروژه‌ات را اینجا بنویس
+
+#[test]
+fn test_add_integration() {
+    assert_eq!(add(2, 2), 4);
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۱۳۴-اجرای-فقط-یک-تست"><a class="header" href="#۱۱۳۴-اجرای-فقط-یک-تست">۱۱.۳.۴. اجرای فقط یک تست</a></h4>
+<p>اگر پروژه بزرگ باشد، می‌توانی فقط یک تست خاص را اجرا کنی:</p>
+<pre><code class="language-bash">cargo test test_add_positive
+</code></pre>
+<p>حتی می‌توانی بخشی از اسم را بنویسی تا همه‌ی تست‌های مشابه اجرا شوند: <code>cargo test add</code></p>
+<h4 id="۱۱۳۵-نادیده-گرفتن-تست-با-ignore"><a class="header" href="#۱۱۳۵-نادیده-گرفتن-تست-با-ignore">۱۱.۳.۵. نادیده گرفتن تست با <code>#[ignore]</code></a></h4>
+<p>اگر تستی خیلی طولانی است یا هنوز آماده نیست، می‌توانی موقتاً غیرفعالش کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test]
+#[ignore]
+fn long_running_test() { /* کدی که ۱۰ دقیقه طول می‌کشد */ }
+<span class="boring">}</span></code></pre>
+<p>برای اجرای تست‌های نادیده‌گرفته‌شده: <code>cargo test -- --ignored</code></p>
+<p><img src="assets/images/11.3.png" alt="[Illustration: Architectural blueprint of a codebase. Left side: main factory labeled “src”. Right side: a hidden laboratory labeled “#[cfg(test)] mod tests” connected by a secret tunnel. Top side: an external inspection booth labeled “tests/ integration”. Ferris points to the different zones. Style: playful technical diagram, children’s book style, bright, 16:9.]"></p>
+<hr>
+<h3 id="۱۱۴-پروژه-تست-برای-بازی-حدس-عدد-فصل-۲"><a class="header" href="#۱۱۴-پروژه-تست-برای-بازی-حدس-عدد-فصل-۲">۱۱.۴. پروژه: تست برای بازی حدس عدد (فصل ۲)</a></h3>
+<p>حالا وقتش است بازی حدس عدد را طوری بازنویسی کنیم که قابل تست باشد. (یادت هست؟ یک عدد تصادفی تولید می‌کرد، ورودی می‌گرفت و راهنمایی می‌کرد.)</p>
+<h4 id="۱۱۴۱-تبدیل-بازی-به-کتابخانه"><a class="header" href="#۱۱۴۱-تبدیل-بازی-به-کتابخانه">۱۱.۴.۱. تبدیل بازی به کتابخانه</a></h4>
+<p>اول یک پروژه‌ی کتابخانه‌ای می‌سازیم تا بتوانیم توابعش را تست بگیریم:</p>
+<pre><code class="language-bash">cargo new guess_game_lib --lib
+cd guess_game_lib
+</code></pre>
+<p>در <code>Cargo.toml</code> وابستگی <code>rand</code> را اضافه کن (نسخه‌ی جدید):</p>
+<pre><code class="language-toml">[dependencies]
+rand = "0.9.0"
+</code></pre>
+<h4 id="۱۱۴۲-تابع-generate_secret-با-دانه-ثابت"><a class="header" href="#۱۱۴۲-تابع-generate_secret-با-دانه-ثابت">۱۱.۴.۲. تابع <code>generate_secret</code> با دانه ثابت</a></h4>
+<p>در تست‌ها نمی‌خواهیم عدد واقعاً تصادفی باشد (چون هر بار عوض می‌شود و نمی‌توانیم نتیجه را پیش‌بینی کنیم). پس یک تابع کمکی مخصوص تست می‌سازیم که همیشه یک عدد ثابت برگرداند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// src/lib.rs
+use rand::Rng;
+
+pub fn generate_secret() -&gt; u32 {
+    rand::thread_rng().gen_range(1..=100)
+}
+
+#[cfg(test)]
+pub fn generate_secret_fixed() -&gt; u32 { 42 } // همیشه ۴۲ برمی‌گرداند
+<span class="boring">}</span></code></pre>
+<h4 id="۱۱۴۳-تابع-check_guess"><a class="header" href="#۱۱۴۳-تابع-check_guess">۱۱.۴.۳. تابع <code>check_guess</code></a></h4>
+<p>این تابع منطق اصلی بازی را دارد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[derive(Debug, PartialEq)]
+pub enum GuessResult { TooLow, TooHigh, Correct }
+
+pub fn check_guess(guess: u32, secret: u32) -&gt; GuessResult {
+    if guess &lt; secret { GuessResult::TooLow }
+    else if guess &gt; secret { GuessResult::TooHigh }
+    else { GuessResult::Correct }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۱۴۴-نوشتن-تستها"><a class="header" href="#۱۱۴۴-نوشتن-تستها">۱۱.۴.۴. نوشتن تست‌ها</a></h4>
+<p>حالا در <code>lib.rs</code> زیر ماژول <code>tests</code> تست‌ها را می‌نویسیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_check_guess_too_low() {
+        assert_eq!(check_guess(10, 42), GuessResult::TooLow);
+    }
+
+    #[test]
+    fn test_check_guess_correct() {
+        assert_eq!(check_guess(42, 42), GuessResult::Correct);
+    }
+
+    #[test]
+    fn test_generate_secret_fixed() {
+        assert_eq!(generate_secret_fixed(), 42);
+    }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۱۴۵-تست-تابع-read_input-با-شبیهسازی"><a class="header" href="#۱۱۴۵-تست-تابع-read_input-با-شبیهسازی">۱۱.۴.۵. تست تابع <code>read_input</code> با شبیه‌سازی</a></h4>
+<p>چطور تابعی که از صفحه‌کلید می‌خواند را تست کنیم؟ به جای <code>stdin</code> واقعی، تابع را جوری می‌نویسیم که از هر چیزی که قابلیت خواندن داشته باشد (Trait <code>BufRead</code>) ورودی بگیرد. در تست، از <code>Cursor</code> استفاده می‌کنیم که مثل یک نوار ضبط صوت مجازی عمل می‌کند و متن را کاراکتر به کاراکتر می‌خواند.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::io::{BufRead, Cursor};
+
+pub fn read_number&lt;R: BufRead&gt;(reader: &amp;mut R) -&gt; Result&lt;u32, String&gt; {
+    let mut input = String::new();
+    reader.read_line(&amp;mut input)
+        .map_err(|e| format!("خطای خواندن: {}", e))?;
+    input.trim().parse()
+        .map_err(|_| "لطفاً یک عدد معتبر وارد کن".to_string())
+}
+<span class="boring">}</span></code></pre>
+<p>و تست آن:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_read_number_ok() {
+        let input = b"42\n"; // نوار مجازی
+        let mut cursor = Cursor::new(input);
+        assert_eq!(read_number(&amp;mut cursor), Ok(42));
+    }
+
+    #[test]
+    fn test_read_number_invalid() {
+        let input = b"hello\n";
+        let mut cursor = Cursor::new(input);
+        assert!(read_number(&amp;mut cursor).is_err());
+    }
+}
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/11.4.png" alt="[Illustration: Cartoon scene showing a “Mock Input” machine. A tape labeled “Cursor: b’42&#92;n’” feeds into a reader slot. The machine outputs a glowing green “Ok(42)” ticket. Ferris operates the controls with a satisfied smile. Style: dynamic, educational, bright colors, technical metaphor for children, 16:9.]"></p>
+<hr>
+<h3 id="۱۱۵-جمعبندی-و-چالش"><a class="header" href="#۱۱۵-جمعبندی-و-چالش">۱۱.۵. جمع‌بندی و چالش</a></h3>
+<h4 id="۱۱۵۱-مرور-مفاهیم"><a class="header" href="#۱۱۵۱-مرور-مفاهیم">۱۱.۵.۱. مرور مفاهیم</a></h4>
+<p>در این فصل یاد گرفتی:<br>✅ تست‌نویسی مثل شبیه‌ساز پرواز است: قبل از استفاده‌ی واقعی، همه‌چیز را امتحان می‌کنیم.<br>✅ <code>#[test]</code> تابع را به تست تبدیل می‌کند و <code>cargo test</code> اجرایشان می‌کند.<br>✅ <code>assert!</code>، <code>assert_eq!</code> و <code>assert_ne!</code> برای بررسی درستی استفاده می‌شوند.<br>✅ <code>#[should_panic]</code> برای تست توابعی که باید عمداً بترکند به کار می‌رود.<br>✅ تست‌های واحد در ماژول <code>#[cfg(test)]</code> و تست‌های یکپارچه‌سازی در پوشه‌ی <code>tests/</code> قرار می‌گیرند.<br>✅ برای تست ورودی، از <code>BufRead</code> و <code>Cursor</code> استفاده می‌کنیم تا نیاز به تایپ واقعی نباشد.<br>✅ <strong>تست‌نویسی تو را به یک مهندس نرم‌افزار واقعی تبدیل می‌کند – کسی که قبل از اینکه کاربر دچار مشکل شود، مشکل را پیدا می‌کند.</strong> 🧙</p>
+<h4 id="۱۱۵۲-چالش-تست-برای-struct-monster"><a class="header" href="#۱۱۵۲-چالش-تست-برای-struct-monster">۱۱.۵.۲. چالش: تست برای <code>struct Monster</code></a></h4>
+<p>به <code>struct Monster</code> از فصل ۵ برگرد. یک متد <code>attack</code> به آن اضافه کن که به هیولای دیگر حمله کند و قدرتش را کم کند. سپس سه تست بنویس:
+۱. حمله‌ای که قدرت قربانی را کاهش دهد.<br>۲. حمله با قدرت صفر (نباید قدرتی کم شود).<br>۳. چک کردن مقدار آسیب برگشتی.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Monster { name: String, power: u32 }
+
+impl Monster {
+    fn attack(&amp;self, other: &amp;mut Monster) -&gt; u32 {
+        let damage = self.power;
+        other.power = other.power.saturating_sub(damage);
+        damage
+    }
+}
+
+#[cfg(test)]
+mod monster_tests {
+    use super::*;
+
+    #[test]
+    fn test_attack_reduces_power() {
+        let mut victim = Monster { name: String::from("ضعیف"), power: 100 };
+        let attacker = Monster { name: String::from("قوی"), power: 30 };
+        attacker.attack(&amp;mut victim);
+        assert_eq!(victim.power, 70);
+    }
+
+    #[test]
+    fn test_attack_with_zero_power() {
+        let mut victim = Monster { name: String::from("قوی"), power: 100 };
+        let attacker = Monster { name: String::from("بی‌آزار"), power: 0 };
+        attacker.attack(&amp;mut victim);
+        assert_eq!(victim.power, 100); // باید همان ۱۰۰ بماند
+    }
+
+    #[test]
+    fn test_attack_returns_damage() {
+        let mut victim = Monster { name: String::from("قربانی"), power: 50 };
+        let attacker = Monster { name: String::from("مهاجم"), power: 20 };
+        let damage = attacker.attack(&amp;mut victim);
+        assert_eq!(damage, 20);
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>حالا تو می‌دانی چطور با نوشتن تست، از درستی برنامه‌ات مطمئن شوی و با خیال راحت تغییرات جدید اضافه کنی. 🛡️✨<br>در فصل بعد، یک پروژه‌ی کامل و حرفه‌ای خط فرمان (شبیه دستور <code>grep</code>) می‌سازیم و تمام چیزهایی که تا حالا یاد گرفتی را کنار هم می‌چینیم! 🔍📜</p>
+<p><img src="assets/images/11.5.png" alt="[Illustration: Ferris wearing a graduation cap and safety goggles, holding a glowing “Chapter 11 Master” badge. Floating around him are testing tools: a green checkmark stamp, a red panic button, a mock tape reader, and a hidden lab door. Style: encouraging, vibrant children’s book illustration, celebratory mood, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-10.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-12.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-10.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-12.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

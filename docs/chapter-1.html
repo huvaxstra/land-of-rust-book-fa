@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۱: فریس و جعبه ابزار گمشده - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۱-فریس-خرچنگ-فضایی-و-جعبه-ابزار-گمشده-نصب-و-سلام-دنیا"><a class="header" href="#فصل-۱-فریس-خرچنگ-فضایی-و-جعبه-ابزار-گمشده-نصب-و-سلام-دنیا">فصل ۱: فریس، خرچنگ فضایی و جعبه ابزار گمشده (نصب و سلام دنیا)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۱۱-ماجرا-شروع-می‌شود">۱.۱. ماجرا شروع می‌شود!</a><br><a href="#۱۱۱-معرفی-فریس">۱.۱.۱. معرفی فریس</a><br><a href="#۱۱۲-چرا-فریس-به-زبان-جدید-نیاز-دارد">۱.۱.۲. چرا فریس به زبان جدید نیاز دارد؟</a><br><a href="#۱۱۳-صفحه-مصور-فریس-در-ترمینال">۱.۱.۳. صفحه مصور: فریس در ترمینال</a><br><a href="#۱۲-جعبه-ابزار-جادویی-نصب-rustup">۱.۲. جعبه ابزار جادویی: نصب rustup</a><br><a href="#۱۲۱-رفتن-به-سایت-rustuprs">۱.۲.۱. رفتن به سایت rustup.rs</a><br><a href="#۱۲۲-کلیک-روی-دکمه-دانلود">۱.۲.۲. کلیک روی دکمه دانلود</a><br><a href="#۱۲۳-اجرای-فایل-دانلودی">۱.۲.۳. اجرای فایل دانلودی</a><br><a href="#۱۲۴-انتخاب-نصب-پیش‌فرض">۱.۲.۴. انتخاب نصب پیش‌فرض</a><br><a href="#۱۲۵-بررسی-نصب">۱.۲.۵. بررسی نصب</a><br><a href="#۱۲۶-صفحه-مصور-ترمینال-موفق">۱.۲.۶. صفحه مصور: ترمینال موفق</a><br><a href="#۱۳-اولین-جمله‌مان-به-کامپیوتر-hello-world">۱.۳. اولین جمله‌مان به کامپیوتر: Hello, World</a><br><a href="#۱۳۱-ساختن-پوشه-ماجرا">۱.۳.۱. ساختن پوشه ماجرا</a><br><a href="#۱۳۲-باز-کردن-ویرایشگر">۱.۳.۲. باز کردن ویرایشگر</a><br><a href="#۱۳۳-نوشتن-کد-جادویی">۱.۳.۳. نوشتن کد جادویی</a><br><a href="#۱۳۴-توضیح-خط-به-خط">۱.۳.۴. توضیح خط به خط</a><br><a href="#۱۳۵-ذخیره-فایل">۱.۳.۵. ذخیره فایل</a><br><a href="#۱۳۶-کامپایل-و-اجرا">۱.۳.۶. کامپایل و اجرا</a><br><a href="#۱۳۷-دیدن-نتیجه">۱.۳.۷. دیدن نتیجه</a><br><a href="#۱۴-دستیار-باهوش-من-کارگو-cargo">۱.۴. دستیار باهوش من، کارگو (Cargo)</a><br><a href="#۱۴۱-کارگو-چیست">۱.۴.۱. کارگو چیست؟</a><br><a href="#۱۴۲-ساخت-پروژه-جدید-با-کارگو">۱.۴.۲. ساخت پروژه جدید با کارگو</a><br><a href="#۱۴۳-آشنایی-با-cargotoml">۱.۴.۳. آشنایی با Cargo.toml</a><br><a href="#۱۴۴-آشنایی-با-پوشه-src">۱.۴.۴. آشنایی با پوشه src</a><br><a href="#۱۴۵-اجرا-با-cargo-run">۱.۴.۵. اجرا با cargo run</a><br><a href="#۱۴۶-تفاوت-cargo-build-و-cargo-run">۱.۴.۶. تفاوت cargo build و cargo run</a><br><a href="#۱۴۷-تمرین-تغییر-پیام">۱.۴.۷. تمرین تغییر پیام</a><br><a href="#۱۵-جمع‌بندی-و-چالش">۱.۵. جمع‌بندی و چالش</a><br><a href="#۱۵۱-مرور-کارها">۱.۵.۱. مرور کارها</a><br><a href="#۱۵۲-معرفی-اصطلاحات">۱.۵.۲. معرفی اصطلاحات</a><br><a href="#۱۵۳-چالش-کوچک">۱.۵.۳. چالش کوچک</a></p>
+<hr>
+<h3 id="۱۱-ماجرا-شروع-میشود"><a class="header" href="#۱۱-ماجرا-شروع-میشود">۱.۱. ماجرا شروع می‌شود!</a></h3>
+<h4 id="۱۱۱-معرفی-فریس"><a class="header" href="#۱۱۱-معرفی-فریس">۱.۱.۱. معرفی فریس</a></h4>
+<p>سلام رفیق! 👋 اسم من <strong>فریس</strong> است. من یک خرچنگ فضایی بامزه از سیاره‌ی «کراب» هستم! 🦀🚀<br>سفینه‌ی من چند شب پیش دقیقاً توی حیاط خلوت خانه‌ی شما فرود اومد. (بله، همان صداهای عجیب و غریبی که شنیدی… من بودم!)</p>
+<p>حالا سفینه‌ام حسابی لنگ می‌زنه. موتورها خاموش‌اند، صفحه‌ی نقشه‌خوانی سیاه شده و تنها چیزی که سالم مونده، یک کامپیوتر قدیمی زمینی‌ه. 💻<br>من باید با این کامپیوتر حرف بزنم تا بتونم سفینه‌ام رو تعمیر کنم. ولی مشکل اینجاست که کامپیوترهای زمینی فقط زبان‌های خاصی رو می‌فهمن. یکی از آن زبان‌ها <strong>Rust</strong> هست.</p>
+<blockquote>
+<p>💡 <strong>یک نکته باحال:</strong> کلمه‌ی Rust توی انگلیسی یعنی «زنگ‌زده». ولی اصلاً نترس! این زبان نه زنگ زده و نه قدیمیه. اتفاقاً یکی از <strong>جدیدترین، سریع‌ترین و امن‌ترین</strong> زبان‌های دنیاست! ✨</p>
+</blockquote>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.1.png" alt="A cute cartoon space crab with a red shell and big expressive eyes, standing on two legs next to a retro computer monitor. The screen shows glowing green text: &quot;Earth, I am here!&quot;. Background: slightly messy spaceship interior with a round window showing a starry sky. Style: vibrant children&#39;s book illustration, soft lighting, friendly and inviting"></p>
+<hr>
+<h4 id="۱۱۲-چرا-فریس-به-زبان-جدید-نیاز-دارد"><a class="header" href="#۱۱۲-چرا-فریس-به-زبان-جدید-نیاز-دارد">۱.۱.۲. چرا فریس به زبان جدید نیاز دارد؟</a></h4>
+<p>شاید بپرسی: «مگه کامپیوترها فارسی بلد نیستن؟» 😄<br>نه دوست من! کامپیوترها فقط <strong>صفر و یک</strong> می‌فهمن. ما انسان‌ها هم که نمی‌تونیم با صفر و یک حرف بزنیم! برای همین، مهندسا زبان‌های برنامه‌نویسی رو ساختن تا پلی باشن بین حرف‌های ما و زبان کامپیوتر.</p>
+<p><strong>Rust</strong> یکی از بهترین این پل‌هاست، و یک چیز خیلی خاص دارد: <strong>بهت اجازه می‌دهد مثل یک جادوگر، ببینی داخل کامپیوتر چه خبر است</strong>:</p>
+<ul>
+<li>⚡ خیلی سریع است – می‌توانی بازی، ربات و حتی موشک بسازی!</li>
+<li>🛡️ خیلی امن است – اجازه نمی‌دهد برنامه‌ات یکدفعه قفل کند یا بترکد.</li>
+<li>🔍 بهت یاد می‌دهد <strong>کامپیوتر واقعاً چطور کار می‌کند</strong> (حافظه، داده‌ها و جادوی پنهان).</li>
+</ul>
+<p>شرکت‌های بزرگ مثل گوگل، مایکروسافت و حتی سازنده‌های بازی از Rust استفاده می‌کنند. اما جذاب‌ترین بخش این است: <strong>Rust به تو کمک می‌کند تا یک جادوگر کامپیوتر بشوی</strong> – بفهمی زیر صفحه چه می‌گذرد، نه فقط چطور چند خط کد بنویسی.</p>
+<p>من خودم توی سفرهای فضایی‌ام فقط از Rust استفاده می‌کنم تا سفینه‌ام سالم بمونه و تو فضا سرگردون نشم! 🌌</p>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.2.png" alt="Flat vector illustration of a laptop screen showing a split view: left side zeros and ones, right side colorful code blocks. A small friendly crab mascot sits on the keyboard pointing at the code. Background: simple desk with a coffee mug, notebook, and a tiny toy rocket. Style: clean, bright, educational, children&#39;s book"></p>
+<hr>
+<h4 id="۱۱۳-صفحه-مصور-فریس-در-ترمینال"><a class="header" href="#۱۱۳-صفحه-مصور-فریس-در-ترمینال">۱.۱.۳. صفحه مصور: فریس در ترمینال</a></h4>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.3.png" alt="Wide cartoon scene showing Ferris the red crab sitting in front of a dark terminal screen, typing with his claws. Glowing code lines reflect on his shell. Floating around him are tiny cartoon spaceships, stars, and gears. Bottom text area reserved for caption. Style: whimsical, colorful, high-quality children&#39;s book illustration, cinematic lighting"></p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>این فصل نصب Rust و نوشتن اولین برنامه‌ی «سلام دنیا» را پوشش می‌دهد. هدف فقط تجربه‌ی موفق اولین اجرا است – نیازی نیست کودک همه‌ی جزئیات را بفهمد. اگر نصب کمی پیچیده به نظر می‌رسد، نگران نباشید: آموزش واقعی از فصل ۲ شروع می‌شود. برای مطالعه‌ی عمیق‌تر، کتاب رسمی Rust یک فصل رایگان درباره‌ی نصب دارد:<br><a href="https://doc.rust-lang.org/book">doc.rust-lang.org/book</a></p>
+</blockquote>
+<hr>
+<h3 id="۱۲-جعبه-ابزار-جادویی-نصب-rustup"><a class="header" href="#۱۲-جعبه-ابزار-جادویی-نصب-rustup">۱.۲. جعبه ابزار جادویی: نصب rustup</a></h3>
+<p>برای اینکه بتونیم با کامپیوتر به زبان Rust حرف بزنیم، اول باید یک <strong>جعبه‌ابزار جادویی</strong> به اسم <code>rustup</code> رو نصب کنیم. این جعبه سه تا چیز مهم داره:</p>
+<p>🔹 <strong>کامپایلر (<code>rustc</code>)</strong>: مثل یک ربات مترجم، حرف‌های ما رو به صفر و یک تبدیل می‌کنه.<br>🔹 <strong>مدیر بسته (<code>cargo</code>)</strong>: یک دستیار باهوش که کارهای تکراری رو برامون انجام می‌ده (بعداً باهاش آشنا می‌شیم).<br>🔹 <strong>مستندات محلی</strong>: یک دفترچه‌ی راهنمای کامل که همیشه آفلاین و دم دست ماست.</p>
+<blockquote>
+<p>📌 <strong>قبل از شروع:</strong> توی این فصل از یک پنجره‌ی مخصوص به اسم <strong>ترمینال</strong> استفاده می‌کنیم. ترمینال یک صفحه‌ی سیاه رنگه که می‌تونیم دستورهای متنی رو توش بنویسیم و به کامپیوتر بگیم چکار کنه. برای باز کردنش:</p>
+<ul>
+<li>در <strong>ویندوز</strong>: دکمه‌ی Start رو بزن، <code>cmd</code> رو تایپ کن و روی Command Prompt کلیک کن.</li>
+<li>در <strong>مک</strong>: کلیدهای <code>Command + Space</code> رو بزن، <code>Terminal</code> رو تایپ کن و Enter بزن.</li>
+<li>در <strong>لینوکس</strong>: کلیدهای <code>Ctrl + Alt + T</code> رو همزمان بزن.
+حالا بریم سراغ نصب!</li>
+</ul>
+</blockquote>
+<h4 id="۱۲۱-رفتن-به-سایت-rustuprs"><a class="header" href="#۱۲۱-رفتن-به-سایت-rustuprs">۱.۲.۱. رفتن به سایت rustup.rs</a></h4>
+<p>مرورگرت رو باز کن (کروم، فایرفاکس، هر چی که داری). توی نوار آدرس بالا بنویس:<br><code>https://rustup.rs</code><br>و دکمه‌ی <code>Enter</code> رو بزن. صفحه‌ای میاد که شبیه اینه:</p>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.4.png" alt="Close-up illustration of a laptop screen displaying the rustup.rs homepage. A large, inviting blue &quot;Download&quot; button is visible. A tiny cartoon crab logo peeks from the corner of the browser window. Background: clean, minimal desk setup with soft pastel lighting. Style: modern educational illustration, clear UI focus"></p>
+<h4 id="۱۲۲-کلیک-روی-دکمه-دانلود"><a class="header" href="#۱۲۲-کلیک-روی-دکمه-دانلود">۱.۲.۲. کلیک روی دکمه دانلود</a></h4>
+<p>روی دکمه‌ی آبی بزرگ که نوشته <strong>Download</strong> کلیک کن. فایل نصب مخصوص ویندوز، مک یا لینوکس‌ات شروع به دانلود می‌کنه.<br>📌 <em>نکته برای بزرگ‌ترها:</em> توی ویندوز یک فایل <code>rustup-init.exe</code> دانلود می‌شه. توی مک و لینوکس یک اسکریپت شل دریافت می‌کنید.</p>
+<h4 id="۱۲۳-اجرای-فایل-دانلودی"><a class="header" href="#۱۲۳-اجرای-فایل-دانلودی">۱.۲.۳. اجرای فایل دانلودی</a></h4>
+<p>🪟 <strong>ویندوز:</strong><br>به پوشه‌ی Download برو و روی فایل دوبار کلیک کن. یک پنجره‌ی سیاه (همان ترمینال) باز می‌شه.</p>
+<p>🍎 <strong>مک:</strong><br>ترمینال رو باز کن. بعد دستورهای زیر رو یکی‌یکی تایپ کن و Enter بزن:</p>
+<pre><code class="language-bash">cd Downloads
+sh rustup-init
+</code></pre>
+<p>(اگر پیام «اجازه ندارید» آمد، اول دستور <code>chmod +x rustup-init</code> رو بزن و بعد دوباره <code>sh rustup-init</code> رو اجرا کن.)</p>
+<p>🐧 <strong>لینوکس (مثل اوبونتو):</strong><br>ترمینال رو با <code>Ctrl+Alt+T</code> باز کن. بعد بنویس:</p>
+<pre><code class="language-bash">cd Downloads
+chmod +x rustup-init
+./rustup-init
+</code></pre>
+<h4 id="۱۲۴-انتخاب-نصب-پیشفرض"><a class="header" href="#۱۲۴-انتخاب-نصب-پیشفرض">۱.۲.۴. انتخاب نصب پیش‌فرض</a></h4>
+<p>بعد از اجرا، یک منوی متنی میاد. فقط عدد <code>1</code> رو تایپ کن (همان «نصب پیش‌فرض») و <code>Enter</code> بزن.<br>حالا چند ثانیه صبر کن… چند خط سبز رنگ مثل بارون روی صفحه می‌ریزن. وقتی این نوشته رو دیدی:</p>
+<pre><code>Rust is installed now. Great!
+</code></pre>
+<p>یعنی کار تمومه! 🎉</p>
+<h4 id="۱۲۵-بررسی-نصب"><a class="header" href="#۱۲۵-بررسی-نصب">۱.۲.۵. بررسی نصب</a></h4>
+<p>برای اینکه مطمئن بشی همه‌چی درست کار می‌کنه، توی همان ترمینال بنویس:</p>
+<pre><code class="language-bash">rustc --version
+</code></pre>
+<p>باید چیزی شبیه این ببینی:</p>
+<pre><code>rustc 1.85.0 (4d91de4e4 2025-02-17)
+</code></pre>
+<p>(عددها ممکنه فرق کنن، مهم اینه که ارور قرمز نده!)<br>همین کار رو برای <code>cargo</code> هم انجام بده:</p>
+<pre><code class="language-bash">cargo --version
+</code></pre>
+<p>اگر هر دو دستور یک شماره نسخه نشون دادن، یعنی جعبه‌ابزار جادویی آماده‌ی کاره! 🛠️✨</p>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.5.png" alt="Terminal window with dark background and bright green success text &quot;Rust is installed now. Great!&quot;. Next to the screen, Ferris the crab is doing a happy little dance, holding a tiny wrench. Desk has a small lamp and a notebook. Style: cheerful, cartoon, educational, vibrant colors"></p>
+<hr>
+<h3 id="۱۳-اولین-جملهمان-به-کامپیوتر-hello-world"><a class="header" href="#۱۳-اولین-جملهمان-به-کامپیوتر-hello-world">۱.۳. اولین جمله‌مان به کامپیوتر: Hello, World</a></h3>
+<p>حالا که جعبه‌ابزار رو داریم، بیا اولین جمله‌مون رو به کامپیوتر بگیم. قراره بنویسیم:<br><code>زمین، من اینجام!</code></p>
+<h4 id="۱۳۱-ساختن-پوشه-ماجرا"><a class="header" href="#۱۳۱-ساختن-پوشه-ماجرا">۱.۳.۱. ساختن پوشه ماجرا</a></h4>
+<p>یک پوشه‌ی جدید روی کامپیوترت بساز به اسم <code>majara</code>. اینجا خونه‌ی همه‌ی برنامه‌های ما تو این کتاب می‌شه.<br>می‌تونی با موس بسازیش، یا توی ترمینال این دو تا دستور رو بزن:</p>
+<pre><code class="language-bash">mkdir majara
+cd majara
+</code></pre>
+<p>(دستور <code>mkdir</code> یعنی «پوشه بساز» و <code>cd</code> یعنی «برو تو این پوشه».)</p>
+<h4 id="۱۳۲-باز-کردن-ویرایشگر"><a class="header" href="#۱۳۲-باز-کردن-ویرایشگر">۱.۳.۲. باز کردن ویرایشگر</a></h4>
+<p>ما به یک دفترچه‌ی جادویی نیاز داریم تا کدهامون رو توش بنویسیم. می‌تونی از <code>Notepad</code> (ویندوز) یا <code>TextEdit</code> (مک) استفاده کنی، ولی خیلی بهتره یک ویرایشگر مخصوص نصب کنی. پیشنهاد من <strong>VS Code</strong> هست (رایگان و عالی).<br>از سایت <code>code.visualstudio.com</code> دانلودش کن. بعد از نصب، بازش کن و پوشه‌ی <code>majara</code> رو باز کن (<code>File → Open Folder</code>).</p>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.6.png" alt="Illustration of a child&#39;s hand clicking &quot;Open Folder&quot; in VS Code interface. The folder name &quot;majara&quot; is highlighted in blue. Ferris the crab peeks curiously from behind the monitor. Style: semi-realistic cartoon, warm lighting, educational"></p>
+<h4 id="۱۳۳-نوشتن-کد-جادویی"><a class="header" href="#۱۳۳-نوشتن-کد-جادویی">۱.۳.۳. نوشتن کد جادویی</a></h4>
+<p>توی VS Code یک فایل جدید بساز (<code>Ctrl+N</code>) و دقیقاً این کد رو تایپ کن:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    println!("زمین، من اینجام!");
+}</code></pre>
+<h4 id="۱۳۴-توضیح-خط-به-خط"><a class="header" href="#۱۳۴-توضیح-خط-به-خط">۱.۳.۴. توضیح خط به خط</a></h4>
+<p>بیا هر خط رو با دقت ببینیم:</p>
+<ul>
+<li><strong>خط ۱:</strong> <code>fn main() {</code><br><code>fn</code> مخفف <code>function</code> (تابع) هست. <code>main</code> اسم خاصیه که کامپایلر می‌دونه برنامه باید از اینجا شروع بشه. پرانتز <code>()</code> الان خالیه، چون فعلاً اطلاعاتی بهش نمی‌دیم.</li>
+<li><strong>خط ۲:</strong> <code>    println!("زمین، من اینجام!");</code><br>چهار فاصله (یا یک دکمه‌ی Tab) اول خط یعنی: «این دستور داخل تابع <code>main</code> قرار داره». علامت <code>!</code> آخر <code>println</code> یعنی این یک <strong>طلسم جادویی</strong> است که کار خاصی انجام می‌ده (نمایش متن روی صفحه). <code>ln</code> هم یعنی «بعد از چاپ، برو خط بعدی».</li>
+<li><strong>خط ۳:</strong> <code>}</code><br>آکولاد بسته می‌شه. یعنی تابع تموم شد.</li>
+</ul>
+<h4 id="۱۳۵-ذخیره-فایل"><a class="header" href="#۱۳۵-ذخیره-فایل">۱.۳.۵. ذخیره فایل</a></h4>
+<p>فایل رو با اسم <code>main.rs</code> توی پوشه‌ی <code>majara</code> ذخیره کن. پسوند <code>.rs</code> مخفف Rust هست.<br>⚠️ <strong>دقت کن:</strong> اسم فایل حتماً باید <code>main.rs</code> باشه. Rust وقتی <code>main</code> رو می‌بینه می‌فهمه نقطه‌ی شروع برنامه کجاست.</p>
+<h4 id="۱۳۶-کامپایل-و-اجرا"><a class="header" href="#۱۳۶-کامپایل-و-اجرا">۱.۳.۶. کامپایل و اجرا</a></h4>
+<p>حالا باید کدمون رو به صفر و یک تبدیل کنیم. این کار رو کامپایلر انجام می‌ده.<br>ترمینال رو باز کن (اگر بسته بود) و برو تو پوشه‌ی <code>majara</code>. برای رفتن به پوشه، دستور <code>cd</code> رو به همراه آدرس پوشه بنویس. مثلاً اگر پوشه‌ی <code>majara</code> روی دسکتاپ است:</p>
+<pre><code class="language-bash">cd Desktop/majara
+</code></pre>
+<p>(اگر در آدرس‌ها مطمئن نیستی، از پدر یا مادرت کمک بگیر.)<br>بعد بنویس:</p>
+<pre><code class="language-bash">rustc main.rs
+</code></pre>
+<p>چند لحظه صبر کن. اگر ارور نده، یک فایل جدید به اسم <code>main</code> (یا <code>main.exe</code> توی ویندوز) ساخته می‌شه. حالا اجراش کن:
+🪟 ویندوز: <code>main.exe</code><br>🍎🐧 مک/لینوکس: <code>./main</code></p>
+<h4 id="۱۳۷-دیدن-نتیجه"><a class="header" href="#۱۳۷-دیدن-نتیجه">۱.۳.۷. دیدن نتیجه</a></h4>
+<p>💥 بوم! توی صفحه نوشته شده:</p>
+<pre><code>زمین، من اینجام!
+</code></pre>
+<p>تبریک می‌گم! 🎉 تو اولین برنامه‌ی Rust خودت رو نوشتی و اجرا کردی. فریس از دیدن این پیام کلی ذوق کرده!</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>شاید اولین باری که کامپایلر را اجرا کردی، همه‌چیز برایت روشن نبود. نگران نباش – این طبیعی است. حتی برنامه‌نویس‌های حرفه‌ای هم روزی از همین نقطه شروع کردند. مهم این است که اولین قدم را برداشتی. 🚀</p>
+</blockquote>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.7.before.png" alt="Ferris the crab jumping joyfully in front of a terminal screen that displays &quot;زمین، من اینجام!&quot;. Colorful confetti and tiny stars float around. Background: cozy desk with a mug and notebook. Style: vibrant, celebratory children&#39;s book illustration, high energy"></p>
+<hr>
+<h3 id="۱۴-دستیار-باهوش-من-کارگو-cargo"><a class="header" href="#۱۴-دستیار-باهوش-من-کارگو-cargo">۱.۴. دستیار باهوش من، کارگو (Cargo)</a></h3>
+<p>تا اینجا برنامه رو دستی با <code>rustc</code> ساختیم. ولی برای پروژه‌های بزرگ‌تر، به یک دستیار باهوش نیاز داریم که کارهای تکراری رو خودش انجام بده. اسمش <strong>کارگو (Cargo)</strong> هست. 📦🤖</p>
+<h4 id="۱۴۱-کارگو-چیست"><a class="header" href="#۱۴۱-کارگو-چیست">۱.۴.۱. کارگو چیست؟</a></h4>
+<p>کارگو سه کار مهم برامون انجام می‌ده:
+۱. ساختار پروژه رو می‌سازه (پوشه‌ها و فایل‌های اولیه).<br>۲. وابستگی‌ها رو مدیریت می‌کنه (کتابخانه‌هایی که بقیه نوشتن).<br>۳. برنامه رو راحت می‌سازه و اجرا می‌کنه (با یک دستور ساده!).</p>
+<h4 id="۱۴۲-ساخت-پروژه-جدید-با-کارگو"><a class="header" href="#۱۴۲-ساخت-پروژه-جدید-با-کارگو">۱.۴.۲. ساخت پروژه جدید با کارگو</a></h4>
+<p>بیا یک پروژه‌ی جدید بسازیم. برو تو یک پوشه‌ی تمیز (مثلاً دسکتاپ) و توی ترمینال بنویس:</p>
+<pre><code class="language-bash">cargo new hello_ferris
+cd hello_ferris
+</code></pre>
+<p>کارگو یک پوشه به اسم <code>hello_ferris</code> ساخته که داخلش این چیزهاست:</p>
+<pre><code>hello_ferris/
+├── Cargo.toml
+├── src/
+│   └── main.rs
+└── .gitignore
+</code></pre>
+<p>(فعلاً نگران <code>.gitignore</code> نباش؛ بعداً یاد می‌گیری.)</p>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.7.png" alt="Clean infographic-style illustration showing a folder tree: hello_ferris/ containing Cargo.toml and src/main.rs highlighted in bright colors. Ferris the crab stands beside it pointing like a tour guide. Style: modern, educational, vector-based"></p>
+<h4 id="۱۴۳-آشنایی-با-cargotoml"><a class="header" href="#۱۴۳-آشنایی-با-cargotoml">۱.۴.۳. آشنایی با Cargo.toml</a></h4>
+<p>فایل <code>Cargo.toml</code> رو باز کن. چیزی شبیه این می‌بینی:</p>
+<pre><code class="language-toml">[package]
+name = "hello_ferris"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+</code></pre>
+<p>🔹 <code>[package]</code>: کارت شناسایی پروژه‌ات (اسم، نسخه و استاندارد سال).<br>🔹 <code>[dependencies]</code>: اینجا بعداً اسم کتابخانه‌های کمکی رو می‌نویسیم (الان خالیه).<br>به این فایل <strong>«شناسنامه‌ی پروژه»</strong> هم می‌گن. هر پروژه‌ی Rust حتماً یک <code>Cargo.toml</code> داره.</p>
+<h4 id="۱۴۴-آشنایی-با-پوشه-src"><a class="header" href="#۱۴۴-آشنایی-با-پوشه-src">۱.۴.۴. آشنایی با پوشه src</a></h4>
+<p>همه‌ی کدهای ما باید برن تو پوشه‌ی <code>src</code>. کارگو خودش یک <code>main.rs</code> آماده گذاشته:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    println!("Hello, world!");
+}</code></pre>
+<p>(بله! دقیقاً همان کدی که خودمون نوشتیم، فقط به انگلیسی.)</p>
+<h4 id="۱۴۵-اجرا-با-cargo-run"><a class="header" href="#۱۴۵-اجرا-با-cargo-run">۱.۴.۵. اجرا با cargo run</a></h4>
+<p>حالا دیگه لازم نیست دستی <code>rustc</code> بزنی. فقط کافیه توی ترمینال (داخل پوشه‌ی <code>hello_ferris</code>) بنویسی:</p>
+<pre><code class="language-bash">cargo run
+</code></pre>
+<p>کارگو خودش این کارا رو می‌کنه:<br>✅ چک می‌کنه کد تغییر کرده یا نه.<br>✅ اگر لازم بود، کامپایل می‌کنه.<br>✅ برنامه رو اجرا می‌کنه.</p>
+<p>خروجی رو می‌بینی:</p>
+<pre><code>Hello, world!
+</code></pre>
+<p>سریع و آسان، درسته؟ 😎</p>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.8.png" alt="Cartoon illustration of Ferris the crab pressing a big green button labeled &quot;cargo run&quot;. Next to him, a terminal screen pops up showing &quot;Hello, world!&quot;. Speed lines and sparkles emphasize quick action. Style: fun, dynamic, children&#39;s book"></p>
+<h4 id="۱۴۶-تفاوت-cargo-build-و-cargo-run"><a class="header" href="#۱۴۶-تفاوت-cargo-build-و-cargo-run">۱.۴.۶. تفاوت cargo build و cargo run</a></h4>
+<p>🔹 <code>cargo run</code> = کامپایل + اجرا (وقتی می‌خوای نتیجه رو همان لحظه ببینی).<br>🔹 <code>cargo build</code> = فقط کامپایل (یک فایل اجرایی توی <code>target/debug/</code> می‌سازه، بدون اجرا).</p>
+<blockquote>
+<p>یک نکته برای وقتی بزرگ شدی: اگر <code>cargo build --release</code> بزنی، یک خروجی <strong>بهینه‌شده و سریع‌تر</strong> می‌گیری (ولی ساختش طولانی‌تره). فعلاً نیازی به آن نداریم.</p>
+</blockquote>
+<h4 id="۱۴۷-تمرین-تغییر-پیام"><a class="header" href="#۱۴۷-تمرین-تغییر-پیام">۱.۴.۷. تمرین تغییر پیام</a></h4>
+<p>حالا بیا متن رو عوض کنیم. فایل <code>src/main.rs</code> رو باز کن و به جای <code>"Hello, world!"</code> بنویس:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!("سلام فریس! خوش اومدی به زمین!");
+<span class="boring">}</span></code></pre>
+<p>ذخیره‌اش کن و دوباره <code>cargo run</code> رو بزن. حالا خروجی اینه:</p>
+<pre><code>سلام فریس! خوش اومدی به زمین!
+</code></pre>
+<p>آفرین! تو حالا با کارگو دوست شدی. 🤝</p>
+<hr>
+<h3 id="۱۵-جمعبندی-و-چالش"><a class="header" href="#۱۵-جمعبندی-و-چالش">۱.۵. جمع‌بندی و چالش</a></h3>
+<h4 id="۱۵۱-مرور-کارها"><a class="header" href="#۱۵۱-مرور-کارها">۱.۵.۱. مرور کارها</a></h4>
+<p>تو این فصل یاد گرفتی:
+✅ فریس کیه و چرا به Rust نیاز داریم.<br>✅ چطور <code>rustup</code> رو نصب کنی.<br>✅ چطور یک فایل <code>main.rs</code> بنویسی و با <code>rustc</code> کامپایل کنی.<br>✅ چطور با <code>cargo new</code> پروژه بسازی و با <code>cargo run</code> اجراش کنی.<br>✅ معنی <code>fn main()</code>، <code>println!</code>، آکولادها و نقطه‌ویرگول رو فهمیدی.<br>✅ اینکه برنامه‌نویسی گاهی می‌تواند بزرگ و چالش‌برانگیز به نظر برسد، اما با کمی حوصله <strong>به یک جادوگر کامپیوتر تبدیل خواهی شد</strong>.</p>
+<h4 id="۱۵۲-معرفی-اصطلاحات"><a class="header" href="#۱۵۲-معرفی-اصطلاحات">۱.۵.۲. معرفی اصطلاحات</a></h4>
+<p>بیا چند کلمه‌ی جدید رو مرور کنیم:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>اصطلاح</th><th>معنی ساده</th><th>ایموجی</th></tr>
+</thead>
+<tbody>
+<tr><td>کامپایلر</td><td>رباتی که کد ما رو به صفر و یک ترجمه می‌کنه</td><td>🤖</td></tr>
+<tr><td>کد منبع</td><td>همان متنی که ما می‌نویسیم (مثل <code>main.rs</code>)</td><td>📝</td></tr>
+<tr><td>ترمینال</td><td>صفحه‌ی سیاهی که دستورات رو توش می‌نویسیم</td><td>⬛</td></tr>
+<tr><td>اجرا (Run)</td><td>وقتی برنامه رو روشن می‌کنیم تا کار کنه</td><td>▶️</td></tr>
+<tr><td>طلسم جادویی (ماکرو)</td><td>دستوری که با <code>!</code> میاد و کارهای خاص انجام می‌ده</td><td>✨</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="۱۵۳-چالش-کوچک"><a class="header" href="#۱۵۳-چالش-کوچک">۱.۵.۳. چالش کوچک</a></h4>
+<p>حالا نوبت توئه قهرمان! 🏆 این مأموریت‌ها رو انجام بده:</p>
+<p>1️⃣ با دستور <code>cargo new</code> یک پروژه به اسم <code>my_first_program</code> بساز.<br>2️⃣ توی <code>src/main.rs</code> بنویس: <code>"من دارم برنامه‌نویسی رو یاد می‌گیرم!"</code><br>3️⃣ با <code>cargo run</code> اجراش کن و نتیجه رو ببین.<br>4️⃣ 🎁 (اختیاری) دو خط <code>println!</code> پشت سر هم بنویس:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    println!("سلام!");
+    println!("من فریس هستم. 🦀");
+}</code></pre>
+<p>ببین چه اتفاقی می‌افته.</p>
+<p>اگر تونستی اینا رو انجام بدی، یعنی کاملاً آماده‌ی فصل بعدی! توی فصل بعد با هم یک بازی <strong>«عدد گمشده»</strong> می‌سازیم که کامپیوتر یک عدد انتخاب می‌کنه و تو باید حدس بزنی. هیجان‌انگیزه، نه؟ 😉</p>
+<blockquote>
+<p>💬 به یاد داشته باش: هر برنامه‌نویس بزرگی، روزی از همین «سلام دنیا» شروع کرده. تو الان اولین قدم رو برداشتی! 🚀</p>
+</blockquote>
+<p>🖼️ <strong>پرامپت تصویر:</strong><br><img src="assets/images/1.9.png" alt="Child sitting at a desk looking happily at a computer terminal with a big green checkmark on screen. Ferris the crab stands on the desk giving a thumbs up. Floating text &quot;Good luck!&quot; in playful font above. Style: encouraging, bright, cartoon children&#39;s book illustration"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="chapter-2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="chapter-2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

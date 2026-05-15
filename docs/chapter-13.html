@@ -1,0 +1,603 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۱۳: قطار جادویی و کارخانه‌ی تبدیل - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۱۳-قطار-جادویی-و-کارخانهی-تبدیل-iterators--closures"><a class="header" href="#فصل-۱۳-قطار-جادویی-و-کارخانهی-تبدیل-iterators--closures">فصل ۱۳: قطار جادویی و کارخانه‌ی تبدیل (Iterators &amp; Closures)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۱۳۱-قطار-باربری-iterator">۱۳.۱. قطار باربری (Iterator)</a><br><a href="#۱۳۱۱-داستان-قطار-واگن‌های-سنگ">۱۳.۱.۱. داستان: قطار واگن‌های سنگ</a><br><a href="#۱۳۱۲-iterator-چیست">۱۳.۱.۲. Iterator چیست؟</a><br><a href="#۱۳۱۳-گرفتن-iterator-از-یک-collection">۱۳.۱.۳. گرفتن Iterator از یک Collection</a><br><a href="#۱۳۱۴-متد-next">۱۳.۱.۴. متد next</a><br><a href="#۱۳۱۵-حلقه-for-و-iterator">۱۳.۱.۵. حلقه for و Iterator</a><br><a href="#۱۳۱۶-تمرین-پیمایش-با-while-let">۱۳.۱.۶. تمرین: پیمایش با while let</a><br><a href="#۱۳۲-ماشین‌آلات-کنار-ریل-adapter-methods">۱۳.۲. ماشین‌آلات کنار ریل (Adapter Methods)</a><br><a href="#۱۳۲۱-map-تبدیل-هر-عنصر">۱۳.۲.۱. map: تبدیل هر عنصر</a><br><a href="#۱۳۲۲-filter-انتخاب-بر-اساس-شرط">۱۳.۲.۲. filter: انتخاب بر اساس شرط</a><br><a href="#۱۳۲۳-زنجیره-کردن-chaining">۱۳.۲.۳. زنجیره کردن (Chaining)</a><br><a href="#۱۳۲۴-collect-جمع‌آوری-نتایج">۱۳.۲.۴. collect: جمع‌آوری نتایج</a><br><a href="#۱۳۲۵-سایر-متدهای-مفید-fold-any-all-sum">۱۳.۲.۵. سایر متدهای مفید (fold, any, all, sum)</a><br><a href="#۱۳۲۶-تمرین-اعداد-زوج-مجذور">۱۳.۲.۶. تمرین: اعداد زوج مجذور</a><br><a href="#۱۳۳-کوله‌پشتی-جاسوسی-closures">۱۳.۳. کوله‌پشتی جاسوسی (Closures)</a><br><a href="#۱۳۳۱-داستان-ابزار-مخفی-فریس">۱۳.۳.۱. داستان: ابزار مخفی فریس</a><br><a href="#۱۳۳۲-تعریف-closure">۱۳.۳.۲. تعریف Closure</a><br><a href="#۱۳۳۳-گرفتن-متغیر-از-محیط">۱۳.۳.۳. گرفتن متغیر از محیط</a><br><a href="#۱۳۳۴-انواع-گرفتن-fn-fnmut-fnonce">۱۳.۳.۴. انواع گرفتن (Fn, FnMut, FnOnce)</a><br><a href="#۱۳۳۵-حرکت-دادن-مالکیت-با-move">۱۳.۳.۵. حرکت دادن مالکیت با move</a><br><a href="#۱۳۳۶-تمرین-closure-ضرب‌کننده">۱۳.۳.۶. تمرین: Closure ضرب‌کننده</a><br><a href="#۱۳۴-ترکیب-iterator-و-closure">۱۳.۴. ترکیب Iterator و Closure</a><br><a href="#۱۳۴۱-map-با-closure">۱۳.۴.۱. map با Closure</a><br><a href="#۱۳۴۲-filter-با-closure">۱۳.۴.۲. filter با Closure</a><br><a href="#۱۳۴۳-مثال-خواندن-خطوط-از-stdin-و-تبدیل-به-عدد">۱۳.۴.۳. مثال: خواندن خطوط از stdin و تبدیل به عدد</a><br><a href="#۱۳۴۴-filter_map-برای-ترکیب-دو-کار">۱۳.۴.۴. filter_map برای ترکیب دو کار</a><br><a href="#۱۳۵-پروژه-پردازش-لاگ-فایل">۱۳.۵. پروژه: پردازش لاگ فایل</a><br><a href="#۱۳۵۱-ساختار-خطوط-لاگ">۱۳.۵.۱. ساختار خطوط لاگ</a><br><a href="#۱۳۵۲-خواندن-فایل-با-iterator">۱۳.۵.۲. خواندن فایل با Iterator</a><br><a href="#۱۳۵۳-فیلتر-کردن-خطوط-error">۱۳.۵.۳. فیلتر کردن خطوط ERROR</a><br><a href="#۱۳۵۴-شمارش-خطاها-با-hashmap">۱۳.۵.۴. شمارش خطاها با HashMap</a><br><a href="#۱۳۶-جمع‌بندی-و-چالش">۱۳.۶. جمع‌بندی و چالش</a><br><a href="#۱۳۶۱-مرور-مفاهیم">۱۳.۶.۱. مرور مفاهیم</a><br><a href="#۱۳۶۲-چالش-پیاده‌سازی-iterator-برای-فیبوناچی">۱۳.۶.۲. چالش: پیاده‌سازی Iterator برای فیبوناچی</a></p>
+<hr>
+<h3 id="۱۳۱-قطار-باربری-iterator"><a class="header" href="#۱۳۱-قطار-باربری-iterator">۱۳.۱. قطار باربری (Iterator)</a></h3>
+<h4 id="۱۳۱۱-داستان-قطار-واگنهای-سنگ"><a class="header" href="#۱۳۱۱-داستان-قطار-واگنهای-سنگ">۱۳.۱.۱. داستان: قطار واگن‌های سنگ</a></h4>
+<p>فریس یک قطار باری بزرگ دارد که واگن‌هایش پر از سنگ‌های درخشان از سیاره‌های مختلف است. 🚂💎 او نمی‌خواهد همه‌ی سنگ‌ها را یکهو روی زمین خالی کند و زمین را شلوغ کند. ترجیح می‌دهد قطار آرام حرکت کند و هر بار فقط یک واگن باز شود و یک سنگ تحویل بدهد. به این کار می‌گویند <strong>پیمایش (Iteration)</strong>.<br>در برنامه‌نویسی، وقتی با لیست‌ها یا مجموعه‌ها کار می‌کنیم، اغلب می‌خواهیم تک‌تک اعضای آن‌ها را ببینیم یا رویشان کار کنیم. ابزاری که این کار را برایمان راحت و مرتب انجام می‌دهد، <strong>Iterator</strong> (تکرارکننده) نام دارد.<br><strong>اینجا داریم یاد می‌گیریم چطور بدون نوشتن حلقه‌های طولانی، روی داده‌ها پیمایش کنیم – یک گام بزرگ به سوی کدنویسی حرفه‌ای!</strong> 🧙‍♂️</p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>Iteratorها و Closureها از ویژگی‌های قدرتمند Rust هستند که نوشتن کدهای تمیز و کارآمد را ممکن می‌کنند. این فصل ممکن است برای بعضی کودکان چالش‌برانگیز باشد – نگران نباشید، در پروژه‌های بعدی بارها از آن‌ها استفاده خواهید کرد. کتاب رسمی Rust فصل کاملی درباره‌ی Iteratorها دارد:<br><a href="https://doc.rust-lang.org/book/ch13-00-functional-features.html">doc.rust-lang.org/book/ch13-00-functional-features.html</a></p>
+</blockquote>
+<h4 id="۱۳۱۲-iterator-چیست"><a class="header" href="#۱۳۱۲-iterator-چیست">۱۳.۱.۲. Iterator چیست؟</a></h4>
+<p>Iterator یک موجود باهوش است که می‌داند چطور اعضای یک مجموعه را یکی یکی، به ترتیب، و فقط وقتی که ازش خواسته شود، تحویل بدهد. در Rust، Iterator یک <code>Trait</code> استاندارد دارد که مهم‌ترین ابزارش متد <code>next</code> است:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Iterator {
+    type Item;
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;;
+}
+<span class="boring">}</span></code></pre>
+<p>🔹 هر بار <code>next</code> را صدا بزنی، عضو بعدی را داخل <code>Some(عضو)</code> به تو می‌دهد.<br>🔹 وقتی دیگر عضوی باقی نمانده، <code>None</code> برمی‌گرداند.<br>💡 <strong>نکته‌ی طلایی:</strong> Iteratorها <strong>تنبل (Lazy)</strong> هستند! یعنی تا وقتی ازشان نخواستی عضو بعدی را بدهند یا نتایج را جمع کنی، هیچ کاری انجام نمی‌دهند. این یعنی حافظه و سرعت را هدر نمی‌دهند! ⏱️</p>
+<h4 id="۱۳۱۳-گرفتن-iterator-از-یک-collection"><a class="header" href="#۱۳۱۳-گرفتن-iterator-از-یک-collection">۱۳.۱.۳. گرفتن Iterator از یک Collection</a></h4>
+<p>برای اینکه از یک وکتور یا آرایه Iterator بگیری، سه راه اصلی داری:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>متد</th><th>نوع خروجی</th><th>توضیح ساده</th></tr>
+</thead>
+<tbody>
+<tr><td><code>.iter()</code></td><td><code>&amp;T</code></td><td>فقط <strong>نگاه</strong> می‌کند (قرض غیرقابل تغییر). خود مجموعه دست‌نخورده می‌ماند.</td></tr>
+<tr><td><code>.iter_mut()</code></td><td><code>&amp;mut T</code></td><td>نگاه می‌کند و <strong>اجازه تغییر</strong> می‌دهد.</td></tr>
+<tr><td><code>.into_iter()</code></td><td><code>T</code></td><td><strong>مالکیت</strong> را می‌گیرد. بعد از تمام شدن، دیگر نمی‌توانی از مجموعه استفاده کنی.</td></tr>
+</tbody>
+</table>
+</div>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let v = vec![10, 20, 30];
+
+let iter1 = v.iter();       // فقط نگاه می‌کند
+let iter2 = v.iter_mut();   // می‌تواند تغییر بدهد
+let iter3 = v.into_iter();  // مالکیت را می‌گیرد (v بعد از این خط دیگر قابل استفاده نیست)
+<span class="boring">}</span></code></pre>
+<h4 id="۱۳۱۴-متد-next"><a class="header" href="#۱۳۱۴-متد-next">۱۳.۱.۴. متد <code>next</code></a></h4>
+<p>می‌توانی دستی <code>next</code> را صدا بزنی و ببینی چطور کار می‌کند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let v = vec!["سیب", "موز", "پرتقال"];
+let mut iter = v.iter(); // باید mut باشد چون موقعیت داخلی‌اش عوض می‌شود
+
+assert_eq!(iter.next(), Some(&amp;"سیب"));
+assert_eq!(iter.next(), Some(&amp;"موز"));
+assert_eq!(iter.next(), Some(&amp;"پرتقال"));
+assert_eq!(iter.next(), None); // دیگر چیزی نمانده!
+<span class="boring">}</span></code></pre>
+<h4 id="۱۳۱۵-حلقه-for-و-iterator"><a class="header" href="#۱۳۱۵-حلقه-for-و-iterator">۱۳.۱.۵. حلقه <code>for</code> و Iterator</a></h4>
+<p>خبر خوب این است که لازم نیست خودت درگیر <code>next</code> شوی! حلقه‌ی <code>for</code> در Rust خودش پشت صحنه Iterator می‌سازد و تا وقتی <code>None</code> برنگرداند، حلقه را ادامه می‌دهد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let names = vec!["فریس", "بیل", "لونا"];
+for name in &amp;names {   // &amp;names دقیقاً همان names.iter() است
+    println!("سلام {}!", name);
+}
+<span class="boring">}</span></code></pre>
+<p>⚠️ اگر بنویسی <code>for name in names</code> (بدون <code>&amp;</code>)، حلقه مالکیت <code>names</code> را می‌گیرد و بعد از حلقه دیگر نمی‌توانی از آن استفاده کنی.</p>
+<h4 id="۱۳۱۶-تمرین-پیمایش-با-while-let"><a class="header" href="#۱۳۱۶-تمرین-پیمایش-با-while-let">۱۳.۱.۶. تمرین: پیمایش با <code>while let</code></a></h4>
+<p>با استفاده از <code>while let</code> و <code>next()</code>، وکتور <code>["الف", "ب", "ج"]</code> را پیمایش کن و هر کدام را چاپ کن.</p>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust">fn main() {
+    let v = vec!["الف", "ب", "ج"];
+    let mut iter = v.iter();
+    
+    while let Some(item) = iter.next() {
+        println!("{}", item);
+    }
+}</code></pre>
+<p><code>while let</code> یعنی: «تا وقتی <code>next</code> مقدار <code>Some</code> می‌دهد، کد را اجرا کن. وقتی <code>None</code> شد، خودکار متوقف شو.» خیلی تمیز است! ✨</p>
+<p><img src="assets/images/13.1.png" alt="[Illustration: A friendly cartoon crab (Ferris) standing on a platform next to a colorful train. Each train car has a glowing gem inside. A conveyor arm lifts one gem at a time as the train moves slowly. Background: starry sky with a control panel showing “next() → Some(gem)”. Style: vibrant children’s book illustration, playful tech metaphor, soft lighting, 16:9.]"></p>
+<hr>
+<h3 id="۱۳۲-ماشینآلات-کنار-ریل-adapter-methods"><a class="header" href="#۱۳۲-ماشینآلات-کنار-ریل-adapter-methods">۱۳.۲. ماشین‌آلات کنار ریل (Adapter Methods)</a></h3>
+<h4 id="۱۳۲۱-map-تبدیل-هر-عنصر"><a class="header" href="#۱۳۲۱-map-تبدیل-هر-عنصر">۱۳.۲.۱. <code>map</code>: تبدیل هر عنصر</a></h4>
+<p>در مسیر قطار، ماشین‌هایی هستند که سنگ‌ها را می‌گیرند، شکل یا رنگشان را عوض می‌کنند و به واگن بعدی می‌فرستند. در Rust به این‌ها <strong>Adapter</strong> می‌گوییم. معروف‌ترینشان <code>map</code> است. یک Closure می‌گیرد و روی هر عنصر اعمالش می‌کند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let numbers = vec![1, 2, 3];
+let doubled: Vec&lt;_&gt; = numbers.iter().map(|x| x * 2).collect();
+println!("{:?}", doubled); // [2, 4, 6]
+<span class="boring">}</span></code></pre>
+<p>⚠️ <strong>دقت کن:</strong> <code>map</code> به تنهایی هیچ کاری نمی‌کند! فقط یک Iterator جدید می‌سازد که می‌گوید: «وقتی ازم خواستند، این تبدیل را انجام می‌دهم.»</p>
+<h4 id="۱۳۲۲-filter-انتخاب-بر-اساس-شرط"><a class="header" href="#۱۳۲۲-filter-انتخاب-بر-اساس-شرط">۱۳.۲.۲. <code>filter</code>: انتخاب بر اساس شرط</a></h4>
+<p>یک ماشین دیگر هم هست که فقط سنگ‌هایی را رد می‌کند که یک شرط خاص را داشته باشند. اگر شرط <code>true</code> باشد، سنگ رد می‌شود؛ اگر <code>false</code> باشد، از ریل خارج می‌شود. برای راحت‌تر کردن کار با مرجع‌ها، از <code>.copied()</code> استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let numbers = vec![1, 2, 3, 4, 5];
+let evens: Vec&lt;i32&gt; = numbers.iter().copied().filter(|&amp;x| x % 2 == 0).collect();
+println!("{:?}", evens); // [2, 4]
+<span class="boring">}</span></code></pre>
+<p><code>.copied()</code> باعث می‌شود به جای <code>&amp;i32</code> از <code>i32</code> واقعی استفاده کنیم. این‌طوری مجبور نیستیم با <code>|&amp;&amp;x|</code> کار کنیم.</p>
+<h4 id="۱۳۲۳-زنجیره-کردن-chaining"><a class="header" href="#۱۳۲۳-زنجیره-کردن-chaining">۱۳.۲.۳. زنجیره کردن (Chaining)</a></h4>
+<p>زیبایی Iteratorها اینجاست که می‌توانی ماشین‌ها را پشت سر هم بچینی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let numbers = vec![1, 2, 3, 4, 5];
+let result: Vec&lt;_&gt; = numbers.iter()
+    .copied()
+    .filter(|&amp;x| x % 2 == 0)   // اول فقط زوج‌ها را جدا کن
+    .map(|x| x * 10)           // بعد ضربدر ۱۰ کن
+    .collect();                // در نهایت جمعشان کن
+println!("{:?}", result); // [20, 40]
+<span class="boring">}</span></code></pre>
+<p>این زنجیره تا وقتی به <code>.collect()</code> یا <code>.sum()</code> نرسد، <strong>هیچ محاسبه‌ای انجام نمی‌دهد</strong>. Rust آن‌قدر باهوش است که می‌فهمد چطور کارها را بهینه انجام بدهد! 🧠⚡</p>
+<h4 id="۱۳۲۴-collect-جمعآوری-نتایج"><a class="header" href="#۱۳۲۴-collect-جمعآوری-نتایج">۱۳.۲.۴. <code>collect</code>: جمع‌آوری نتایج</a></h4>
+<p><code>collect</code> آخرین ایستگاه است. Iterator را می‌گیرد و همه‌ی نتایج را در یک Collection جدید (مثل <code>Vec</code> یا <code>HashMap</code>) می‌ریزد. معمولاً باید نوعش را مشخص کنی: <code>Vec&lt;_&gt;</code> یا <code>::&lt;Vec&lt;i32&gt;&gt;</code>.</p>
+<h4 id="۱۳۲۵-سایر-متدهای-مفید"><a class="header" href="#۱۳۲۵-سایر-متدهای-مفید">۱۳.۲.۵. سایر متدهای مفید</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>متد</th><th>کاربرد</th><th>مثال</th></tr>
+</thead>
+<tbody>
+<tr><td><code>sum()</code></td><td>جمع اعداد</td><td><code>numbers.iter().sum::&lt;i32&gt;()</code></td></tr>
+<tr><td><code>fold(init, |acc, x| ...)</code></td><td>جمع‌کننده‌ی عمومی</td><td><code>fold(0, |acc, x| acc + x)</code></td></tr>
+<tr><td><code>any(|&amp;x| ...)</code></td><td>حداقل یکی شرط را دارد؟</td><td><code>any(|&amp;x| x &gt; 10)</code></td></tr>
+<tr><td><code>all(|&amp;x| ...)</code></td><td>همه شرط را دارند؟</td><td><code>all(|&amp;x| x &gt; 0)</code></td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="۱۳۲۶-تمرین-اعداد-زوج-مجذور"><a class="header" href="#۱۳۲۶-تمرین-اعداد-زوج-مجذور">۱۳.۲.۶. تمرین: اعداد زوج مجذور</a></h4>
+<p>یک وکتور از اعداد ۱ تا ۱۰ بساز. با <code>filter</code> و <code>map</code>، فقط زوج‌ها را انتخاب کن، مربعشان را حساب کن، و در یک وکتور جدید جمع کن.</p>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust">fn main() {
+    let result: Vec&lt;i32&gt; = (1..=10)
+        .filter(|&amp;x| x % 2 == 0)
+        .map(|x| x * x)
+        .collect();
+    println!("{:?}", result); // [4, 16, 36, 64, 100]
+}</code></pre>
+<p><code>(1..=10)</code> خودش یک Range است و Iterator را پیاده‌سازی می‌کند. نیازی به <code>vec!</code> نیست!</p>
+<p><img src="assets/images/13.2.png" alt="[Illustration: A cartoon factory conveyor belt with labeled machines: “filter”, “map”, “collect”. Glowing cubes travel through, changing shape and color at each station. Ferris operates a control panel with a big green “Run” button. Style: educational vector, bright, clean, 16:9.]"></p>
+<hr>
+<h3 id="۱۳۳-کولهپشتی-جاسوسی-closures"><a class="header" href="#۱۳۳-کولهپشتی-جاسوسی-closures">۱۳.۳. کوله‌پشتی جاسوسی (Closures)</a></h3>
+<h4 id="۱۳۳۱-داستان-ابزار-مخفی-فریس"><a class="header" href="#۱۳۳۱-داستان-ابزار-مخفی-فریس">۱۳.۳.۱. داستان: ابزار مخفی فریس</a></h4>
+<p>فریس یک کوله‌پشتی جادویی دارد که می‌تواند یک عملیات مخفی را در خودش ذخیره کند. مثلاً به آن می‌گوید: «هر عددی به تو دادم، ضربدر ۳ کن.» بعداً هر وقت فریس بخواهد، کوله‌پشتی آن کار را انجام می‌دهد. جادوی اصلی اینجاست که کوله‌پشتی می‌تواند <strong>چیزهایی را از محیط اطرافش به خاطر بسپارد</strong>. در Rust به این ابزار <strong>Closure</strong> (بستار) می‌گوییم. 🎒✨</p>
+<h4 id="۱۳۳۲-تعریف-closure"><a class="header" href="#۱۳۳۲-تعریف-closure">۱۳.۳.۲. تعریف Closure</a></h4>
+<p>نحو Closure خیلی ساده است: <code>|پارامترها| { بدنه }</code>. اگر بدنه فقط یک خط باشد، آکولاد <code>{}</code> لازم نیست:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let add_one = |x| x + 1;
+println!("{}", add_one(5)); // 6
+
+let multiply = |a, b| a * b;
+println!("{}", multiply(4, 5)); // 20
+<span class="boring">}</span></code></pre>
+<p>نوع پارامترها و خروجی معمولاً توسط کامپایلر خودش حدس زده می‌شود.</p>
+<h4 id="۱۳۳۳-گرفتن-متغیر-از-محیط"><a class="header" href="#۱۳۳۳-گرفتن-متغیر-از-محیط">۱۳.۳.۳. گرفتن متغیر از محیط</a></h4>
+<p>Closure می‌تواند از متغیرهایی که بیرون از خودش تعریف شده‌اند استفاده کند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let factor = 3;
+let multiply_by_factor = |x| x * factor; // factor را از محیط می‌گیرد
+println!("{}", multiply_by_factor(10)); // 30
+<span class="boring">}</span></code></pre>
+<p>اما Closure با این متغیرها چطور رفتار می‌کند؟ سه حالت دارد که کامپایلر خودش انتخاب می‌کند:</p>
+<h4 id="۱۳۳۴-انواع-گرفتن-fn-fnmut-fnonce"><a class="header" href="#۱۳۳۴-انواع-گرفتن-fn-fnmut-fnonce">۱۳.۳.۴. انواع گرفتن (Fn, FnMut, FnOnce)</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>نوع</th><th>رفتار</th><th>مثال</th></tr>
+</thead>
+<tbody>
+<tr><td><code>Fn</code></td><td>فقط <strong>می‌خواند</strong> (قرض معمولی <code>&amp;</code>). چند بار می‌توانی صدایش بزنی.</td><td>`</td></tr>
+<tr><td><code>FnMut</code></td><td>می‌تواند <strong>تغییر بدهد</strong> (قرض mutable <code>&amp;mut</code>). چند بار صدا زده می‌شود.</td><td>`</td></tr>
+<tr><td><code>FnOnce</code></td><td><strong>مالکیت را می‌گیرد</strong> و مصرف می‌کند. فقط <strong>یک بار</strong> می‌توانی صدایش بزنی.</td><td>`</td></tr>
+</tbody>
+</table>
+</div>
+<p>مثال <code>FnMut</code>:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut count = 0;
+let mut increment = || {
+    count += 1;
+    count
+};
+println!("{}", increment()); // 1
+println!("{}", increment()); // 2
+<span class="boring">}</span></code></pre>
+<h4 id="۱۳۳۵-حرکت-دادن-مالکیت-با-move"><a class="header" href="#۱۳۳۵-حرکت-دادن-مالکیت-با-move">۱۳.۳.۵. حرکت دادن مالکیت با <code>move</code></a></h4>
+<p>اگر قبل از Closure کلمه‌ی <code>move</code> را بگذاری، به Closure می‌گویی: «لطفاً مالکیت متغیرهای محیط را کامل به خودت منتقل کن.» این زمانی کاربرد دارد که بخواهی Closure را به یک ریسه (Thread) دیگر بفرستی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from("سلام فضایی");
+let consume = move || {
+    println!("{}", s);
+};
+consume();
+// println!("{}", s); // ❌ خطا! مالکیت رفته پیش consume
+<span class="boring">}</span></code></pre>
+<h4 id="۱۳۳۶-تمرین-closure-ضربکننده"><a class="header" href="#۱۳۳۶-تمرین-closure-ضربکننده">۱۳.۳.۶. تمرین: Closure ضرب‌کننده</a></h4>
+<p>تابعی به اسم <code>make_multiplier</code> بنویس که یک عدد <code>factor</code> بگیرد و یک Closure برگرداند. Closure باید هر عددی که به آن داده می‌شود را در <code>factor</code> ضرب کند. از <code>move</code> استفاده کن.</p>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust">fn make_multiplier(factor: i32) -&gt; impl Fn(i32) -&gt; i32 {
+    move |x| x * factor
+}
+
+fn main() {
+    let double = make_multiplier(2);
+    let triple = make_multiplier(3);
+    println!("{}", double(5));  // 10
+    println!("{}", triple(5));  // 15
+}</code></pre>
+<p><img src="assets/images/13.3.png" alt="[Illustration: A cartoon crab wearing a futuristic backpack with glowing memory chips. Around the crab float variables like “factor = 3” and “x” being pulled into the backpack. A “move” tag is stamped on the backpack. Style: playful sci-fi educational, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۱۳۴-ترکیب-iterator-و-closure"><a class="header" href="#۱۳۴-ترکیب-iterator-و-closure">۱۳.۴. ترکیب Iterator و Closure</a></h3>
+<h4 id="۱۳۴۱-map-با-closure"><a class="header" href="#۱۳۴۱-map-با-closure">۱۳.۴.۱. <code>map</code> با Closure</a></h4>
+<p>Adapterهایی مثل <code>map</code> و <code>filter</code> دقیقاً همان Closureها را به عنوان ورودی می‌گیرند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let names = vec!["فریس", "بیل"];
+let greetings: Vec&lt;_&gt; = names.iter()
+    .map(|name| format!("سلام {}!", name))
+    .collect();
+println!("{:?}", greetings); // ["سلام فریس!", "سلام بیل!"]
+<span class="boring">}</span></code></pre>
+<h4 id="۱۳۴۲-filter-با-closure"><a class="header" href="#۱۳۴۲-filter-با-closure">۱۳.۴.۲. <code>filter</code> با Closure</a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let numbers = vec![5, 15, 25, 8];
+let big_numbers: Vec&lt;_&gt; = numbers.iter()
+    .copied()
+    .filter(|&amp;x| x &gt; 10)
+    .collect();
+println!("{:?}", big_numbers); // [15, 25]
+<span class="boring">}</span></code></pre>
+<h4 id="۱۳۴۳-مثال-خواندن-خطوط-از-stdin-و-تبدیل-به-عدد"><a class="header" href="#۱۳۴۳-مثال-خواندن-خطوط-از-stdin-و-تبدیل-به-عدد">۱۳.۴.۳. مثال: خواندن خطوط از stdin و تبدیل به عدد</a></h4>
+<p>فرض کن کاربر چند عدد را خط به خط وارد می‌کند و می‌خواهیم جمعشان را حساب کنیم:</p>
+<pre class="playground"><code class="language-rust">use std::io::{self, BufRead};
+
+fn main() {
+    let stdin = io::stdin();
+    let sum: i32 = stdin.lock().lines()
+        .map(|line| line.unwrap().trim().parse::&lt;i32&gt;().unwrap())
+        .sum();
+    println!("مجموع: {}", sum);
+}</code></pre>
+<p>اینجا <code>stdin.lock().lines()</code> یک Iterator از خطوط می‌دهد. <code>map</code> هر خط را می‌گیرد، تمیز می‌کند و به عدد تبدیل می‌کند. در نهایت <code>sum()</code> همه را جمع می‌کند.</p>
+<h4 id="۱۳۴۴-filter_map-برای-ترکیب-دو-کار"><a class="header" href="#۱۳۴۴-filter_map-برای-ترکیب-دو-کار">۱۳.۴.۴. <code>filter_map</code> برای ترکیب دو کار</a></h4>
+<p>گاهی می‌خواهیم همزمان <strong>تبدیل</strong> کنیم و <strong>فیلتر</strong>. <code>filter_map</code> یک Closure می‌گیرد که <code>Option&lt;T&gt;</code> برمی‌گرداند. اگر <code>Some</code> باشد، نگهش می‌دارد؛ اگر <code>None</code> باشد، دور می‌اندازد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let strings = vec!["3", "seven", "8", "10"];
+let numbers: Vec&lt;i32&gt; = strings.iter()
+    .filter_map(|s| s.parse().ok()) // اگر parse نشود، None می‌دهد و حذف می‌شود
+    .collect();
+println!("{:?}", numbers); // [3, 8, 10]
+<span class="boring">}</span></code></pre>
+<p><code>.ok()</code> یک متد کمکی است که <code>Result</code> را به <code>Option</code> تبدیل می‌کند. خیلی برای پاک‌سازی داده‌ها کاربرد دارد! 🧼</p>
+<p><img src="assets/images/13.4.png" alt="[Illustration: A cartoon sorting machine with a “filter_map” label. As items pass through, some are converted and drop into a “Collected” box while invalid items slide into a “Rejected” bin. Ferris watches the process. Style: educational, playful, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۱۳۵-پروژه-پردازش-لاگ-فایل"><a class="header" href="#۱۳۵-پروژه-پردازش-لاگ-فایل">۱۳.۵. پروژه: پردازش لاگ فایل</a></h3>
+<p>حالا وقتش است همه‌ی اینها را در یک پروژه‌ی واقعی بگذاریم. فرض کن یک فایل <code>log.txt</code> داری که وضعیت سیستم را ثبت کرده:</p>
+<pre><code class="language-text">INFO: سیستم راه‌اندازی شد
+ERROR: دیسک پر است
+WARNING: حافظه رو به اتمام
+ERROR: اتصال شبکه قطع شد
+INFO: کار تمام شد
+</code></pre>
+<p>می‌خواهیم خطوط <code>ERROR</code> را پیدا کنیم و ببینیم هر کدام چند بار تکرار شده‌اند.</p>
+<h4 id="۱۳۵۱-ساختار-خطوط-لاگ"><a class="header" href="#۱۳۵۱-ساختار-خطوط-لاگ">۱۳.۵.۱. ساختار خطوط لاگ</a></h4>
+<p>هر خط با یک برچسب مثل <code>ERROR:</code> شروع می‌شود. ما فقط به خطاهای واقعی کار داریم.</p>
+<h4 id="۱۳۵۲-خواندن-فایل-با-iterator"><a class="header" href="#۱۳۵۲-خواندن-فایل-با-iterator">۱۳.۵.۲. خواندن فایل با Iterator</a></h4>
+<pre class="playground"><code class="language-rust">use std::fs::File;
+use std::io::{BufRead, BufReader};
+
+fn main() {
+    let file = File::open("log.txt").expect("فایل log.txt پیدا نشد");
+    let reader = BufReader::new(file);
+    // ... ادامه کد
+}</code></pre>
+<h4 id="۱۳۵۳-فیلتر-کردن-خطوط-error"><a class="header" href="#۱۳۵۳-فیلتر-کردن-خطوط-error">۱۳.۵.۳. فیلتر کردن خطوط ERROR</a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let error_lines: Vec&lt;String&gt; = reader.lines()
+    .filter_map(|line| line.ok()) // اگر خطایی در خواندن فایل پیش آمد، نادیده بگیر
+    .filter(|line| line.starts_with("ERROR"))
+    .collect();
+
+println!("خطاهای پیدا شده:");
+for line in &amp;error_lines {
+    println!("  {}", line);
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۳۵۴-شمارش-خطاها-با-hashmap"><a class="header" href="#۱۳۵۴-شمارش-خطاها-با-hashmap">۱۳.۵.۴. شمارش خطاها با HashMap</a></h4>
+<p>حالا بیاییم ببینیم هر خطا چند بار تکرار شده:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::collections::HashMap;
+
+let mut counts = HashMap::new();
+for line in reader.lines().filter_map(|l| l.ok()) {
+    if let Some(msg) = line.strip_prefix("ERROR: ") {
+        *counts.entry(msg.to_string()).or_insert(0) += 1;
+    }
+}
+
+println!("\n📊 آمار خطاها:");
+for (msg, count) in &amp;counts {
+    println!("  - {} : {} بار", msg, count);
+}
+<span class="boring">}</span></code></pre>
+<p><code>strip_prefix</code> فقط اگر خط با <code>"ERROR: "</code> شروع شود، بقیه‌ی متن را برمی‌گرداند. بعد با <code>entry</code> و <code>or_insert</code> تعدادش را می‌شماریم. کدی که هم تمیز است، هم سریع! ⚡</p>
+<p><img src="assets/images/13.5.png" alt="[Illustration: A cartoon control desk with a scrolling screen of log lines. A glowing filter machine catches only “ERROR” tags and drops them into a counting jar. Ferris adjusts a dial labeled “filter_map”. Style: cozy tech workspace, educational vector, warm lighting, 16:9.]"></p>
+<hr>
+<h3 id="۱۳۶-جمعبندی-و-چالش"><a class="header" href="#۱۳۶-جمعبندی-و-چالش">۱۳.۶. جمع‌بندی و چالش</a></h3>
+<h4 id="۱۳۶۱-مرور-مفاهیم"><a class="header" href="#۱۳۶۱-مرور-مفاهیم">۱۳.۶.۱. مرور مفاهیم</a></h4>
+<p>در این فصل یاد گرفتی:<br>✅ <strong>Iterator</strong>: شیء برای پیمایش مرحله‌ای مجموعه‌ها. متد اصلی <code>next</code>.<br>✅ <strong><code>.iter()</code> / <code>.iter_mut()</code> / <code>.into_iter()</code></strong>: راه‌های گرفتن Iterator با سطوح دسترسی مختلف.<br>✅ <strong>Adapterها</strong>: <code>map</code> (تبدیل)، <code>filter</code> (انتخاب)، <code>collect</code> (جمع‌بندی)، <code>fold</code>/<code>sum</code>/<code>any</code>/<code>all</code>. همه‌ی اینها <strong>تنبل (Lazy)</strong> هستند.<br>✅ <strong>Closure</strong>: تابع بی‌نام که متغیرهای محیط را می‌گیرد. نحو <code>|x| x * 2</code>.<br>✅ <strong>انواع Closure</strong>: <code>Fn</code> (فقط خواندن)، <code>FnMut</code> (تغییر)، <code>FnOnce</code> (مصرف کردن).<br>✅ <strong><code>move</code></strong>: انتقال مالکیت متغیرهای محیط به داخل Closure.<br>✅ <strong><code>filter_map</code></strong>: ترکیب هوشمندانه‌ی فیلتر و تبدیل.<br>✅ <strong>این ابزارها تو را قادر می‌سازند کدهای کوتاه، سریع و شبیه به زبان انسان بنویسی – مانند یک جادوگر واقعی!</strong> 🧙</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>Closureها و Iteratorهای زنجیره‌ای ممکن است در ابتدا گیج‌کننده به نظر برسند. حتی برنامه‌نویسان حرفه‌ای هم گاهی برای نوشتن یک زنجیره‌ی پیچیده چند بار تلاش می‌کنند. نگران نباش – با تمرین، این ابزارها برایت طبیعی می‌شوند و نوشتن کدهای زیبا را برایت لذت‌بخش می‌کنند.</p>
+</blockquote>
+<h4 id="۱۳۶۲-چالش-پیادهسازی-iterator-برای-فیبوناچی"><a class="header" href="#۱۳۶۲-چالش-پیادهسازی-iterator-برای-فیبوناچی">۱۳.۶.۲. چالش: پیاده‌سازی Iterator برای فیبوناچی</a></h4>
+<p>یک <code>struct</code> به اسم <code>Fibonacci</code> بساز که <code>Iterator</code> را پیاده‌سازی کند. هر بار که <code>next</code> صدا زده می‌شود، عدد بعدی دنباله (۰, ۱, ۱, ۲, ۳, ۵, ۸, …) را برگرداند. سپس با <code>.take(10)</code> ده عدد اول را چاپ کن.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">struct Fibonacci {
+    current: u64,
+    next: u64,
+}
+
+impl Fibonacci {
+    fn new() -&gt; Self {
+        Fibonacci { current: 0, next: 1 }
+    }
+}
+
+impl Iterator for Fibonacci {
+    type Item = u64;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let new_next = self.current + self.next;
+        let result = self.current;
+        self.current = self.next;
+        self.next = new_next;
+        Some(result)
+    }
+}
+
+fn main() {
+    let fib = Fibonacci::new();
+    for num in fib.take(10) {
+        println!("{}", num);
+    }
+}</code></pre>
+<p><code>take(10)</code> خودش یک Adapter دیگر است که فقط ۱۰ عضو اول Iterator را برمی‌گرداند. ترکیب <code>struct + Trait + Adapter</code> دقیقاً همان جایی است که Rust می‌درخشد! 🌟</p>
+<p>حالا تو می‌دانی چطور با Iteratorها و Closureها کدهای خواناتر، کوتاه‌تر و حرفه‌ای‌تر بنویسی. در فصل بعد، سری به <strong>سوپرمارکت بزرگ Rust (Crates.io)</strong> می‌زنیم و یاد می‌گیریم چطور از کتابخانه‌های آماده‌ی دیگران استفاده کنیم تا برنامه‌های قدرتمندتری بسازیم. 📦🚀</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-12.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-14.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-12.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-14.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

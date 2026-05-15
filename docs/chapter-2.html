@@ -1,0 +1,532 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۲: بازی عدد گمشده - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۲-بازی-فکری-عدد-گمشده-متغیرها-ورودی-و-شرط"><a class="header" href="#فصل-۲-بازی-فکری-عدد-گمشده-متغیرها-ورودی-و-شرط">فصل ۲: بازی فکری «عدد گمشده» (متغیرها، ورودی و شرط)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۲۱-معما-کامپیوتر-یک-ستاره-قایم-کرده">۲.۱. معما: کامپیوتر یک ستاره قایم کرده</a><br><a href="#۲۱۱-داستان-فریس-و-ستاره-گمشده">۲.۱.۱. داستان: فریس و ستاره گمشده</a><br><a href="#۲۱۲-عدد-تصادفی-مثل-تاس-انداختن">۲.۱.۲. عدد تصادفی مثل تاس انداختن</a><br><a href="#۲۱۳-اضافه-کردن-کتابخانه-rand">۲.۱.۳. اضافه کردن کتابخانه rand</a><br><a href="#۲۱۴-آوردن-جعبه-تاس-به-پروژه">۲.۱.۴. آوردن جعبه تاس به پروژه</a><br><a href="#۲۲-جعبه‌های-حافظه-متغیرها">۲.۲. جعبه‌های حافظه (متغیرها)</a><br><a href="#۲۲۱-ساختن-جعبه-با-let">۲.۲.۱. ساختن جعبه با let</a><br><a href="#۲۲۲-تغییرناپذیری-پیش‌فرض-چرا-جعبه-قفل-است">۲.۲.۲. تغییرناپذیری پیش‌فرض (چرا جعبه قفل است؟)</a><br><a href="#۲۲۳-جعبه-قابل-تغییر-با-mut">۲.۲.۳. جعبه قابل تغییر با mut</a><br><a href="#۲۲۴-دوست-صمیمی-ما-خطاهای-کامپایلر">۲.۲.۴. دوست صمیمی ما: خطاهای کامپایلر</a><br><a href="#۲۳-گوش-دادن-به-حرف‌های-ما-دریافت-ورودی">۲.۳. گوش دادن به حرف‌های ما (دریافت ورودی)</a><br><a href="#۲۳۱-طلسم-خواندن-از-صفحه-کلید">۲.۳.۱. طلسم خواندن از صفحه کلید</a><br><a href="#۲۳۲-تکه‌تکه-کردن-طلسم">۲.۳.۲. تکه‌تکه کردن طلسم</a><br><a href="#۲۳۳-چرا-mut-guess-کلید-جعبه-را-به-کسی-بدهیم">۲.۳.۳. چرا &amp;mut guess؟ (کلید جعبه را به کسی بدهیم)</a><br><a href="#۲۴-تبدیل-نوع-از-string-به-عدد">۲.۴. تبدیل نوع (از String به عدد)</a><br><a href="#۲۴۱-مشکل-متن-در-برابر-عدد">۲.۴.۱. مشکل: متن در برابر عدد</a><br><a href="#۲۴۲-پاک-کردن-فاصله‌ها-و-خطوط-اضافه-با-trim">۲.۴.۲. پاک کردن فاصله‌ها و خطوط اضافه با trim()</a><br><a href="#۲۴۳-تبدیل-متن-به-عدد-با-parse">۲.۴.۳. تبدیل متن به عدد با parse()</a><br><a href="#۲۴۴-سایه‌اندازی-shadowing-اسم-قدیمی-کار-جدید">۲.۴.۴. سایه‌اندازی (Shadowing): اسم قدیمی، کار جدید</a><br><a href="#۲۵-اگر-نه-پس-چی-ifelse">۲.۵. اگر نه، پس چی؟ (if/else)</a><br><a href="#۲۵۱-مقایسه-حدس-با-راز">۲.۵.۱. مقایسه حدس با راز</a><br><a href="#۲۵۲-نوشتن-ifelse-ifelse">۲.۵.۲. نوشتن if/else if/else</a><br><a href="#۲۵۳-عملگرهای-مقایسه-با-مثال-روزمره">۲.۵.۳. عملگرهای مقایسه با مثال روزمره</a><br><a href="#۲۵۴-چرا--و--فرق-دارند-مساوی-در-برابر-مقداردهی">۲.۵.۴. چرا = و == فرق دارند؟ (مساوی در برابر مقداردهی)</a><br><a href="#۲۶-حلقهی-تکرار-loop">۲.۶. حلقه‌ی تکرار (loop)</a><br><a href="#۲۶۱-مشکل-بازی-فقط-یک-بار-حدس-می‌زند">۲.۶.۱. مشکل: بازی فقط یک بار حدس می‌زند</a><br><a href="#۲۶۲-معرفی-loop-حلقه-بی‌پایان">۲.۶.۲. معرفی loop (حلقه بی‌پایان)</a><br><a href="#۲۶۳-قرار-دادن-کد-حدس-داخل-loop">۲.۶.۳. قرار دادن کد حدس داخل loop</a><br><a href="#۲۶۴-شرط-خروج-با-break">۲.۶.۴. شرط خروج با break</a><br><a href="#۲۶۵-اضافه-کردن-شمارنده-حدس‌ها">۲.۶.۵. اضافه کردن شمارنده حدس‌ها</a><br><a href="#۲۷-مدیریت-خطاهای-ساده-بدون-ترسیدن-برنامه">۲.۷. مدیریت خطاهای ساده (بدون ترسیدن برنامه)</a><br><a href="#۲۷۱-اگر-کاربر-به-جای-عدد-حرف-بزند">۲.۷.۱. اگر کاربر به جای عدد حرف بزند</a><br><a href="#۲۷۲-معرفی-match-برای-نجات-برنامه">۲.۷.۲. معرفی match برای نجات برنامه</a><br><a href="#۲۷۳-توضیح-ساده-اگه-نشد-دوباره-بپرس">۲.۷.۳. توضیح ساده: «اگه نشد، دوباره بپرس»</a><br><a href="#۲۸-جمع‌بندی-و-تمرین">۲.۸. جمع‌بندی و تمرین</a><br><a href="#۲۸۱-مرور-مفاهیم">۲.۸.۱. مرور مفاهیم</a><br><a href="#۲۸۲-چالش-بزرگ-نزدیک‌شدن-به-هدف">۲.۸.۲. چالش بزرگ: نزدیک‌شدن به هدف</a></p>
+<hr>
+<h3 id="۲۱-معما-کامپیوتر-یک-ستاره-قایم-کرده"><a class="header" href="#۲۱-معما-کامپیوتر-یک-ستاره-قایم-کرده">۲.۱. معما: کامپیوتر یک ستاره قایم کرده</a></h3>
+<h4 id="۲۱۱-داستان-فریس-و-ستاره-گمشده"><a class="header" href="#۲۱۱-داستان-فریس-و-ستاره-گمشده">۲.۱.۱. داستان: فریس و ستاره گمشده</a></h4>
+<p>فریس توی سفرهای فضایی‌اش یک ستاره‌ی درخشان پیدا کرده که می‌تونه یک آرزو رو برآورده کنه. ولی این خرچنگ بازیگوش، ستاره رو توی یکی از کمدهای مخفی سفینه قایم کرده!<br>فریس با چشماش بهت نگاه می‌کنه و می‌گه:<br>🦀 <em>«من یک عدد بین ۱ تا ۱۰۰ انتخاب کردم. اگه با کمترین حدس پیداش کنی، ستاره مال توئه! هر بار یک عدد بگو، من بهت می‌گم برو بالا یا بیا پایین.»</em></p>
+<p>این دقیقاً بازی معروف <strong>«حدس عدد»</strong> هست. ما قراره همین بازی رو با Rust بنویسیم تا بتونیم با کامپیوتر مسابقه بدیم – و در همین حین ببینیم <strong>کامپیوتر چطور اعداد را به خاطر می‌سپارد، چه چیزی می‌نویسیم و چطور تصمیم می‌گیرد</strong>. این یعنی قدم بزرگی به سمت <strong>جادوگر کامپیوتر شدن</strong>! ✨</p>
+<h4 id="۲۱۲-عدد-تصادفی-مثل-تاس-انداختن"><a class="header" href="#۲۱۲-عدد-تصادفی-مثل-تاس-انداختن">۲.۱.۲. عدد تصادفی مثل تاس انداختن</a></h4>
+<p>کامپیوترها ذاتاً منطقی‌ان و نمی‌تونن واقعاً «شانسی» تصمیم بگیرن. ولی ما می‌تونیم از یک فرمول ریاضی استفاده کنیم که انگار داره تاس می‌اندازه! به این اعداد می‌گن <strong>شبه‌تصادفی</strong>.</p>
+<p>توی Rust، مهندسا یک جعبه‌ابزار آماده به اسم <code>rand</code> ساختن که دقیقاً همین کار رو برامون انجام می‌ده. ما فقط باید اون رو به پروژه‌مون اضافه کنیم.</p>
+<p><img src="assets/images/2.1.png" alt="[Illustration: Cartoon illustration of Ferris the crab holding a glowing cosmic dice. The dice shows random numbers floating around it like 42, 7, 99. Background: a cozy spaceship console with blinking lights. Style: playful, vibrant children’s book, soft shadows, 16:9.]"></p>
+<h4 id="۲۱۳-اضافه-کردن-کتابخانه-rand"><a class="header" href="#۲۱۳-اضافه-کردن-کتابخانه-rand">۲.۱.۳. اضافه کردن کتابخانه rand</a></h4>
+<p>اول ترمینال رو باز کن و یک پروژه‌ی جدید بساز:</p>
+<pre><code class="language-bash">cargo new guess_the_number
+cd guess_the_number
+</code></pre>
+<p>حالا باید به <code>cargo</code> بگیم که به جعبه‌ابزار <code>rand</code> نیاز داریم. فایل <code>Cargo.toml</code> رو باز کن و توی بخش <code>[dependencies]</code> این خط رو اضافه کن:</p>
+<pre><code class="language-toml">[dependencies]
+rand = "0.8.5"
+</code></pre>
+<p>فایل کامل باید شبیه این بشه:</p>
+<pre><code class="language-toml">[package]
+name = "guess_the_number"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8.5"
+</code></pre>
+<p><code>0.8.5</code> یعنی ما نسخه‌ی خاصی رو می‌خوایم. دفعه‌ی بعد که <code>cargo run</code> بزنی، کارگو خودش اون رو از اینترنت دانلود می‌کنه. (مطمئن شو که به اینترنت وصلی!)</p>
+<h4 id="۲۱۴-آوردن-جعبه-تاس-به-پروژه"><a class="header" href="#۲۱۴-آوردن-جعبه-تاس-به-پروژه">۲.۱.۴. آوردن جعبه تاس به پروژه</a></h4>
+<p>حالا که کتابخانه رو معرفی کردیم، باید به برنامه بگیم از کدوم قسمتش استفاده کنیم. بالای فایل <code>src/main.rs</code> (بعد از خط <code>use std::io;</code>) این خط رو بنویس:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use rand::Rng;
+<span class="boring">}</span></code></pre>
+<p>بعد توی تابع <code>main</code>، عدد مخفی رو این‌طوری می‌سازیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let secret_number = rand::thread_rng().gen_range(1..=100);
+<span class="boring">}</span></code></pre>
+<p>بیا این طلسم رو تکه‌تکه کنیم:<br>🔹 <code>rand::thread_rng()</code> → یک دستگاه تاس‌انداز مخصوص برای برنامه‌ی ما می‌سازه.<br>🔹 <code>.gen_range(1..=100)</code> → می‌گه یک عدد بین ۱ و ۱۰۰ انتخاب کن. (<code>..=</code> یعنی خود ۱ و ۱۰۰ هم جزو محدوده‌ان.)</p>
+<p>💡 <strong>تست اولیه:</strong> فعلاً برای اینکه ببینیم کار می‌کنه، عدد رو چاپ می‌کنیم (بعداً پاکش می‌کنیم تا بازی واقعی بشه):</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!("عدد مخفی (فقط برای تست): {}", secret_number);
+<span class="boring">}</span></code></pre>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>این فصل مفاهیم متغیر، ورودی کاربر، تبدیل نوع، حلقه و مدیریت خطای ساده را معرفی می‌کند. بازیکن یک بازی کامل تعاملی خواهد ساخت. اگر کودک در درک <code>match</code> و <code>continue</code> مشکل داشت، نگران نباشید – حتی بزرگ‌سالان هم برای تسلط بر این مفاهیم زمان نیاز دارند. کتاب رسمی Rust این مباحث را با جزئیات بیشتر پوشش می‌دهد:<br><a href="https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html">doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html</a></p>
+</blockquote>
+<hr>
+<h3 id="۲۲-جعبههای-حافظه-متغیرها"><a class="header" href="#۲۲-جعبههای-حافظه-متغیرها">۲.۲. جعبه‌های حافظه (متغیرها)</a></h3>
+<p>توی برنامه‌نویسی، برای اینکه چیزی رو یادمون بمونه، از <strong>متغیر</strong> استفاده می‌کنیم. متغیر مثل یک جعبه‌ی کوچک توی مغز کامپیوتره که یک عدد یا متن رو توش نگه می‌داره.</p>
+<h4 id="۲۲۱-ساختن-جعبه-با-let"><a class="header" href="#۲۲۱-ساختن-جعبه-با-let">۲.۲.۱. ساختن جعبه با <code>let</code></a></h4>
+<p>توی Rust، با کلمه‌ی <code>let</code> جعبه می‌سازیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+<span class="boring">}</span></code></pre>
+<p>یعنی: «یک جعبه به اسم <code>x</code> بساز و عدد ۵ رو توش بذار.»<br>توی بازی ما، <code>secret_number</code> قبلاً ساخته شد. ولی برای جواب کاربر هم یک جعبه نیاز داریم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut guess = String::new();
+<span class="boring">}</span></code></pre>
+<p><code>String::new()</code> یک جعبه‌ی خالی از نوع <strong>متن</strong> می‌سازه. (<code>String</code> یعنی متنی که می‌تونه هر طولی داشته باشه.)</p>
+<h4 id="۲۲۲-تغییرناپذیری-پیشفرض-چرا-جعبه-قفل-است"><a class="header" href="#۲۲۲-تغییرناپذیری-پیشفرض-چرا-جعبه-قفل-است">۲.۲.۲. تغییرناپذیری پیش‌فرض (چرا جعبه قفل است؟)</a></h4>
+<p>یک ویژگی فوق‌العاده‌ی Rust اینه: وقتی جعبه می‌سازی، تا وقتی خودت نخواهی، محتویاتش عوض نمی‌شه. به این می‌گن <strong>تغییرناپذیری</strong>.<br>مثال:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+x = 6; // خطا! نمی‌شه x رو عوض کرد.
+<span class="boring">}</span></code></pre>
+<p>کامپایلر سریع می‌گه:</p>
+<pre><code>error[E0384]: cannot assign twice to immutable variable `x`
+</code></pre>
+<p>این مثل قفل قلکه! تا کلید <code>mut</code> رو ندی، کسی نمی‌تونه توش چیزی بذاره. این کار جلوی اشتباهات ناخواسته رو می‌گیره.</p>
+<h4 id="۲۲۳-جعبه-قابل-تغییر-با-mut"><a class="header" href="#۲۲۳-جعبه-قابل-تغییر-با-mut">۲.۲.۳. جعبه قابل تغییر با <code>mut</code></a></h4>
+<p>ولی گاهی لازمه جعبه رو باز کنیم تا مقدار جدید بریزیم توش. برای این موقع ساختن جعبه، کلمه‌ی <code>mut</code> (مخفف mutable) رو اضافه می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut y = 10;
+y = 20; // حالا دیگه اشکالی نداره!
+<span class="boring">}</span></code></pre>
+<p>توی بازی ما، <code>guess</code> باید بتونه جواب‌های مختلف کاربر رو ذخیره کنه، پس حتماً با <code>let mut</code> می‌سازیمش.</p>
+<p><img src="assets/images/2.2.png" alt="[Illustration: Educational cartoon showing three labeled boxes on a desk. Box 1: “let x = 5” (locked with a padlock). Box 2: “let mut y = 10” (open, with a wrench inside). Ferris stands beside them pointing at the difference. Style: bright, clear, infographic-style children’s illustration, 16:9.]"></p>
+<h4 id="۲۲۴-دوست-صمیمی-ما-خطاهای-کامپایلر"><a class="header" href="#۲۲۴-دوست-صمیمی-ما-خطاهای-کامپایلر">۲.۲.۴. دوست صمیمی ما: خطاهای کامپایلر</a></h4>
+<p>اگر توی Rust خطا گرفتی، اصلاً نترس! کامپایلر Rust مثل یک معلم مهربونه که دقیقاً نشون می‌ده کجا اشتباه کردی و حتی راه حل پیشنهاد می‌ده. مثلاً اگر <code>mut</code> رو فراموش کنی، می‌گه:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>help: consider making this binding mutable: `mut guess`
+<span class="boring">}</span></code></pre>
+<p>یادت باشه: <strong>خطا دشمن نیست، راهنماست!</strong> 🤝</p>
+<hr>
+<h3 id="۲۳-گوش-دادن-به-حرفهای-ما-دریافت-ورودی"><a class="header" href="#۲۳-گوش-دادن-به-حرفهای-ما-دریافت-ورودی">۲.۳. گوش دادن به حرف‌های ما (دریافت ورودی)</a></h3>
+<p>حالا باید از کاربر بخواهیم عددش رو تایپ کنه و ما اون رو بخونیم.</p>
+<h4 id="۲۳۱-طلسم-خواندن-از-صفحه-کلید"><a class="header" href="#۲۳۱-طلسم-خواندن-از-صفحه-کلید">۲.۳.۱. طلسم خواندن از صفحه کلید</a></h4>
+<p>اول بالای فایل، کتابخانه‌ی ورودی/خروجی رو اضافه می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::io;
+<span class="boring">}</span></code></pre>
+<p>(اگر قبلاً در تست اولیه <code>use rand::Rng;</code> را اضافه کرده‌ای، حالا دو تا <code>use</code> داری.)
+بعد توی <code>main</code> می‌نویسیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>io::stdin().read_line(&amp;mut guess).expect("خطا در خواندن ورودی");
+<span class="boring">}</span></code></pre>
+<h4 id="۲۳۲-تکهتکه-کردن-طلسم"><a class="header" href="#۲۳۲-تکهتکه-کردن-طلسم">۲.۳.۲. تکه‌تکه کردن طلسم</a></h4>
+<p>این خط شاید ترسناک به نظر بیاد، ولی بذار با هم بازش کنیم:<br>🔹 <code>io::stdin()</code> → «گوشی تلفن رو بردار و به صفحه‌کلید وصل شو.»<br>🔹 <code>.read_line(&amp;mut guess)</code> → «منتظر بمون کاربر چیزی بنویسه و Enter بزنه. هرچی نوشت رو بریز توی جعبه‌ی <code>guess</code>.»<br>🔹 <code>.expect("خطا در خواندن ورودی")</code> → «اگر به هر دلیلی ارتباط قطع شد، این پیام رو نشون بده و برنامه رو متوقف کن.»</p>
+<h4 id="۲۳۳-چرا-mut-guess-کلید-جعبه-را-به-کسی-بدهیم"><a class="header" href="#۲۳۳-چرا-mut-guess-کلید-جعبه-را-به-کسی-بدهیم">۲.۳.۳. چرا <code>&amp;mut guess</code>؟ (کلید جعبه را به کسی بدهیم)</a></h4>
+<p>علامت <code>&amp;mut</code> یعنی <strong>کلید موقت</strong>. تابع <code>read_line</code> می‌خواد چیزی رو داخل <code>guess</code> بنویسه. ما بهش اجازه می‌دیم این کار رو بکنه، ولی مالکیت جعبه رو بهش نمی‌دیم. فعلاً همین‌قدر بدون که <code>&amp;mut</code> یعنی: «اجازه داری محتوای این جعبه رو عوض کنی.» (فصل ۴ درباره‌ی این اجازه‌ها مفصل حرف می‌زنیم!)</p>
+<p><img src="assets/images/2.3.png" alt="[Illustration: Ferris holding a glowing key labeled “&amp;mut” and handing it to a small robot labeled “read_line”. The robot is standing next to an open box named “guess”. Background: soft tech-themed workspace. Style: friendly, metaphorical, children’s book illustration, 16:9.]"></p>
+<hr>
+<h3 id="۲۴-تبدیل-نوع-از-string-به-عدد"><a class="header" href="#۲۴-تبدیل-نوع-از-string-به-عدد">۲.۴. تبدیل نوع (از String به عدد)</a></h3>
+<h4 id="۲۴۱-مشکل-متن-در-برابر-عدد"><a class="header" href="#۲۴۱-مشکل-متن-در-برابر-عدد">۲.۴.۱. مشکل: متن در برابر عدد</a></h4>
+<p>وقتی کاربر <code>42</code> رو تایپ می‌کنه، کامپیوتر اون رو مثل یک متن <code>"42"</code> می‌بینه. ولی <code>secret_number</code> یک عدد واقعی‌ه. ما نمی‌تونیم سیب رو با پرتقال مقایسه کنیم! پس باید متن رو به عدد تبدیل کنیم.</p>
+<h4 id="۲۴۲-پاک-کردن-فاصلهها-و-خطوط-اضافه-با-trim"><a class="header" href="#۲۴۲-پاک-کردن-فاصلهها-و-خطوط-اضافه-با-trim">۲.۴.۲. پاک کردن فاصله‌ها و خطوط اضافه با <code>trim()</code></a></h4>
+<p>وقتی کاربر عدد می‌زنه و Enter می‌کنه، ته متن یک کاراکتر پنهان <code>\n</code> (یعنی خط جدید) اضافه می‌شه. تابع <code>trim()</code> این آشغال‌های اضافی رو پاک می‌کنه:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let clean_guess = guess.trim();
+<span class="boring">}</span></code></pre>
+<h4 id="۲۴۳-تبدیل-متن-به-عدد-با-parse"><a class="header" href="#۲۴۳-تبدیل-متن-به-عدد-با-parse">۲.۴.۳. تبدیل متن به عدد با <code>parse()</code></a></h4>
+<p>حالا متن تمیزه. با <code>parse()</code> می‌تونیم بگیم «لطفاً اینو به عدد تبدیل کن»:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let guess: u32 = guess.trim().parse().expect("لطفاً یک عدد معتبر وارد کن!");
+<span class="boring">}</span></code></pre>
+<p>🔹 <code>parse()</code> → تلاش می‌کنه متن رو به عدد تبدیل کنه.<br>🔹 <code>: u32</code> → به کامپایلر می‌گه «می‌خوام یک عدد صحیح مثبت (تا حدود ۴ میلیارد) باشه.»<br>🔹 <code>expect()</code> → اگر تبدیل نشد، برنامه رو با پیام ما متوقف می‌کنه. (بعداً یاد می‌گیریم چطور بدون توقف مدیریتش کنیم.)</p>
+<h4 id="۲۴۴-سایهاندازی-shadowing-اسم-قدیمی-کار-جدید"><a class="header" href="#۲۴۴-سایهاندازی-shadowing-اسم-قدیمی-کار-جدید">۲.۴.۴. سایه‌اندازی (Shadowing): اسم قدیمی، کار جدید</a></h4>
+<p>دقت کردی دوباره از <code>let guess</code> استفاده کردیم؟ توی Rust این کار مجازه و بهش می‌گن <strong>سایه‌اندازی</strong>. یعنی متغیر قبلی که <code>String</code> بود کنار می‌ره، و یک متغیر جدید با همان اسم ولی از نوع <code>u32</code> جایگزینش می‌شه. خیلی کاربردیه چون لازم نیست اسم‌های طولانی مثل <code>guess_number</code> اختراع کنیم!</p>
+<hr>
+<h3 id="۲۵-اگر-نه-پس-چی-ifelse"><a class="header" href="#۲۵-اگر-نه-پس-چی-ifelse">۲.۵. اگر نه، پس چی؟ (if/else)</a></h3>
+<h4 id="۲۵۱-مقایسه-حدس-با-راز"><a class="header" href="#۲۵۱-مقایسه-حدس-با-راز">۲.۵.۱. مقایسه حدس با راز</a></h4>
+<p>منطق بازی ساده‌ست:<br>🔸 اگر حدس &lt; عدد مخفی → بگو «برو بالا!»<br>🔸 اگر حدس &gt; عدد مخفی → بگو «بیا پایین!»<br>🔸 اگر حدس == عدد مخفی → بگو «برنده شدی!»</p>
+<h4 id="۲۵۲-نوشتن-if--else-if--else"><a class="header" href="#۲۵۲-نوشتن-if--else-if--else">۲.۵.۲. نوشتن <code>if</code> / <code>else if</code> / <code>else</code></a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>if guess &lt; secret_number {
+    println!("❄️ یخ زدم! برو بالا!");
+} else if guess &gt; secret_number {
+    println!("🔥 داغ داغه! بیا پایین!");
+} else {
+    println!("🏆 بردی! ستاره مال توست!");
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۲۵۳-عملگرهای-مقایسه-با-مثال-روزمره"><a class="header" href="#۲۵۳-عملگرهای-مقایسه-با-مثال-روزمره">۲.۵.۳. عملگرهای مقایسه با مثال روزمره</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>عملگر</th><th>معنی</th><th>مثال واقعی</th></tr>
+</thead>
+<tbody>
+<tr><td><code>&lt;</code></td><td>کوچک‌تر از</td><td>سن من <code>&lt;</code> سن پدرم</td></tr>
+<tr><td><code>&gt;</code></td><td>بزرگ‌تر از</td><td>قد پدرم <code>&gt;</code> قد من</td></tr>
+<tr><td><code>==</code></td><td>مساوی با</td><td><code>2 + 2 == 4</code></td></tr>
+<tr><td><code>!=</code></td><td>نامساوی با</td><td><code>3 != 4</code></td></tr>
+<tr><td><code>&lt;=</code></td><td>کوچک‌تر یا مساوی</td><td>انگشتان دست <code>&lt;= 10</code></td></tr>
+<tr><td><code>&gt;=</code></td><td>بزرگ‌تر یا مساوی</td><td>نمره قبولی <code>&gt;= 10</code></td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="۲۵۴-چرا--و--فرق-دارند"><a class="header" href="#۲۵۴-چرا--و--فرق-دارند">۲.۵.۴. چرا <code>=</code> و <code>==</code> فرق دارند؟</a></h4>
+<p>🔹 <code>=</code> یعنی <strong>مقداردهی</strong>: «سمت راست رو بریز توی جعبه‌ی سمت چپ.» (<code>let x = 5;</code>)<br>🔹 <code>==</code> یعنی <strong>مقایسه</strong>: «آیا سمت راست و چپ برابرند؟» (<code>if x == 5</code>)<br>اگر اشتباهی توی <code>if</code> از <code>=</code> استفاده کنی، کامپایلر سریع خطا می‌ده چون دنبال یک سؤال (شرط) بوده، نه یک دستور!</p>
+<p><img src="assets/images/2.4.png" alt="[Illustration: Split-screen educational graphic. Left side: a scale balancing “x = 5” with a loading arrow. Right side: a magnifying glass comparing “x == 5” with a green checkmark. Ferris stands in the middle explaining. Style: clean, modern educational illustration, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۲۶-حلقهی-تکرار-loop"><a class="header" href="#۲۶-حلقهی-تکرار-loop">۲.۶. حلقه‌ی تکرار (<code>loop</code>)</a></h3>
+<h4 id="۲۶۱-مشکل-بازی-فقط-یک-بار-حدس-میزند"><a class="header" href="#۲۶۱-مشکل-بازی-فقط-یک-بار-حدس-میزند">۲.۶.۱. مشکل: بازی فقط یک بار حدس می‌زند</a></h4>
+<p>تا اینجا برنامه یک بار عدد می‌گیره و تموم می‌شه. ولی ما می‌خوایم تا وقتی کاربر درست حدس نزده، بازی ادامه پیدا کنه.</p>
+<h4 id="۲۶۲-معرفی-loop-حلقه-بیپایان"><a class="header" href="#۲۶۲-معرفی-loop-حلقه-بیپایان">۲.۶.۲. معرفی <code>loop</code> (حلقه بی‌پایان)</a></h4>
+<p><code>loop</code> یک دایره‌ی تکراره. هرچی داخل <code>{ }</code> بنویسی، تا ابد تکرار می‌شه، مگر اینکه دکمه‌ی خروج رو بزنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>loop {
+    println!("این جمله تا ابد چاپ می‌شه!");
+}
+<span class="boring">}</span></code></pre>
+<p>(برای متوقف کردنش باید <code>Ctrl+C</code> بزنی! ولی ما بعداً با <code>break</code> ازش بیرون می‌پریم.)</p>
+<h4 id="۲۶۳-قرار-دادن-کد-حدس-داخل-loop"><a class="header" href="#۲۶۳-قرار-دادن-کد-حدس-داخل-loop">۲.۶.۳. قرار دادن کد حدس داخل <code>loop</code></a></h4>
+<p>تمام بخش‌های «دریافت حدس» و «بررسی» رو می‌ذاریم داخل <code>loop</code>. هر دور، یک حدس جدید می‌گیره.</p>
+<h4 id="۲۶۴-شرط-خروج-با-break"><a class="header" href="#۲۶۴-شرط-خروج-با-break">۲.۶.۴. شرط خروج با <code>break</code></a></h4>
+<p>برای فرار از حلقه، از <code>break</code> استفاده می‌کنیم. وقتی حدس درست بود:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>if guess == secret_number {
+    println!("🏆 بردی! ستاره مال توست!");
+    break; // دکمه خروج از حلقه
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۲۶۵-اضافه-کردن-شمارنده-حدسها"><a class="header" href="#۲۶۵-اضافه-کردن-شمارنده-حدسها">۲.۶.۵. اضافه کردن شمارنده حدس‌ها</a></h4>
+<p>بیا تعداد تلاش‌ها رو بشماریم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut count = 0;
+
+loop {
+    count += 1; // یعنی: count = count + 1
+    // ... بقیه کد
+}
+<span class="boring">}</span></code></pre>
+<p><code>count += 1</code> سریع‌ترین راه برای اضافه کردن یک‌دونه‌ست!</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>حلقه‌ها و فرار از آن‌ها با <code>break</code> ممکن است در ابتدا کمی گیج‌کننده به نظر برسند. حتی برنامه‌نویسان حرفه‌ای هم گاهی حلقه‌هایشان اشتباه می‌شود. اگر یک‌باره همه چیز را نفهمیدی، نگران نباش – با کمی تمرین حتماً مسلط می‌شوی.</p>
+</blockquote>
+<p><img src="assets/images/2.5.png" alt="[Illustration: Ferris running on a circular track labeled “loop”. He holds a counter flag showing “1, 2, 3…”. At one point, a red gate labeled “break” opens. Style: dynamic, cartoon motion lines, encouraging mood, 16:9.]"></p>
+<hr>
+<h3 id="۲۷-مدیریت-خطاهای-ساده-بدون-ترسیدن-برنامه"><a class="header" href="#۲۷-مدیریت-خطاهای-ساده-بدون-ترسیدن-برنامه">۲.۷. مدیریت خطاهای ساده (بدون ترسیدن برنامه)</a></h3>
+<h4 id="۲۷۱-اگر-کاربر-به-جای-عدد-حرف-بزند"><a class="header" href="#۲۷۱-اگر-کاربر-به-جای-عدد-حرف-بزند">۲.۷.۱. اگر کاربر به جای عدد حرف بزند</a></h4>
+<p>تا الان اگر کاربر بنویسه «سلام»، برنامه با <code>expect</code> می‌ترکه و بسته می‌شه. این تجربه‌ی خوبی نیست. بهتره بگیم «لطفاً عدد بزن!» و دوباره بپرسیم.</p>
+<h4 id="۲۷۲-معرفی-match-برای-نجات-برنامه"><a class="header" href="#۲۷۲-معرفی-match-برای-نجات-برنامه">۲.۷.۲. معرفی <code>match</code> برای نجات برنامه</a></h4>
+<p>به جای <code>expect</code>، از <code>match</code> استفاده می‌کنیم. <code>match</code> مثل یک دستگاه دسته‌بندیه: اگر تبدیل موفق شد، عدد رو بده؛ اگر نه، یک پیام دوستانه نشان بده و برو دور بعدی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let guess: u32 = match guess.trim().parse() {
+    Ok(num) =&gt; num,
+    Err(_) =&gt; {
+        println!("❌ لطفاً فقط عدد وارد کن! ❌");
+        continue;
+    }
+};
+<span class="boring">}</span></code></pre>
+<p>🔹 <code>Ok(num)</code> → اگر موفق شد، عدد رو در <code>num</code> بذار و به <code>guess</code> بده.<br>🔹 <code>Err(_)</code> → اگر هر خطایی پیش آمد، دستورات داخل بلوک رو اجرا کن.<br>🔹 <code>continue</code> → یعنی «این دور رو رها کن و برگرد اول حلقه».</p>
+<h4 id="۲۷۳-توضیح-ساده-اگر-نشد-دوباره-بپرس"><a class="header" href="#۲۷۳-توضیح-ساده-اگر-نشد-دوباره-بپرس">۲.۷.۳. توضیح ساده: «اگر نشد، دوباره بپرس»</a></h4>
+<p>به زبان ساده: «سعی کن متن رو به عدد تبدیل کنی. اگر تونستی، عالی! ادامه بده. اگر نتونستی، یک پیام مودبانه نشان بده و بدون اینکه برنامه بسته بشه، دوباره از کاربر بپرس.» اینطوری بازی هیچ‌وقت قفل نمی‌کنه! 🛡️</p>
+<p><img src="assets/images/2.6.png" alt="[Illustration: Cartoon sorting machine labeled “match”. Left chute: text “abc” goes in, comes out as “❌ Try again!”. Right chute: text “42” goes in, comes out as a golden number “42 ✅”. Ferris operates the machine with a friendly smile. Style: playful, technical metaphor, children’s book, 16:9.]"></p>
+<hr>
+<h3 id="۲۸-جمعبندی-و-تمرین"><a class="header" href="#۲۸-جمعبندی-و-تمرین">۲.۸. جمع‌بندی و تمرین</a></h3>
+<h4 id="۲۸۱-مرور-مفاهیم"><a class="header" href="#۲۸۱-مرور-مفاهیم">۲.۸.۱. مرور مفاهیم</a></h4>
+<p>تو این فصل یاد گرفتی:<br>✅ چطور با <code>rand</code> عدد تصادفی بسازی.<br>✅ چطور با <code>let</code> و <code>let mut</code> جعبه‌های حافظه بسازی.<br>✅ چطور با <code>stdin().read_line()</code> از کاربر ورودی بگیری.<br>✅ چطور با <code>trim()</code> و <code>parse()</code> متن رو به عدد تبدیل کنی.<br>✅ چطور با <code>if/else</code> تصمیم بگیری.<br>✅ چطور با <code>loop</code> و <code>break</code> حلقه بسازی.<br>✅ چطور با <code>match</code> خطاها رو مدیریت کنی بدون اینکه برنامه بترکه.</p>
+<h4 id="۲۸۲-چالش-بزرگ-نزدیکشدن-به-هدف"><a class="header" href="#۲۸۲-چالش-بزرگ-نزدیکشدن-به-هدف">۲.۸.۲. چالش بزرگ: نزدیک‌شدن به هدف</a></h4>
+<p>حالا یک قابلیت حرفه‌ای به بازی اضافه کن: وقتی کاربر عددی رو حدس می‌زنه که فاصله‌اش با عدد مخفی کمتر از ۵ تا باشه، پیام بده: «🔥 خیلی نزدیک شدی! 🔥»</p>
+<p>💡 راهنمایی: فاصله رو حساب کن. می‌تونی از <code>as i32</code> برای تبدیل به عدد علامت‌دار و <code>abs()</code> برای قدر مطلق استفاده کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let diff = (guess as i32 - secret_number as i32).abs();
+if diff &lt; 5 &amp;&amp; guess != secret_number {
+    println!("🔥 خیلی نزدیک شدی! 🔥");
+}
+<span class="boring">}</span></code></pre>
+<h4 id="-کد-نهایی-بازی-کامل-و-آماده-اجرا"><a class="header" href="#-کد-نهایی-بازی-کامل-و-آماده-اجرا">🎮 کد نهایی بازی (کامل و آماده اجرا)</a></h4>
+<pre class="playground"><code class="language-rust">use std::io;
+use rand::Rng;
+
+fn main() {
+    println!("🎲 به بازی حدس عدد خوش آمدید! 🎲");
+    
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let mut count = 0;
+
+    loop {
+        count += 1;
+        println!("لطفاً یک عدد بین ۱ تا ۱۰۰ حدس بزنید:");
+
+        let mut guess = String::new();
+
+        io::stdin()
+            .read_line(&amp;mut guess)
+            .expect("خطا در خواندن ورودی");
+
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) =&gt; num,
+            Err(_) =&gt; {
+                println!("❌ لطفاً فقط عدد وارد کنید! ❌");
+                continue;
+            }
+        };
+
+        if guess &lt; secret_number {
+            println!("⬆️ یخ زدم! برو بالا!");
+        } else if guess &gt; secret_number {
+            println!("⬇️ داغ داغه! بیا پایین!");
+        } else {
+            println!("🏆 بردی! ستاره مال توست! 🏆");
+            println!("✨ تو در {} تا حدس بردی! ✨", count);
+            break;
+        }
+    }
+}</code></pre>
+<p>حالا برنامه رو با <code>cargo run</code> اجرا کن و با دوستات مسابقه بده!<br>در فصل بعد یاد می‌گیریم چطور کدهای تکراری رو داخل <strong>توابع</strong> بسته‌بندی کنیم تا برنامه‌هامون تمیزتر، کوتاه‌تر و حرفه‌ای‌تر بشن. 🚀</p>
+<p><img src="assets/images/2.7.png" alt="[Illustration: Ferris wearing a graduation cap, holding a glowing “Chapter 2 Master” badge. Floating around him are dice, a loop track, a match sorting machine, and a star trophy. Encouraging, bright lighting, children’s book style.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

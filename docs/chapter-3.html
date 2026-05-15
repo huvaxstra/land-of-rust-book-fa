@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۳: دستور پخت کیک شکلاتی فضایی - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۳-دستور-پخت-کیک-شکلاتی-فضایی-توابع-پارامترها-و-انواع-داده"><a class="header" href="#فصل-۳-دستور-پخت-کیک-شکلاتی-فضایی-توابع-پارامترها-و-انواع-داده">فصل ۳: دستور پخت کیک شکلاتی فضایی (توابع، پارامترها و انواع داده)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۳۱-مشکل-بزرگ-آشپزخانه">۳.۱. مشکل بزرگ آشپزخانه</a><br><a href="#۳۱۱-داستان-فریس-و-کیک-شکلاتی">۳.۱.۱. داستان: فریس و کیک شکلاتی</a><br><a href="#۳۱۲-معرفی-تابع-به-عنوان-دستور-پخت">۳.۱.۲. معرفی تابع به عنوان دستور پخت</a><br><a href="#۳۱۳-اولین-تابع-ساده">۳.۱.۳. اولین تابع ساده</a><br><a href="#۳۱۴-صدا-زدن-تابع">۳.۱.۴. صدا زدن تابع</a><br><a href="#۳۲-ساخت-ماشین-جادویی-پارامترها-و-مقدار-بازگشتی">۳.۲. ساخت ماشین جادویی (پارامترها و مقدار بازگشتی)</a><br><a href="#۳۲۱-تابع-با-پارامتر-ورودی">۳.۲.۱. تابع با پارامتر ورودی</a><br><a href="#۳۲۲-چند-پارامتر">۳.۲.۲. چند پارامتر</a><br><a href="#۳۲۳-مقدار-بازگشتی-با--">۳.۲.۳. مقدار بازگشتی با -&gt;</a><br><a href="#۳۲۴-خروج-زودهنگام-با-return">۳.۲.۴. خروج زودهنگام با return</a><br><a href="#۳۲۵-تمرین-تابع-ضرب-و-ترکیب">۳.۲.۵. تمرین: تابع ضرب و ترکیب</a><br><a href="#۳۳-فرق-آرد-و-شکر-data-types">۳.۳. فرق آرد و شکر (Data Types)</a><br><a href="#۳۳۱-دسته‌بندی-انواع">۳.۳.۱. دسته‌بندی انواع</a><br><a href="#۳۳۲-اعداد-صحیح-i32-u32">۳.۳.۲. اعداد صحیح (i32, u32)</a><br><a href="#۳۳۳-اعداد-اعشاری-f64">۳.۳.۳. اعداد اعشاری (f64)</a><br><a href="#۳۳۴-منطقی-bool">۳.۳.۴. منطقی (bool)</a><br><a href="#۳۳۵-کاراکتر-char">۳.۳.۵. کاراکتر (char)</a><br><a href="#۳۳۶-تاپل-tuple--جعبه‌های-کنار-هم">۳.۳.۶. تاپل (Tuple) – جعبه‌های کنار هم</a><br><a href="#۳۳۷-آرایه-array--قفسهی-مرتب">۳.۳.۷. آرایه (Array) – قفسه‌ی مرتب</a><br><a href="#۳۳۸-تمرین-تاپل-اطلاعات-شخصی">۳.۳.۸. تمرین: تاپل اطلاعات شخصی</a><br><a href="#۳۴-یادداشت‌های-مخفی-comments">۳.۴. یادداشت‌های مخفی (Comments)</a><br><a href="#۳۴۱-کامنت-خطی-">۳.۴.۱. کامنت خطی //</a><br><a href="#۳۴۲-کامنت-چندخطی--">۳.۴.۲. کامنت چندخطی /* */</a><br><a href="#۳۴۳-چه-زمانی-کامنت-بگذاریم">۳.۴.۳. چه زمانی کامنت بگذاریم؟</a><br><a href="#۳۴۴-تمرین-کامنتگذاری-روی-بازی-حدس-عدد">۳.۴.۴. تمرین: کامنت‌گذاری روی بازی حدس عدد</a><br><a href="#۳۵-جمع‌بندی-و-پروژه">۳.۵. جمع‌بندی و پروژه</a><br><a href="#۳۵۱-مرور-مفاهیم">۳.۵.۱. مرور مفاهیم</a><br><a href="#۳۵۲-پروژه-ماشین-حساب-ساده">۳.۵.۲. پروژه: ماشین حساب ساده</a><br><a href="#۳۵۳-چالش-بزرگترین-عدد-آرایه">۳.۵.۳. چالش: بزرگترین عدد آرایه</a></p>
+<hr>
+<h3 id="۳۱-مشکل-بزرگ-آشپزخانه"><a class="header" href="#۳۱-مشکل-بزرگ-آشپزخانه">۳.۱. مشکل بزرگ آشپزخانه</a></h3>
+<h4 id="۳۱۱-داستان-فریس-و-کیک-شکلاتی"><a class="header" href="#۳۱۱-داستان-فریس-و-کیک-شکلاتی">۳.۱.۱. داستان: فریس و کیک شکلاتی</a></h4>
+<p>فریس عاشق کیک شکلاتی فضاییه! 🍰 دستور پخت مخصوص مادربزرگش رو هم داره: «۲۰۰ گرم آرد، ۱۵۰ گرم شکر، ۳ تا تخم‌مرغ، کمی وانیل، هم بزن و ۳۰ دقیقه بذار توی فر.»<br>مشکل اینجاست که فریس هر بار دلش کیک می‌خواد، مجبور می‌شه کل این مراحل رو از اول بنویسه و انجام بده. اگر ۱۰ تا کیک بخواد، باید ۱۰ بار همان کدهای تکراری رو بنویسه! خسته‌کننده‌ست، نه؟ 😮‍💨</p>
+<p>توی برنامه‌نویسی هم دقیقاً همین اتفاق می‌افته. وقتی یک کار تکراری رو چند بار می‌خوایم انجام بدیم، نباید هر بار کدش رو از اول بنویسیم. راه حلش چیه؟ استفاده از <strong>تابع (Function)</strong> – راهی برای <strong>دسته‌بندی کردن دستورالعمل‌ها و استفاده دوباره از آن‌ها</strong>. این دقیقاً همان کاری‌ست که برنامه‌نویس‌های حرفه‌ای انجام می‌دهند تا کدشان مرتب و کوتاه باشد. با یادگیری توابع، یک قدم دیگر به <strong>جادوگر کامپیوتر شدن</strong> نزدیک می‌شوی! 🧙‍♂️</p>
+<h4 id="۳۱۲-معرفی-تابع-به-عنوان-دستور-پخت"><a class="header" href="#۳۱۲-معرفی-تابع-به-عنوان-دستور-پخت">۳.۱.۲. معرفی تابع به عنوان دستور پخت</a></h4>
+<p>تابع دقیقاً مثل یک <strong>دستور پخت جادویی</strong> می‌مونه که یک اسم داره. هر وقت آن اسم رو صدا بزنی، تمام کارهای نوشته‌شده توش رو انجام می‌ده. حتی می‌تونی بهش مواد اولیه (پارامتر) بدی و نتیجه‌ی آماده (مقدار بازگشتی) ازش بگیری. 🧁✨</p>
+<p>توی Rust، توابع رو با کلمه‌ی <code>fn</code> (مخفف function) می‌سازیم. خود <code>main</code> هم یک تابع خاصه که کامپایلر می‌دونه برنامه باید از آنجا شروع بشه.</p>
+<p><img src="assets/images/3.1.png" alt="[Illustration: Cartoon scene inside a spaceship kitchen. Ferris the crab looks exhausted, surrounded by floating recipe cards that say “Mix, Bake, Wait” repeated many times. A glowing magical cookbook labeled “fn” appears, promising to save the day. Style: vibrant children’s book illustration, warm lighting, playful mood.]"></p>
+<h4 id="۳۱۳-اولین-تابع-ساده"><a class="header" href="#۳۱۳-اولین-تابع-ساده">۳.۱.۳. اولین تابع ساده</a></h4>
+<p>بیا یک تابع ساده بسازیم که فقط یک سلام چاپ کنه. اول یک پروژه‌ی جدید بساز:</p>
+<pre><code class="language-bash">cargo new cake_functions
+cd cake_functions
+</code></pre>
+<p>حالا توی <code>src/main.rs</code> این کد رو بنویس:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    say_hello(); // صدا زدن تابع
+}
+
+// تعریف تابع ما
+fn say_hello() {
+    println!("سلام از توی تابع!");
+}</code></pre>
+<p>🔹 <code>fn say_hello() { ... }</code> یعنی: «یک تابع به اسم <code>say_hello</code> بساز که ورودی نمی‌گیره و خروجی هم برنمی‌گردونه.»<br>🔹 توی <code>main</code> با نوشتن <code>say_hello();</code> به کامپیوتر می‌گیم: «برو دستورات این تابع رو اجرا کن و برگرد.»</p>
+<p>وقتی <code>cargo run</code> بزنی، خروجی اینه:</p>
+<pre><code>سلام از توی تابع!
+</code></pre>
+<h4 id="۳۱۴-صدا-زدن-تابع"><a class="header" href="#۳۱۴-صدا-زدن-تابع">۳.۱.۴. صدا زدن تابع</a></h4>
+<p>قدرت واقعی تابع وقتیه که بخوایم یک کار رو چند بار تکرار کنیم:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    say_hello();
+    say_hello();
+    say_hello();
+}</code></pre>
+<p>دیدی چقدر راحت شد؟ به جای سه بار نوشتن <code>println!</code>، فقط اسم تابع رو صدا زدیم. اینطوری کدمون هم تمیزتره، هم خوندنش آسون‌تره! 🧹</p>
+<p><img src="assets/images/3.2.png" alt="[Illustration: Educational illustration showing a large button labeled “say_hello()” being pressed three times. Each press triggers a speech bubble saying “سلام از توی تابع!”. Ferris stands beside it giving a thumbs up. Style: clean, cartoon, educational infographic, bright colors.]"></p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>این فصل توابع را معرفی می‌کند – یک مفهوم بنیادی در تمام زبان‌های برنامه‌نویسی. توابع به کودکان کمک می‌کنند تا <strong>باز استفاده از کد</strong> و <strong>دسته‌بندی</strong> را یاد بگیرند. اگر کودک در درک پارامترها یا مقدار بازگشتی少し مشکل داشت، نگران نباشید – در فصل‌های بعدی بارها با آن‌ها روبرو می‌شود. کتاب رسمی Rust فصل کاملی درباره‌ی توابع دارد:<br><a href="https://doc.rust-lang.org/book/ch03-03-how-functions-work.html">doc.rust-lang.org/book/ch03-03-how-functions-work.html</a></p>
+</blockquote>
+<hr>
+<h3 id="۳۲-ساخت-ماشین-جادویی-پارامترها-و-مقدار-بازگشتی"><a class="header" href="#۳۲-ساخت-ماشین-جادویی-پارامترها-و-مقدار-بازگشتی">۳.۲. ساخت ماشین جادویی (پارامترها و مقدار بازگشتی)</a></h3>
+<p>تابع <code>say_hello</code> همیشه یک کار ثابت انجام می‌داد. ولی توابع قدرتمندتر می‌تونن ورودی بگیرن و خروجی بدن. مثل یک ماشین جادویی که مواد خام می‌گیره و محصول نهایی تحویل می‌ده! 🏭</p>
+<h4 id="۳۲۱-تابع-با-پارامتر-ورودی"><a class="header" href="#۳۲۱-تابع-با-پارامتر-ورودی">۳.۲.۱. تابع با پارامتر ورودی</a></h4>
+<p>پارامتر مثل مواد اولیه‌ای‌ه که به دستور پخت می‌دیم. مثلاً تابعی می‌خوایم که اسم هر کسی رو بگیره و بهش سلام کنه:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn greet(name: String) {
+    println!("سلام {}! خوش اومدی!", name);
+}
+<span class="boring">}</span></code></pre>
+<p>🔹 <code>name: String</code> یعنی: «این تابع یک پارامتر به اسم <code>name</code> از نوع <code>String</code> (متن) می‌گیره.»<br>🔹 توی بدنه‌ی تابع، <code>name</code> مثل یک متغیر معمولی رفتار می‌شه.</p>
+<p>حالا توی <code>main</code> صداش می‌زنیم:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    greet(String::from("فریس"));
+    greet(String::from("سارا"));
+}</code></pre>
+<p>خروجی:</p>
+<pre><code>سلام فریس! خوش اومدی!
+سلام سارا! خوش اومدی!
+</code></pre>
+<h4 id="۳۲۲-چند-پارامتر"><a class="header" href="#۳۲۲-چند-پارامتر">۳.۲.۲. چند پارامتر</a></h4>
+<p>می‌تونیم چند پارامتر رو با ویرگول از هم جدا کنیم:</p>
+<pre class="playground"><code class="language-rust">fn bake_cake(flour_grams: i32, sugar_grams: i32, eggs: i32) {
+    println!("با {} گرم آرد، {} گرم شکر و {} تا تخم‌مرغ کیک می‌پزم.", 
+             flour_grams, sugar_grams, eggs);
+}
+
+fn main() {
+    bake_cake(200, 150, 3);
+    bake_cake(300, 200, 4); // کیک بزرگ‌تر!
+}</code></pre>
+<h4 id="۳۲۳-مقدار-بازگشتی-با--"><a class="header" href="#۳۲۳-مقدار-بازگشتی-با--">۳.۲.۳. مقدار بازگشتی با <code>-&gt;</code></a></h4>
+<p>بعضی توابع نتیجه‌ای تولید می‌کنن که می‌خوایم بعداً ازش استفاده کنیم. مثلاً تابعی که دو عدد رو جمع کنه و حاصل رو برگردونه. برای این کار از <code>-&gt;</code> و نوع خروجی استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust">fn add(a: i32, b: i32) -&gt; i32 {
+    a + b
+}
+
+fn main() {
+    let sum = add(5, 3);
+    println!("۵ + ۳ = {}", sum);
+}</code></pre>
+<p>⚠️ <strong>نکته‌ی طلایی Rust:</strong> در Rust، <strong>آخرین عبارت تابع بدون نقطه‌ویرگول (<code>;</code>)</strong> به عنوان مقدار بازگشتی در نظر گرفته می‌شه. توی مثال بالا <code>a + b</code> نقطه‌ویرگول نداره، پس مقدارش برگردانده می‌شه.<br>اگر تهش <code>;</code> بذاری (<code>a + b;</code>)، کامپایلر فکر می‌کنه تابع هیچی برنمی‌گردونه و چون قول دادی <code>i32</code> برگردونی، خطا می‌ده!</p>
+<h4 id="۳۲۴-خروج-زودهنگام-با-return"><a class="header" href="#۳۲۴-خروج-زودهنگام-با-return">۳.۲.۴. خروج زودهنگام با <code>return</code></a></h4>
+<p>گاهی می‌خوایم وسط تابع، بدون اینکه به انتها برسیم، از تابع خارج بشیم و یک مقدار خاص رو برگردونیم. برای این کار از کلمه‌ی <code>return</code> استفاده می‌کنیم. مثال: تابعی که اگر عدد منفی باشد، صفر برگرداند (چون طول نمی‌تونه منفی باشه):</p>
+<pre class="playground"><code class="language-rust">fn safe_length(n: i32) -&gt; i32 {
+    if n &lt; 0 {
+        return 0; // فوری برگرد، دیگه ادامه نده
+    }
+    n // اگر منفی نبود، خود عدد رو برگردان
+}
+
+fn main() {
+    println!("طول مجاز: {}", safe_length(-5)); // 0
+    println!("طول مجاز: {}", safe_length(10)); // 10
+}</code></pre>
+<p><code>return</code> مثل دکمه‌ی «فرار سریع» از تابعه! 🏃‍♂️💨</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>پارامترها و مقدار بازگشتی ممکن است در ابتدا سنگین به نظر برسند. حتی بزرگ‌سالان هم برای تسلط بر آن‌ها به تمرین نیاز دارند. اگر امروز همه چیز را کامل نفهمیدی، نگران نباش – در فصل‌های بعدی بارها از توابع استفاده خواهی کرد.</p>
+</blockquote>
+<h4 id="۳۲۵-تمرین-تابع-ضرب-و-ترکیب"><a class="header" href="#۳۲۵-تمرین-تابع-ضرب-و-ترکیب">۳.۲.۵. تمرین: تابع ضرب و ترکیب</a></h4>
+<p>۱. یک تابع به اسم <code>multiply</code> بنویس که دو عدد <code>i32</code> بگیره و حاصل‌ضربشون رو برگردونه.<br>۲. توی <code>main</code> صداش بزن و نتیجه رو چاپ کن.<br>۳. یک تابع دیگه به اسم <code>square</code> بنویس که یک عدد بگیره و با استفاده از <code>multiply</code> مربعش رو حساب کنه.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">fn multiply(x: i32, y: i32) -&gt; i32 {
+    x * y
+}
+
+fn square(x: i32) -&gt; i32 {
+    multiply(x, x) // از تابع ضرب استفاده می‌کنیم
+}
+
+fn main() {
+    let num = 7;
+    let sq = square(num);
+    println!("مربع {} برابر است با {}", num, sq);
+}</code></pre>
+<p><img src="assets/images/3.3.png" alt="[Illustration: A friendly robot machine labeled “fn” with input hoppers for “flour”, “sugar”, “eggs” and an output conveyor belt delivering a glowing “Cake Result”. Rust syntax arrows connect inputs to outputs. Ferris watches proudly holding a slice. Style: educational cartoon, bright, technical metaphor for children.]"></p>
+<hr>
+<h3 id="۳۳-فرق-آرد-و-شکر-data-types"><a class="header" href="#۳۳-فرق-آرد-و-شکر-data-types">۳.۳. فرق آرد و شکر (Data Types)</a></h3>
+<p>توی آشپزی نمی‌تونی به جای شکر نمک بریزی (مگر اینکه بخوای کیک شور داشته باشی! 🧂). توی برنامه‌نویسی هم هر داده یک <strong>نوع (Type)</strong> مشخص داره. Rust خیلی دقیقه و اگر نوع‌ها رو قاطی کنی، کامپایلر سریع تذکر می‌ده. این دقت جلوی خیلی از خرابی‌ها رو می‌گیره! 🛡️</p>
+<h4 id="۳۳۱-دستهبندی-انواع"><a class="header" href="#۳۳۱-دستهبندی-انواع">۳.۳.۱. دسته‌بندی انواع</a></h4>
+<p>انواع داده توی Rust به دو گروه اصلی تقسیم می‌شن:
+🔹 <strong>اسکالر (Scalar):</strong> یک مقدار تکی. مثل یک عدد، یک حرف، یا یک مقدار درست/غلط.<br>🔹 <strong>کامپوزیت (Compound):</strong> مجموعه‌ای از چند مقدار. مثل تاپل و آرایه.</p>
+<h4 id="۳۳۲-اعداد-صحیح-i32-u32"><a class="header" href="#۳۳۲-اعداد-صحیح-i32-u32">۳.۳.۲. اعداد صحیح (<code>i32</code>, <code>u32</code>)</a></h4>
+<p>اعداد صحیح یعنی اعداد بدون اعشار (مثل <code>5</code>, <code>-42</code>, <code>0</code>). Rust چند نوع داره که مهم‌ترین‌شون:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>نوع</th><th>علامت</th><th>محدوده تقریبی</th><th>کاربرد رایج</th></tr>
+</thead>
+<tbody>
+<tr><td><code>i32</code></td><td>مثبت و منفی</td><td>حدود ۲- میلیارد تا ۲+ میلیارد</td><td>پیش‌فرض برای اعداد صحیح</td></tr>
+<tr><td><code>u32</code></td><td>فقط مثبت</td><td>۰ تا حدود ۴ میلیارد</td><td>برای شمارش، اندیس‌ها</td></tr>
+</tbody>
+</table>
+</div>
+<p>مثال:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let temperature = -5;      // Rust خودش i32 در نظر می‌گیره
+let age: u32 = 12;         // نوع رو صریحاً مشخص کردیم
+let byte: u8 = 255;        // یک بایت (۰ تا ۲۵۵)
+<span class="boring">}</span></code></pre>
+<h4 id="۳۳۳-اعداد-اعشاری-f64"><a class="header" href="#۳۳۳-اعداد-اعشاری-f64">۳.۳.۳. اعداد اعشاری (<code>f64</code>)</a></h4>
+<p>وقتی به دقت اعشار نیاز داریم (مثل <code>3.14</code> یا <code>2.718</code>) از اینا استفاده می‌کنیم:
+🔹 <code>f32</code>: دقت کمتر، ۳۲ بیت.<br>🔹 <code>f64</code>: دقت بیشتر، ۶۴ بیت. <strong>پیش‌فرض</strong> برای اعداد اعشاری.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let pi = 3.1415926535;   // f64
+let gravity: f32 = 9.81; // f32
+<span class="boring">}</span></code></pre>
+<h4 id="۳۳۴-منطقی-bool"><a class="header" href="#۳۳۴-منطقی-bool">۳.۳.۴. منطقی (<code>bool</code>)</a></h4>
+<p>فقط دو مقدار می‌تونه داشته باشه: <code>true</code> (درست) یا <code>false</code> (غلط). خیلی توی شرط‌ها به کار میاد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let is_raining = true;
+let has_umbrella = false;
+
+if is_raining &amp;&amp; !has_umbrella {
+    println!("واااای خیس می‌شیم!");
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۳۳۵-کاراکتر-char"><a class="header" href="#۳۳۵-کاراکتر-char">۳.۳.۵. کاراکتر (<code>char</code>)</a></h4>
+<p>یک حرف، عدد، یا حتی شکلک (emoji). توی Rust هر <code>char</code> چهار بایت فضا می‌گیره و می‌تونه هر کاراکتری رو نگه داره. <strong>با گیومه‌ی تکی</strong> نوشته می‌شه:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let first_letter = 'A';
+let digit = '7';
+let smiley = '😊';
+let crab = '🦀'; // خود فریس!
+<span class="boring">}</span></code></pre>
+<h4 id="۳۳۶-تاپل-tuple--جعبههای-کنار-هم"><a class="header" href="#۳۳۶-تاپل-tuple--جعبههای-کنار-هم">۳.۳.۶. تاپل (Tuple) – جعبه‌های کنار هم</a></h4>
+<p>تاپل راهیه برای کنار هم گذاشتن چند مقدار با <strong>انواع متفاوت</strong>. طول تاپل ثابته (نمی‌شه بعداً چیزی اضافه یا کم کرد).</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let ferris_info = ("فریس", 42, true, '🦀');
+<span class="boring">}</span></code></pre>
+<p>برای دسترسی به اعضا از نقطه و شماره اندیس (از صفر شروع می‌شه) استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!("اسم: {}", ferris_info.0);     // فریس
+println!("سن: {}", ferris_info.1);      // 42
+println!("خوشحاله؟ {}", ferris_info.2); // true
+<span class="boring">}</span></code></pre>
+<p>می‌تونی تاپل رو «بشکنی» (Destructure) و مقادیر رو توی متغیرهای جداگانه بریزی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let (name, age, is_happy, emoji) = ferris_info;
+println!("{} {} سالشه و شکلک مورد علاقش {}", name, age, emoji);
+<span class="boring">}</span></code></pre>
+<h4 id="۳۳۷-آرایه-array--قفسهی-مرتب"><a class="header" href="#۳۳۷-آرایه-array--قفسهی-مرتب">۳.۳.۷. آرایه (Array) – قفسه‌ی مرتب</a></h4>
+<p>آرایه مجموعه‌ای از چند مقداره که <strong>همه از یک نوع هستن</strong> و طولشون ثابته. مثل یک قفسه با تعداد خانه‌ی مشخص که تو هر خونه فقط یک نوع وسیله می‌تونی بذاری.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let numbers = [10, 20, 30, 40, 50];
+let first = numbers[0]; // 10
+let third = numbers[2]; // 30
+<span class="boring">}</span></code></pre>
+<p>اگر بخوای آرایه‌ای با یک مقدار تکراری پر کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let all_fives = [5; 10]; // یعنی [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+<span class="boring">}</span></code></pre>
+<p>📌 <strong>یک نکته برای آینده:</strong> آرایه طولش ثابته و سریع کار می‌کنه. بعداً نوع دیگری به اسم <code>Vec</code> (وکتور) یاد می‌گیری که می‌تونه بزرگ و کوچک بشه.</p>
+<h4 id="۳۳۸-تمرین-تاپل-اطلاعات-شخصی"><a class="header" href="#۳۳۸-تمرین-تاپل-اطلاعات-شخصی">۳.۳.۸. تمرین: تاپل اطلاعات شخصی</a></h4>
+<p>یک تاپل شامل اطلاعات خودت بساز: اسم (<code>String</code>)، قد به سانتی‌متر (<code>f64</code>)، و اینکه آیا حیوان خانگی داری (<code>bool</code>). سپس با تخریب تاپل، هر کدوم رو توی متغیر جداگانه بریز و با یک جمله چاپ کن.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">fn main() {
+    let my_info = (String::from("آریا"), 145.5, true);
+    let (name, height, has_pet) = my_info;
+    
+    println!("اسم من {} است. قدم {} سانتی‌متره.", name, height);
+    if has_pet {
+        println!("من یک حیوان خانگی دارم! 🐾");
+    } else {
+        println!("من حیوان خانگی ندارم. 😢");
+    }
+}</code></pre>
+<p><img src="assets/images/3.4.png" alt="[Illustration: A cartoon sorting robot with labeled bins: “i32”, “String”, “bool”, “char”. Different items (numbers, letters, emojis) are flying into the correct bins. Ferris stands beside holding a checklist. Style: playful, educational, bright vector illustration.]"></p>
+<hr>
+<h3 id="۳۴-یادداشتهای-مخفی-comments"><a class="header" href="#۳۴-یادداشتهای-مخفی-comments">۳.۴. یادداشت‌های مخفی (Comments)</a></h3>
+<p>گاهی وقت‌ها می‌خوایم توضیحاتی توی کد بنویسیم که کامپیوتر اونا رو نادیده بگیره، ولی خودمون (یا دوستامون) بعداً بتونیم بخونیم و بفهمیم چرا این کد رو نوشتیم. به این یادداشت‌ها <strong>کامنت (Comment)</strong> می‌گن. 📝</p>
+<h4 id="۳۴۱-کامنت-خطی-"><a class="header" href="#۳۴۱-کامنت-خطی-">۳.۴.۱. کامنت خطی <code>//</code></a></h4>
+<p>هر چیزی بعد از دو علامت اسلش <code>//</code> توی همان خط، کامنت محسوب می‌شه و کامپایلر کلاً ازش چشم‌پوشی می‌کنه:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// این یک کامنت است
+let x = 5; // این هم یک کامنت در انتهای خط
+<span class="boring">}</span></code></pre>
+<h4 id="۳۴۲-کامنت-چندخطی--"><a class="header" href="#۳۴۲-کامنت-چندخطی--">۳.۴.۲. کامنت چندخطی <code>/* */</code></a></h4>
+<p>اگر بخوای چند خط توضیح بنویسی، می‌تونی از <code>/*</code> برای شروع و <code>*/</code> برای پایان استفاده کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/*
+این یک کامنت طولانیه.
+می‌تونی اینجا هر توضیحی که دوست داری بنویسی.
+کامپایلر کلاً این بخش رو نمی‌خونه.
+*/
+fn do_something() { }
+<span class="boring">}</span></code></pre>
+<h4 id="۳۴۳-چه-زمانی-کامنت-بذاریم"><a class="header" href="#۳۴۳-چه-زمانی-کامنت-بذاریم">۳.۴.۳. چه زمانی کامنت بذاریم؟</a></h4>
+<p>✅ <strong>کامنت خوب:</strong></p>
+<ul>
+<li>توضیح می‌ده <strong>چرا</strong> این کد به این شکل نوشته شده (مثلاً «چون کتابخانه‌ی X یک باگ دارد، مجبوریم اینجا از روش Y استفاده کنیم»).</li>
+<li>بخش‌های پیچیده‌ی برنامه رو برای آینده مستند می‌کنه.</li>
+<li>کارهای ناتمام رو علامت می‌زنه: <code>// TODO: این بخش رو بعداً کامل کن</code>.</li>
+</ul>
+<p>❌ <strong>کامنت بد:</strong></p>
+<ul>
+<li>چیزی رو توضیح بده که از خود کد کاملاً مشخصه.<br>مثلاً: <code>x = x + 1; // یکی به x اضافه کن</code> (خود کد دقیقاً همین رو می‌گه!)</li>
+</ul>
+<h4 id="۳۴۴-تمرین-کامنتگذاری-روی-بازی-حدس-عدد"><a class="header" href="#۳۴۴-تمرین-کامنتگذاری-روی-بازی-حدس-عدد">۳.۴.۴. تمرین: کامنت‌گذاری روی بازی حدس عدد</a></h4>
+<p>کد بازی حدس عدد از فصل ۲ رو باز کن. برای هر بخش مهم (تولید عدد تصادفی، گرفتن ورودی، تبدیل نوع، مقایسه) یک کامنت کوتاه توضیحی اضافه کن. ببین چقدر خوندن کد برات راحت‌تر می‌شه! 🧐</p>
+<p><img src="assets/images/3.5.png" alt="[Illustration: Ferris wearing a detective hat, writing a secret note inside a glowing code file. A small compiler robot next to him wears sunglasses and ignores the note. Background: cozy desk with coffee and books. Style: whimsical children’s book illustration, soft lighting.]"></p>
+<hr>
+<h3 id="۳۵-جمعبندی-و-پروژه"><a class="header" href="#۳۵-جمعبندی-و-پروژه">۳.۵. جمع‌بندی و پروژه</a></h3>
+<h4 id="۳۵۱-مرور-مفاهیم"><a class="header" href="#۳۵۱-مرور-مفاهیم">۳.۵.۱. مرور مفاهیم</a></h4>
+<p>توی این فصل یاد گرفتی:<br>✅ تابع چیه و چطور با <code>fn</code> تعریف می‌شه.<br>✅ چطور به تابع پارامتر بدیم و ازش مقدار بازگشتی بگیریم (<code>-&gt;</code>).<br>✅ تفاوت <code>return</code> با آخرین عبارت بدون نقطه‌ویرگول.<br>✅ انواع داده‌ی اصلی: اعداد صحیح و اعشاری، <code>bool</code>، <code>char</code>.<br>✅ تاپل برای نگه‌داری چند مقدار با انواع متفاوت.<br>✅ آرایه برای نگه‌داری چند مقدار هم‌نوع با طول ثابت.<br>✅ کامنت‌ها برای مستندسازی و خوندن راحت‌تر کد.<br>✅ اینکه هر کد تکراری را می‌توان در یک تابع جا داد – این یعنی <strong>گامی دیگر به سمت جادوگر کامپیوتر شدن</strong>! 🧙</p>
+<h4 id="۳۵۲-پروژه-ماشین-حساب-ساده"><a class="header" href="#۳۵۲-پروژه-ماشین-حساب-ساده">۳.۵.۲. پروژه: ماشین حساب ساده</a></h4>
+<p>برنامه‌ای بنویس که دو عدد اعشاری (<code>f64</code>) و یک عملگر (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>) از کاربر بگیره و نتیجه رو چاپ کنه. برای هر عمل یک تابع جداگانه بنویس.</p>
+<p>💡 <strong>راهنمایی ساختار:</strong></p>
+<pre class="playground"><code class="language-rust">use std::io;
+
+fn add(a: f64, b: f64) -&gt; f64 { a + b }
+fn subtract(a: f64, b: f64) -&gt; f64 { a - b }
+fn multiply(a: f64, b: f64) -&gt; f64 { a * b }
+fn divide(a: f64, b: f64) -&gt; f64 { a / b }
+
+fn main() {
+    // گرفتن ورودی از کاربر (مثل فصل ۲)
+    // استفاده از if یا match برای تشخیص عملگر و صدا زدن تابع مناسب
+    // اگر عملگر '/' بود و عدد دوم صفر بود، پیام خطا بده (چون تقسیم بر صفر ممکن نیست)
+}</code></pre>
+<p>🎁 <strong>چالش اضافه:</strong> اگر کاربر عملگر نامعتبری وارد کرد، پیام خطا بده و دوباره بپرس (می‌تونی از <code>loop</code> استفاده کنی).</p>
+<h4 id="۳۵۳-چالش-بزرگترین-عدد-آرایه"><a class="header" href="#۳۵۳-چالش-بزرگترین-عدد-آرایه">۳.۵.۳. چالش: بزرگترین عدد آرایه</a></h4>
+<p>یک تابع به اسم <code>max_in_array</code> بنویس که یک آرایه از اعداد <code>i32</code> (یا یک برش از آن) بگیره و بزرگترین مقدار داخلش رو برگردونه.<br>💡 راهنمایی: یک متغیر <code>max</code> با مقدار عنصر اول بساز و با یک حلقه (<code>loop</code> یا <code>while</code>) بقیه رو مقایسه کن. (هنوز <code>for</code> را یاد نگرفته‌ای، پس از <code>while</code> استفاده کن.)</p>
+<p>💡 <strong>پاسخ نمونه با <code>while</code>:</strong></p>
+<pre class="playground"><code class="language-rust">fn max_in_array(arr: &amp;[i32]) -&gt; i32 {
+    let mut max = arr[0];
+    let mut i = 1;
+    while i &lt; arr.len() {
+        if arr[i] &gt; max {
+            max = arr[i];
+        }
+        i = i + 1;
+    }
+    max
+}
+
+fn main() {
+    let numbers = [15, 42, 7, 99, 23];
+    let result = max_in_array(&amp;numbers);
+    println!("بزرگترین عدد: {}", result);
+}</code></pre>
+<p>📌 <strong>نکته:</strong> <code>&amp;[i32]</code> یعنی «یک مرجع به یک برش (slice) از اعداد i32». این به تابع اجازه می‌ده بدون اینکه مالک آرایه بشه، به محتویاتش نگاه کنه. توی فصل بعد مفصل درباره‌ی این «اجازه‌ها» حرف می‌زنیم!</p>
+<p><img src="assets/images/3.6.png" alt="[Illustration: Ferris standing proudly next to a computer screen showing completed code. A golden trophy labeled “Chapter 3 Master” sits on the desk. Floating code symbols (fn, i32, {}, //) surround him. Style: celebratory, vibrant children’s book illustration, encouraging mood.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-4.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-4.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

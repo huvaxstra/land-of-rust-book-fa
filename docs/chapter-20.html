@@ -1,0 +1,463 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۲۰: فریس‌نت: شبکه‌ی مخفی دوستان - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۲۰-فریسنت-شبکهی-مخفی-دوستان-پروژهی-شبکهی-نهایی"><a class="header" href="#فصل-۲۰-فریسنت-شبکهی-مخفی-دوستان-پروژهی-شبکهی-نهایی">فصل ۲۰: فریس‌نت: شبکه‌ی مخفی دوستان (پروژه‌ی شبکه‌ی نهایی)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۲۰۱-چطور-فریس-با-دوستش-در-کامپیوتر-دیگر-حرف-بزند-socket">۲۰.۱. چطور فریس با دوستش در کامپیوتر دیگر حرف بزند؟ (Socket)</a><br><a href="#۲۰۱۱-داستان-تلفن‌های-فضایی">۲۰.۱.۱. داستان: تلفن‌های فضایی</a><br><a href="#۲۰۱۲-مفاهیم-پایه-ip-پورت-کلاینت-و-سرور">۲۰.۱.۲. مفاهیم پایه: IP، پورت، کلاینت و سرور</a><br><a href="#۲۰۱۳-جعبه-ابزار-شبکه-stdnet">۲۰.۱.۳. جعبه ابزار شبکه: std::net</a><br><a href="#۲۰۲-ساختن-یک-پیام‌رسان-ساده-ferris-messenger">۲۰.۲. ساختن یک پیام‌رسان ساده (Ferris Messenger)</a><br><a href="#۲۰۲۱-سرور-گوش-دادن-به-درگاه">۲۰.۲.۱. سرور: گوش دادن به درگاه</a><br><a href="#۲۰۲۲-کلاینت-اتصال-و-ارسال-پیام">۲۰.۲.۲. کلاینت: اتصال و ارسال پیام</a><br><a href="#۲۰۲۳-تمرین-ارسال-پاسخ-از-سرور">۲۰.۲.۳. تمرین: ارسال پاسخ از سرور</a><br><a href="#۲۰۳-بهبود-پیام‌رسان-چت-دوطرفه">۲۰.۳. بهبود پیام‌رسان: چت دوطرفه</a><br><a href="#۲۰۳۱-مشکل-نوبتی-حرف-زدن-خسته‌کننده-است">۲۰.۳.۱. مشکل: نوبتی حرف زدن خسته‌کننده است</a><br><a href="#۲۰۳۲-استفاده-از-دو-ریسه-برای-خواندن-و-نوشتن">۲۰.۳.۲. استفاده از دو ریسه برای خواندن و نوشتن</a><br><a href="#۲۰۴-پروژهی-نهایی-چت-گروهی-فریسنت">۲۰.۴. پروژه‌ی نهایی: چت گروهی فریس‌نت</a><br><a href="#۲۰۴۱-ایده-پخش-پیام-به-همه">۲۰.۴.۱. ایده: پخش پیام به همه</a><br><a href="#۲۰۴۲-لیست-مهمان‌های-اشتراکی">۲۰.۴.۲. لیست مهمان‌های اشتراکی</a><br><a href="#۲۰۴۳-کد-کامل-سرور-چت-گروهی">۲۰.۴.۳. کد کامل سرور چت گروهی</a><br><a href="#۲۰۴۴-کلاینت-چت-گروهی">۲۰.۴.۴. کلاینت چت گروهی</a><br><a href="#۲۰۴۵-چالش-اضافه-کردن-نام-کاربری">۲۰.۴.۵. چالش: اضافه کردن نام کاربری</a><br><a href="#۲۰۵-خداحافظی-و-مسیر-آینده">۲۰.۵. خداحافظی و مسیر آینده</a><br><a href="#۲۰۵۱-تبریک-تو-یک-rustacean-واقعی-شدی">۲۰.۵.۱. تبریک! تو یک Rustacean واقعی شدی</a><br><a href="#۲۰۵۲-قدم‌های-بعدی">۲۰.۵.۲. قدم‌های بعدی</a><br><a href="#۲۰۵۳-حرف-آخر-فریس">۲۰.۵.۳. حرف آخر فریس</a></p>
+<hr>
+<h3 id="۲۰۱-چطور-فریس-با-دوستش-در-کامپیوتر-دیگر-حرف-بزند-socket"><a class="header" href="#۲۰۱-چطور-فریس-با-دوستش-در-کامپیوتر-دیگر-حرف-بزند-socket">۲۰.۱. چطور فریس با دوستش در کامپیوتر دیگر حرف بزند؟ (Socket)</a></h3>
+<h4 id="۲۰۱۱-داستان-تلفنهای-فضایی"><a class="header" href="#۲۰۱۱-داستان-تلفنهای-فضایی">۲۰.۱.۱. داستان: تلفن‌های فضایی</a></h4>
+<p>فریس دلش برای دوستش بیل تنگ شده که در سفینه‌ی کناری زندگی می‌کند. اما دیوارهای فلزی سفینه خیلی ضخیم‌اند و صدا از آن‌ها رد نمی‌شود. فریس یک فکر عالی می‌کند: «چرا از کامپیوترها برای حرف زدن استفاده نکنیم؟»<br>کامپیوترها می‌توانند از طریق سیم‌ها یا امواج بی‌سیم، داده‌ها را برای هم بفرستند. اما چطور بفهمند پیام مال کدام برنامه است؟ مرورگر وب؟ بازی؟ یا برنامه‌ی چت؟ اینجاست که آدرس‌ها و پورت‌ها وارد می‌شوند! 📡✨<br><strong>این آخرین گام تو برای تبدیل شدن به یک جادوگر کامپیوتر است – ساختن ارتباط بین دو کامپیوتر!</strong> 🧙‍♂️</p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>این پروژه ترکیبی از مفاهیم شبکه، هم‌روندی و مدیریت خطا است و یک دستاورد بزرگ برای پایان کتاب محسوب می‌شود. اگر کودک در اجرای پروژه‌ی چت گروهی مشکل داشت، می‌توانید ابتدا نسخه‌ی ساده (یک کلاینت) را اجرا کنید و بعد به سراغ نسخه‌ی چند کلاینت بروید. کتاب رسمی Rust فصل مفیدی درباره‌ی شبکه ندارد، اما مستندات <code>std::net</code> منبع خوبی است:<br><a href="https://doc.rust-lang.org/std/net/index.html">doc.rust-lang.org/std/net/index.html</a></p>
+</blockquote>
+<h4 id="۲۰۱۲-مفاهیم-پایه-ip-پورت-کلاینت-و-سرور"><a class="header" href="#۲۰۱۲-مفاهیم-پایه-ip-پورت-کلاینت-و-سرور">۲۰.۱.۲. مفاهیم پایه: IP، پورت، کلاینت و سرور</a></h4>
+<p>برای درک شبکه، کافی است سه تا چیز را بدانی:
+🔹 <strong>آدرس IP:</strong> مثل آدرس خانه است. هر کامپیوتر در شبکه یک شماره‌ی منحصر‌به‌فرد دارد. <code>127.0.0.1</code> یک آدرس ویژه است که همیشه به «همان کامپیوتر خودت» اشاره می‌کند (به آن می‌گویند <code>localhost</code>).
+🔹 <strong>پورت (Port):</strong> مثل شماره‌ی واحد آپارتمان است. یک کامپیوتر می‌تواند همزمان چندین برنامه‌ی شبکه‌ای اجرا کند. هر برنامه روی یک پورت مشخص گوش می‌دهد. ما از پورت <code>7878</code> استفاده می‌کنیم.
+🔹 <strong>سرور و کلاینت:</strong> سرور (Server) مثل پذیرش هتل می‌ماند که منتظر می‌ماند کسی بیاید. کلاینت (Client) مثل مهمانی است که در می‌زند و وصل می‌شود.</p>
+<p><img src="assets/images/20.1.png" alt="[Illustration: Cartoon illustration of two friendly space crabs in separate spaceship cabins, talking via glowing walkie-talkies. Between them, a floating holographic map shows an IP address “127.0.0.1” and a port number “7878” connected by a dotted light beam. Style: vibrant children’s book, playful tech metaphor, soft lighting, 16:9.]"></p>
+<h4 id="۲۰۱۳-جعبه-ابزار-شبکه-stdnet"><a class="header" href="#۲۰۱۳-جعبه-ابزار-شبکه-stdnet">۲۰.۱.۳. جعبه ابزار شبکه: <code>std::net</code></a></h4>
+<p>خبر خوب این است که Rust یک ماژول آماده و عالی به اسم <code>std::net</code> دارد که همه‌ی ابزارهای لازم برای شبکه را داخل خودش دارد. ما در این فصل از پروتکل <strong>TCP</strong> استفاده می‌کنیم. TCP مثل یک تماس تلفنی مطمئن است: اول اتصال برقرار می‌شود، بعد پیام‌ها به ترتیب و بدون گم شدن رد و بدل می‌شوند. 📞</p>
+<hr>
+<h3 id="۲۰۲-ساختن-یک-پیامرسان-ساده-ferris-messenger"><a class="header" href="#۲۰۲-ساختن-یک-پیامرسان-ساده-ferris-messenger">۲۰.۲. ساختن یک پیام‌رسان ساده (Ferris Messenger)</a></h3>
+<h4 id="۲۰۲۱-سرور-گوش-دادن-به-درگاه"><a class="header" href="#۲۰۲۱-سرور-گوش-دادن-به-درگاه">۲۰.۲.۱. سرور: گوش دادن به درگاه</a></h4>
+<p>اول یک پروژه جدید می‌سازیم. سرور ما مثل یک نگهبان می‌ماند که دم در ایستاده و منتظر می‌ماند کسی بیاید:</p>
+<pre class="playground"><code class="language-rust">use std::io::{Read, Write};
+use std::net::TcpListener;
+
+fn main() -&gt; std::io::Result&lt;()&gt; {
+    // ۱. یک شنونده روی آدرس خودمان و پورت ۷۸۷۸ می‌سازیم
+    let listener = TcpListener::bind("127.0.0.1:7878")?;
+    println!("🦀 سرور فریس روی پورت ۷۸۷۸ گوش می‌دهد...");
+
+    // ۲. منتظر می‌مانیم تا کسی وصل شود
+    for stream in listener.incoming() {
+        let mut stream = stream?;
+        println!("✅ یک کلاینت وصل شد!");
+
+        // ۳. یک فضای خالی برای خواندن پیام درست می‌کنیم (۱۰۲۴ بایت)
+        let mut buffer = [0; 1024];
+        let n = stream.read(&amp;mut buffer)?;
+
+        // ۴. بایت‌ها را به متن تبدیل می‌کنیم
+        let message = String::from_utf8_lossy(&amp;buffer[..n]);
+        println!("📩 پیام دریافت شد: {}", message);
+
+        // ۵. یک پاسخ برمی‌گردانیم
+        let response = "پیامت رسید! 👋";
+        stream.write_all(response.as_bytes())?;
+    }
+    Ok(())
+}</code></pre>
+<p>🔹 <code>TcpListener::bind</code> یک درگاه گوش‌به‌زنگ می‌سازد.<br>🔹 <code>listener.incoming()</code> یک صف از اتصال‌های ورودی برمی‌گرداند.<br>🔹 <code>stream.read</code> داده‌ها را می‌خواند و <code>write_all</code> پاسخ را می‌فرستد.</p>
+<h4 id="۲۰۲۲-کلاینت-اتصال-و-ارسال-پیام"><a class="header" href="#۲۰۲۲-کلاینت-اتصال-و-ارسال-پیام">۲۰.۲.۲. کلاینت: اتصال و ارسال پیام</a></h4>
+<p>حالا یک فایل دیگر به اسم <code>client.rs</code> می‌سازیم که مثل مهمان در می‌زند:</p>
+<pre class="playground"><code class="language-rust">use std::io::{Read, Write};
+use std::net::TcpStream;
+
+fn main() -&gt; std::io::Result&lt;()&gt; {
+    // ۱. به سرور وصل می‌شویم
+    let mut stream = TcpStream::connect("127.0.0.1:7878")?;
+    println!("🔗 به سرور وصل شدیم!");
+
+    // ۲. پیام را می‌فرستیم
+    let msg = "سلام فریس! این پیام از طرف بیل است.";
+    stream.write_all(msg.as_bytes())?;
+    println!("📤 پیام ارسال شد: {}", msg);
+
+    // ۳. منتظر پاسخ می‌مانیم
+    let mut buffer = [0; 1024];
+    let n = stream.read(&amp;mut buffer)?;
+    let response = String::from_utf8_lossy(&amp;buffer[..n]);
+    println!("📩 پاسخ سرور: {}", response);
+
+    Ok(())
+}</code></pre>
+<p>اگر سرور را در یک ترمینال و کلاینت را در ترمینال دیگر اجرا کنی، می‌بینی که پیام‌ها با موفقیت رد و بدل می‌شوند! 🎉</p>
+<h4 id="۲۰۲۳-تمرین-ارسال-پاسخ-از-سرور"><a class="header" href="#۲۰۲۳-تمرین-ارسال-پاسخ-از-سرور">۲۰.۲.۳. تمرین: ارسال پاسخ از سرور</a></h4>
+<p>سرور را تغییر بده تا به جای متن ثابت، همان پیام کلاینت را با حروف بزرگ (<code>to_uppercase()</code>) برگرداند.
+💡 <strong>راهنمایی:</strong> کافی است خط <code>response</code> را به <code>let response = message.to_uppercase();</code> تغییر دهی.</p>
+<p><img src="assets/images/20.2.png" alt="[Illustration: Split-screen educational graphic. Left: a cartoon server rack with a glowing “Listening…” sign. Right: a friendly laptop with a “Connecting…” progress bar. A glowing message bubble travels between them. Ferris watches with a checklist, smiling. Style: clean vector illustration, bright, educational metaphor, 16:9.]"></p>
+<hr>
+<h3 id="۲۰۳-بهبود-پیامرسان-چت-دوطرفه"><a class="header" href="#۲۰۳-بهبود-پیامرسان-چت-دوطرفه">۲۰.۳. بهبود پیام‌رسان: چت دوطرفه</a></h3>
+<h4 id="۲۰۳۱-مشکل-نوبتی-حرف-زدن-خستهکننده-است"><a class="header" href="#۲۰۳۱-مشکل-نوبتی-حرف-زدن-خستهکننده-است">۲۰.۳.۱. مشکل: نوبتی حرف زدن خسته‌کننده است</a></h4>
+<p>تا اینجا ارتباط ما مثل یک پیامک یک‌طرفه بود. اما چت واقعی باید دوطرفه باشد! هر دو طرف باید همزمان بتوانند تایپ کنند و پیام‌های طرف مقابل را ببینند.</p>
+<h4 id="۲۰۳۲-استفاده-از-دو-ریسه-برای-خواندن-و-نوشتن"><a class="header" href="#۲۰۳۲-استفاده-از-دو-ریسه-برای-خواندن-و-نوشتن">۲۰.۳.۲. استفاده از دو ریسه برای خواندن و نوشتن</a></h4>
+<p>برای حل این مشکل از دو تا <strong>ریسه (Thread)</strong> استفاده می‌کنیم (یادت می‌آید فصل ۱۶ چه گفتیم؟):
+🔸 <strong>ریسه‌ی ۱:</strong> دائماً از صفحه‌کلید کاربر می‌خواند و به سرور می‌فرستد.<br>🔸 <strong>ریسه‌ی ۲:</strong> دائماً از سرور می‌خواند و پیام‌ها را روی صفحه چاپ می‌کند.</p>
+<p>این‌طوری هیچ‌کس منتظر نوبت نمی‌ماند! ⚡</p>
+<pre class="playground"><code class="language-rust">use std::io::{self, BufRead, BufReader, Write};
+use std::net::TcpStream;
+use std::thread;
+
+fn main() -&gt; std::io::Result&lt;()&gt; {
+    let mut stream = TcpStream::connect("127.0.0.1:7878")?;
+    println!("🔗 به چت‌روم فریس وصل شدی! (برای خروج quit بنویس)");
+
+    // یک کپی از سوکت برای ریسه‌ی دریافت پیام
+    let mut stream_clone = stream.try_clone()?;
+
+    // ریسه‌ی دریافت‌کننده: گوش می‌دهد به سرور
+    let receiver = thread::spawn(move || {
+        let reader = BufReader::new(&amp;mut stream_clone);
+        for line in reader.lines() {
+            match line {
+                Ok(msg) =&gt; println!("📩 {}", msg),
+                Err(_) =&gt; {
+                    println!("❌ اتصال با سرور قطع شد.");
+                    break;
+                }
+            }
+        }
+    });
+
+    // ریسه‌ی اصلی (فرستنده): گوش می‌دهد به صفحه‌کلید
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        let line = line?;
+        if line.trim() == "quit" { break; }
+        stream.write_all(line.as_bytes())?;
+        stream.write_all(b"\n")?;
+    }
+
+    receiver.join().unwrap();
+    println!("👋 خداحافظ!");
+    Ok(())
+}</code></pre>
+<p>📌 <code>stream.try_clone()</code> خیلی مهم است! سوکت‌ها مثل کلید هستند. نمی‌شود همزمان دو تا ریسه از یک سوکت استفاده کنند مگر اینکه یک کپی از آن ساخته شود.</p>
+<p><img src="assets/images/20.3.png" alt="[Illustration: Cartoon scene showing a split pathway. Left side: a user typing on a keyboard, messages flowing UP to a server. Right side: messages flowing DOWN from the server to a screen. Two glowing threads labeled “Thread 1” and “Thread 2” weave together smoothly. Ferris stands in the middle conducting traffic like an orchestra leader. Style: dynamic, educational children’s book, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۲۰۴-پروژهی-نهایی-چت-گروهی-فریسنت"><a class="header" href="#۲۰۴-پروژهی-نهایی-چت-گروهی-فریسنت">۲۰.۴. پروژه‌ی نهایی: چت گروهی فریس‌نت</a></h3>
+<h4 id="۲۰۴۱-ایده-پخش-پیام-به-همه"><a class="header" href="#۲۰۴۱-ایده-پخش-پیام-به-همه">۲۰.۴.۱. ایده: پخش پیام به همه</a></h4>
+<p>حالا می‌خواهیم یک چت‌روم واقعی بسازیم که هر کسی وارد شد، پیام‌هایش را به <strong>همه‌ی</strong> افراد دیگر بفرستد. درست مثل یک اتاق کلاس که هر کسی حرف بزند، همه می‌شنوند! 🗣️🌍</p>
+<h4 id="۲۰۴۲-لیست-مهمانهای-اشتراکی"><a class="header" href="#۲۰۴۲-لیست-مهمانهای-اشتراکی">۲۰.۴.۲. لیست مهمان‌های اشتراکی</a></h4>
+<p>سرور باید یک لیست از همه‌ی کسانی که وصل شده‌اند نگه دارد. وقتی یک پیام می‌آید، سرور آن را کپی می‌کند و برای همه‌ی لیست می‌فرستد.<br>چون چندین ریسه همزمان به این لیست دسترسی دارند، باید از <code>Arc</code> (برای اشتراک‌گذاری) و <code>Mutex</code> (برای جلوگیری از تداخل نوشتن) استفاده کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>type Clients = Arc&lt;Mutex&lt;Vec&lt;TcpStream&gt;&gt;&gt;;
+<span class="boring">}</span></code></pre>
+<p>این یعنی: «یک لیست امن و اشتراکی از سوکت‌ها».</p>
+<h4 id="۲۰۴۳-کد-کامل-سرور-چت-گروهی"><a class="header" href="#۲۰۴۳-کد-کامل-سرور-چت-گروهی">۲۰.۴.۳. کد کامل سرور چت گروهی</a></h4>
+<pre class="playground"><code class="language-rust">use std::io::{BufRead, BufReader, Write};
+use std::net::{TcpListener, TcpStream};
+use std::sync::{Arc, Mutex};
+use std::thread;
+
+type Clients = Arc&lt;Mutex&lt;Vec&lt;TcpStream&gt;&gt;&gt;;
+
+fn main() -&gt; std::io::Result&lt;()&gt; {
+    let listener = TcpListener::bind("127.0.0.1:7878")?;
+    println!("🦀 سرور چت گروهی روی پورت ۷۸۷۸ فعال است!");
+
+    let clients: Clients = Arc::new(Mutex::new(Vec::new()));
+
+    for stream in listener.incoming() {
+        let mut stream = stream?;
+        println!("✅ کاربر جدید وصل شد!");
+
+        // اضافه کردن کلاینت به لیست
+        clients.lock().unwrap().push(stream.try_clone()?);
+        let clients_clone = Arc::clone(&amp;clients);
+
+        // یک ریسه‌ی جدید برای هر کاربر
+        thread::spawn(move || {
+            handle_client(stream, clients_clone);
+        });
+    }
+    Ok(())
+}
+
+fn handle_client(mut stream: TcpStream, clients: Clients) {
+    let reader = BufReader::new(&amp;mut stream);
+    
+    for line in reader.lines() {
+        match line {
+            Ok(msg) =&gt; {
+                let formatted = format!("[کاربر]: {}\n", msg);
+                println!("📨 {}", formatted.trim());
+                
+                // پخش پیام به همه
+                let mut clients_guard = clients.lock().unwrap();
+                for client in clients_guard.iter_mut() {
+                    // اگر نوشتن موفق نبود، نادیده می‌گیریم تا برنامه کرش نکند
+                    let _ = client.write_all(formatted.as_bytes());
+                }
+            }
+            Err(_) =&gt; break, // کاربر قطع شده
+        }
+    }
+    println!("❌ یک کاربر خارج شد.");
+}</code></pre>
+<p>💡 <strong>نکته‌ی حرفه‌ای:</strong> <code>let _ = client.write_all(...)</code> یعنی اگر نوشتن موفق نبود (مثلاً آن کلاینت رفته)، خطا را نادیده بگیر و برنامه را ادامه بده. این برای سرورهای واقعی خیلی مهم است!</p>
+<h4 id="۲۰۴۴-کلاینت-چت-گروهی"><a class="header" href="#۲۰۴۴-کلاینت-چت-گروهی">۲۰.۴.۴. کلاینت چت گروهی</a></h4>
+<p>کلاینت همان کد دوطرفه‌ی بخش قبلی است. برای اجرا، دو فایل جداگانه در یک پروژه یا دو پروژه‌ی جداگانه بسازید. می‌توانید در <code>Cargo.toml</code> دو باینری تعریف کنید:</p>
+<pre><code class="language-toml">[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+</code></pre>
+<p>سپس با <code>cargo run --bin server</code> و <code>cargo run --bin client</code> اجرا کنید. چند ترمینال باز کن، سرور را اجرا کن، و چند بار <code>cargo run --bin client</code> بزن. حالا هر چیزی در یک ترمینال تایپ کنی، در بقیه هم ظاهر می‌شود! 🎊</p>
+<h4 id="۲۰۴۵-چالش-اضافه-کردن-نام-کاربری"><a class="header" href="#۲۰۴۵-چالش-اضافه-کردن-نام-کاربری">۲۰.۴.۵. چالش: اضافه کردن نام کاربری</a></h4>
+<p>الان همه پیام‌ها با <code>[کاربر]</code> شروع می‌شوند. می‌توانی برنامه را طوری تغییر دهی که اول اسم کاربر را بپرسد و سرور همان را در پیام نشان بدهد؟<br>💡 <strong>راهنمایی:</strong> اولین پیامی که کلاینت می‌فرستد می‌تواند اسمش باشد. سرور می‌تواند آن را بخواند و برای پیام‌های بعدی استفاده کند. یا ساده‌تر: کلاینت خودش قبل از هر پیام، <code>[اسم]: </code> را اضافه کند.</p>
+<p><img src="assets/images/20.4.png" alt="[Illustration: A cozy cartoon chat room with floating speech bubbles connecting three different laptops. Each screen shows a friendly avatar and messages flowing in real-time. In the center, a glowing server hub labeled “Arc&lt;Mutex&lt;Vec&gt;&gt;” safely routes messages. Ferris sits at a control desk giving a thumbs up. Style: warm, inviting children’s book illustration, clear network metaphor, 16:9.]"></p>
+<hr>
+<h3 id="۲۰۵-خداحافظی-و-مسیر-آینده"><a class="header" href="#۲۰۵-خداحافظی-و-مسیر-آینده">۲۰.۵. خداحافظی و مسیر آینده</a></h3>
+<h4 id="۲۰۵۱-تبریک-تو-یک-rustacean-واقعی-شدی"><a class="header" href="#۲۰۵۱-تبریک-تو-یک-rustacean-واقعی-شدی">۲۰.۵.۱. تبریک! تو یک Rustacean واقعی شدی</a></h4>
+<p>بیست فصل پیش، تو نمی‌دانستی <code>fn main()</code> یعنی چه. امروز، تو یک شبکه‌ی اجتماعی ساده ساختی، هم‌روندی را فهمیدی، با اشاره‌گرهای هوشمند کار کردی، و مفاهیم پیشرفته‌ای مثل Traits و Generics را به کار گرفتی. تو حالا رسماً یک <strong>Rustacean</strong> هستی! 🦀🎉<br><strong>تو از یک مبتدی که «سلام دنیا» را نوشت، به جادوگری رسیدی که می‌تواند بین کامپیوترها ارتباط برقرار کند. این یعنی قدرت واقعی!</strong> 🧙✨</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>اگر در اجرای پروژه‌ی چت گروهی با مشکل مواجه شدی (مثل اینکه پیام‌ها به همه نرسید)، نگران نباش. اشکال‌زدایی برنامه‌های شبکه‌ای کمی حساس است. قدم به قدم پیش برو: اول مطمئن شو سرور و کلاینت تنها روی <code>127.0.0.1</code> کار می‌کنند، بعد به سراغ چند کلاینت برو. هر مشکلی را که حل کنی، یک گام بزرگ به جلو برداشته‌ای.</p>
+</blockquote>
+<h4 id="۲۰۵۲-قدمهای-بعدی"><a class="header" href="#۲۰۵۲-قدمهای-بعدی">۲۰.۵.۲. قدم‌های بعدی</a></h4>
+<p>یادگیری Rust اینجا تمام نمی‌شود. این تازه شروع ماجراست! این کارها را بعد از کتاب امتحان کن:
+📖 <strong>کتاب رسمی Rust:</strong> “The Rust Programming Language” را آنلاین بخوان (رایگان است!).<br>🧩 <strong>تمرین‌های روزانه:</strong> سایت‌های <code>rustlings</code> و <code>exercism</code> پر از چالش‌های کوچک و جذاب هستند.<br>🌐 <strong>جامعه‌ی Rust:</strong> به انجمن‌ها یا Discord رسمی Rust بپیوند. پر از آدم‌های مهربانی است که عاشق راهنمایی کردن هستند.<br>🛠️ <strong>پروژه شخصی:</strong> بهترین راه یادگیری، ساختن چیز جدید است! یک بازی ساده، یک ابزار خط فرمان، یا یک سایت کوچک با فریم‌ورک‌هایی مثل <code>Axum</code> بساز.<br>⚡ <strong>برنامه‌نویسی Async:</strong> با <code>async/await</code> و کتابخانه‌ی <code>tokio</code> آشنا شو تا برنامه‌های شبکه‌ای فوق‌سریع بنویسی.</p>
+<h4 id="۲۰۵۳-حرف-آخر-فریس"><a class="header" href="#۲۰۵۳-حرف-آخر-فریس">۲۰.۵.۳. حرف آخر فریس</a></h4>
+<blockquote>
+<p><em>«دوست من، تو فوق‌العاده‌ای! تو از پس سخت‌ترین مفاهیم برآمدی و نشان دادی که با کمی صبر و تمرین، هر چیزی ممکن است. من (فریس) به تو افتخار می‌کنم. حالا سفینه‌ی تو آماده‌ی پرواز به کهکشان‌های دور برنامه‌نویسی است. 🚀</em><br><em>یادت باشد: کامپایلر دوست تو است، نه دشمنت. اشتباه کردن یعنی داری یاد می‌گیری. ساده‌ترین کدی که کار کند، از پیچیده‌ترین کدی که کار نکند بهتر است.</em><br><em>برو و کد بزن، بساز، خراب کن، و دوباره بساز. دنیای نرم‌افزار به امثال تو نیاز دارد. خداحافظ، Rustacean عزیز. تا ماجرای بعدی… 🦀💙»</em></p>
+</blockquote>
+<p><img src="assets/images/20.5.png" alt="[Illustration: Ferris the crab standing proudly on a small wooden crate labeled “Chapter 20 Complete”. He holds a glowing Rust gear in one claw and waves with the other. Behind him, a starry galaxy forms the shape of a heart. Floating text: “Thank You for Coding!”. Style: emotional, celebratory children’s book illustration, warm sunset lighting, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-19.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-19.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

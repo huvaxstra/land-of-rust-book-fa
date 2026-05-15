@@ -1,0 +1,555 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۱۸: نقشه‌های پیچیده‌ی گنج - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۱۸-نقشههای-پیچیدهی-گنج-pattern-matching-پیشرفته"><a class="header" href="#فصل-۱۸-نقشههای-پیچیدهی-گنج-pattern-matching-پیشرفته">فصل ۱۸: نقشه‌های پیچیده‌ی گنج (Pattern Matching پیشرفته)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۱۸۱-پازل‌های-سخت-بیرون-کشیدن-از-دل-ساختارها">۱۸.۱. پازل‌های سخت: بیرون کشیدن از دل ساختارها</a><br><a href="#۱۸۱۱-داستان-جعبه‌های-تو-در-تو">۱۸.۱.۱. داستان: جعبه‌های تو در تو</a><br><a href="#۱۸۱۲-تخریب-destructuring-struct">۱۸.۱.۲. تخریب (Destructuring) Struct</a><br><a href="#۱۸۱۳-تخریب-enum">۱۸.۱.۳. تخریب Enum</a><br><a href="#۱۸۱۴-تخریب-tuple">۱۸.۱.۴. تخریب Tuple</a><br><a href="#۱۸۱۵-تخریب-در-حلقه-for">۱۸.۱.۵. تخریب در حلقه for</a><br><a href="#۱۸۱۶-تمرین-تخریب-یک-struct-تو-در-تو">۱۸.۱.۶. تمرین: تخریب یک Struct تو در تو</a><br><a href="#۱۸۲-الگوهای-نفی-و-شرط">۱۸.۲. الگوهای نفی و شرط</a><br><a href="#۱۸۲۱-نادیده-گرفتن-با-_-و-">۱۸.۲.۱. نادیده گرفتن با _ و ..</a><br><a href="#۱۸۲۲-شرط-در-الگو-match-guard">۱۸.۲.۲. شرط در الگو (Match Guard)</a><br><a href="#۱۸۲۳-عملگر--برای-bind-کردن">۱۸.۲.۳. عملگر @ برای Bind کردن</a><br><a href="#۱۸۲۴-الگوهای--یا">۱۸.۲.۴. الگوهای | (یا)</a><br><a href="#۱۸۲۵-تمرین-match-guard-برای-اعداد">۱۸.۲.۵. تمرین: Match Guard برای اعداد</a><br><a href="#۱۸۳-پروژه-پردازش-دستورات-یک-بازی">۱۸.۳. پروژه: پردازش دستورات یک بازی</a><br><a href="#۱۸۳۱-تعریف-enum-command">۱۸.۳.۱. تعریف enum Command</a><br><a href="#۱۸۳۲-تابع-parse_command">۱۸.۳.۲. تابع parse_command</a><br><a href="#۱۸۳۳-اجرای-دستور-با-match-و-guard">۱۸.۳.۳. اجرای دستور با match و guard</a><br><a href="#۱۸۴-جمع‌بندی-و-چالش">۱۸.۴. جمع‌بندی و چالش</a><br><a href="#۱۸۴۱-مرور-مفاهیم">۱۸.۴.۱. مرور مفاهیم</a><br><a href="#۱۸۴۲-چالش-استخراج-از-optionvec-i32">۱۸.۴.۲. چالش: استخراج از Option&lt;Vec<i32>&gt;</i32></a></p>
+<hr>
+<h3 id="۱۸۱-پازلهای-سخت-بیرون-کشیدن-از-دل-ساختارها"><a class="header" href="#۱۸۱-پازلهای-سخت-بیرون-کشیدن-از-دل-ساختارها">۱۸.۱. پازل‌های سخت: بیرون کشیدن از دل ساختارها</a></h3>
+<h4 id="۱۸۱۱-داستان-جعبههای-تو-در-تو"><a class="header" href="#۱۸۱۱-داستان-جعبههای-تو-در-تو">۱۸.۱.۱. داستان: جعبه‌های تو در تو</a></h4>
+<p>فریس یک نقشه‌ی گنج قدیمی و خاک‌گرفته پیدا کرده است. 🗺️✨ ولی این نقشه یک رمز دارد: گنج در یک جعبه است، آن جعبه در یک صندوقچه است، صندوقچه در یک خزانه‌ی بزرگ است و کلید خزانه هم پیش یک پرنده‌ی فضایی است! فریس نمی‌تواند همه‌ی این لایه‌ها را یکی یکی باز کند؛ وقتش تلف می‌شود. خوشبختانه، فریس یک قدرت جادویی دارد: <strong>الگویابی (Pattern Matching)</strong>. با یک حرکت سریع، می‌تواند کل ساختار را بشکند و گنج را مستقیم از دل جعبه‌ها بیرون بکشد. در Rust به این کار <strong>تخریب (Destructuring)</strong> می‌گوییم. نترس، قرار نیست چیزی خراب شود! منظور فقط این است که ساختار را باز می‌کنیم تا به داده‌های داخلش برسیم.<br><strong>این یعنی تو می‌توانی مثل یک کارآگاه حرفه‌ای، هر ساختار پیچیده‌ای را تکه‌تکه کنی و به گنج درونش برسی – جادوگر کامپیوتر چنین قدرتی دارد!</strong> 🧙‍♂️</p>
+<p><img src="assets/images/18.1.png" alt="[Illustration: A cartoon treasure map on a wooden desk. Glowing nested boxes (small box inside medium box inside big chest) float above the map. A pair of glowing magic scissors labeled “Destructuring” cuts through the layers, revealing a shiny gold coin inside. Ferris the crab watches with excited eyes, holding a magnifying glass. Style: whimsical children’s book illustration, bright, adventurous, 16:9.]"></p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>الگوهای پیشرفته یکی از قدرتمندترین ویژگی‌های Rust هستند که به کودکان کمک می‌کنند تا داده‌های درون ساختارها را به زیبایی استخراج کنند. اگر کودک در درک <code>@</code> یا <code>_</code> مشکل داشت، نگران نباشید – در پروژه‌های بعدی بارها از آن‌ها استفاده خواهد شد. کتاب رسمی Rust فصل کاملی درباره‌ی الگوها دارد:<br><a href="https://doc.rust-lang.org/book/ch18-00-patterns.html">doc.rust-lang.org/book/ch18-00-patterns.html</a></p>
+</blockquote>
+<h4 id="۱۸۱۲-تخریب-destructuring-struct"><a class="header" href="#۱۸۱۲-تخریب-destructuring-struct">۱۸.۱.۲. تخریب (Destructuring) Struct</a></h4>
+<p>فرض کن یک <code>struct</code> به اسم <code>Point</code> داری که مختصات یک نقطه را نگه می‌دارد. می‌توانی با یک خط کد، فیلدهایش را باز کنی و در متغیرهای جدید بریزی:</p>
+<pre class="playground"><code class="language-rust">struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn main() {
+    let p = Point { x: 10, y: 20 };
+    
+    // روش کامل: اسم فیلد، دو نقطه، اسم متغیر جدید
+    let Point { x: a, y: b } = p;
+    println!("a = {}, b = {}", a, b);
+    
+    // روش خلاصه: اگر اسم متغیر جدید با اسم فیلد یکی باشد
+    let Point { x, y } = p;
+    println!("x = {}, y = {}", x, y);
+}</code></pre>
+<p>اگر فقط به یکی از فیلدها نیاز داری و بقیه برایت مهم نیستند، می‌توانی بقیه را با <code>..</code> نادیده بگیری:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let Point { x, .. } = p; // فقط x را می‌گیرد، y را ول می‌کند
+println!("فقط x = {}", x);
+<span class="boring">}</span></code></pre>
+<h4 id="۱۸۱۳-تخریب-enum"><a class="header" href="#۱۸۱۳-تخریب-enum">۱۸.۱.۳. تخریب Enum</a></h4>
+<p>در فصل ۶ یاد گرفتی که <code>enum</code> می‌تواند حالت‌های مختلفی داشته باشد. <code>match</code> بهترین ابزار برای باز کردن این حالت‌هاست. بیا یک <code>enum</code> پیام‌های فضایی را ببینیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Message {
+    Quit,                       // بدون داده
+    Move { x: i32, y: i32 },    // یک struct ناشناس
+    Write(String),              // یک رشته
+    ChangeColor(u8, u8, u8),    // یک تاپل
+}
+
+fn process(msg: Message) {
+    match msg {
+        Message::Quit =&gt; println!("👋 خروج از برنامه"),
+        Message::Move { x, y } =&gt; println!("🚀 حرکت به سمت ({}, {})", x, y),
+        Message::Write(text) =&gt; println!("📝 نوشتن: {}", text),
+        Message::ChangeColor(r, g, b) =&gt; {
+            println!("🎨 تغییر رنگ به ({}, {}, {})", r, g, b);
+        }
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>ببین چقدر راحت داده‌های تو در تو را بیرون کشیدیم! <code>match</code> خودش می‌فهمد هر حالت چه شکلی است و دقیقاً همان چیزهایی که در آن است را به تو می‌دهد.</p>
+<h4 id="۱۸۱۴-تخریب-tuple"><a class="header" href="#۱۸۱۴-تخریب-tuple">۱۸.۱.۴. تخریب Tuple</a></h4>
+<p>تاپل‌ها هم خیلی راحت تخریب می‌شوند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let t = (1, 2, 3);
+let (x, y, z) = t;
+println!("x={}, y={}, z={}", x, y, z);
+<span class="boring">}</span></code></pre>
+<p>حتی می‌توانی در پارامترهای یک تابع هم تاپل را همان اول باز کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn print_coordinates(&amp;(x, y): &amp;(i32, i32)) {
+    println!("مختصات: ({}, {})", x, y);
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۸۱۵-تخریب-در-حلقه-for"><a class="header" href="#۱۸۱۵-تخریب-در-حلقه-for">۱۸.۱.۵. تخریب در حلقه <code>for</code></a></h4>
+<p>این قابلیت در حلقه‌های <code>for</code> خیلی کاربرد دارد، مخصوصاً وقتی با <code>HashMap</code> کار می‌کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let points = vec![(0, 0), (1, 2), (3, 4)];
+for (x, y) in points {
+    println!("نقطه‌ی بعدی: ({}, {})", x, y);
+}
+<span class="boring">}</span></code></pre>
+<p>هر بار که حلقه تکرار می‌شود، یک تاپل از لیست می‌آید بیرون، و <code>(x, y)</code> خودشان را می‌گذارند در مقادیرش. جادویی نیست، فقط Rust باهوش است! 😉</p>
+<h4 id="۱۸۱۶-تمرین-تخریب-یک-struct-تو-در-تو"><a class="header" href="#۱۸۱۶-تمرین-تخریب-یک-struct-تو-در-تو">۱۸.۱.۶. تمرین: تخریب یک Struct تو در تو</a></h4>
+<p>یک <code>struct</code> به اسم <code>Person</code> با فیلدهای <code>name: String</code> و <code>address: Address</code> تعریف کن. <code>Address</code> خودش یک <code>struct</code> با فیلدهای <code>city: String</code> و <code>zip: u32</code> است. یک نمونه <code>Person</code> بساز و با <strong>یک خط تخریب</strong>، هم <code>name</code> و هم <code>city</code> را مستقیم بیرون بکش و چاپ کن.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">struct Address {
+    city: String,
+    zip: u32,
+}
+
+struct Person {
+    name: String,
+    address: Address,
+}
+
+fn main() {
+    let person = Person {
+        name: String::from("فریس"),
+        address: Address {
+            city: String::from("شهر کراب"),
+            zip: 12345,
+        },
+    };
+    
+    // تخریب تودرتو: name را مستقیم می‌گیریم و از داخل address فقط city را
+    let Person { name, address: Address { city, .. } } = person;
+    
+    println!("{} در شهر {} زندگی می‌کند.", name, city);
+}</code></pre>
+<p>💡 دقت کن: <code>address: Address { city, .. }</code> یعنی برو در فیلد <code>address</code>، آن را همان‌طور که از نوع <code>Address</code> انتظار داریم باز کن، ولی فقط <code>city</code> را بردار و بقیه را ول کن!</p>
+<p><img src="assets/images/18.2.png" alt="[Illustration: A 3D puzzle cube being taken apart layer by layer. Each layer reveals a smaller cube inside, finally revealing a tiny star. Ferris stands on a stack of books, wearing a detective hat and holding a magnifying glass. Style: educational vector, bright colors, clear visual metaphor, 16:9.]"></p>
+<hr>
+<h3 id="۱۸۲-الگوهای-نفی-و-شرط"><a class="header" href="#۱۸۲-الگوهای-نفی-و-شرط">۱۸.۲. الگوهای نفی و شرط</a></h3>
+<p>گاهی وقت‌ها هنگام الگویابی، می‌خواهیم یک سری چیزها را نادیده بگیریم یا فقط وقتی الگو جواب بدهد که یک شرط اضافه هم برقرار باشد. اینجاست که جادوی <code>match</code> کامل می‌شود! 🪄</p>
+<h4 id="۱۸۲۱-نادیده-گرفتن-با-_-و-"><a class="header" href="#۱۸۲۱-نادیده-گرفتن-با-_-و-">۱۸.۲.۱. نادیده گرفتن با <code>_</code> و <code>..</code></a></h4>
+<p>🔹 <code>_</code> (زیرخط): مثل سطل زباله‌ی الگوهاست. هر چیزی که در آن بریزیم، نادیده گرفته می‌شود.<br>🔹 <code>..</code> : بقیه‌ی فیلدهای یک <code>struct</code> یا بقیه‌ی اعضای یک تاپل/آرایه را ول می‌کند.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Point3D { x: i32, y: i32, z: i32 }
+let p = Point3D { x: 1, y: 2, z: 3 };
+let Point3D { x, .. } = p; // فقط x مهم است، y و z فرقی ندارند
+
+let numbers = (1, 2, 3, 4, 5);
+let (first, .., last) = numbers; // فقط اولین و آخرین
+println!("اول: {}, آخر: {}", first, last);
+<span class="boring">}</span></code></pre>
+<h4 id="۱۸۲۲-شرط-در-الگو-match-guard"><a class="header" href="#۱۸۲۲-شرط-در-الگو-match-guard">۱۸.۲.۲. شرط در الگو (Match Guard)</a></h4>
+<p>گاهی یک الگو به تنهایی کافی نیست. مثلاً می‌خواهی بگویی «اگر عدد زوج بود» یا «اگر طول رشته بیشتر از ۵ بود». این کار را با <strong>Match Guard</strong> انجام می‌دهیم: یک <code>if</code> که دقیقاً بعد از الگو می‌آید.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let num = Some(4);
+
+match num {
+    Some(x) if x % 2 == 0 =&gt; println!("{} عدد زوج است!", x),
+    Some(x) =&gt; println!("{} عدد فرد است.", x),
+    None =&gt; println!("هیچ عددی وجود ندارد."),
+}
+<span class="boring">}</span></code></pre>
+<p>⚠️ ترتیب مهم است! اگر اول <code>Some(x)</code> را بدون <code>if</code> بنویسی، همیشه همان اجرا می‌شود و شرط هیچ‌وقت چک نمی‌شود.</p>
+<h4 id="۱۸۲۳-عملگر--برای-bind-کردن"><a class="header" href="#۱۸۲۳-عملگر--برای-bind-کردن">۱۸.۲.۳. عملگر <code>@</code> برای Bind کردن</a></h4>
+<p>علامت <code>@</code> (ات ساین) یک ابزار فوق‌العاده است: همزمان که یک الگو را بررسی می‌کند، کل مقداری که با آن الگو جور شده را در یک متغیر ذخیره می‌کند.
+مثلاً می‌خواهیم بدانیم یک عدد در محدوده‌ی ۱ تا ۱۰ است یا نه، و همزمان خود عدد را هم داشته باشیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+
+match x {
+    num @ 1..=10 =&gt; println!("{} در محدوده‌ی ۱ تا ۱۰ قرار دارد.", num),
+    _ =&gt; println!("{} خارج از محدوده است.", x),
+}
+<span class="boring">}</span></code></pre>
+<p>اینجا <code>num</code> همان مقدار <code>x</code> است، ولی فقط اگر در بازه‌ی <code>1..=10</code> باشد وارد این شاخه می‌شود.</p>
+<h4 id="۱۸۲۴-الگوهای--یا"><a class="header" href="#۱۸۲۴-الگوهای--یا">۱۸.۲.۴. الگوهای <code>|</code> (یا)</a></h4>
+<p>اگر چند تا الگو کار یکسانی انجام می‌دهند، لازم نیست برایشان شاخه‌های جدا بنویسی. می‌توانی با <code>|</code> (خط عمودی) ترکیبشان کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 2;
+
+match x {
+    1 | 2 =&gt; println!("یکی از اعداد ۱ یا ۲."),
+    3 =&gt; println!("عدد ۳."),
+    _ =&gt; println!("یک چیز دیگر."),
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۸۲۵-تمرین-match-guard-برای-اعداد"><a class="header" href="#۱۸۲۵-تمرین-match-guard-برای-اعداد">۱۸.۲.۵. تمرین: Match Guard برای اعداد</a></h4>
+<p>برنامه‌ای بنویس که یک عدد از کاربر بگیرد. با <code>match</code> و <code>guard</code> تشخیص بدهد که:</p>
+<ul>
+<li>اگر بین ۱ تا ۱۰ بود → چاپ کند «کوچک».</li>
+<li>اگر بین ۱۱ تا ۲۰ بود → چاپ کند «متوسط».</li>
+<li>در غیر این صورت → چاپ کند «بزرگ یا خارج از محدوده».</li>
+</ul>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">use std::io;
+
+fn main() {
+    let mut input = String::new();
+    println!("یک عدد وارد کن:");
+    io::stdin().read_line(&amp;mut input).unwrap();
+    let num: i32 = input.trim().parse().unwrap();
+
+    match num {
+        n if (1..=10).contains(&amp;n) =&gt; println!("عدد {} کوچک است. 👶", n),
+        n if (11..=20).contains(&amp;n) =&gt; println!("عدد {} متوسط است. 👦", n),
+        _ =&gt; println!("عدد {} بزرگ است یا اصلاً در محدوده نیست. 🌳", num),
+    }
+}</code></pre>
+<p>💡 <code>(1..=10).contains(&amp;n)</code> یک راه تمیز برای چک کردن عضویت در یک بازه است!</p>
+<hr>
+<h3 id="۱۸۳-پروژه-پردازش-دستورات-یک-بازی"><a class="header" href="#۱۸۳-پروژه-پردازش-دستورات-یک-بازی">۱۸.۳. پروژه: پردازش دستورات یک بازی</a></h3>
+<p>حالا وقتش است همه‌ی این ابزارها را در یک پروژه‌ی واقعی امتحان کنیم! 🎮 بیا یک سیستم فرمان ساده برای یک بازی متنی بسازیم. کاربر دستوراتی مثل <code>/go north</code> یا <code>/attack dragon 50</code> تایپ می‌کند و برنامه آن‌ها را می‌فهمد و اجرا می‌کند.</p>
+<h4 id="۱۸۳۱-تعریف-enum-command"><a class="header" href="#۱۸۳۱-تعریف-enum-command">۱۸.۳.۱. تعریف <code>enum Command</code></a></h4>
+<p>اول یک <code>enum</code> برای انواع دستورات ممکن تعریف می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Command {
+    Go { direction: String },
+    Attack { target: String, power: u32 },
+    Quit,
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۸۳۲-تابع-parse_command"><a class="header" href="#۱۸۳۲-تابع-parse_command">۱۸.۳.۲. تابع <code>parse_command</code></a></h4>
+<p>یک تابع می‌نویسیم که رشته‌ی ورودی را تجزیه کند و یک <code>Command</code> برگرداند. ورودی را با فاصله (<code>whitespace</code>) تکه‌تکه می‌کنیم. همچنین اگر ورودی خالی بود یا فرمت اشتباه داشت، دستور <code>Quit</code> در نظر گرفته می‌شود.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn parse_command(input: &amp;str) -&gt; Command {
+    let parts: Vec&lt;&amp;str&gt; = input.trim().split_whitespace().collect();
+    
+    // اگر کاربر هیچ چیزی وارد نکرده باشد
+    if parts.is_empty() {
+        return Command::Quit;
+    }
+    
+    // اگر کاربر "/go north" نوشته باشد
+    if parts[0] == "/go" &amp;&amp; parts.len() &gt;= 2 {
+        Command::Go {
+            direction: parts[1].to_string(),
+        }
+    } 
+    // اگر کاربر "/attack dragon 50" نوشته باشد
+    else if parts[0] == "/attack" &amp;&amp; parts.len() &gt;= 3 {
+        let power = parts[2].parse().unwrap_or(10); // اگر عدد نبود، ۱۰ در نظر بگیر
+        Command::Attack {
+            target: parts[1].to_string(),
+            power,
+        }
+    } 
+    // اگر "/quit" یا هر چیز دیگری باشد
+    else {
+        Command::Quit
+    }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۱۸۳۳-اجرای-دستور-با-match-و-guard"><a class="header" href="#۱۸۳۳-اجرای-دستور-با-match-و-guard">۱۸.۳.۳. اجرای دستور با <code>match</code> و <code>guard</code></a></h4>
+<p>حالا در <code>main</code> یک حلقه می‌گذاریم که دستورات را بگیرد و اجرا کند. از <code>match</code> با <code>guard</code> استفاده می‌کنیم تا برای حمله‌های خیلی قوی پیام مخصوص نشان بدهد:</p>
+<pre class="playground"><code class="language-rust">use std::io;
+use std::io::Write; // برای flush
+
+fn main() {
+    println!("🎮 به بازی متنی فریس خوش آمدی!");
+    loop {
+        print!("\nفرمان خودت را بنویس (/go, /attack, /quit): ");
+        io::stdout().flush().unwrap(); // مطمئن می‌شویم پیام سریع چاپ شود
+        
+        let mut input = String::new();
+        io::stdin().read_line(&amp;mut input).unwrap();
+        let cmd = parse_command(&amp;input);
+
+        match cmd {
+            Command::Go { direction } =&gt; {
+                println!("🚀 فریس به سمت {} حرکت کرد.", direction);
+            }
+            Command::Attack { target, power } if power &gt; 30 =&gt; {
+                println!("💥 حمله‌ی ویرانگر! {} با قدرت {} پودر شد!", target, power);
+            }
+            Command::Attack { target, power } =&gt; {
+                println!("⚔️ حمله به {} با قدرت {}. (هنوز زنده است!)", target, power);
+            }
+            Command::Quit =&gt; {
+                println!("👋 خداحافظ! بازی تمام شد.");
+                break;
+            }
+        }
+    }
+}</code></pre>
+<p>ببین چقدر تمیز شد! دیگر نیازی به <code>if/else</code> تو در تو نیست. <code>match</code> همه‌چیز را مثل یک نقشه‌ی گنج باز می‌کند. 🗝️</p>
+<p><img src="assets/images/18.3.png" alt="[Illustration: A retro computer terminal screen showing text commands: “/go north”, “/attack dragon 50”, “/quit”. Next to the screen, a cartoon joystick with buttons labeled “Match”, “Guard”, “Enum”. Ferris sits at the keyboard wearing a gaming headset, smiling confidently. Style: cozy gaming setup, vibrant, children’s book illustration, 16:9.]"></p>
+<hr>
+<h3 id="۱۸۴-جمعبندی-و-چالش"><a class="header" href="#۱۸۴-جمعبندی-و-چالش">۱۸.۴. جمع‌بندی و چالش</a></h3>
+<h4 id="۱۸۴۱-مرور-مفاهیم"><a class="header" href="#۱۸۴۱-مرور-مفاهیم">۱۸.۴.۱. مرور مفاهیم</a></h4>
+<p>در این فصل یاد گرفتی:
+✅ <strong>تخریب (Destructuring)</strong>: بیرون کشیدن فیلدهای <code>struct</code>، <code>enum</code> و <code>tuple</code> با الگو.<br>✅ <code>_</code> و <code>..</code>: نادیده گرفتن بخش‌هایی از الگو وقتی بهشان نیاز نداری.<br>✅ <strong>Match Guard</strong>: اضافه کردن شرط <code>if</code> به بازوی <code>match</code>.<br>✅ <code>@</code> Binding: ذخیره‌ی مقدار جور شده در یک متغیر حین بررسی الگو.<br>✅ <code>|</code>: ترکیب چند الگو در یک بازو برای جلوگیری از تکرار.<br>✅ <strong>این ابزارها تو را به یک کارآگاه داده تبدیل می‌کنند – یک جادوگر کامپیوتر واقعی!</strong> 🧙</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>تخریب‌های تودرتو و match guard ممکن است در ابتدا کمی پیچیده به نظر برسند. نگران نباش – هر چه بیشتر از آن‌ها در کدهات استفاده کنی، طبیعی‌تر می‌شوند. حتی برنامه‌نویسان حرفه‌ای هم گاهی برای نوشتن یک الگوی پیچیده چند بار تلاش می‌کنند. مهم این است که بدانی Rust همیشه به تو می‌گوید کجا اشتباه کرده‌ای.</p>
+</blockquote>
+<h4 id="۱۸۴۲-چالش-استخراج-از-optionveci32"><a class="header" href="#۱۸۴۲-چالش-استخراج-از-optionveci32">۱۸.۴.۲. چالش: استخراج از <code>Option&lt;Vec&lt;i32&gt;&gt;</code></a></h4>
+<p>یک تابع به اسم <code>sum_first_two</code> بنویس که یک <code>Option&lt;Vec&lt;i32&gt;&gt;</code> به عنوان ورودی بگیرد و:</p>
+<ul>
+<li>اگر <code>Some</code> بود و وکتور حداقل ۳ عنصر داشت، مجموع دو عنصر اول را به صورت <code>Some(i32)</code> برگرداند.</li>
+<li>اگر <code>Some</code> بود ولی کمتر از ۳ عنصر داشت، <code>None</code> برگرداند.</li>
+<li>اگر <code>None</code> بود، <code>None</code> برگرداند.</li>
+</ul>
+<p>💡 <strong>راهنمایی:</strong> می‌توانی از یک <code>match</code> تودرتو یا یک <code>match guard</code> استفاده کنی.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">fn sum_first_two(opt: Option&lt;Vec&lt;i32&gt;&gt;) -&gt; Option&lt;i32&gt; {
+    match opt {
+        Some(vec) if vec.len() &gt;= 3 =&gt; Some(vec[0] + vec[1]),
+        _ =&gt; None, // هم Some با طول کم و هم None را پوشش می‌دهد
+    }
+}
+
+fn main() {
+    let v1 = Some(vec![10, 20, 30, 40]);
+    let v2 = Some(vec![5, 15]);
+    let v3 = None;
+
+    println!("{:?}", sum_first_two(v1)); // Some(30)
+    println!("{:?}", sum_first_two(v2)); // None
+    println!("{:?}", sum_first_two(v3)); // None
+}</code></pre>
+<hr>
+<p>🔚 <strong>پایان فصل ۱۸</strong></p>
+<p>حالا تو یک استاد الگویابی شده‌ای و می‌توانی پیچیده‌ترین ساختارهای داده را مثل آب خوردن باز کنی و از آنها استفاده کنی. 🧩✨<br>در فصل بعد، سری به اتاق موتور Rust می‌زنیم و با <code>unsafe</code> و ماکروها آشنا می‌شویم – ابزارهایی که فقط قهرمان‌های حرفه‌ای و ماجراجو از آنها استفاده می‌کنند! آماده‌ای برویم سراغ جادوی سیاه (ولی امن) برنامه‌نویسی؟ 🌙🔧</p>
+<p><img src="assets/images/18.4.png" alt="[Illustration: Ferris wearing a graduation cap and holding a glowing “Chapter 18 Master” badge. Floating around him are nested puzzle boxes, match guard shields, and a joystick controller. Background: a starry night sky with a subtle map overlay. Encouraging, vibrant children’s book style, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-17.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-19.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-17.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-19.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

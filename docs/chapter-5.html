@@ -1,0 +1,598 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۵: کارت شناسایی هیولاها - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۵-کارت-شناسایی-هیولاها-structs"><a class="header" href="#فصل-۵-کارت-شناسایی-هیولاها-structs">فصل ۵: کارت شناسایی هیولاها (Structs)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۵۱-هیولای-من-چه-شکلیه">۵.۱. هیولای من چه شکلیه؟</a><br><a href="#۵۱۱-داستان-دفترچهی-هیولاهای-فریس">۵.۱.۱. داستان: دفترچه‌ی هیولاهای فریس</a><br><a href="#۵۱۲-مشکل-چند-تا-متغیر-جداگانه">۵.۱.۲. مشکل: چند تا متغیر جداگانه</a><br><a href="#۵۱۳-معرفی-struct-به-عنوان-قالب-کارت-شناسایی">۵.۱.۳. معرفی struct به عنوان قالب کارت شناسایی</a><br><a href="#۵۲-فرم-استخدام-هیولا-تعریف-struct">۵.۲. فرم استخدام هیولا (تعریف Struct)</a><br><a href="#۵۲۱-نوشتن-یک-struct-ساده">۵.۲.۱. نوشتن یک struct ساده</a><br><a href="#۵۲۲-قرارداد-نام‌گذاری-pascalcase">۵.۲.۲. قرارداد نام‌گذاری PascalCase</a><br><a href="#۵۲۳-فیلدها-و-نوع-آنها">۵.۲.۳. فیلدها و نوع آن‌ها</a><br><a href="#۵۲۴-تمرین-struct-سفینه-فضایی">۵.۲.۴. تمرین: struct سفینه فضایی</a><br><a href="#۵۳-معرفی-هیولای-جدید-instance">۵.۳. معرفی هیولای جدید (Instance)</a><br><a href="#۵۳۱-ساختن-یک-نمونه-از-struct">۵.۳.۱. ساختن یک نمونه از struct</a><br><a href="#۵۳۲-دسترسی-به-فیلدها-با-نقطه">۵.۳.۲. دسترسی به فیلدها با نقطه</a><br><a href="#۵۳۳-تغییر-فیلدها-با-mut">۵.۳.۳. تغییر فیلدها (با mut)</a><br><a href="#۵۳۴-اختصار-field-init-shorthand">۵.۳.۴. اختصار Field Init Shorthand</a><br><a href="#۵۳۵-ساختن-نمونه-از-روی-نمونه-دیگر-struct-update-syntax">۵.۳.۵. ساختن نمونه از روی نمونه دیگر (struct update syntax)</a><br><a href="#۵۴-کارهایی-که-هیولا-می‌تونه-بکنه-methods">۵.۴. کارهایی که هیولا می‌تونه بکنه (Methods)</a><br><a href="#۵۴۱-تفاوت-تابع-و-متد">۵.۴.۱. تفاوت تابع و متد</a><br><a href="#۵۴۲-نوشتن-اولین-متد-با-impl">۵.۴.۲. نوشتن اولین متد با impl</a><br><a href="#۵۴۳-پارامتر-self">۵.۴.۳. پارامتر &amp;self</a><br><a href="#۵۴۴-متد-با-پارامترهای-اضافی">۵.۴.۴. متد با پارامترهای اضافی</a><br><a href="#۵۴۵-متد-با-مقدار-بازگشتی">۵.۴.۵. متد با مقدار بازگشتی</a><br><a href="#۵۴۶-متد-تغییردهنده-mut-self">۵.۴.۶. متد تغییردهنده (&amp;mut self)</a><br><a href="#۵۴۷-توابع-مرتبط-associated-functions">۵.۴.۷. توابع مرتبط (Associated Functions)</a><br><a href="#۵۵-پروژه-دفترچه-هیولاها">۵.۵. پروژه: دفترچه هیولاها</a><br><a href="#۵۵۱-ساخت-vec-از-هیولاها">۵.۵.۱. ساخت Vec از هیولاها</a><br><a href="#۵۵۲-حلقه-برای-غرش-کردن-همه">۵.۵.۲. حلقه برای غرش کردن همه</a><br><a href="#۵۵۳-پیدا-کردن-قوی‌ترین-هیولا">۵.۵.۳. پیدا کردن قوی‌ترین هیولا</a><br><a href="#۵۵۴-تمرین-متد-is_stronger_than">۵.۵.۴. تمرین: متد is_stronger_than</a><br><a href="#۵۶-جمع‌بندی-و-چالش">۵.۶. جمع‌بندی و چالش</a><br><a href="#۵۶۱-مرور-مفاهیم">۵.۶.۱. مرور مفاهیم</a><br><a href="#۵۶۲-چالش-struct-student-و-نمره">۵.۶.۲. چالش: struct Student و نمره</a></p>
+<hr>
+<h3 id="۵۱-هیولای-من-چه-شکلیه"><a class="header" href="#۵۱-هیولای-من-چه-شکلیه">۵.۱. هیولای من چه شکلیه؟</a></h3>
+<h4 id="۵۱۱-داستان-دفترچهی-هیولاهای-فریس"><a class="header" href="#۵۱۱-داستان-دفترچهی-هیولاهای-فریس">۵.۱.۱. داستان: دفترچه‌ی هیولاهای فریس</a></h4>
+<p>فریس در سفرهای فضایی‌اش با کلی موجود عجیب و غریب آشنا شده. بعضی‌هاشان غول‌پیکرند، بعضی‌هاشان کوچولو و بانمک. فریس تصمیم گرفته یک دفترچه درست کند و مشخصات هر هیولا را در آن یادداشت کند: اسمش چیست؟ چه رنگی است؟ چند تا پا دارد؟ قدرتش چقدر است؟<br>این مشخصات برای هر هیولا دقیقاً مثل یک <strong>کارت شناسایی</strong> می‌ماند. در برنامه‌نویسی وقتی می‌خواهیم اطلاعات مربوط به یک چیز را یکجا و مرتب نگه داریم، از یک ابزار فوق‌العاده به اسم <code>struct</code> (مخفف Structure) استفاده می‌کنیم.</p>
+<h4 id="۵۱۲-مشکل-چند-تا-متغیر-جداگانه"><a class="header" href="#۵۱۲-مشکل-چند-تا-متغیر-جداگانه">۵.۱.۲. مشکل: چند تا متغیر جداگانه</a></h4>
+<p>اگر بخواهیم بدون <code>struct</code> اطلاعات یک هیولا را ذخیره کنیم، مجبوریم کلی متغیر جداگانه بسازیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let name = String::from("دودو");
+let color = String::from("سبز");
+let legs = 4;
+let power = 100;
+<span class="boring">}</span></code></pre>
+<p>برای یک هیولا بد نیست. ولی اگر ده تا هیولا داشته باشیم، کلی متغیر با اسم‌های قاطی‌پاتی مثل <code>name2</code>, <code>color3</code> درست می‌شود که خیلی زود گیج‌کننده می‌شود! تازه، نمی‌توانیم همه‌ی این اطلاعات را مثل یک بسته‌ی آماده به یک تابع بدهیم.</p>
+<h4 id="۵۱۳-معرفی-struct-به-عنوان-قالب-کارت-شناسایی"><a class="header" href="#۵۱۳-معرفی-struct-به-عنوان-قالب-کارت-شناسایی">۵.۱.۳. معرفی struct به عنوان قالب کارت شناسایی</a></h4>
+<p><code>struct</code> به ما اجازه می‌دهد چند تکه اطلاعات را کنار هم بگذاریم و بهشان یک اسم واحد بدهیم. در واقع <code>struct</code> مثل یک <strong>قالب خالی کارت شناسایی</strong> می‌ماند. اول قالب را طراحی می‌کنیم (می‌گوییم هر کارت چه بخش‌هایی دارد)، بعد با استفاده از آن قالب، کارت‌های واقعی برای هیولاهای مختلف پر می‌کنیم.<br><strong>این یعنی تو داری یاد می‌گیری چطور اطلاعات دنیای واقعی را داخل کامپیوتر مدل کنی – گامی دیگر برای تبدیل شدن به یک جادوگر کامپیوتر!</strong> 🧙‍♂️</p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>Structها یکی از مهم‌ترین ابزارهای Rust (و بسیاری زبان‌های دیگر) هستند. آن‌ها به کودک کمک می‌کنند تا داده‌های مرتبط را گروه‌بندی کند – مهارتی فراتر از برنامه‌نویسی. کتاب رسمی Rust فصل کاملی درباره‌ی structها دارد:<br><a href="https://doc.rust-lang.org/book/ch05-00-structs.html">doc.rust-lang.org/book/ch05-00-structs.html</a></p>
+</blockquote>
+<p><img src="assets/images/5.1.png" alt="[Illustration: Cartoon illustration of a magical notebook open on a wooden desk. The left page shows messy scattered variables with tangled strings. The right page shows a clean, glowing ID card template with slots for “Name”, “Color”, “Legs”, “Power”. Ferris the crab stands proudly pointing at the clean page. Style: vibrant children’s book, educational metaphor, soft lighting, 16:9.]"></p>
+<hr>
+<h3 id="۵۲-فرم-استخدام-هیولا-تعریف-struct"><a class="header" href="#۵۲-فرم-استخدام-هیولا-تعریف-struct">۵.۲. فرم استخدام هیولا (تعریف Struct)</a></h3>
+<h4 id="۵۲۱-نوشتن-یک-struct-ساده"><a class="header" href="#۵۲۱-نوشتن-یک-struct-ساده">۵.۲.۱. نوشتن یک struct ساده</a></h4>
+<p>با کلمه‌ی کلیدی <code>struct</code> شروع می‌کنیم، اسم قالب را می‌نویسیم و داخل آکولاد <code>{}</code> فیلدهایش را تعریف می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Monster {
+    name: String,
+    color: String,
+    legs: u8,
+    power: u32,
+}
+<span class="boring">}</span></code></pre>
+<p>این کد یعنی: «یک قالب جدید به اسم <code>Monster</code> داریم. هر چیزی که از این قالب ساخته شود، چهار بخش دارد: یک اسم (<code>String</code>)، یک رنگ (<code>String</code>)، تعداد پا (<code>u8</code> یعنی عدد صحیح کوچک مثبت) و قدرت (<code>u32</code>).»</p>
+<h4 id="۵۲۲-قرارداد-نامگذاری-pascalcase"><a class="header" href="#۵۲۲-قرارداد-نامگذاری-pascalcase">۵.۲.۲. قرارداد نام‌گذاری PascalCase</a></h4>
+<p>در Rust یک رسم قشنگ داریم: اسم <code>struct</code>ها را به صورت <strong>PascalCase</strong> می‌نویسیم. یعنی هر کلمه با حرف بزرگ شروع شود و فاصله نداشته باشد. مثال: <code>Monster</code>، <code>SpaceShip</code>، <code>StudentGrade</code>.<br>اسم فیلدها اما با <strong>snake_case</strong> نوشته می‌شود: همه حروف کوچک و با زیرخط (<code>_</code>) جدا می‌شوند. مثال: <code>name</code>, <code>legs_count</code>, <code>fuel_amount</code>.</p>
+<h4 id="۵۲۳-فیلدها-و-نوع-آنها"><a class="header" href="#۵۲۳-فیلدها-و-نوع-آنها">۵.۲.۳. فیلدها و نوع آن‌ها</a></h4>
+<p>هر فیلد یک اسم و یک نوع (Type) دارد. می‌توانی از هر نوعی که تا حالا یاد گرفتی استفاده کنی: <code>i32</code>, <code>f64</code>, <code>bool</code>, <code>char</code>, <code>String</code> و حتی <code>struct</code>های دیگر! مثلاً می‌توانی یک <code>struct</code> برای مختصات بسازی و بگذاریش داخل <code>Monster</code>:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Coordinates {
+    x: f64,
+    y: f64,
+}
+
+struct Monster {
+    name: String,
+    position: Coordinates,
+    // بقیه فیلدها...
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۵۲۴-تمرین-struct-سفینه-فضایی"><a class="header" href="#۵۲۴-تمرین-struct-سفینه-فضایی">۵.۲.۴. تمرین: struct سفینه فضایی</a></h4>
+<p>یک <code>struct</code> به اسم <code>SpaceShip</code> تعریف کن که سه فیلد داشته باشد:</p>
+<ul>
+<li><code>fuel</code> از نوع <code>u32</code> (سوخت باقی‌مانده)</li>
+<li><code>passenger_count</code> از نوع <code>u8</code> (تعداد مسافران)</li>
+<li><code>model</code> از نوع <code>String</code> (مدل سفینه)</li>
+</ul>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct SpaceShip {
+    fuel: u32,
+    passenger_count: u8,
+    model: String,
+}
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/5.2.png" alt="[Illustration: Educational infographic showing a Rust struct definition as a blueprint sheet. Fields are highlighted with colorful tags matching their data types (String=blue, u8=green, u32=orange). Ferris holds a ruler and pencil, drawing the blueprint. Style: clean, modern educational cartoon, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۵۳-معرفی-هیولای-جدید-instance"><a class="header" href="#۵۳-معرفی-هیولای-جدید-instance">۵.۳. معرفی هیولای جدید (Instance)</a></h3>
+<h4 id="۵۳۱-ساختن-یک-نمونه-از-struct"><a class="header" href="#۵۳۱-ساختن-یک-نمونه-از-struct">۵.۳.۱. ساختن یک نمونه از struct</a></h4>
+<p>حالا که قالب <code>Monster</code> را داریم، نوبت است یک هیولای واقعی ازش بسازیم. به این کار می‌گویند ساختن <strong>نمونه (Instance)</strong>. اسم <code>struct</code> را می‌نویسیم و داخل <code>{}</code> به هر فیلد یک مقدار می‌دهیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let monster1 = Monster {
+    name: String::from("دودو"),
+    color: String::from("سبز"),
+    legs: 4,
+    power: 100,
+};
+<span class="boring">}</span></code></pre>
+<p>حالا <code>monster1</code> یک هیولای واقعی است که اطلاعات دودو را در خودش نگه داشته.</p>
+<h4 id="۵۳۲-دسترسی-به-فیلدها-با-نقطه"><a class="header" href="#۵۳۲-دسترسی-به-فیلدها-با-نقطه">۵.۳.۲. دسترسی به فیلدها با نقطه</a></h4>
+<p>برای خواندن مقدار یک فیلد، از نقطه (<code>.</code>) استفاده می‌کنیم. دقیقاً مثل وقتی که به یک آدرس ایمیل یا وب‌سایت می‌رسی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!("اسم هیولا: {}", monster1.name);
+println!("قدرت: {}", monster1.power);
+<span class="boring">}</span></code></pre>
+<h4 id="۵۳۳-تغییر-فیلدها-با-mut"><a class="header" href="#۵۳۳-تغییر-فیلدها-با-mut">۵.۳.۳. تغییر فیلدها (با mut)</a></h4>
+<p>اگر بخواهیم بعداً یک فیلد را عوض کنیم (مثلاً هیولا تمرین کند و قدرتش بیشتر شود)، باید خود نمونه را موقع ساخت با <code>mut</code> تعریف کرده باشیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut monster2 = Monster {
+    name: String::from("بمبی"),
+    color: String::from("قرمز"),
+    legs: 2,
+    power: 50,
+};
+
+monster2.power = 75;  // الان قدرت بمبی شد ۷۵
+<span class="boring">}</span></code></pre>
+<h4 id="۵۳۴-اختصار-field-init-shorthand"><a class="header" href="#۵۳۴-اختصار-field-init-shorthand">۵.۳.۴. اختصار Field Init Shorthand</a></h4>
+<p>اگر قبلاً متغیرهایی ساخته باشی که اسمشان دقیقاً با اسم فیلدهای <code>struct</code> یکی باشد، می‌توانی به جای تکرار <code>name: name</code> فقط اسم متغیر را بنویسی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let name = String::from("دودو");
+let color = String::from("سبز");
+let legs = 4;
+let power = 100;
+
+let monster = Monster {
+    name,   // یعنی name: name
+    color,  // یعنی color: color
+    legs,   // یعنی legs: legs
+    power,  // یعنی power: power
+};
+<span class="boring">}</span></code></pre>
+<p>این کار کد را کوتاه‌تر و خواناتر می‌کند. 🧹✨</p>
+<h4 id="۵۳۵-ساختن-نمونه-از-روی-نمونه-دیگر-struct-update-syntax"><a class="header" href="#۵۳۵-ساختن-نمونه-از-روی-نمونه-دیگر-struct-update-syntax">۵.۳.۵. ساختن نمونه از روی نمونه دیگر (struct update syntax)</a></h4>
+<p>گاهی می‌خواهیم یک هیولای جدید بسازیم که خیلی شبیه یک هیولای قبلی است، فقط مثلاً اسمش فرق می‌کند. به جای نوشتن دوباره‌ی همه‌ی فیلدها، از علامت <code>..</code> استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let monster2 = Monster {
+    name: String::from("بمبی"),
+    ..monster1   // بقیه فیلدها را از monster1 کپی کن
+};
+<span class="boring">}</span></code></pre>
+<p>⚠️ <strong>نکته‌ی مهم:</strong> این کار باعث <strong>انتقال مالکیت (Move)</strong> می‌شود! یعنی اگر فیلدی مثل <code>name</code> از نوع <code>String</code> باشد (که <code>Copy</code> نیست)، بعد از این خط دیگر نمی‌توانی از <code>monster1.name</code> استفاده کنی چون مالکیتش رفته پیش <code>monster2</code>. اما فیلدهای عددی مثل <code>legs</code> و <code>power</code> چون <code>Copy</code> هستند، کپی می‌شوند و <code>monster1</code> هنوز می‌تواند ازشان استفاده کند.<br>فعلاً همین را بدانید که <code>..</code> راحت است اما مراقب مالکیت باشید. (در آینده با <code>clone()</code> هم آشنا خواهید شد.)</p>
+<p><img src="assets/images/5.3.png" alt="[Illustration: Split illustration: Left side shows a crab holding a “monster blueprint” copying data to a new card using a “..” stamp. Right side shows a warning sign: “String fields move ownership!”. Ferris explains with a friendly gesture. Style: playful technical metaphor, children’s book illustration, clear visual cues, 16:9.]"></p>
+<hr>
+<h3 id="۵۴-کارهایی-که-هیولا-میتونه-بکنه-methods"><a class="header" href="#۵۴-کارهایی-که-هیولا-میتونه-بکنه-methods">۵.۴. کارهایی که هیولا می‌تونه بکنه (Methods)</a></h3>
+<h4 id="۵۴۱-تفاوت-تابع-و-متد"><a class="header" href="#۵۴۱-تفاوت-تابع-و-متد">۵.۴.۱. تفاوت تابع و متد</a></h4>
+<p>تابع (Function) یک بلوک کد مستقلی است که می‌تواند پارامتر بگیرد و مقدار برگرداند (مثل <code>add</code> در فصل قبل).<br>متد (Method) تابعی است که <strong>به یک <code>struct</code> چسبیده</strong> است. متدها با نقطه (<code>.</code>) روی نمونه‌ها صدا زده می‌شوند و اولین پارامترشان همیشه به خود نمونه اشاره دارد (معمولاً <code>&amp;self</code>). مثل وقتی که می‌گویید «هیولا غرش کن!» به جای «غرش کن هیولا را!».</p>
+<h4 id="۵۴۲-نوشتن-اولین-متد-با-impl"><a class="header" href="#۵۴۲-نوشتن-اولین-متد-با-impl">۵.۴.۲. نوشتن اولین متد با impl</a></h4>
+<p>برای تعریف متد برای یک <code>struct</code>، از بلوک <code>impl</code> (مخفف implementation) استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Monster {
+    fn roar(&amp;self) {
+        println!("{} غرغروووو!", self.name);
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>حالا می‌توانیم برای هر هیولایی که داریم، این متد را صدا بزنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let dodo = Monster { /* ... */ };
+dodo.roar();  // چاپ می‌کند: "دودو غرغروووو!"
+<span class="boring">}</span></code></pre>
+<h4 id="۵۴۳-پارامتر-self"><a class="header" href="#۵۴۳-پارامتر-self">۵.۴.۳. پارامتر <code>&amp;self</code></a></h4>
+<p><code>&amp;self</code> یک مرجع غیرقابل تغییر (immutable) به نمونه‌ی جاری است. یعنی متد می‌تواند فیلدها را بخواند ولی نمی‌تواند تغییرشان بدهد. سه حالت اصلی برای <code>self</code> داریم:
+🔹 <code>&amp;self</code> : فقط خواندن (رایج‌ترین حالت)<br>🔹 <code>&amp;mut self</code> : خواندن و تغییر دادن (نیاز دارد نمونه <code>mut</code> باشد)<br>🔹 <code>self</code> : گرفتن مالکیت نمونه (بعد از صدا زدن، نمونه از بین می‌رود – کمتر استفاده می‌شود)</p>
+<h4 id="۵۴۴-متد-با-پارامترهای-اضافی"><a class="header" href="#۵۴۴-متد-با-پارامترهای-اضافی">۵.۴.۴. متد با پارامترهای اضافی</a></h4>
+<p>می‌توانیم به متد، علاوه بر <code>&amp;self</code>، پارامترهای دیگر هم بدهیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Monster {
+    fn attack(&amp;self, target: &amp;str) {
+        println!("{} به {} حمله کرد با قدرت {}!", self.name, target, self.power);
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>صدا زدن:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>dodo.attack("بیل");
+// خروجی: دودو به بیل حمله کرد با قدرت 100!
+<span class="boring">}</span></code></pre>
+<h4 id="۵۴۵-متد-با-مقدار-بازگشتی"><a class="header" href="#۵۴۵-متد-با-مقدار-بازگشتی">۵.۴.۵. متد با مقدار بازگشتی</a></h4>
+<p>متدها هم مثل توابع می‌توانند مقدار برگردانند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Monster {
+    fn power_level(&amp;self) -&gt; u32 {
+        self.power
+    }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۵۴۶-متد-تغییردهنده-mut-self"><a class="header" href="#۵۴۶-متد-تغییردهنده-mut-self">۵.۴.۶. متد تغییردهنده (<code>&amp;mut self</code>)</a></h4>
+<p>اگر بخواهیم متد بتواند فیلدهای نمونه را تغییر دهد (مثلاً قدرت هیولا را زیاد کند)، باید از <code>&amp;mut self</code> استفاده کنیم و خود نمونه هم <code>mut</code> باشد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Monster {
+    fn heal(&amp;mut self, amount: u32) {
+        self.power += amount;
+        println!("{} قدرت گرفت و شد {}!", self.name, self.power);
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>استفاده:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut bombi = Monster { /* ... */ };
+bombi.heal(20);
+<span class="boring">}</span></code></pre>
+<h4 id="۵۴۷-توابع-مرتبط-associated-functions"><a class="header" href="#۵۴۷-توابع-مرتبط-associated-functions">۵.۴.۷. توابع مرتبط (Associated Functions)</a></h4>
+<p>گاهی به تابعی نیاز داریم که روی نمونه‌ی خاصی کار نکند، بلکه یک کار کلی برای <code>struct</code> انجام بدهد. معروف‌ترین مثال، تابع <code>new</code> است که یک نمونه‌ی جدید می‌سازد. این توابع را <strong>توابع مرتبط</strong> می‌نامیم و با <code>::</code> (دابل کولون) صدا می‌زنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Monster {
+    fn new(name: String, color: String, legs: u8, power: u32) -&gt; Monster {
+        Monster {
+            name,
+            color,
+            legs,
+            power,
+        }
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>استفاده:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let dodo = Monster::new(
+    String::from("دودو"),
+    String::from("سبز"),
+    4,
+    100,
+);
+<span class="boring">}</span></code></pre>
+<p>این روش خیلی تمیزتر از نوشتن مستقیم فیلدها در <code>main</code> است و حس یک «کارخانه‌ی ساخت هیولا» را می‌دهد! 🏭</p>
+<p><img src="assets/images/5.4.png" alt="[Illustration: Cartoon scene showing a “Method Factory” conveyor belt. Crabs input raw monster parts, a machine labeled “impl Monster” adds behaviors (roar, attack, heal) via &amp;self/&amp;mut self tags, and finished monsters roll out with speech bubbles. Ferris operates a control panel. Style: dynamic, educational, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۵۵-پروژه-دفترچه-هیولاها"><a class="header" href="#۵۵-پروژه-دفترچه-هیولاها">۵.۵. پروژه: دفترچه هیولاها</a></h3>
+<p>حالا با هم یک برنامه‌ی کوچک می‌نویسیم که لیستی از هیولاها را نگه می‌دارد و کارهایی رویشان انجام می‌دهد.</p>
+<h4 id="۵۵۱-ساخت-vec-از-هیولاها"><a class="header" href="#۵۵۱-ساخت-vec-از-هیولاها">۵.۵.۱. ساخت Vec از هیولاها</a></h4>
+<p>اول یک <code>Vec</code> (وکتور) از <code>Monster</code> می‌سازیم. وکتور مثل یک <strong>کوله‌پشتی جادویی</strong> است که می‌توانی هی در آن هیولا اضافه کنی و اندازه‌اش خود به خود بزرگ می‌شود:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut monster_list = Vec::new();
+
+monster_list.push(Monster::new(
+    String::from("دودو"),
+    String::from("سبز"),
+    4,
+    100,
+));
+
+monster_list.push(Monster::new(
+    String::from("بمبی"),
+    String::from("قرمز"),
+    2,
+    75,
+));
+
+monster_list.push(Monster::new(
+    String::from("زرزر"),
+    String::from("زرد"),
+    6,
+    120,
+));
+<span class="boring">}</span></code></pre>
+<p><em>(نکته: <code>Vec</code> در فصل ۸ کامل آموزش داده می‌شود، ولی فعلاً فقط بدانید که مثل یک لیست قابل رشد است که با <code>push</code> به آن عضو اضافه می‌کنیم.)</em></p>
+<h4 id="۵۵۲-حلقه-برای-غرش-کردن-همه"><a class="header" href="#۵۵۲-حلقه-برای-غرش-کردن-همه">۵.۵.۲. حلقه برای غرش کردن همه</a></h4>
+<p>حالا می‌خواهیم روی همه‌ی هیولاهای داخل لیست بچرخیم و از هرکسی بخواهیم غرش کند. برای این کار از یک حلقه‌ی جدید به نام <code>for</code> استفاده می‌کنیم که به طور خودکار به ما یک یک اعضای لیست را می‌دهد:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>for monster in &amp;monster_list {
+    monster.roar();
+}
+<span class="boring">}</span></code></pre>
+<p>(علامت <code>&amp;</code> جلوی <code>monster_list</code> یعنی ما فقط قرض می‌گیریم و لیست را مالک نمی‌شویم – درست مثل کارت امانت فصل ۴.)</p>
+<h4 id="۵۵۳-پیدا-کردن-قویترین-هیولا"><a class="header" href="#۵۵۳-پیدا-کردن-قویترین-هیولا">۵.۵.۳. پیدا کردن قوی‌ترین هیولا</a></h4>
+<p>یک تابع می‌نویسیم که قوی‌ترین هیولا را پیدا کند (یعنی بیشترین <code>power</code> را داشته باشد):</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn strongest(monsters: &amp;Vec&lt;Monster&gt;) -&gt; &amp;Monster {
+    let mut strongest = &amp;monsters[0];
+    for monster in monsters {
+        if monster.power &gt; strongest.power {
+            strongest = monster;
+        }
+    }
+    strongest
+}
+<span class="boring">}</span></code></pre>
+<p>و در <code>main</code>:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let champ = strongest(&amp;monster_list);
+println!("قوی‌ترین هیولا: {} با قدرت {}", champ.name, champ.power);
+<span class="boring">}</span></code></pre>
+<h4 id="۵۵۴-تمرین-متد-is_stronger_than"><a class="header" href="#۵۵۴-تمرین-متد-is_stronger_than">۵.۵.۴. تمرین: متد <code>is_stronger_than</code></a></h4>
+<p>به <code>struct Monster</code> یک متد به اسم <code>is_stronger_than</code> اضافه کن که یک <code>&amp;Monster</code> دیگر بگیرد و <code>true</code> برگرداند اگر قدرت خودش از آن یکی بیشتر باشد.</p>
+<p>💡 <strong>پاسخ:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Monster {
+    fn is_stronger_than(&amp;self, other: &amp;Monster) -&gt; bool {
+        self.power &gt; other.power
+    }
+}
+<span class="boring">}</span></code></pre>
+<p>استفاده:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>if dodo.is_stronger_than(&amp;bombi) {
+    println!("دودو قوی‌تر از بمبی است!");
+}
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/5.5.png" alt="[Illustration: A cozy notebook open to a “Monster Roster” page. Each entry shows a mini ID card with a cartoon monster sketch and stats. A golden trophy icon highlights the strongest monster. Ferris sits on the desk stamping “Approved” with a smile. Style: warm, inviting children’s book illustration, detailed UI metaphor, 16:9.]"></p>
+<hr>
+<h3 id="۵۶-جمعبندی-و-چالش"><a class="header" href="#۵۶-جمعبندی-و-چالش">۵.۶. جمع‌بندی و چالش</a></h3>
+<h4 id="۵۶۱-مرور-مفاهیم"><a class="header" href="#۵۶۱-مرور-مفاهیم">۵.۶.۱. مرور مفاهیم</a></h4>
+<p>در این فصل یاد گرفتی:<br>✅ <code>struct</code> قالبی برای دسته‌بندی داده‌های مرتبط است.<br>✅ نمونه‌ها با <code>let x = StructName { fields };</code> ساخته می‌شوند.<br>✅ دسترسی به فیلدها با نقطه (<code>.</code>) انجام می‌شود.<br>✅ متدها در بلوک <code>impl</code> تعریف می‌شوند و اولین پارامترشان <code>self</code> (یا <code>&amp;self</code> یا <code>&amp;mut self</code>) است.<br>✅ توابع مرتبط (مثل <code>new</code>) با <code>::</code> صدا زده می‌شوند.<br>✅ می‌توانیم از <code>..</code> برای کپی کردن فیلدها از نمونه‌ی دیگر استفاده کنیم (با دقت در مورد مالکیت!).<br>✅ حلقه‌ی <code>for</code> راهی آسان برای پیمایش لیست‌هاست.</p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>استفاده از struct و متدها ممکن است در ابتدا کمی عجیب به نظر برسد، اما با تمرین کاملاً طبیعی می‌شود. هر بار که یک struct برای مدل کردن چیزی در دنیای واقعی می‌سازی، در حقیقت مثل یک مهندس نرم‌افزار فکر می‌کنی. اگر هنوز در بعضی بخش‌ها احساس ابهام داری، نگران نباش – در فصل‌های بعدی بارها از structها استفاده خواهی کرد.</p>
+</blockquote>
+<h4 id="۵۶۲-چالش-struct-student-و-نمره"><a class="header" href="#۵۶۲-چالش-struct-student-و-نمره">۵.۶.۲. چالش: struct Student و نمره</a></h4>
+<p>یک <code>struct</code> به اسم <code>Student</code> با فیلدهای <code>name: String</code> و <code>grade: f64</code> بساز. سپس یک متد به نام <code>passed(&amp;self) -&gt; bool</code> بنویس که اگر <code>grade &gt;= 10.0</code> بود <code>true</code> برگرداند، در غیر این صورت <code>false</code>.<br>بعد یک وکتور از چند دانش‌آموز بساز و همه‌ی کسانی که قبول شده‌اند را چاپ کن.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">struct Student {
+    name: String,
+    grade: f64,
+}
+
+impl Student {
+    fn new(name: String, grade: f64) -&gt; Student {
+        Student { name, grade }
+    }
+
+    fn passed(&amp;self) -&gt; bool {
+        self.grade &gt;= 10.0
+    }
+}
+
+fn main() {
+    let students = vec![
+        Student::new(String::from("سارا"), 18.5),
+        Student::new(String::from("رضا"), 9.0),
+        Student::new(String::from("مریم"), 14.0),
+    ];
+
+    for student in &amp;students {
+        if student.passed() {
+            println!("{} قبول شد با نمره {}", student.name, student.grade);
+        } else {
+            println!("{} نیاز به تلاش بیشتر دارد.", student.name);
+        }
+    }
+}</code></pre>
+<p>حالا تو می‌دانی چطور داده‌های مرتبط را در قالب <code>struct</code> سازماندهی کنی و برایشان رفتار (متد) تعریف کنی. در فصل بعد با <code>enum</code> و <code>match</code> آشنا می‌شویم و یاد می‌گیریم چطور با حالت‌های مختلف یک مقدار (مثل وضعیت بازی، آب و هوا، یا رنگ چراغ) کار کنیم. 🌈✨</p>
+<p><img src="assets/images/5.6.png" alt="[Illustration: Ferris wearing a graduation cap, holding a glowing “Chapter 5 Complete” badge. Floating around him are mini structs, impl blocks, and &amp;self tags turning into a neat organized library. Encouraging, bright lighting, children’s book style, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE HTML>
+<html lang="fa" class="light sidebar-visible" dir="rtl">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>فصل ۹: وقتی سفینه خراب می‌شود - سرزمین راست – ماجراهای فضایی فریس خرچنگ</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="یک مقدمه‌ی داستانی و ملایم برای برنامه‌نویسی Rust برای کودکان (۹ سال به بالا) و مبتدیان مطلق">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-6c162aed.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-4d128be0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">سرزمین راست – ماجراهای فضایی فریس خرچنگ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی"><a class="header" href="#سرزمین-راست-ماجراهای-فریس-خرچنگ-فضایی">سرزمین راست: ماجراهای فریس خرچنگ فضایی</a></h1>
+<h2 id="فصل-۹-وقتی-سفینه-خراب-میشود-مدیریت-خطا"><a class="header" href="#فصل-۹-وقتی-سفینه-خراب-میشود-مدیریت-خطا">فصل ۹: وقتی سفینه خراب می‌شود! (مدیریت خطا)</a></h2>
+<h3 id="-فهرست-فصل"><a class="header" href="#-فهرست-فصل">📑 فهرست فصل</a></h3>
+<p><a href="#۹۱-دکمه‌ی-قرمز-را-نزن-panic">۹.۱. دکمه‌ی قرمز را نزن! (panic!)</a><br><a href="#۹۱۱-داستان-دکمه-خودتخریب-سفینه">۹.۱.۱. داستان: دکمه خودتخریب سفینه</a><br><a href="#۹۱۲-panic-در-عمل">۹.۱.۲. panic! در عمل</a><br><a href="#۹۱۳-چه-زمانی-panic-رخ-می‌دهد">۹.۱.۳. چه زمانی panic رخ می‌دهد؟</a><br><a href="#۹۱۴-دیدن-مسیر-خطا-با-rust_backtrace">۹.۱.۴. دیدن مسیر خطا با RUST_BACKTRACE</a><br><a href="#۹۱۵-تمرین-panic-عمدی">۹.۱.۵. تمرین: panic عمدی</a><br><a href="#۹۲-چراغ-هشدار-result">۹.۲. چراغ هشدار (Result)</a><br><a href="#۹۲۱-داستان-چراغ‌های-هشدار-سفینه">۹.۲.۱. داستان: چراغ‌های هشدار سفینه</a><br><a href="#۹۲۲-معرفی-resultt-e">۹.۲.۲. معرفی Result&lt;T, E&gt;</a><br><a href="#۹۲۳-مثال-باز-کردن-فایل">۹.۲.۳. مثال: باز کردن فایل</a><br><a href="#۹۲۴-روش‌های-برخورد-با-result">۹.۲.۴. روش‌های برخورد با Result</a><br><a href="#۹۲۵-تمرین-تبدیل-رشته-به-عدد-با-result">۹.۲.۵. تمرین: تبدیل رشته به عدد با Result</a><br><a href="#۹۳-روش-فریس-برای-نجات-اپراتور">۹.۳. روش فریس برای نجات (?) اپراتور</a><br><a href="#۹۳۱-داستان-اپراتور-جادویی-نجات">۹.۳.۱. داستان: اپراتور جادویی نجات</a><br><a href="#۹۳۲-استفاده-از--در-توابعی-که-result-برمی‌گردانند">۹.۳.۲. استفاده از ? در توابعی که Result برمی‌گردانند</a><br><a href="#۹۳۳-زنجیره-کردن-">۹.۳.۳. زنجیره کردن ?</a><br><a href="#۹۳۴--با-option">۹.۳.۴. ? با Option</a><br><a href="#۹۳۵-تبدیل-خطاها-با-map_err">۹.۳.۵. تبدیل خطاها با map_err</a><br><a href="#۹۳۶-تمرین-خواندن-دو-عدد-از-فایل-و-تقسیم">۹.۳.۶. تمرین: خواندن دو عدد از فایل و تقسیم</a><br><a href="#۹۴-پروژه-ماشین-حساب-مقاوم-به-خطا">۹.۴. پروژه: ماشین حساب مقاوم به خطا</a><br><a href="#۹۴۱-دریافت-عبارت-از-کاربر">۹.۴.۱. دریافت عبارت از کاربر</a><br><a href="#۹۴۲-تابع-parse_expression">۹.۴.۲. تابع parse_expression</a><br><a href="#۹۴۳-تابع-calculate">۹.۴.۳. تابع calculate</a><br><a href="#۹۴۴-حلقه-اصلی-با-مدیریت-خطا">۹.۴.۴. حلقه اصلی با مدیریت خطا</a><br><a href="#۹۵-جمع‌بندی-و-چالش">۹.۵. جمع‌بندی و چالش</a><br><a href="#۹۵۱-مرور-مفاهیم">۹.۵.۱. مرور مفاهیم</a><br><a href="#۹۵۲-چالش-ماشین-حساب-با-چهار-عمل">۹.۵.۲. چالش: ماشین حساب با چهار عمل</a></p>
+<hr>
+<h3 id="۹۱-دکمهی-قرمز-را-نزن-panic"><a class="header" href="#۹۱-دکمهی-قرمز-را-نزن-panic">۹.۱. دکمه‌ی قرمز را نزن! (panic!)</a></h3>
+<h4 id="۹۱۱-داستان-دکمه-خودتخریب-سفینه"><a class="header" href="#۹۱۱-داستان-دکمه-خودتخریب-سفینه">۹.۱.۱. داستان: دکمه خودتخریب سفینه</a></h4>
+<p>در اتاق فرمان سفینه‌ی فریس، یک دکمه‌ی قرمز بزرگ و براق وجود دارد که زیرش نوشته: <code>⛔ فشار ندهید! خودتخریب فوری</code>. فریس می‌داند اگر کسی این دکمه را بزند، سفینه در یک چشم به هم زدن نابود می‌شود و هیچ راه برگشتی نیست.<br>در دنیای Rust هم دقیقاً همین دکمه را داریم: <code>panic!</code>. وقتی <code>panic!</code> اجرا شود، برنامه فوراً متوقف می‌شود، یک پیام خطا چاپ می‌کند و از کار می‌افتد. درست مثل انفجار سفینه! 💥</p>
+<p><strong>یادگیری تشخیص خطاهای جبران‌ناپذیر از خطاهای قابل مدیریت، یکی از مهارت‌های اساسی یک جادوگر کامپیوتر است.</strong> 🧙‍♂️</p>
+<h4 id="۹۱۲-panic-در-عمل"><a class="header" href="#۹۱۲-panic-در-عمل">۹.۱.۲. panic! در عمل</a></h4>
+<p>بیا خودمان یک <code>panic!</code> عمدی ایجاد کنیم:</p>
+<pre class="playground"><code class="language-rust">fn main() {
+    panic!("سفینه خراب شد! همه جا آتش گرفته است! 🔥");
+}</code></pre>
+<p>اگر این کد را اجرا کنی، خروجی شبیه این می‌شود:</p>
+<pre><code>thread 'main' panicked at 'سفینه خراب شد! همه جا آتش گرفته است! 🔥', src/main.rs:2:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</code></pre>
+<p>برنامه کلاً می‌ایستد و دستورات بعدش اصلاً اجرا نمی‌شوند.</p>
+<h4 id="۹۱۳-چه-زمانی-panic-رخ-میدهد"><a class="header" href="#۹۱۳-چه-زمانی-panic-رخ-میدهد">۹.۱.۳. چه زمانی panic رخ می‌دهد؟</a></h4>
+<p>علاوه بر اینکه خودمان <code>panic!</code> صدا بزنیم، بعضی کارهای خطرناک هم باعثش می‌شوند:
+🔹 دسترسی به اندیس ناموجود در وکتور: <code>vec![1,2,3][99]</code><br>🔹 استفاده از <code>unwrap()</code> روی <code>None</code> یا <code>Err</code><br>🔹 تقسیم بر صفر در حالت debug<br>مثال:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let v = vec![10, 20, 30];
+println!("{}", v[10]); // panic: index out of bounds
+<span class="boring">}</span></code></pre>
+<h4 id="۹۱۴-دیدن-مسیر-خطا-با-rust_backtrace"><a class="header" href="#۹۱۴-دیدن-مسیر-خطا-با-rust_backtrace">۹.۱.۴. دیدن مسیر خطا با RUST_BACKTRACE</a></h4>
+<p>وقتی <code>panic</code> می‌کند، Rust می‌تواند مسیر کامل اتفاقی که افتاده را نشان بدهد (مثل ردپای یک کارآگاه!). برای این کار، برنامه را با این متغیر محیطی اجرا کن:</p>
+<pre><code class="language-bash">RUST_BACKTRACE=1 cargo run
+</code></pre>
+<p>با این کار لیستی از توابعی که پشت سر هم صدا زده شده‌اند می‌بینی و می‌فهمی مشکل دقیقاً از کجا شروع شده است. 🔍</p>
+<h4 id="۹۱۵-تمرین-panic-عمدی"><a class="header" href="#۹۱۵-تمرین-panic-عمدی">۹.۱.۵. تمرین: panic عمدی</a></h4>
+<p>برنامه‌ای بنویس که یک وکتور ۵ عنصری از اعداد داشته باشد و از کاربر یک اندیس بخواهد. سپس آن عنصر را چاپ کند. اگر کاربر اندیسی خارج از محدوده وارد کرد، برنامه <code>panic</code> کند. (سعی کن با <code>RUST_BACKTRACE=1</code> اجرا کنی و خروجی را ببینی.)</p>
+<p><img src="assets/images/9.1.png" alt="[Illustration: Close-up cartoon illustration of a shiny red emergency button labeled “panic!” on a spaceship control panel. A warning tape surrounds it. Ferris the crab stands nearby with a shocked expression, holding his claws up to stop someone from pressing it. Style: vibrant, dramatic but child-friendly, high contrast, 16:9.]"></p>
+<blockquote>
+<p>👨‍👩‍👧 <strong>نکته برای والدین و مربیان</strong><br>این فصل دو نوع خطا را معرفی می‌کند: جبران‌ناپذیر (<code>panic!</code>) و قابل جبران (<code>Result</code>). درک این تفاوت یک مهارت مهندسی کلیدی است. کتاب رسمی Rust فصل کاملی درباره‌ی مدیریت خطا دارد:<br><a href="https://doc.rust-lang.org/book/ch09-00-error-handling.html">doc.rust-lang.org/book/ch09-00-error-handling.html</a></p>
+</blockquote>
+<hr>
+<h3 id="۹۲-چراغ-هشدار-result"><a class="header" href="#۹۲-چراغ-هشدار-result">۹.۲. چراغ هشدار (Result)</a></h3>
+<h4 id="۹۲۱-داستان-چراغهای-هشدار-سفینه"><a class="header" href="#۹۲۱-داستان-چراغهای-هشدار-سفینه">۹.۲.۱. داستان: چراغ‌های هشدار سفینه</a></h4>
+<p>در سفینه‌ی فریس، یک سری چراغ هشدار زرد و نارنجی هم هست. مثلاً اگر موتور بیش از حد داغ شود، چراغ زرد روشن می‌شود و یک پیام می‌آید: <code>⚠️ موتور داغ کرده، ۳۰ ثانیه صبر کن</code>. این یک خطای قابل پیش‌بینی و قابل مدیریت است. فریس می‌تواند صبر کند تا موتور خنک شود و بعد حرکت کند.<br>در Rust برای این نوع خطاها از <code>Result</code> استفاده می‌کنیم. این یعنی: «یا همه‌چیز خوب پیش رفته، یا یک مشکلی پیش آمده که می‌شود مدیریتش کرد.» 🟡</p>
+<h4 id="۹۲۲-معرفی-resultt-e"><a class="header" href="#۹۲۲-معرفی-resultt-e">۹.۲.۲. معرفی <code>Result&lt;T, E&gt;</code></a></h4>
+<p><code>Result</code> یک <code>enum</code> بسیار پرکاربرد در Rust است:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Result&lt;T, E&gt; {
+    Ok(T),   // همه‌چیز خوب است و مقدار T برگردانده شده
+    Err(E),  // یک خطا از نوع E رخ داده
+}
+<span class="boring">}</span></code></pre>
+<p>🔹 <code>T</code>: نوع موفقیت (چیزی که اگر کار درست پیش برود برمی‌گردد).<br>🔹 <code>E</code>: نوع خطا (چیزی که اگر مشکلی پیش بیاید برمی‌گردد).</p>
+<h4 id="۹۲۳-مثال-باز-کردن-فایل"><a class="header" href="#۹۲۳-مثال-باز-کردن-فایل">۹.۲.۳. مثال: باز کردن فایل</a></h4>
+<p>تابع <code>File::open</code> سعی می‌کند یک فایل را باز کند. ممکن است فایل وجود نداشته باشد یا دسترسی نداشته باشیم. پس یک <code>Result&lt;File, std::io::Error&gt;</code> برمی‌گرداند:</p>
+<pre class="playground"><code class="language-rust">use std::fs::File;
+
+fn main() {
+    let file_result = File::open("hello.txt");
+    // file_result می‌تواند Ok(File) باشد یا Err(Error)
+}</code></pre>
+<h4 id="۹۲۴-روشهای-برخورد-با-result"><a class="header" href="#۹۲۴-روشهای-برخورد-با-result">۹.۲.۴. روش‌های برخورد با Result</a></h4>
+<p>🔸 <strong>روش سریع ولی خطرناک: <code>unwrap()</code> و <code>expect()</code></strong><br>اگر بگویی <code>unwrap()</code>، یعنی «اگر خطا بود، برنامه بترکد!». اگر <code>expect(msg)</code> بزنی، همان کار را می‌کند ولی با پیام دلخواه خودت.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let file = File::open("hello.txt").expect("نتوانستم فایل را باز کنم! 📁");
+<span class="boring">}</span></code></pre>
+<p>⚠️ <strong>هشدار:</strong> فقط در کدهای آزمایشی یا وقتی ۱۰۰٪ مطمئنی خطایی رخ نمی‌دهد از آنها استفاده کن!</p>
+<p>🔸 <strong>روش اصولی: <code>match</code></strong><br>می‌توانی هر دو حالت را بررسی کنی:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::fs::File;
+use std::io::ErrorKind;
+
+let file = match File::open("hello.txt") {
+    Ok(f) =&gt; f,
+    Err(error) =&gt; match error.kind() {
+        ErrorKind::NotFound =&gt; {
+            println!("فایل پیدا نشد. یک فایل جدید می‌سازم. 🛠️");
+            File::create("hello.txt").expect("خطا در ساخت")
+        }
+        _ =&gt; panic!("یک خطای پیش‌بینی‌نشده رخ داد! 😱"),
+    },
+};
+<span class="boring">}</span></code></pre>
+<p>🔸 <strong>روش تمیزتر: <code>unwrap_or_else</code></strong><br>یک تابع بی‌نام (closure) می‌گیرد و فقط اگر خطا رخ بده اجرایش می‌کند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let file = File::open("hello.txt").unwrap_or_else(|error| {
+    panic!("خطا رخ داد: {:?}", error);
+});
+<span class="boring">}</span></code></pre>
+<h4 id="۹۲۵-تمرین-تبدیل-رشته-به-عدد-با-result"><a class="header" href="#۹۲۵-تمرین-تبدیل-رشته-به-عدد-با-result">۹.۲.۵. تمرین: تبدیل رشته به عدد با Result</a></h4>
+<p>تابعی به اسم <code>parse_number</code> بنویس که یک <code>&amp;str</code> بگیرد و سعی کند آن را به <code>i32</code> تبدیل کند. اگر موفق شد <code>Ok(num)</code> برگرداند، وگرنه <code>Err(String)</code> با پیام مناسب.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust">fn parse_number(s: &amp;str) -&gt; Result&lt;i32, String&gt; {
+    s.trim()
+        .parse()
+        .map_err(|_| format!("'{}' یک عدد معتبر نیست 🔢", s))
+}
+
+fn main() {
+    let inputs = ["42", "سلام", "-5", "3.14"];
+    for inp in inputs {
+        match parse_number(inp) {
+            Ok(n) =&gt; println!("{} -&gt; عدد: {}", inp, n),
+            Err(e) =&gt; println!("{} -&gt; خطا: {}", inp, e),
+        }
+    }
+}</code></pre>
+<p><img src="assets/images/9.2.png" alt="[Illustration: Cartoon dashboard with two glowing indicators. Left: a green “OK” light shining on a wrapped gift labeled “T”. Right: a yellow “Warning” light flashing over a toolbox labeled “E”. Ferris stands between them holding a checklist, looking thoughtful. Style: educational metaphor, clean vector, bright colors, 16:9.]"></p>
+<hr>
+<h3 id="۹۳-روش-فریس-برای-نجات--اپراتور"><a class="header" href="#۹۳-روش-فریس-برای-نجات--اپراتور">۹.۳. روش فریس برای نجات (?) اپراتور</a></h3>
+<h4 id="۹۳۱-داستان-اپراتور-جادویی-نجات"><a class="header" href="#۹۳۱-داستان-اپراتور-جادویی-نجات">۹.۳.۱. داستان: اپراتور جادویی نجات</a></h4>
+<p>فریس یک ابزار جادویی به شکل علامت سؤال (<code>?</code>) دارد. هر وقت یک چراغ هشدار روشن می‌شود (یعنی یک <code>Result</code> از نوع <code>Err</code> برمی‌گردد)، او می‌تواند این علامت را بگذارد و بگوید: «اگر خطایی رخ داد، فوراً از این تابع خارج شو و خطا را به تابع بالاتر منتقل کن.» این کار را خیلی ساده می‌کند و دیگر نیازی به نوشتن <code>match</code> طولانی نیست! ✨</p>
+<h4 id="۹۳۲-استفاده-از--در-توابعی-که-result-برمیگردانند"><a class="header" href="#۹۳۲-استفاده-از--در-توابعی-که-result-برمیگردانند">۹.۳.۲. استفاده از <code>?</code> در توابعی که Result برمی‌گردانند</a></h4>
+<p>فرض کن می‌خواهیم تابعی بنویسیم که نام کاربری را از یک فایل بخواند. با <code>?</code> این‌طور می‌شود:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::fs::File;
+use std::io::{self, Read};
+
+fn read_username() -&gt; Result&lt;String, io::Error&gt; {
+    let mut file = File::open("username.txt")?;
+    let mut username = String::new();
+    file.read_to_string(&amp;mut username)?;
+    Ok(username)
+}
+<span class="boring">}</span></code></pre>
+<p>اگر <code>File::open</code> خطا بدهد، <code>?</code> بلافاصله همان خطا را برمی‌گرداند و ادامه اجرا نمی‌شود. اگر <code>read_to_string</code> هم خطا بدهد، همان اتفاق می‌افتد. اگر همه‌چیز خوب پیش رفت، <code>Ok(username)</code> برگردانده می‌شود.</p>
+<blockquote>
+<p>💡 <strong>نکته:</strong> اپراتور <code>?</code> فقط در توابعی می‌تواند استفاده شود که نوع خروجی آن <code>Result</code> (یا <code>Option</code>) باشد. اگر خروجی تابع <code>Result</code> نباشد، کامپایلر خطا می‌دهد.</p>
+</blockquote>
+<h4 id="۹۳۳-زنجیره-کردن-"><a class="header" href="#۹۳۳-زنجیره-کردن-">۹.۳.۳. زنجیره کردن <code>?</code></a></h4>
+<p>می‌توانی چند <code>?</code> را پشت سر هم بگذاری تا کد کوتاه‌تر شود:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn read_username_short() -&gt; Result&lt;String, io::Error&gt; {
+    let mut s = String::new();
+    File::open("username.txt")?.read_to_string(&amp;mut s)?;
+    Ok(s)
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۹۳۴--با-option"><a class="header" href="#۹۳۴--با-option">۹.۳.۴. <code>?</code> با Option</a></h4>
+<p>اپراتور <code>?</code> روی <code>Option</code> هم کار می‌کند. اگر <code>Option</code> برابر <code>None</code> باشد، تابع زودتر <code>None</code> برمی‌گرداند:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn first_char(s: &amp;str) -&gt; Option&lt;char&gt; {
+    s.chars().next()? // اگر s خالی باشد، None برمی‌گردد
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۹۳۵-تبدیل-خطاها-با-map_err"><a class="header" href="#۹۳۵-تبدیل-خطاها-با-map_err">۹.۳.۵. تبدیل خطاها با <code>map_err</code></a></h4>
+<p>گاهی نوع خطای تابع با نوع خطایی که باید برگردانیم فرق دارد. مثلاً می‌خواهیم همه خطاها را به <code>String</code> تبدیل کنیم تا راحت‌تر چاپ شوند. از <code>map_err</code> استفاده می‌کنیم:</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::fs::File;
+use std::io::Read;
+
+fn read_number_from_file(filename: &amp;str) -&gt; Result&lt;i32, String&gt; {
+    let mut s = String::new();
+    File::open(filename)
+        .map_err(|e| format!("باز کردن {}: {}", filename, e))?  // اگر خطا باشد، تبدیلش کن بعد برگردان
+        .read_to_string(&amp;mut s)
+        .map_err(|e| format!("خواندن {}: {}", filename, e))?;
+    s.trim().parse()
+        .map_err(|_| format!("عدد معتبر در {} نیست", filename))
+}
+<span class="boring">}</span></code></pre>
+<p><code>map_err</code> یعنی «اگر خطا بود، قبل از برگرداندنش، با یک تابع دیگر تبدیلش کن». تابع داخل <code>map_err</code> (همان <code>|e| format!(...)</code>) یک <strong>تابع بی‌نام</strong> است که خطا را می‌گیرد و یک <code>String</code> برمی‌گرداند.</p>
+<h4 id="۹۳۶-تمرین-خواندن-دو-عدد-از-فایل-و-تقسیم"><a class="header" href="#۹۳۶-تمرین-خواندن-دو-عدد-از-فایل-و-تقسیم">۹.۳.۶. تمرین: خواندن دو عدد از فایل و تقسیم</a></h4>
+<p>دو فایل <code>a.txt</code> و <code>b.txt</code> فرضی داریم که هر کدام یک عدد دارند. تابعی بنویس که این دو عدد را بخواند و حاصل تقسیم <code>a / b</code> را به صورت <code>f64</code> برگرداند. اگر هر خطایی رخ داد (فایل نبود، عدد نبود، تقسیم بر صفر)، یک <code>String</code> مناسب برگردان.</p>
+<p>💡 <strong>پاسخ نمونه:</strong></p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::fs::File;
+use std::io::Read;
+
+fn read_number(filename: &amp;str) -&gt; Result&lt;i32, String&gt; {
+    let mut s = String::new();
+    File::open(filename)
+        .map_err(|e| format!("{}: {}", filename, e))?
+        .read_to_string(&amp;mut s)
+        .map_err(|e| format!("{}: {}", filename, e))?;
+    s.trim().parse().map_err(|_| format!("{}: عدد معتبر نیست", filename))
+}
+
+fn divide_files() -&gt; Result&lt;f64, String&gt; {
+    let a = read_number("a.txt")?;
+    let b = read_number("b.txt")?;
+    if b == 0 {
+        return Err(String::from("تقسیم بر صفر ممنوع! ⛔"));
+    }
+    Ok(a as f64 / b as f64)
+}
+<span class="boring">}</span></code></pre>
+<p><img src="assets/images/9.3.png" alt="[Illustration: A magical floating question mark tool (?) glowing with a soft blue light, acting like a shortcut tunnel. On one side, a long winding path labeled “match match match”. On the other side, a straight fast road through the “?” tunnel. Ferris happily zooms through the shortcut. Style: dynamic, educational cartoon, bright, 16:9.]"></p>
+<blockquote>
+<p>🧠 <strong>گاهی بعضی چیزها سخت است، و این اشکالی ندارد!</strong><br>تصمیم‌گیری بین <code>panic!</code> و <code>Result</code> – به خصوص زمانی که باید خطا را به بالا منتقل کنی – مهارتی است که حتی برنامه‌نویسان حرفه‌ای هم سال‌ها به آن مسلط می‌شوند. اگر هنوز در بعضی موارد احساس سردرگمی می‌کنی، نگران نباش. هر بار که از <code>Result</code> و <code>?</code> استفاده کنی، برایت طبیعی‌تر می‌شود.</p>
+</blockquote>
+<hr>
+<h3 id="۹۴-پروژه-ماشین-حساب-مقاوم-به-خطا"><a class="header" href="#۹۴-پروژه-ماشین-حساب-مقاوم-به-خطا">۹.۴. پروژه: ماشین حساب مقاوم به خطا</a></h3>
+<p>حالا وقتش است یک برنامه‌ی واقعی بسازیم که هرگز کرش نکند! یک ماشین حساب ساده که چهار عمل اصلی را انجام بدهد و خطاها را مثل یک حرفه‌ای مدیریت کند. 🧮</p>
+<h4 id="۹۴۱-دریافت-عبارت-از-کاربر"><a class="header" href="#۹۴۱-دریافت-عبارت-از-کاربر">۹.۴.۱. دریافت عبارت از کاربر</a></h4>
+<p>کاربر عبارتی مثل <code>10 + 2</code> یا <code>8 / 0</code> وارد می‌کند. برنامه تا وقتی که کاربر <code>quit</code> ننوشته ادامه می‌دهد.</p>
+<h4 id="۹۴۲-تابع-parse_expression"><a class="header" href="#۹۴۲-تابع-parse_expression">۹.۴.۲. تابع <code>parse_expression</code></a></h4>
+<p>این تابع رشته‌ی ورودی را تکه‌تکه می‌کند و سه بخش عدد اول، عملگر، عدد دوم را برمی‌گرداند. اگر فرمت اشتباه باشد خطا می‌دهد.</p>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn parse_expression(expr: &amp;str) -&gt; Result&lt;(f64, char, f64), String&gt; {
+    let parts: Vec&lt;&amp;str&gt; = expr.split_whitespace().collect();
+    if parts.len() != 3 {
+        return Err("فرمت باید 'عدد عملگر عدد' باشد (مثلاً 5 + 3) 📝".to_string());
+    }
+    let a = parts[0].parse::&lt;f64&gt;()
+        .map_err(|_| format!("'{}' عدد اول معتبری نیست 🔢", parts[0]))?;
+    let op = parts[1].chars().next()
+        .ok_or("عملگر باید یک کاراکتر باشد (مثلاً +) 🔣".to_string())?;
+    let b = parts[2].parse::&lt;f64&gt;()
+        .map_err(|_| format!("'{}' عدد دوم معتبری نیست 🔢", parts[2]))?;
+    Ok((a, op, b))
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۹۴۳-تابع-calculate"><a class="header" href="#۹۴۳-تابع-calculate">۹.۴.۳. تابع <code>calculate</code></a></h4>
+<pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn calculate(a: f64, op: char, b: f64) -&gt; Result&lt;f64, String&gt; {
+    match op {
+        '+' =&gt; Ok(a + b),
+        '-' =&gt; Ok(a - b),
+        '*' =&gt; Ok(a * b),
+        '/' =&gt; {
+            if b == 0.0 {
+                Err("تقسیم بر صفر ممکن نیست! ⛔".to_string())
+            } else {
+                Ok(a / b)
+            }
+        }
+        _ =&gt; Err(format!("عملگر '{}' پشتیبانی نمی‌شود. از + - * / استفاده کن. ⚠️", op)),
+    }
+}
+<span class="boring">}</span></code></pre>
+<h4 id="۹۴۴-حلقه-اصلی-با-مدیریت-خطا"><a class="header" href="#۹۴۴-حلقه-اصلی-با-مدیریت-خطا">۹.۴.۴. حلقه اصلی با مدیریت خطا</a></h4>
+<pre class="playground"><code class="language-rust">use std::io::{self, Write};
+
+fn main() {
+    println!("🧮 ماشین حساب مقاوم فریس 🧮");
+    println!("مثال: 10 + 5");
+    println!("برای خروج 'quit' را بنویس.\n");
+
+    loop {
+        print!("&gt; ");
+        io::stdout().flush().unwrap();
+
+        let mut input = String::new();
+        io::stdin().read_line(&amp;mut input).unwrap();
+        let input = input.trim();
+
+        if input == "quit" { break; }
+
+        match parse_expression(input) {
+            Ok((a, op, b)) =&gt; match calculate(a, op, b) {
+                Ok(result) =&gt; println!("= {} ✅", result),
+                Err(e) =&gt; println!("❌ خطا: {}", e),
+            },
+            Err(e) =&gt; println!("❌ خطا در ورودی: {}", e),
+        }
+    }
+    println!("خدانگهدار! 🦀✨");
+}</code></pre>
+<p><img src="assets/images/9.4.png" alt="[Illustration: A cozy cartoon desk with a retro-style calculator that has a glowing screen. Around it float colorful math symbols (+, -, *, /) and a small shield icon labeled “Error Safe”. Ferris types on a keyboard with a confident smile. Style: warm, educational, children’s book illustration, 16:9.]"></p>
+<hr>
+<h3 id="۹۵-جمعبندی-و-چالش"><a class="header" href="#۹۵-جمعبندی-و-چالش">۹.۵. جمع‌بندی و چالش</a></h3>
+<h4 id="۹۵۱-مرور-مفاهیم"><a class="header" href="#۹۵۱-مرور-مفاهیم">۹.۵.۱. مرور مفاهیم</a></h4>
+<p>در این فصل یاد گرفتی:<br>✅ <code>panic!</code>: دکمه‌ی قرمز خودتخریب. برای خطاهای غیرقابل جبران.<br>✅ <code>Result&lt;T, E&gt;</code>: برای خطاهای قابل پیش‌بینی و مدیریت.<br>✅ <code>unwrap()</code> / <code>expect()</code>: روش سریع ولی خطرناک (اگر خطا باشد برنامه می‌ترکد).<br>✅ <code>match</code>: روش اصولی برای بررسی تک‌تک حالات.<br>✅ اپراتور <code>?</code>: ابزار جادویی برای خروج زودهنگام و انتشار خطا (فقط در توابعی که <code>Result</code> برمی‌گردانند).<br>✅ <code>map_err</code>: تبدیل نوع خطا به زبان دلخواه ما.<br>✅ <strong>مدیریت هوشمندانه خطاها یعنی نوشتن برنامه‌هایی که هیچ‌وقت بی‌اجازه از کار نمی‌افتند – این نشانه‌ی یک جادوگر کامپیوتر حرفه‌ای است.</strong> 🧙</p>
+<h4 id="۹۵۲-چالش-ماشین-حساب-با-چهار-عمل"><a class="header" href="#۹۵۲-چالش-ماشین-حساب-با-چهار-عمل">۹.۵.۲. چالش: ماشین حساب با چهار عمل</a></h4>
+<p>همان پروژه‌ی بالا را کامل کن و یک قابلیت جدید به آن اضافه کن: اگر کاربر ورودی را به صورت <code>10+5</code> (بدون فاصله) وارد کرد هم بتوانی پردازش کنی.<br>💡 <strong>راهنمایی:</strong> می‌توانی از <code>split</code> روی کاراکترهای <code>+</code>، <code>-</code>، <code>*</code>، <code>/</code> استفاده کنی یا یک حلقه بزنی و اولین عملگر را پیدا کنی، بعد رشته را از همانجا جدا کنی.</p>
+<p>حالا تو می‌دانی چطور خطاها را مثل یک قهرمان مدیریت کنی و برنامه‌هایی بنویسی که به جای ترکیدن، کاربر را راهنمایی می‌کنند. در فصل بعد، با <strong>Generics و Traits</strong> آشنا می‌شویم؛ ابزارهایی که به ما اجازه می‌دهند کدهای همه‌کاره و قابل استفاده‌ی مجدد بنویسیم، درست مثل یک آچار فرانسه‌ی فضایی! 🔧🌌</p>
+<p><img src="assets/images/9.5.png" alt="[Illustration: Ferris wearing a superhero cape, holding a glowing “Chapter 9 Master” badge. Floating around him are safe shields, Result enums, panic buttons with red X marks, and a question mark tool. Encouraging, bright lighting, children’s book style, 16:9.]"></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-8.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-10.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-8.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-10.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
